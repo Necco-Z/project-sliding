@@ -1,0 +1,2546 @@
+[gd_scene load_steps=52 format=3 uid="uid://dvjvpdafxerwn"]
+
+[ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://scenes/jogador.tscn" id="1_1ts6d"]
+[ext_resource type="Script" path="res://script/GameCamera.gd" id="2_v7y7e"]
+[ext_resource type="PackedScene" uid="uid://co8pmr34kfvs0" path="res://scenes/obstacles/boneco_de_neve.tscn" id="4_1r0qp"]
+[ext_resource type="PackedScene" uid="uid://bti4guyoihjrb" path="res://scenes/obstacles/madeira.tscn" id="4_bahsl"]
+[ext_resource type="PackedScene" uid="uid://b56b0wibv0ix1" path="res://scenes/obstacles/gelo.tscn" id="5_0edr5"]
+[ext_resource type="PackedScene" uid="uid://rqtuagw2gt4f" path="res://scenes/node_enabler.tscn" id="6_ims7l"]
+[ext_resource type="PackedScene" uid="uid://dwwq5akbdewqw" path="res://scenes/obstacles/madeira_pequena.tscn" id="6_wm2ff"]
+[ext_resource type="PackedScene" uid="uid://cio1r68trlja7" path="res://scenes/obstacles/casa de neve.tscn" id="7_mpsqm"]
+[ext_resource type="PackedScene" uid="uid://bxtexrjd3hr6k" path="res://scenes/coin.tscn" id="8_j6nae"]
+[ext_resource type="PackedScene" uid="uid://ds1vfulxqv3xv" path="res://models/Bandeira_Chegada.tscn" id="10_0kxe8"]
+[ext_resource type="Texture2D" uid="uid://v4cgdqta0bhk" path="res://hdri/rocky_ridge_puresky_2k.hdr" id="10_t7arf"]
+[ext_resource type="Script" path="res://script/PunctuationHandler.gd" id="11_2r5tm"]
+[ext_resource type="Theme" uid="uid://j3okp0fet333" path="res://themes/pause_button_theme.tres" id="11_33po5"]
+[ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://2d/menus/coin.png" id="11_68q1s"]
+[ext_resource type="Script" path="res://script/CanvasHandler.gd" id="11_amicf"]
+[ext_resource type="Theme" uid="uid://dr5l2rte7t1uy" path="res://themes/panel_ingame_menu_theme.tres" id="11_wyie5"]
+[ext_resource type="Script" path="res://script/GameRunHandler.gd" id="12_05k07"]
+[ext_resource type="Theme" uid="uid://bpjr4w8rmokgi" path="res://themes/ingame_label_theme.tres" id="13_2kqj8"]
+[ext_resource type="Texture2D" uid="uid://dj78t7fk71vl0" path="res://2d/menus/menu_background.png" id="13_cq14s"]
+[ext_resource type="Theme" uid="uid://cgi8bxd4ey6hu" path="res://themes/title_theme.tres" id="14_5f4jl"]
+[ext_resource type="Texture2D" uid="uid://b5he6l7cp7o27" path="res://2d/menus/Line 1.svg" id="14_6g87g"]
+[ext_resource type="Theme" uid="uid://bp21tk2vfowe5" path="res://themes/xp_icon_theme.tres" id="14_ylspr"]
+[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://themes/button_theme.tres" id="15_w3tv2"]
+[ext_resource type="PackedScene" uid="uid://gmox06l6ncsh" path="res://models/chão.glb" id="16_8o2iv"]
+[ext_resource type="Theme" uid="uid://b4q7bpijyr7ol" path="res://themes/Objective_label_theme.tres" id="16_34g4h"]
+[ext_resource type="Script" path="res://script/ObjectivesHandler.gd" id="16_wvax5"]
+[ext_resource type="Theme" uid="uid://dcgvgel77iwan" path="res://themes/objective_xp_theme.tres" id="17_td1vi"]
+[ext_resource type="PackedScene" uid="uid://oq35gvly2ofl" path="res://models/montanha.glb" id="17_y0p02"]
+[ext_resource type="Theme" uid="uid://cqajmgbj0kgsk" path="res://themes/progress_bar_theme.tres" id="22_e114d"]
+[ext_resource type="Theme" uid="uid://d4gsvekoqjros" path="res://themes/icon__menu_panel_theme.tres" id="22_thqh4"]
+[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="24_6ifc8"]
+[ext_resource type="PackedScene" uid="uid://cd0eiifggvfw7" path="res://models/Pinheiro.glb" id="31_ykpw4"]
+[ext_resource type="PackedScene" uid="uid://dwfryhap8b4mk" path="res://models/Pedra.glb" id="32_j1tq7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fesvh"]
+size = Vector3(150, 30, 125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ku0q"]
+size = Vector3(1000, 2, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wb3fd"]
+size = Vector3(1000, 1, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4apy"]
+size = Vector3(1, 1, 13.0152)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3bwc1"]
+sky_cover = ExtResource("10_t7arf")
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Sky" id="Sky_ta835"]
+sky_material = SubResource("ProceduralSkyMaterial_3bwc1")
+
+[sub_resource type="Environment" id="Environment_7e5bw"]
+background_mode = 2
+background_color = Color(0, 0.372549, 0.45098, 1)
+sky = SubResource("Sky_ta835")
+volumetric_fog_density = 0.02
+
+[sub_resource type="LabelSettings" id="LabelSettings_s2qer"]
+font = ExtResource("24_6ifc8")
+font_size = 60
+font_color = Color(0.996078, 0.384314, 0.113725, 1)
+outline_size = 10
+outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hikhc"]
+font_size = 24
+font_color = Color(0.956863, 0.956863, 0.956863, 1)
+outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+
+[sub_resource type="Animation" id="Animation_caiwk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("In-gameUI/MarginContainer/Coins:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenuUI:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-578, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/countdown:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["3"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/countdown:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EndGameUI:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-500, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("StartMenuUI:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_elnd2"]
+resource_name = "coin_label_disappear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("In-gameUI/MarginContainer/Coins:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_26fwq"]
+resource_name = "hide_end_menu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndGameUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1366, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n6hkp"]
+resource_name = "hide_pause_menu"
+length = 3.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenuUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1366, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/countdown:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 1.2, 2.2, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["3", "2", "1", "0"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/countdown:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 3.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 3.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_rei6w"]
+resource_name = "pause_menu_to_start"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenuUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1366, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ue73b"]
+resource_name = "show_end_menu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndGameUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-500, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_81sc1"]
+resource_name = "show_pause_menu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenuUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-578, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jmu8w"]
+resource_name = "show_start_menu"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartMenuUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-500, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ssqh1"]
+_data = {
+"RESET": SubResource("Animation_caiwk"),
+"coin_label_disappear": SubResource("Animation_elnd2"),
+"hide_end_menu": SubResource("Animation_26fwq"),
+"hide_pause_menu": SubResource("Animation_n6hkp"),
+"pause_menu_to_start": SubResource("Animation_rei6w"),
+"show_end_menu": SubResource("Animation_ue73b"),
+"show_pause_menu": SubResource("Animation_81sc1"),
+"show_start_menu": SubResource("Animation_jmu8w")
+}
+
+[node name="World" type="Node"]
+
+[node name="Jogador" parent="." groups=["player"] instance=ExtResource("1_1ts6d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.65, 0.227, 3)
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["main_camera"]]
+transform = Transform3D(-4.37114e-08, 0.573576, -0.819152, 0, 0.819152, 0.573576, 1, 2.50718e-08, -3.58063e-08, -43.579, 7.295, 3)
+current = true
+fov = 100.7
+script = ExtResource("2_v7y7e")
+
+[node name="NodeEnablerDetector" type="Node3D" parent="." groups=["main_camera"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.4366, 7.488, 0)
+script = ExtResource("2_v7y7e")
+
+[node name="Area3D" type="Area3D" parent="NodeEnablerDetector"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NodeEnablerDetector/Area3D"]
+shape = SubResource("BoxShape3D_fesvh")
+
+[node name="Pistas" type="Node" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pistas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 3.077)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pistas/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 440.46, -0.995724, 0)
+shape = SubResource("BoxShape3D_1ku0q")
+
+[node name="Area3D" type="Area3D" parent="Pistas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.573, -0.00495338, -2.11736)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pistas/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 367.231, 0, 0)
+shape = SubResource("BoxShape3D_wb3fd")
+
+[node name="Area3D2" type="Area3D" parent="Pistas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.573, -0.00495338, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pistas/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 367.231, 0, 0)
+shape = SubResource("BoxShape3D_wb3fd")
+
+[node name="Area3D3" type="Area3D" parent="Pistas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.573, -0.00495338, 7.79668)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pistas/Area3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 367.231, 0, 0)
+shape = SubResource("BoxShape3D_wb3fd")
+
+[node name="Obstáculos" type="Node" parent="."]
+
+[node name="Boneco de neve" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9697, 2.04458, -2.11736)
+
+[node name="Boneco de neve3" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97, 2.045, 7.797)
+
+[node name="Boneco de neve4" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.066, 2.045, 3)
+
+[node name="Boneco de neve5" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2852, 2.045, -2.11736)
+
+[node name="Boneco de neve7" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.507, 2.045, 8)
+
+[node name="Boneco de neve8" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.507, 2.045, -2.117)
+
+[node name="Boneco de neve9" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.965, 2.045, 8)
+
+[node name="Boneco de neve14" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.21, 2.045, 8)
+
+[node name="Boneco de neve10" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.965, 2.045, -2.117)
+
+[node name="Boneco de neve11" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.576, 2.045, 3)
+
+[node name="Boneco de neve15" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 270.119, 2.045, 8)
+
+[node name="Boneco de neve16" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 280.212, 2.045, 3)
+
+[node name="Boneco de neve17" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 292.287, 2.045, -2.117)
+
+[node name="Boneco de neve12" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 252.737, 2.045, -2.117)
+
+[node name="Boneco de neve13" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 257.126, 2.045, 3)
+
+[node name="Boneco de neve18" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 405.381, 2.045, 8)
+
+[node name="Boneco de neve19" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 405.381, 2.045, 3)
+
+[node name="Boneco de neve20" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 416.043, 2.045, -2.117)
+
+[node name="Boneco de neve22" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 452.516, 2.045, -2.117)
+
+[node name="Boneco de neve21" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 415.844, 2.045, 3)
+
+[node name="Boneco de neve23" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 459.598, 2.045, 3)
+
+[node name="Boneco de neve24" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 465.029, 2.045, -2.117)
+
+[node name="Boneco de neve25" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 472.11, 2.045, 3)
+
+[node name="Boneco de neve26" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 539.377, 2.045, -2.117)
+
+[node name="Boneco de neve27" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 539.377, 2.045, 8)
+
+[node name="Boneco de neve6" parent="Obstáculos" instance=ExtResource("4_1r0qp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2852, 2.045, 3)
+
+[node name="Madeira" parent="Obstáculos" instance=ExtResource("4_bahsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.6861, 0.412, 0.277341)
+
+[node name="Madeira4" parent="Obstáculos" instance=ExtResource("4_bahsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 375.299, 0.412, 0.277341)
+
+[node name="Madeira2" parent="Obstáculos" instance=ExtResource("4_bahsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.6883, 0.249362, 5.44476)
+
+[node name="Madeira3" parent="Obstáculos" instance=ExtResource("4_bahsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 364.803, 0.249362, 5.44476)
+
+[node name="Madeira5" parent="Obstáculos" instance=ExtResource("4_bahsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 437.405, 0.412, 0.277341)
+
+[node name="Madeira6" parent="Obstáculos" instance=ExtResource("4_bahsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 426.091, 0.249362, 5.44476)
+
+[node name="Gelo" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.5488, 0.535745, -1.80914)
+
+[node name="Gelo2" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.8768, 0.536233, -1.80914)
+
+[node name="Gelo3" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.3067, 0.535745, -1.80914)
+
+[node name="Gelo4" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.234, 0.535745, -1.80914)
+
+[node name="Gelo5" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.562, 0.536233, -1.80914)
+
+[node name="Gelo6" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.992, 0.535745, -1.80914)
+
+[node name="Gelo7" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.149, 0.535745, -1.80914)
+
+[node name="Gelo8" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.477, 0.536233, -1.80914)
+
+[node name="Gelo9" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 187.977, 0.535745, 3)
+
+[node name="Gelo15" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.305, 0.536233, 3)
+
+[node name="Gelo16" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.736, 0.535745, 3)
+
+[node name="Gelo17" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.893, 0.535745, 3)
+
+[node name="Gelo18" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.221, 0.536233, 3)
+
+[node name="Gelo19" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 303.265, 0.535745, 3)
+
+[node name="Gelo20" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 307.593, 0.536233, 3)
+
+[node name="Gelo21" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 303.265, 0.535745, -2.117)
+
+[node name="Gelo22" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 307.593, 0.536233, -2.117)
+
+[node name="Gelo28" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 443.78, 0.535745, 8)
+
+[node name="Gelo29" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 448.108, 0.536233, 8)
+
+[node name="Gelo30" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 452.4, 0.536, 8)
+
+[node name="Gelo34" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 469.758, 0.535745, 8)
+
+[node name="Gelo35" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 474.086, 0.536233, 8)
+
+[node name="Gelo36" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 478.378, 0.536, 8)
+
+[node name="Gelo31" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 456.764, 0.535745, 8)
+
+[node name="Gelo32" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 461.092, 0.536233, 8)
+
+[node name="Gelo33" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 465.384, 0.536, 8)
+
+[node name="Gelo37" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.78, 0.535745, 8)
+
+[node name="Gelo38" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 491.108, 0.536233, 3)
+
+[node name="Gelo39" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 495.4, 0.536, 8)
+
+[node name="Gelo40" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512.758, 0.535745, 8)
+
+[node name="Gelo41" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 517.086, 0.536233, 3)
+
+[node name="Gelo42" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 521.378, 0.536, 8)
+
+[node name="Gelo43" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 499.764, 0.535745, 3)
+
+[node name="Gelo44" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 504.092, 0.536233, 8)
+
+[node name="Gelo45" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 508.384, 0.536, 3)
+
+[node name="Gelo10" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.234, 0.535745, 8)
+
+[node name="Gelo11" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.562, 0.536233, 8)
+
+[node name="Gelo12" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.992, 0.535745, 8)
+
+[node name="Gelo13" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.149, 0.535745, 8)
+
+[node name="Gelo14" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.477, 0.536233, 8)
+
+[node name="MadeiraPequena" parent="Obstáculos" instance=ExtResource("6_wm2ff")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 108.745, 0.412, 3)
+
+[node name="MadeiraPequena2" parent="Obstáculos" instance=ExtResource("6_wm2ff")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 108.745, 0.412, 7.797)
+
+[node name="MadeiraPequena3" parent="Obstáculos" instance=ExtResource("6_wm2ff")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 121.893, 0.412, 3)
+
+[node name="MadeiraPequena4" parent="Obstáculos" instance=ExtResource("6_wm2ff")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 121.893, 0.412, -2)
+
+[node name="Iglu" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.366, 1.24296, -2)
+
+[node name="Iglu2" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.366, 1.243, 7.797)
+
+[node name="Gelo23" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 378.518, 0.535745, -2.117)
+
+[node name="Gelo24" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 382.846, 0.536233, -2.117)
+
+[node name="Gelo26" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(0.999987, 0, 0.0051836, 0, 1, 0, -0.0051836, 0, 0.999987, 378.518, 0.535745, 3.01122)
+
+[node name="Gelo27" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(0.999987, 0, 0.0051836, 0, 1, 0, -0.0051836, 0, 0.999987, 382.846, 0.536233, 2.98878)
+
+[node name="Gelo25" parent="Obstáculos" instance=ExtResource("5_0edr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 387.276, 0.535745, -2.117)
+
+[node name="Iglu9" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 395.335, 1.24296, -2)
+
+[node name="Iglu10" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 395.335, 1.243, 7.797)
+
+[node name="Iglu19" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 551.545, 1.243, -2.117)
+
+[node name="Iglu20" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 551.545, 1.243, 8)
+
+[node name="Iglu12" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 488.737, 1.243, -2.117)
+
+[node name="Iglu13" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 497.259, 1.243, -2.117)
+
+[node name="Iglu14" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 505.386, 1.243, -2.117)
+
+[node name="Iglu15" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 513.466, 1.243, -2.117)
+
+[node name="Iglu3" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.768, 1.24296, -2)
+
+[node name="Iglu5" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 320.457, 1.243, 8)
+
+[node name="Iglu6" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 327.565, 1.243, 3)
+
+[node name="Iglu7" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 342.621, 1.243, -2.117)
+
+[node name="Iglu8" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 349.728, 1.243, 3)
+
+[node name="Iglu4" parent="Obstáculos" instance=ExtResource("7_mpsqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.768, 1.243, 7.797)
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.091, 1.5, 3)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101, 1.5, 8)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.178, 1.5, 8)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.62874, 1.5, 3)
+
+[node name="Coin11" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.083, 1.5, 3)
+
+[node name="Coin12" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3858, 1.5, 3)
+
+[node name="Coin13" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3858, 1.5, 3)
+
+[node name="Coin14" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.287, 1.5, 3)
+
+[node name="Coin15" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.741, 1.5, 3)
+
+[node name="Coin16" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.044, 1.5, 3)
+
+[node name="Coin17" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.043, 1.5, 3)
+
+[node name="Coin18" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.454, 1.5, 3)
+
+[node name="Coin49" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 542.465, 1.5, 3)
+
+[node name="Coin50" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 546.919, 1.5, 3)
+
+[node name="Coin51" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 551.222, 1.5, 3)
+
+[node name="Coin52" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 555.221, 1.5, 3)
+
+[node name="Coin54" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 559.632, 1.5, 3)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.798, 1.5, 8)
+
+[node name="Coin19" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.1076, 1.5, 8)
+
+[node name="Coin20" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4888, 1.5, 8)
+
+[node name="Coin21" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 42.3871, 1.5, 8)
+
+[node name="Coin26" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.9237, 1.5, 8)
+
+[node name="Coin27" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.3049, 1.5, 8)
+
+[node name="Coin29" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.9604, 1.5, 3)
+
+[node name="Coin30" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.549, 1.5, 3)
+
+[node name="Coin32" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.059, 1.5, -2.117)
+
+[node name="Coin31" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.9577, 1.5, 3)
+
+[node name="Coin28" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 84.2032, 1.5, 8)
+
+[node name="Coin33" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.469, 1.5, 8)
+
+[node name="Coin34" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.85, 1.5, 8)
+
+[node name="Coin35" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 215.748, 1.5, 8)
+
+[node name="Coin41" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.153, 1.5, 3)
+
+[node name="Coin42" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 224.052, 1.5, 3)
+
+[node name="Coin36" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.469, 1.5, -2.117)
+
+[node name="Coin37" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.85, 1.5, -2.117)
+
+[node name="Coin38" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 215.748, 1.5, -2.117)
+
+[node name="Coin39" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 237.137, 1.5, -2.117)
+
+[node name="Coin40" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 241.035, 1.5, -2.117)
+
+[node name="Coin43" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 256.804, 1.5, 8)
+
+[node name="Coin44" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 260.702, 1.5, 8)
+
+[node name="Coin45" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 281.25, 1.5, -2.117)
+
+[node name="Coin46" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 285.148, 1.5, -2.117)
+
+[node name="Coin47" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 304.096, 1.5, 8)
+
+[node name="Coin53" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300.129, 1.5, 8)
+
+[node name="Coin48" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 307.995, 1.5, 8)
+
+[node name="Coin55" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 368.104, 1.5, -2.117)
+
+[node name="Coin56" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 364.136, 1.5, -2.117)
+
+[node name="Coin58" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.94, 1.5, -2.117)
+
+[node name="Coin57" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 372.002, 1.5, 3)
+
+[node name="Coin59" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 377.152, 1.5, 8)
+
+[node name="Coin60" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 381.467, 1.5, 8)
+
+[node name="Coin63" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 393.536, 1.5, 3)
+
+[node name="Coin64" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 397.851, 1.5, 3)
+
+[node name="Coin65" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 402.76, 1.5, -2.117)
+
+[node name="Coin67" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 410.63, 1.5, 3)
+
+[node name="Coin68" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 433.861, 1.5, 3)
+
+[node name="Coin69" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 430.178, 1.5, 3)
+
+[node name="Coin70" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 428.191, 1.5, -2.117)
+
+[node name="Coin71" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 424.966, 1.5, -2.117)
+
+[node name="Coin72" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 421.966, 1.5, 3)
+
+[node name="Coin66" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 407.076, 1.5, -2.117)
+
+[node name="Coin61" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 385.762, 1.5, 8)
+
+[node name="Coin62" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 389.421, 1.5, 8)
+
+[node name="Coin22" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 46.5684, 1.5, 2.90234)
+
+[node name="Coin23" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 64.6739, 1.5, 2.90234)
+
+[node name="Coin24" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 61.3891, 1.5, 2.90234)
+
+[node name="Coin25" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 0.998343, -0.0575466, 0, 0.0575466, 0.998343, 57.65, 1.5, -2.117)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.17803, 1.5, -2.117)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10147, 1.5, -2.117)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79753, 1.5, -2.117)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3616, 1.5, 3)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("8_j6nae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7328, 1.5, 3)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 524.922, 0.542993, 2.95082)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0, 0)
+shape = SubResource("BoxShape3D_v4apy")
+
+[node name="Bandeira_Chegada" parent="Area3D" instance=ExtResource("10_0kxe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.0276, -0.338717, -7.45332)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7e5bw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.969719, 0.171807, -0.173573, 5.00435e-08, 0.710713, 0.703482, 0.244224, -0.68218, 0.689192, -15.5535, 15.3114, 2.07461)
+light_color = Color(0.439216, 0.431373, 0.415686, 1)
+shadow_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="countdown" type="Label" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 20.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+label_settings = SubResource("LabelSettings_s2qer")
+
+[node name="In-gameUI" type="Control" parent="CanvasLayer" groups=["ui"]]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/In-gameUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 264.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 72
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 72
+
+[node name="Coins" type="PanelContainer" parent="CanvasLayer/In-gameUI/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("11_wyie5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/In-gameUI/MarginContainer/Coins"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/In-gameUI/MarginContainer/Coins/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_68q1s")
+expand_mode = 2
+
+[node name="Coins" type="Label" parent="CanvasLayer/In-gameUI/MarginContainer/Coins/HBoxContainer" groups=["labels"]]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("13_2kqj8")
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="CanvasLayer/In-gameUI/MarginContainer/Coins"]
+wait_time = 2.0
+one_shot = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/In-gameUI/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Punctuation" type="PanelContainer" parent="CanvasLayer/In-gameUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("11_wyie5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/In-gameUI/MarginContainer/VBoxContainer/Punctuation"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PunctuationIcon" type="Label" parent="CanvasLayer/In-gameUI/MarginContainer/VBoxContainer/Punctuation/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("14_ylspr")
+text = "XP"
+
+[node name="Punctuation" type="Label" parent="CanvasLayer/In-gameUI/MarginContainer/VBoxContainer/Punctuation/HBoxContainer" groups=["labels"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("13_2kqj8")
+text = "0"
+horizontal_alignment = 2
+
+[node name="PranksContainer" type="VBoxContainer" parent="CanvasLayer/In-gameUI/MarginContainer/VBoxContainer" groups=["labels"]]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 48
+
+[node name="PauseButton" type="Button" parent="CanvasLayer/In-gameUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("11_33po5")
+
+[node name="StartMenuUI" type="Control" parent="CanvasLayer" groups=["ui"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Control" parent="CanvasLayer/StartMenuUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer/StartMenuUI/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.433
+anchor_bottom = 1.0
+offset_right = -0.478027
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_cq14s")
+expand_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/StartMenuUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.331
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Objectives" type="VBoxContainer" parent="CanvasLayer/StartMenuUI/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/StartMenuUI/MarginContainer/Objectives"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/StartMenuUI/MarginContainer/Objectives/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("14_5f4jl")
+text = "Objetivos"
+
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer/StartMenuUI/MarginContainer/Objectives/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("14_6g87g")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/StartMenuUI/MarginContainer/Objectives/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/StartMenuUI/MarginContainer/Objectives"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/StartMenuUI/MarginContainer/Objectives/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Objective1" type="Label" parent="CanvasLayer/StartMenuUI/MarginContainer/Objectives/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("16_34g4h")
+text = "Colete 50 moedas"
+label_settings = SubResource("LabelSettings_hikhc")
+justification_flags = 160
+
+[node name="xp" type="Label" parent="CanvasLayer/StartMenuUI/MarginContainer/Objectives/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("17_td1vi")
+text = "5000 xp"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/StartMenuUI/MarginContainer/Objectives/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Objective2" type="Label" parent="CanvasLayer/StartMenuUI/MarginContainer/Objectives/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("16_34g4h")
+text = "Faça 15 pegadinhas"
+label_settings = SubResource("LabelSettings_hikhc")
+
+[node name="xp" type="Label" parent="CanvasLayer/StartMenuUI/MarginContainer/Objectives/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("17_td1vi")
+text = "5000 xp"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/StartMenuUI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/StartMenuUI/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="StartButton" type="Button" parent="CanvasLayer/StartMenuUI/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("15_w3tv2")
+text = "Iniciar jogo"
+
+[node name="ComoJogarButton" type="Button" parent="CanvasLayer/StartMenuUI/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("15_w3tv2")
+text = "Como jogar"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/StartMenuUI/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("15_w3tv2")
+text = "Créditos"
+
+[node name="ConfigButton" type="Button" parent="CanvasLayer/StartMenuUI/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("15_w3tv2")
+text = "Configurações"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/StartMenuUI/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("15_w3tv2")
+text = "Fechar jogo"
+
+[node name="EndGameUI" type="Control" parent="CanvasLayer" groups=["ui"]]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_right = -500.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Control" parent="CanvasLayer/EndGameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer/EndGameUI/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.433
+anchor_bottom = 1.0
+offset_right = -0.478027
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_cq14s")
+expand_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/EndGameUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.351
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_right = -0.466003
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="Objectives" type="VBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("14_5f4jl")
+text = "Objetivos"
+
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("14_6g87g")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Objective1" type="Label" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("16_34g4h")
+text = "Colete 50 moedas"
+
+[node name="xp" type="Label" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("17_td1vi")
+text = "5000 xp"
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer2/VBoxContainer" groups=["progress_bar"]]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("22_e114d")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Objective2" type="Label" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer2/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("16_34g4h")
+text = "Faça 15 pegadinhas"
+
+[node name="xp" type="Label" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer2/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("17_td1vi")
+text = "5000 xp"
+
+[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Objectives/VBoxContainer2/VBoxContainer2" groups=["progress_bar"]]
+layout_mode = 2
+theme = ExtResource("22_e114d")
+
+[node name="Pontos finais" type="VBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Pontos finais"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Pontos finais/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("14_5f4jl")
+text = "Resultado final"
+
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Pontos finais/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("14_6g87g")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Pontos finais/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="coins" type="HBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Pontos finais"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Container" type="PanelContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Pontos finais/coins"]
+layout_mode = 2
+theme = ExtResource("22_thqh4")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Pontos finais/coins/Container"]
+layout_mode = 2
+texture = ExtResource("11_68q1s")
+expand_mode = 2
+
+[node name="pontos" type="Label" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Pontos finais/coins" groups=["end_game_ui"]]
+layout_mode = 2
+theme = ExtResource("16_34g4h")
+theme_override_font_sizes/font_size = 32
+text = "10"
+
+[node name="punctuation" type="HBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Pontos finais"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Container" type="PanelContainer" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Pontos finais/punctuation"]
+layout_mode = 2
+theme = ExtResource("22_thqh4")
+
+[node name="TextureRect" type="Label" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Pontos finais/punctuation/Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("14_ylspr")
+theme_override_colors/font_color = Color(0.470588, 0.396078, 0.917647, 1)
+theme_override_font_sizes/font_size = 28
+text = "XP"
+
+[node name="moedas" type="Label" parent="CanvasLayer/EndGameUI/MarginContainer/VBoxContainer/Pontos finais/punctuation" groups=["end_game_ui"]]
+layout_mode = 2
+theme = ExtResource("16_34g4h")
+theme_override_font_sizes/font_size = 32
+text = "10"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/EndGameUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 40
+
+[node name="buttons" type="VBoxContainer" parent="CanvasLayer/EndGameUI/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="RestartGameButton" type="Button" parent="CanvasLayer/EndGameUI/MarginContainer/MarginContainer/buttons"]
+layout_mode = 2
+theme = ExtResource("15_w3tv2")
+text = "Retornar ao menu principal"
+
+[node name="PauseMenuUI" type="Control" parent="CanvasLayer" groups=["ui"]]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -578.0
+offset_right = -578.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Control" parent="CanvasLayer/PauseMenuUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer/PauseMenuUI/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.433
+anchor_bottom = 1.0
+offset_right = -0.478027
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_cq14s")
+expand_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PauseMenuUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.351
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_right = -0.466003
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 24
+
+[node name="coins" type="HBoxContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Container" type="PanelContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer/HBoxContainer/coins"]
+layout_mode = 2
+theme = ExtResource("22_thqh4")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PauseMenuUI/MarginContainer/HBoxContainer/coins/Container"]
+layout_mode = 2
+texture = ExtResource("11_68q1s")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenuUI/MarginContainer/HBoxContainer/coins"]
+layout_mode = 2
+theme = ExtResource("16_34g4h")
+theme_override_font_sizes/font_size = 32
+text = "12"
+
+[node name="punctuation" type="HBoxContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Container" type="PanelContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer/HBoxContainer/punctuation"]
+layout_mode = 2
+theme = ExtResource("22_thqh4")
+
+[node name="TextureRect" type="Label" parent="CanvasLayer/PauseMenuUI/MarginContainer/HBoxContainer/punctuation/Container"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("14_ylspr")
+theme_override_colors/font_color = Color(0.470588, 0.396078, 0.917647, 1)
+theme_override_font_sizes/font_size = 32
+text = "XP"
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenuUI/MarginContainer/HBoxContainer/punctuation"]
+layout_mode = 2
+theme = ExtResource("16_34g4h")
+theme_override_font_sizes/font_size = 32
+text = "320"
+
+[node name="Objectives" type="VBoxContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("14_5f4jl")
+text = "Objetivos"
+
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("14_6g87g")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Objective1" type="Label" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("16_34g4h")
+text = "Colete 50 moedas"
+label_settings = SubResource("LabelSettings_hikhc")
+justification_flags = 160
+
+[node name="xp" type="Label" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("17_td1vi")
+text = "5000 xp"
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer2/VBoxContainer" groups=["progress_bar"]]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("22_e114d")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Objective2" type="Label" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer2/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("16_34g4h")
+text = "Faça 15 pegadinhas"
+label_settings = SubResource("LabelSettings_hikhc")
+
+[node name="xp" type="Label" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer2/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("17_td1vi")
+text = "5000 xp"
+
+[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer/PauseMenuUI/MarginContainer/Objectives/VBoxContainer2/VBoxContainer2" groups=["progress_bar"]]
+layout_mode = 2
+theme = ExtResource("22_e114d")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 40
+
+[node name="buttons" type="VBoxContainer" parent="CanvasLayer/PauseMenuUI/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="ReturnGameButton" type="Button" parent="CanvasLayer/PauseMenuUI/MarginContainer/MarginContainer/buttons"]
+layout_mode = 2
+theme = ExtResource("15_w3tv2")
+text = "Retornar ao jogo"
+
+[node name="ReturnToMainMenuButton" type="Button" parent="CanvasLayer/PauseMenuUI/MarginContainer/MarginContainer/buttons"]
+layout_mode = 2
+theme = ExtResource("15_w3tv2")
+text = "Retornar ao menu principal"
+
+[node name="MenusAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" groups=["animation_player"]]
+libraries = {
+"": SubResource("AnimationLibrary_ssqh1")
+}
+
+[node name="InGameAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" groups=["animation_player"]]
+libraries = {
+"": SubResource("AnimationLibrary_ssqh1")
+}
+
+[node name="Handlers" type="Node" parent="."]
+
+[node name="PunctuationHandler" type="Node" parent="Handlers" groups=["handlers"]]
+script = ExtResource("11_2r5tm")
+
+[node name="CanvasHandler" type="Node" parent="Handlers" groups=["handlers"]]
+script = ExtResource("11_amicf")
+
+[node name="GameRunHandler" type="Node" parent="Handlers" groups=["handlers"]]
+script = ExtResource("12_05k07")
+
+[node name="ObjectivesHandler" type="Node" parent="Handlers" groups=["handlers"]]
+script = ExtResource("16_wvax5")
+
+[node name="chão" parent="." instance=ExtResource("16_8o2iv")]
+transform = Transform3D(-2.23348e-08, 0, -1, 0, 1, 0, 0.510961, 0, -4.37114e-08, 283.598, 5.886, 1.705)
+
+[node name="chão3" parent="." instance=ExtResource("16_8o2iv")]
+transform = Transform3D(-2.23348e-08, 0, -1, 0, 1, 0, 0.510961, 0, -4.37114e-08, 510.455, 5.886, 1.705)
+
+[node name="chão4" parent="." instance=ExtResource("16_8o2iv")]
+transform = Transform3D(-2.23348e-08, 0, -1, 0, 1, 0, 0.510961, 0, -4.37114e-08, 737.215, 5.886, 1.705)
+
+[node name="chão2" parent="." instance=ExtResource("16_8o2iv")]
+transform = Transform3D(-2.23348e-08, 0, -1, 0, 1, 0, 0.510961, 0, -4.37114e-08, 56.8458, 5.886, 1.705)
+
+[node name="montanha" parent="." instance=ExtResource("17_y0p02")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1094.64, -44.7078, -21.8379)
+
+[node name="ObjetosDoCenario" type="Node" parent="."]
+
+[node name="Pinheiro" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4012, 11.1343, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro2" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6761, 10.51, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro2" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro3" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6761, 8.57665, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro3" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro4" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2516, 8.18834, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro4" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro5" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39532, 6.51444, -20.1731)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro5" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro6" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9473, 5.14783, -16.7926)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro6" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro7" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2036, 6.30322, -25.237)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro7" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro8" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4012, 6.59465, 23.0517)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro8" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro9" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6761, 6.11206, 22.4633)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro9" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro10" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6761, 6.54331, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro10" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro11" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.076, 8.21858, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro11" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro12" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02883, 9.87082, 25.0665)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro12" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro13" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3096, 6.72012, 27.2286)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro13" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro14" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2036, 5.8721, 17.8463)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro14" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3706, 6.24498, -21.3927)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra3" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5139, 7.07884, -17.9578)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra3" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra4" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.2536, 8.36167, -20.8162)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra4" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra5" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3706, 6.59794, 22.0923)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra5" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra6" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5139, 12.4721, 25.5272)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra6" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra7" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.2536, 5.70917, 22.6688)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra7" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra2" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1947, 5.93884, -20.427)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra2" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro15" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.642, 6.00785, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro15" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro16" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.916, 6.84749, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro16" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro17" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.916, 15.4034, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro17" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro18" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.492, 19.1058, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro18" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro19" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.6356, 7.5087, -20.1731)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro19" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro20" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.293, 6.36265, -16.7926)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro20" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro21" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.0367, 6.54796, -25.237)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro21" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro22" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.642, 8.08332, 23.0517)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro22" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro23" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.916, 7.64023, 22.4633)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro23" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro24" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.916, 12.771, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro24" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro25" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.316, 8.35261, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro25" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro26" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.2115, 9.19989, 25.0665)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro26" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro27" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.9307, 8.64557, 27.2286)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro27" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro28" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.0367, 3.22751, 17.8463)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro28" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra8" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.8697, 6.28365, -21.3927)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra8" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra9" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.754, 11.9764, -17.9578)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra9" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra10" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.494, 11.0465, -20.8162)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra10" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra11" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.8697, 5.47314, 22.0923)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra11" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra12" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.754, 7.04953, 25.5272)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra12" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra13" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.494, 7.22288, 22.6688)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra13" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra14" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.0456, 7.00181, -20.427)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra14" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro29" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.406, 13.6262, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro29" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro30" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.681, 7.11172, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro30" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro31" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.681, 8.58807, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro31" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro32" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186.257, 13.2064, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro32" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro33" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.4, 8.8337, -20.1731)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro33" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro34" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.058, 5.88636, -16.7926)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro34" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro35" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.801, 6.48769, -25.237)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro35" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro36" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.406, 6.9847, 23.0517)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro36" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro37" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.681, 11.4036, 22.4633)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro37" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro38" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.681, 10.8479, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro38" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro39" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.081, 6.26632, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro39" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro40" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 167.976, 6.03737, 25.0665)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro40" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro41" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.695, 6.35415, 27.2286)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro41" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro42" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.801, 2.97874, 17.8463)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro42" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra15" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.634, 6.31267, -21.3927)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra15" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra16" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.519, 13.437, -17.9578)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra16" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra17" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.259, 7.44967, -20.8162)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra17" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra18" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.634, 5.26207, 22.0923)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra18" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra19" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.519, 7.38126, 25.5272)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra19" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra20" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.259, 9.60065, 22.6688)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra20" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra21" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.81, 6.22428, -20.427)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra21" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro43" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 288.189, 6.84415, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro43" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro44" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275.464, 10.9251, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro44" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro45" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275.464, 16.1242, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro45" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro46" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 261.04, 10.6245, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro46" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro47" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.183, 8.7209, -20.1731)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro47" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro48" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 232.841, 5.97921, -16.7926)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro48" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro49" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 223.585, 7.80586, -25.237)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro49" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro50" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 288.189, 7.62839, 23.0517)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro50" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro51" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275.464, 6.54766, 22.4633)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro51" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro52" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275.464, 10.4595, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro52" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro53" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 255.864, 6.93159, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro53" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro54" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 242.759, 10.7536, 25.0665)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro54" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro55" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.479, 12.1851, 27.2286)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro55" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro56" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 223.585, 4.443, 17.8463)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro56" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra22" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 231.418, 7.02553, -21.3927)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra22" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra23" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 256.302, 6.95138, -17.9578)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra23" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra24" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 279.042, 10.129, -20.8162)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra24" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra25" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 231.418, 11.1874, 22.0923)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra25" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra26" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 256.302, 6.38479, 25.5272)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra26" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra27" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 279.042, 6.41659, 22.6688)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra27" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra28" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215.593, 6.4829, -20.427)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra28" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro57" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 365.024, 6.15235, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro57" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro58" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 352.299, 6.7522, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro58" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro59" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 352.299, 12.9189, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro59" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro60" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 337.875, 21.11, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro60" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro61" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 326.019, 9.48895, -20.1731)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro61" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro62" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 309.676, 5.97476, -16.7926)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro62" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro63" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300.42, 6.38725, -25.237)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro63" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro64" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 365.024, 7.19289, 23.0517)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro64" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro65" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 352.299, 7.99989, 22.4633)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro65" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro66" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 352.299, 14.1661, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro66" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro67" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 332.699, 7.0503, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro67" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro68" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 319.594, 9.13435, 25.0665)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro68" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro69" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 311.314, 9.92579, 27.2286)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro69" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro70" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300.42, 3.31122, 17.8463)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro70" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra29" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 308.253, 6.32223, -21.3927)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra29" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra30" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 333.137, 14.7658, -17.9578)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra30" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra31" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 355.877, 8.72624, -20.8162)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra31" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra32" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 308.253, 5.93229, 22.0923)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra32" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra33" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 333.137, 6.58509, 25.5272)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra33" instance=ExtResource("6_ims7l")]
+transform = Transform3D(0.99997, -0.00776664, 0, 0.00776664, 0.99997, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Pedra34" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 355.877, 7.38731, 22.6688)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra34" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra35" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 292.429, 6.62205, -20.427)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra35" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro71" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 438.932, 13.3182, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro71" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro72" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 426.207, 6.18606, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro72" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro73" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 426.207, 9.09354, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro73" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro74" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 411.782, 12.8492, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro74" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro75" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 399.926, 7.52201, -20.1731)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro75" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro76" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 383.583, 6.24807, -16.7926)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro76" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro77" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 374.327, 6.43943, -25.237)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro77" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro78" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 438.932, 7.25689, 23.0517)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro78" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro79" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 426.207, 11.7753, 22.4633)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro79" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro80" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 426.207, 10.8357, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro80" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro81" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 406.607, 6.5542, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro81" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro82" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 393.502, 6.31248, 25.0665)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro82" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro83" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 385.221, 6.31405, 27.2286)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro83" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro84" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 374.327, 3.55668, 17.8463)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro84" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra36" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 382.16, 6.3627, -21.3927)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra36" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra37" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 407.045, 12.2014, -17.9578)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra37" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra38" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 429.784, 7.63618, -20.8162)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra38" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra39" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 382.16, 5.80381, 22.0923)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra39" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra40" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 407.045, 7.14555, 25.5272)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra40" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra41" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 429.784, 9.92595, 22.6688)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra41" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra42" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 366.336, 6.32174, -20.427)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra42" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro85" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 519.51, 6.12109, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro85" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro86" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 506.785, 9.26812, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro86" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro87" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 506.785, 13.357, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro87" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro88" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 492.36, 13.815, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro88" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro89" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 480.504, 7.84638, -20.1731)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro89" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro90" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 464.161, 7.71783, -16.7926)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro90" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro91" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 454.905, 7.58163, -25.237)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro91" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro92" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 519.51, 7.58456, 23.0517)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro92" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro93" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 506.785, 7.07988, 22.4633)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro93" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro94" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 506.785, 9.82772, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro94" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro95" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 487.184, 7.67334, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro95" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro96" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 474.08, 8.20732, 25.0665)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro96" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro97" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 465.799, 11.3951, 27.2286)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro97" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro98" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 454.905, 5.63536, 17.8463)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro98" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra43" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 462.738, 7.96006, -21.3927)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra43" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra44" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 487.622, 6.45938, -17.9578)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra44" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra45" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 510.362, 7.55199, -20.8162)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra45" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra46" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 462.738, 11.2591, 22.0923)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra46" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra47" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 487.622, 6.53269, 25.5272)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra47" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra48" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 510.362, 7.26087, 22.6688)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra48" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra49" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 446.914, 6.5365, -20.427)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra49" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro99" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 596.601, 6.34762, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro99" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro100" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 583.876, 6.09987, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro100" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro101" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 583.876, 8.31931, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro101" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro102" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 569.452, 21.4428, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro102" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro103" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 557.596, 15.2111, -20.1731)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro103" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro104" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 541.253, 6.25718, -16.7926)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro104" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro105" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 531.997, 6.40696, -25.237)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro105" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro106" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 596.601, 6.30911, 23.0517)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro106" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro107" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 583.876, 8.11322, 22.4633)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro107" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro108" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 583.876, 15.2322, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro108" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro109" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 564.276, 7.07415, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro109" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro110" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 551.171, 8.34164, 25.0665)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro110" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro111" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 542.891, 10.7697, 27.2286)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro111" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro112" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 531.997, 3.37924, 17.8463)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro112" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra50" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 539.83, 6.42162, -21.3927)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra50" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra51" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 564.714, 18.2019, -17.9578)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra51" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra52" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 587.454, 6.51827, -20.8162)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra52" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra53" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 539.83, 5.98262, 22.0923)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra53" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra54" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 564.714, 6.63315, 25.5272)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra54" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra55" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 587.454, 7.02782, 22.6688)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra55" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra56" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 524.005, 6.11548, -20.427)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra56" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro113" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 669.283, 14.9712, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro113" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro114" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 656.558, 8.07834, -34.8822)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro114" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro115" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 656.558, 7.57954, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro115" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro116" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 642.133, 13.7881, -22.7624)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro116" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro117" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 630.277, 10.6115, -20.1731)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro117" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro118" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 613.934, 6.21171, -16.7926)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro118" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro119" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 604.678, 6.40984, -25.237)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro119" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro120" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 669.283, 6.93155, 23.0517)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro120" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro121" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 656.558, 10.5037, 22.4633)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro121" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro122" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 656.558, 10.9161, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro122" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro123" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 636.958, 6.94282, 34.5832)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro123" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro124" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 623.853, 6.32051, 25.0665)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro124" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro125" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 615.572, 6.23275, 27.2286)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro125" instance=ExtResource("6_ims7l")]
+
+[node name="Pinheiro126" parent="ObjetosDoCenario" instance=ExtResource("31_ykpw4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 604.678, 3.21214, 17.8463)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pinheiro126" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra57" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 612.511, 6.5845, -21.3927)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra57" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra58" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 637.396, 15.0245, -17.9578)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra58" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra59" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 660.135, 6.57986, -20.8162)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra59" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra60" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 612.511, 5.34402, 22.0923)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra60" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra61" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 637.396, 7.86038, 25.5272)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra61" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra62" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 660.135, 8.60892, 22.6688)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra62" instance=ExtResource("6_ims7l")]
+
+[node name="Pedra63" parent="ObjetosDoCenario" instance=ExtResource("32_j1tq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 596.687, 6.27633, -20.427)
+
+[node name="NodeEnabler" parent="ObjetosDoCenario/Pedra63" instance=ExtResource("6_ims7l")]
+
+[connection signal="body_entered" from="Pistas/Area3D" to="Jogador" method="on_lane_entered" binds= [-2.117]]
+[connection signal="body_entered" from="Pistas/Area3D2" to="Jogador" method="on_lane_entered" binds= [3]]
+[connection signal="body_entered" from="Pistas/Area3D3" to="Jogador" method="on_lane_entered" binds= [7.797]]
+[connection signal="body_entered" from="Area3D" to="Handlers/GameRunHandler" method="end_game"]
+[connection signal="timeout" from="CanvasLayer/In-gameUI/MarginContainer/Coins/Timer" to="Handlers/CanvasHandler" method="hide_coins"]
+[connection signal="button_up" from="CanvasLayer/In-gameUI/MarginContainer/PauseButton" to="Handlers/GameRunHandler" method="pause_button_pressed"]
+[connection signal="button_up" from="CanvasLayer/StartMenuUI/MarginContainer/MarginContainer/VBoxContainer/StartButton" to="Handlers/GameRunHandler" method="start_button_pressed"]
+[connection signal="button_up" from="CanvasLayer/StartMenuUI/MarginContainer/MarginContainer/VBoxContainer/ComoJogarButton" to="Handlers/GameRunHandler" method="como_jogar_pressed"]
+[connection signal="button_up" from="CanvasLayer/StartMenuUI/MarginContainer/MarginContainer/VBoxContainer/CreditsButton" to="Handlers/GameRunHandler" method="credits_button_pressed"]
+[connection signal="button_up" from="CanvasLayer/StartMenuUI/MarginContainer/MarginContainer/VBoxContainer/ConfigButton" to="Handlers/GameRunHandler" method="config_button_pressed"]
+[connection signal="button_up" from="CanvasLayer/StartMenuUI/MarginContainer/MarginContainer/VBoxContainer/ExitButton" to="Handlers/GameRunHandler" method="exit_button_pressed"]
+[connection signal="button_up" from="CanvasLayer/EndGameUI/MarginContainer/MarginContainer/buttons/RestartGameButton" to="Handlers/GameRunHandler" method="return_to_main_menu_pressed" binds= ["end_menu"]]
+[connection signal="button_up" from="CanvasLayer/PauseMenuUI/MarginContainer/MarginContainer/buttons/ReturnGameButton" to="Handlers/GameRunHandler" method="unpause_button_pressed"]
+[connection signal="button_up" from="CanvasLayer/PauseMenuUI/MarginContainer/MarginContainer/buttons/ReturnToMainMenuButton" to="Handlers/GameRunHandler" method="return_to_main_menu_pressed" binds= ["pause_menu"]]
+[connection signal="animation_finished" from="CanvasLayer/MenusAnimationPlayer" to="Handlers/GameRunHandler" method="unpause_button_pressed_animation_ended"]
+[connection signal="animation_finished" from="CanvasLayer/MenusAnimationPlayer" to="Handlers/GameRunHandler" method="return_to_main_menu_animation_ended"]
+[connection signal="animation_finished" from="CanvasLayer/InGameAnimationPlayer" to="Handlers/GameRunHandler" method="unpause_button_pressed_animation_ended"]
+[connection signal="animation_finished" from="CanvasLayer/InGameAnimationPlayer" to="Handlers/GameRunHandler" method="return_to_main_menu_animation_ended"]

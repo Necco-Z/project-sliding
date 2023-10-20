@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dcgvgel77iwan"]
+
+[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="1_sj041"]
+
+[resource]
+Label/colors/font_color = Color(0.964706, 0.788235, 0.192157, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_sj041")

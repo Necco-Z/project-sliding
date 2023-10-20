@@ -1,0 +1,172 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbpixvjiuxtkf"]
+
+[ext_resource type="Script" path="res://script/config_scene.gd" id="1_td8ca"]
+[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="2_27u0f"]
+[ext_resource type="FontFile" uid="uid://bee2g0rtgatvm" path="res://fonts/Poppins-Medium.ttf" id="3_d4m71"]
+[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://themes/button_theme.tres" id="4_wgifn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5hf2"]
+bg_color = Color(0.470588, 0.396078, 0.917647, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.470588, 0.396078, 0.917647, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Theme" id="Theme_1m3lp"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_x5hf2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_n7kid"]
+font = ExtResource("2_27u0f")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_y8kvu"]
+font = ExtResource("2_27u0f")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_cssb3"]
+font = ExtResource("3_d4m71")
+font_size = 20
+
+[node name="CreditsScene" type="Node"]
+script = ExtResource("1_td8ca")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -98.0
+offset_right = 174.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1m3lp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Créditos"
+label_settings = SubResource("LabelSettings_n7kid")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Game Designer"
+label_settings = SubResource("LabelSettings_y8kvu")
+
+[node name="Label2" type="Label" parent="Control/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Daniel Lira"
+label_settings = SubResource("LabelSettings_cssb3")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Game Designer"
+label_settings = SubResource("LabelSettings_y8kvu")
+
+[node name="Label2" type="Label" parent="Control/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "\"Mangetsu\""
+label_settings = SubResource("LabelSettings_cssb3")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Programmer"
+label_settings = SubResource("LabelSettings_y8kvu")
+
+[node name="Label2" type="Label" parent="Control/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Erick Gomes"
+label_settings = SubResource("LabelSettings_cssb3")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "2D Artist"
+label_settings = SubResource("LabelSettings_y8kvu")
+
+[node name="Label2" type="Label" parent="Control/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Wesley Costa"
+label_settings = SubResource("LabelSettings_cssb3")
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "UX Designer"
+label_settings = SubResource("LabelSettings_y8kvu")
+
+[node name="Label2" type="Label" parent="Control/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Erick Gomes"
+label_settings = SubResource("LabelSettings_cssb3")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Control/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Producer"
+label_settings = SubResource("LabelSettings_y8kvu")
+
+[node name="Label2" type="Label" parent="Control/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Daniel \"Guarah\" "
+label_settings = SubResource("LabelSettings_cssb3")
+
+[node name="Button" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_wgifn")
+text = "Voltar ao menu principal"
+
+[connection signal="button_up" from="Control/PanelContainer/VBoxContainer/Button" to="." method="return_to_main_menu"]

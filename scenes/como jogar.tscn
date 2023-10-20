@@ -1,0 +1,205 @@
+[gd_scene load_steps=16 format=3 uid="uid://een7dw64mq4m"]
+
+[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://themes/button_theme.tres" id="1_83aqr"]
+[ext_resource type="Script" path="res://script/como jogar.gd" id="1_tcxhy"]
+[ext_resource type="Texture2D" uid="uid://yf5dex4o7eba" path="res://2d/menus/Mask group-1.png" id="2_04lkw"]
+[ext_resource type="Texture2D" uid="uid://c5gs4bho6ie74" path="res://2d/menus/Mask group-2.png" id="3_66xnm"]
+[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="3_ageoe"]
+[ext_resource type="FontFile" uid="uid://bee2g0rtgatvm" path="res://fonts/Poppins-Medium.ttf" id="4_qltqw"]
+[ext_resource type="Texture2D" uid="uid://uojvr01vx0re" path="res://2d/menus/Mask group.png" id="4_sifay"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bti6"]
+bg_color = Color(0.470588, 0.396078, 0.917647, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.470588, 0.396078, 0.917647, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Theme" id="Theme_sd4jg"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_2bti6")
+
+[sub_resource type="Theme" id="Theme_ux3pv"]
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("3_ageoe")
+
+[sub_resource type="Theme" id="Theme_fulmf"]
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("4_qltqw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufldo"]
+bg_color = Color(0.470588, 0.396078, 0.917647, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.470588, 0.396078, 0.917647, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Theme" id="Theme_05vmc"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ufldo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5bfe"]
+bg_color = Color(0.470588, 0.396078, 0.917647, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.470588, 0.396078, 0.917647, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Theme" id="Theme_lbqa4"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_w5bfe")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tcxhy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.172549, 0.172549, 0.188235, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 72
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 72
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_sd4jg")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(318, 391)
+layout_mode = 2
+texture = ExtResource("2_04lkw")
+expand_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = SubResource("Theme_ux3pv")
+text = "Evite obstáculos"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = SubResource("Theme_fulmf")
+text = "Se bater com um obstáculo, a corrida acaba "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = SubResource("Theme_05vmc")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer"]
+custom_minimum_size = Vector2(318, 391)
+layout_mode = 2
+texture = ExtResource("4_sifay")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ux3pv")
+text = "Movimente-se entre faixas"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_fulmf")
+text = "Utilize as setas do teclado para se movimentar para os lados"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = SubResource("Theme_lbqa4")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer3/PanelContainer"]
+custom_minimum_size = Vector2(318, 391)
+layout_mode = 2
+texture = ExtResource("3_66xnm")
+expand_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+theme = SubResource("Theme_ux3pv")
+text = "Faça pegadinhas"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+theme = SubResource("Theme_fulmf")
+text = "Obtenha pontos extras ao desviar no momento certo"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("1_83aqr")
+text = "Voltar ao menu principal"
+
+[connection signal="button_up" from="MarginContainer/Button" to="." method="return_main_menu"]

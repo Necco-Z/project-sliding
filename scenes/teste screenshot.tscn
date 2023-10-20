@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://djwqsilrifohg"]
+
+[ext_resource type="PackedScene" uid="uid://gmox06l6ncsh" path="res://models/chão.glb" id="4_oqosl"]
+[ext_resource type="Texture2D" uid="uid://v4cgdqta0bhk" path="res://hdri/rocky_ridge_puresky_2k.hdr" id="5_fhnl1"]
+[ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://scenes/jogador.tscn" id="5_j407l"]
+[ext_resource type="Script" path="res://script/GameCamera.gd" id="6_s85ib"]
+[ext_resource type="PackedScene" uid="uid://co8pmr34kfvs0" path="res://scenes/obstacles/boneco_de_neve.tscn" id="7_iefyp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rcwu8"]
+sky_cover = ExtResource("5_fhnl1")
+
+[sub_resource type="Sky" id="Sky_jo3wb"]
+sky_material = SubResource("ProceduralSkyMaterial_rcwu8")
+
+[sub_resource type="Environment" id="Environment_24p3i"]
+background_mode = 2
+background_color = Color(0, 0.372549, 0.45098, 1)
+sky = SubResource("Sky_jo3wb")
+volumetric_fog_density = 0.02
+
+[node name="Node" type="Node"]
+
+[node name="chão" parent="." instance=ExtResource("4_oqosl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 67.5331, 5.99494, 2.60831)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_24p3i")
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["main_camera"]]
+transform = Transform3D(-0.390731, 0.52798, -0.754033, 0, 0.819152, 0.573576, 0.920505, 0.224114, -0.320068, -2.883, 7.295, -5.405)
+current = true
+fov = 100.7
+script = ExtResource("6_s85ib")
+
+[node name="Boneco de neve" parent="." instance=ExtResource("7_iefyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.63284, 1.83243, -0.139797)
+
+[node name="Jogador" parent="." instance=ExtResource("5_j407l")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.830628, 0, 0)

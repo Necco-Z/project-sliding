@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgnwixwvjpwk4"]
+
+[ext_resource type="Script" path="res://script/config_scene.gd" id="1_a48f1"]
+[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://themes/button_theme.tres" id="1_luv43"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwnxq"]
+bg_color = Color(0.470588, 0.396078, 0.917647, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.470588, 0.396078, 0.917647, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Theme" id="Theme_4ot2b"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_vwnxq")
+
+[node name="ConfigScene" type="Node"]
+script = ExtResource("1_a48f1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = -85.0
+offset_right = 229.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_4ot2b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="GraphicButton" type="CheckButton" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_luv43")
+text = "Ativa alta qualidade gráfica"
+
+[node name="Button" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_luv43")
+text = "Voltar ao menu principal"
+
+[connection signal="button_up" from="Control/PanelContainer/VBoxContainer/GraphicButton" to="." method="change_graphic_quality"]
+[connection signal="button_up" from="Control/PanelContainer/VBoxContainer/Button" to="." method="return_to_main_menu"]
