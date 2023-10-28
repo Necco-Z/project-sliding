@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ceek3h4ntvycj"]
 
-[ext_resource type="Script" path="res://script/Label_new_prank.gd" id="1_8n2oy"]
-[ext_resource type="Theme" uid="uid://dr5l2rte7t1uy" path="res://themes/panel_ingame_menu_theme.tres" id="1_r20ao"]
-[ext_resource type="Theme" uid="uid://bpjr4w8rmokgi" path="res://themes/ingame_label_theme.tres" id="2_su6ll"]
+[ext_resource type="Script" path="res://script-old/Label_new_prank.gd" id="1_8n2oy"]
+[ext_resource type="Theme" uid="uid://dr5l2rte7t1uy" path="res://assets/themes/panel_ingame_menu_theme.tres" id="1_r20ao"]
+[ext_resource type="Theme" uid="uid://bpjr4w8rmokgi" path="res://assets/themes/ingame_label_theme.tres" id="2_su6ll"]
 
 [sub_resource type="Animation" id="Animation_wpi2d"]
 length = 0.001

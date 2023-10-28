@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cgi8bxd4ey6hu"]
+
+[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="1_1tra0"]
+
+[resource]
+Label/colors/font_color = Color(0.643137, 0.603922, 0.901961, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_1tra0")

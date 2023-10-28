@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=3 uid="uid://cio1r68trlja7"]
 
-[ext_resource type="Script" path="res://script/Obstacle.gd" id="1_bamrb"]
+[ext_resource type="Script" path="res://script-old/Obstacle.gd" id="1_bamrb"]
 [ext_resource type="PackedScene" uid="uid://b16lob3txvl7e" path="res://models/casa de neve.tscn" id="2_qucye"]
-[ext_resource type="Script" path="res://script/PegadinhaArea.gd" id="3_r2ril"]
+[ext_resource type="Script" path="res://script-old/PegadinhaArea.gd" id="3_r2ril"]
 [ext_resource type="Texture2D" uid="uid://2cbirl7ehopo" path="res://models/texturas/MadeiraGrande_MadeiraTextura.png" id="4_e1520"]
 [ext_resource type="PackedScene" uid="uid://rqtuagw2gt4f" path="res://scenes/node_enabler.tscn" id="5_5vv1n"]
 

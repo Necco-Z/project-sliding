@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b56b0wibv0ix1"]
 
-[ext_resource type="Script" path="res://script/Obstacle.gd" id="1_msm14"]
+[ext_resource type="Script" path="res://script-old/Obstacle.gd" id="1_msm14"]
 [ext_resource type="PackedScene" uid="uid://dh3s7sd3gqvqr" path="res://models/Gelo.gltf" id="2_4am4h"]
 [ext_resource type="PackedScene" uid="uid://rqtuagw2gt4f" path="res://scenes/node_enabler.tscn" id="4_vp6ih"]
 

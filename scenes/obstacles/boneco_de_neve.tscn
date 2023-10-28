@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://co8pmr34kfvs0"]
 
-[ext_resource type="Script" path="res://script/Obstacle.gd" id="1_3s2bc"]
+[ext_resource type="Script" path="res://script-old/Obstacle.gd" id="1_3s2bc"]
 [ext_resource type="PackedScene" uid="uid://ci2mqm15y8hrq" path="res://models/boneco de neve.gltf" id="1_8g5pr"]
-[ext_resource type="Script" path="res://script/PegadinhaArea.gd" id="2_ujb8l"]
+[ext_resource type="Script" path="res://script-old/PegadinhaArea.gd" id="2_ujb8l"]
 [ext_resource type="PackedScene" uid="uid://rqtuagw2gt4f" path="res://scenes/node_enabler.tscn" id="4_tut0n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ifbh3"]

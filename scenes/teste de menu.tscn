@@ -1,7 +1,7 @@
 [gd_scene load_steps=52 format=3 uid="uid://dvjvpdafxerwn"]
 
 [ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://scenes/jogador.tscn" id="1_1ts6d"]
-[ext_resource type="Script" path="res://script/GameCamera.gd" id="2_v7y7e"]
+[ext_resource type="Script" path="res://script-old/GameCamera.gd" id="2_v7y7e"]
 [ext_resource type="PackedScene" uid="uid://co8pmr34kfvs0" path="res://scenes/obstacles/boneco_de_neve.tscn" id="4_1r0qp"]
 [ext_resource type="PackedScene" uid="uid://bti4guyoihjrb" path="res://scenes/obstacles/madeira.tscn" id="4_bahsl"]
 [ext_resource type="PackedScene" uid="uid://b56b0wibv0ix1" path="res://scenes/obstacles/gelo.tscn" id="5_0edr5"]
@@ -11,25 +11,25 @@
 [ext_resource type="PackedScene" uid="uid://bxtexrjd3hr6k" path="res://scenes/coin.tscn" id="8_j6nae"]
 [ext_resource type="PackedScene" uid="uid://ds1vfulxqv3xv" path="res://models/Bandeira_Chegada.tscn" id="10_0kxe8"]
 [ext_resource type="Texture2D" uid="uid://v4cgdqta0bhk" path="res://hdri/rocky_ridge_puresky_2k.hdr" id="10_t7arf"]
-[ext_resource type="Script" path="res://script/PunctuationHandler.gd" id="11_2r5tm"]
-[ext_resource type="Theme" uid="uid://j3okp0fet333" path="res://themes/pause_button_theme.tres" id="11_33po5"]
-[ext_resource type="Script" path="res://script/CanvasHandler.gd" id="11_amicf"]
-[ext_resource type="Theme" uid="uid://dr5l2rte7t1uy" path="res://themes/panel_ingame_menu_theme.tres" id="11_wyie5"]
-[ext_resource type="Script" path="res://script/GameRunHandler.gd" id="12_05k07"]
-[ext_resource type="Theme" uid="uid://bpjr4w8rmokgi" path="res://themes/ingame_label_theme.tres" id="13_2kqj8"]
-[ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://ui/menus/coin.png" id="13_aexk1"]
-[ext_resource type="Theme" uid="uid://cgi8bxd4ey6hu" path="res://themes/title_theme.tres" id="14_5f4jl"]
-[ext_resource type="Theme" uid="uid://bp21tk2vfowe5" path="res://themes/xp_icon_theme.tres" id="14_ylspr"]
-[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://themes/button_theme.tres" id="15_w3tv2"]
+[ext_resource type="Script" path="res://script-old/PunctuationHandler.gd" id="11_2r5tm"]
+[ext_resource type="Theme" uid="uid://j3okp0fet333" path="res://assets/themes/pause_button_theme.tres" id="11_33po5"]
+[ext_resource type="Script" path="res://script-old/CanvasHandler.gd" id="11_amicf"]
+[ext_resource type="Theme" uid="uid://dr5l2rte7t1uy" path="res://assets/themes/panel_ingame_menu_theme.tres" id="11_wyie5"]
+[ext_resource type="Script" path="res://script-old/GameRunHandler.gd" id="12_05k07"]
+[ext_resource type="Theme" uid="uid://bpjr4w8rmokgi" path="res://assets/themes/ingame_label_theme.tres" id="13_2kqj8"]
+[ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="13_aexk1"]
+[ext_resource type="Theme" uid="uid://cgi8bxd4ey6hu" path="res://assets/themes/title_theme.tres" id="14_5f4jl"]
+[ext_resource type="Theme" uid="uid://bp21tk2vfowe5" path="res://assets/themes/xp_icon_theme.tres" id="14_ylspr"]
+[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="15_w3tv2"]
 [ext_resource type="PackedScene" uid="uid://gmox06l6ncsh" path="res://models/ch╞o.glb" id="16_8o2iv"]
-[ext_resource type="Theme" uid="uid://b4q7bpijyr7ol" path="res://themes/Objective_label_theme.tres" id="16_34g4h"]
-[ext_resource type="Script" path="res://script/ObjectivesHandler.gd" id="16_wvax5"]
-[ext_resource type="Theme" uid="uid://dcgvgel77iwan" path="res://themes/objective_xp_theme.tres" id="17_td1vi"]
-[ext_resource type="Texture2D" uid="uid://dj78t7fk71vl0" path="res://ui/menus/menu_background.png" id="17_v7uke"]
+[ext_resource type="Theme" uid="uid://b4q7bpijyr7ol" path="res://assets/themes/Objective_label_theme.tres" id="16_34g4h"]
+[ext_resource type="Script" path="res://script-old/ObjectivesHandler.gd" id="16_wvax5"]
+[ext_resource type="Theme" uid="uid://dcgvgel77iwan" path="res://assets/themes/objective_xp_theme.tres" id="17_td1vi"]
+[ext_resource type="Texture2D" uid="uid://dj78t7fk71vl0" path="res://assets/sprites/ui/menu_background.png" id="17_v7uke"]
 [ext_resource type="PackedScene" uid="uid://oq35gvly2ofl" path="res://models/montanha.glb" id="17_y0p02"]
-[ext_resource type="Texture2D" uid="uid://b5he6l7cp7o27" path="res://ui/menus/Line 1.svg" id="19_lgf3s"]
-[ext_resource type="Theme" uid="uid://cqajmgbj0kgsk" path="res://themes/progress_bar_theme.tres" id="22_e114d"]
-[ext_resource type="Theme" uid="uid://d4gsvekoqjros" path="res://themes/icon__menu_panel_theme.tres" id="22_thqh4"]
+[ext_resource type="Texture2D" uid="uid://b5he6l7cp7o27" path="res://assets/sprites/ui/Line 1.svg" id="19_lgf3s"]
+[ext_resource type="Theme" uid="uid://cqajmgbj0kgsk" path="res://assets/themes/progress_bar_theme.tres" id="22_e114d"]
+[ext_resource type="Theme" uid="uid://d4gsvekoqjros" path="res://assets/themes/icon__menu_panel_theme.tres" id="22_thqh4"]
 [ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="24_6ifc8"]
 [ext_resource type="PackedScene" uid="uid://cd0eiifggvfw7" path="res://models/Pinheiro.glb" id="31_ykpw4"]
 [ext_resource type="PackedScene" uid="uid://dwfryhap8b4mk" path="res://models/Pedra.glb" id="32_j1tq7"]
@@ -303,7 +303,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
+"update": 0,
 "values": [-500.0, 0.0]
 }
 
@@ -930,7 +930,6 @@ text = "3"
 label_settings = SubResource("LabelSettings_s2qer")
 
 [node name="In-gameUI" type="Control" parent="CanvasLayer" groups=["ui"]]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -950,7 +949,6 @@ theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 72
 
 [node name="Coins" type="PanelContainer" parent="CanvasLayer/In-gameUI/MarginContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -1017,8 +1015,8 @@ size_flags_vertical = 0
 theme = ExtResource("11_33po5")
 
 [node name="StartMenuUI" type="Control" parent="CanvasLayer" groups=["ui"]]
+visible = false
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -500.0
@@ -1162,8 +1160,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -500.0
-offset_right = 3598.0
-offset_bottom = 2304.0
+offset_right = 4964.0
+offset_bottom = 3072.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1361,8 +1359,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -578.0
-offset_right = 3520.0
-offset_bottom = 2304.0
+offset_right = 4886.0
+offset_bottom = 3072.0
 grow_horizontal = 2
 grow_vertical = 2
 

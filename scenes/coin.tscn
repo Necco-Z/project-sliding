@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxtexrjd3hr6k"]
 
-[ext_resource type="Script" path="res://script/Coin.gd" id="1_tm4ig"]
+[ext_resource type="Script" path="res://script-old/Coin.gd" id="1_tm4ig"]
 [ext_resource type="PackedScene" uid="uid://dlep30gq4qjru" path="res://models/moeda.glb" id="2_cxocs"]
 [ext_resource type="PackedScene" uid="uid://rqtuagw2gt4f" path="res://scenes/node_enabler.tscn" id="3_gcjqu"]
 
@@ -20,4 +20,4 @@ shape = SubResource("BoxShape3D_7vvdu")
 
 [node name="NodeEnabler" parent="." instance=ExtResource("3_gcjqu")]
 
-[connection signal="body_entered" from="." to="." method="coin_collected"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
