@@ -1350,4 +1350,4 @@ libraries = {
 
 [node name="NodeEnabler" parent="." instance=ExtResource("5_5vv1n")]
 
-[connection signal="body_entered" from="CollisionDetector" to="." method="player_collided"]
+[connection signal="body_entered" from="CollisionDetector" to="." method="_on_body_collided"]

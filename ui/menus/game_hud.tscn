@@ -9,7 +9,8 @@
 [ext_resource type="Theme" uid="uid://j3okp0fet333" path="res://assets/themes/pause_button_theme.tres" id="5_4fodc"]
 [ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="6_t3t1l"]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3ali"]
+[sub_resource type="LabelSettings" id="LabelSettings_ptd6b"]
+font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_s2qer"]
 font = ExtResource("6_t3t1l")
@@ -21,17 +22,11 @@ outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 [node name="GameHUD" instance=ExtResource("1_sx2td")]
 script = ExtResource("2_5x5tn")
 
-[node name="AnimationPlayer" parent="." index="0"]
-libraries = {
-"": SubResource("AnimationLibrary_f3ali")
-}
-
-[node name="ScoreBox" type="PanelContainer" parent="." index="1"]
-layout_mode = 2
+[node name="ScoreBox" type="PanelContainer" parent="." index="0"]
+layout_mode = 1
+anchors_preset = -1
 offset_left = 40.0
 offset_top = 72.0
-offset_right = 138.0
-offset_bottom = 128.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme = ExtResource("1_ie0vg")
@@ -44,8 +39,10 @@ theme_override_constants/separation = 8
 layout_mode = 2
 theme = ExtResource("2_5djrb")
 text = "XP"
+label_settings = SubResource("LabelSettings_ptd6b")
 
-[node name="Score" type="Label" parent="ScoreBox/Container" index="1"]
+[node name="ScoreLabel" type="Label" parent="ScoreBox/Container" index="1"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -53,15 +50,12 @@ theme = ExtResource("3_bim41")
 text = "0"
 horizontal_alignment = 2
 
-[node name="CoinsBox" type="PanelContainer" parent="." index="2"]
+[node name="CoinsBox" type="PanelContainer" parent="." index="1"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -37.5
 offset_top = 72.0
-offset_right = 37.5
-offset_bottom = 118.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -76,28 +70,30 @@ layout_mode = 2
 texture = ExtResource("4_5geno")
 expand_mode = 2
 
-[node name="Coins" type="Label" parent="CoinsBox/Container" index="1" groups=["labels"]]
+[node name="CoinsLabel" type="Label" parent="CoinsBox/Container" index="1"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("3_bim41")
 text = "0"
 metadata/_edit_use_anchors_ = true
 
-[node name="PauseButton" type="Button" parent="." index="3"]
+[node name="PauseButton" type="Button" parent="." index="2"]
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -100.0
-offset_top = 72.0
+offset_top = 66.0
 offset_right = -40.0
-offset_bottom = 132.0
+offset_bottom = 126.0
 grow_horizontal = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme = ExtResource("5_4fodc")
 
-[node name="PranksContainer" type="VBoxContainer" parent="." index="4"]
+[node name="PranksContainer" type="VBoxContainer" parent="." index="3"]
+unique_name_in_owner = true
 layout_mode = 2
 offset_left = 26.0
 offset_top = 157.0
@@ -107,7 +103,8 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 48
 
-[node name="Countdown" type="Label" parent="." index="5"]
+[node name="Countdown" type="Label" parent="." index="4"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -123,3 +120,10 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "3"
 label_settings = SubResource("LabelSettings_s2qer")
+
+[node name="Timer" type="Timer" parent="." index="5"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

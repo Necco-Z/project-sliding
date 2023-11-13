@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://dgpoj85psgkcl"]
+[gd_scene load_steps=2 format=3 uid="uid://dgpoj85psgkcl"]
+
+[ext_resource type="Script" path="res://scenes/main_game.gd" id="1_tpi3d"]
 
 [node name="MainGame" type="Node"]
+script = ExtResource("1_tpi3d")

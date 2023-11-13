@@ -1,28 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt8ohiqvrdwg4"]
+[gd_scene load_steps=7 format=3 uid="uid://dt8ohiqvrdwg4"]
 
 [ext_resource type="Script" path="res://ui/game_menus.gd" id="1_r1kp4"]
 [ext_resource type="PackedScene" uid="uid://bdsmndg54xjgb" path="res://ui/menus/game_hud.tscn" id="2_3eaex"]
 [ext_resource type="PackedScene" uid="uid://cg4jy1bjo2ysi" path="res://ui/menus/start_menu.tscn" id="3_guc3p"]
 [ext_resource type="PackedScene" uid="uid://btpfgj8syn123" path="res://ui/menus/end_game.tscn" id="4_jo2td"]
 [ext_resource type="PackedScene" uid="uid://du8ssy1227k34" path="res://ui/menus/pause_menu.tscn" id="5_sbgga"]
+[ext_resource type="PackedScene" uid="uid://cvb8ybsqrhqbg" path="res://ui/how_to_play.tscn" id="6_4w6xe"]
 
 [node name="GameMenus" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_r1kp4")
 
 [node name="GameHUD" parent="." instance=ExtResource("2_3eaex")]
 visible = false
+metadata/_edit_horizontal_guides_ = [56.0, 134.0]
 
 [node name="StartMenu" parent="." instance=ExtResource("3_guc3p")]
 visible = false
 
 [node name="EndGame" parent="." instance=ExtResource("4_jo2td")]
+visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_sbgga")]
+visible = false
 
+[node name="HowToPlay" parent="." instance=ExtResource("6_4w6xe")]
+visible = false
+
+[connection signal="countdown_finished" from="GameHUD" to="." method="_on_countdown_finished"]
 [connection signal="pause_pressed" from="GameHUD" to="." method="_on_pause_pressed"]
 [connection signal="configs_pressed" from="StartMenu" to="." method="_on_configs_pressed"]
 [connection signal="credits_pressed" from="StartMenu" to="." method="_on_credits_pressed"]
 [connection signal="exit_pressed" from="StartMenu" to="." method="_on_exit_pressed"]
 [connection signal="start_pressed" from="StartMenu" to="." method="_on_start_pressed"]
 [connection signal="tutorial_pressed" from="StartMenu" to="." method="_on_tutorial_pressed"]
-[connection signal="restart_pressed" from="EndGame" to="." method="_on_end_game_restart_pressed"]
+[connection signal="restart_pressed" from="EndGame" to="." method="_on_restart_pressed"]
+[connection signal="restart_pressed" from="PauseMenu" to="." method="_on_restart_pressed"]
+[connection signal="resume_pressed" from="PauseMenu" to="." method="_on_resume_pressed"]
+[connection signal="tutorial_closed" from="HowToPlay" to="." method="_on_tutorial_closed"]

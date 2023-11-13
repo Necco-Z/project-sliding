@@ -1,12 +1,12 @@
 extends StaticBody3D
 
-
-var game_run_handler
+signal player_collided
 
 
 func _ready():
-	game_run_handler = get_tree().get_nodes_in_group("handlers")[2]
+	owner.connect_obstacle(self)
 
 
-func player_collided(body):
-	game_run_handler.end_game()
+func _on_body_collided(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		player_collided.emit()

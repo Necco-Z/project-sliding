@@ -30,4 +30,4 @@ shape = SubResource("BoxShape3D_fdfsh")
 
 [node name="NodeEnabler" parent="." instance=ExtResource("3_lb7lm")]
 
-[connection signal="body_entered" from="CollisionDetector" to="." method="player_collided"]
+[connection signal="body_entered" from="CollisionDetector" to="." method="_on_body_collided"]

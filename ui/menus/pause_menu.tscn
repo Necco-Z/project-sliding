@@ -33,44 +33,51 @@ grow_vertical = 2
 texture = ExtResource("2_85pre")
 expand_mode = 3
 
-[node name="TopLeftLabels" type="HBoxContainer" parent="." index="2"]
+[node name="Container" type="VBoxContainer" parent="." index="2"]
 layout_mode = 1
 anchors_preset = -1
+anchor_right = 0.35
+anchor_bottom = 1.0
 offset_left = 40.0
-offset_top = 40.0
+offset_top = 60.0
+offset_right = -40.0
+offset_bottom = -80.0
+
+[node name="TopLabels" type="HBoxContainer" parent="Container" index="0"]
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 24
 
-[node name="Coins" type="HBoxContainer" parent="TopLeftLabels" index="0"]
+[node name="Coins" type="HBoxContainer" parent="Container/TopLabels" index="0"]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="CoinsBox" type="PanelContainer" parent="TopLeftLabels/Coins" index="0"]
+[node name="CoinsBox" type="PanelContainer" parent="Container/TopLabels/Coins" index="0"]
 layout_mode = 2
 theme = ExtResource("3_0e7rs")
 
-[node name="CoinsIcon" type="TextureRect" parent="TopLeftLabels/Coins/CoinsBox" index="0"]
+[node name="CoinsIcon" type="TextureRect" parent="Container/TopLabels/Coins/CoinsBox" index="0"]
 layout_mode = 2
 texture = ExtResource("4_5rhab")
 expand_mode = 2
 
-[node name="CoinsLabel" type="Label" parent="TopLeftLabels/Coins" index="1"]
+[node name="CoinsLabel" type="Label" parent="Container/TopLabels/Coins" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("5_ctgi4")
 theme_override_font_sizes/font_size = 32
 text = "12"
 
-[node name="Score" type="HBoxContainer" parent="TopLeftLabels" index="1"]
+[node name="Score" type="HBoxContainer" parent="Container/TopLabels" index="1"]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="ScoreBox" type="PanelContainer" parent="TopLeftLabels/Score" index="0"]
+[node name="ScoreBox" type="PanelContainer" parent="Container/TopLabels/Score" index="0"]
 layout_mode = 2
 theme = ExtResource("3_0e7rs")
 
-[node name="ScoreText" type="Label" parent="TopLeftLabels/Score/ScoreBox" index="0"]
+[node name="ScoreText" type="Label" parent="Container/TopLabels/Score/ScoreBox" index="0"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -79,44 +86,37 @@ theme_override_colors/font_color = Color(0.470588, 0.396078, 0.917647, 1)
 theme_override_font_sizes/font_size = 32
 text = "XP"
 
-[node name="ScoreLabel" type="Label" parent="TopLeftLabels/Score" index="1"]
+[node name="ScoreLabel" type="Label" parent="Container/TopLabels/Score" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("5_ctgi4")
 theme_override_font_sizes/font_size = 32
 text = "320"
 
-[node name="Objectives" type="VBoxContainer" parent="." index="3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.35
-anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = 140.0
-offset_right = -40.0
-size_flags_horizontal = 5
-size_flags_vertical = 4
+[node name="Spacer" type="Control" parent="Container" index="1"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
 
-[node name="Label" type="Label" parent="Objectives" index="0"]
+[node name="ObjectiveLabel" type="Label" parent="Container" index="2"]
 layout_mode = 2
 theme = ExtResource("7_eccfc")
 text = "Objetivos"
 
-[node name="Separator" type="TextureRect" parent="Objectives" index="1"]
+[node name="Separator" type="TextureRect" parent="Container" index="3"]
 layout_mode = 2
 texture = ExtResource("8_cfhm6")
 
-[node name="Spacer" type="MarginContainer" parent="Objectives" index="2"]
-layout_mode = 2
-theme_override_constants/margin_bottom = 16
-
-[node name="Obj1Container" type="VBoxContainer" parent="Objectives" index="3"]
+[node name="Spacer2" type="Control" parent="Container" index="4"]
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
-[node name="Obj1HBox" type="HBoxContainer" parent="Objectives/Obj1Container" index="0"]
+[node name="Obj1Container" type="VBoxContainer" parent="Container" index="5"]
 layout_mode = 2
 
-[node name="Obj1Label" type="Label" parent="Objectives/Obj1Container/Obj1HBox" index="0"]
+[node name="Obj1HBox" type="HBoxContainer" parent="Container/Obj1Container" index="0"]
+layout_mode = 2
+
+[node name="Obj1Label" type="Label" parent="Container/Obj1Container/Obj1HBox" index="0"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("5_ctgi4")
@@ -124,65 +124,55 @@ text = "Colete 50 moedas"
 label_settings = SubResource("LabelSettings_hikhc")
 justification_flags = 160
 
-[node name="Obj1XP" type="Label" parent="Objectives/Obj1Container/Obj1HBox" index="1"]
+[node name="Obj1XP" type="Label" parent="Container/Obj1Container/Obj1HBox" index="1"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("9_0678m")
 text = "5000 xp"
 
-[node name="Obj1Bar" type="ProgressBar" parent="Objectives/Obj1Container" index="1"]
+[node name="Obj1Bar" type="ProgressBar" parent="Container/Obj1Container" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("10_fw3pv")
 
-[node name="Obj2Container" type="VBoxContainer" parent="Objectives" index="4"]
+[node name="Obj2Container" type="VBoxContainer" parent="Container" index="6"]
 layout_mode = 2
 
-[node name="Obj2Hbox" type="HBoxContainer" parent="Objectives/Obj2Container" index="0"]
+[node name="Obj2Hbox" type="HBoxContainer" parent="Container/Obj2Container" index="0"]
 layout_mode = 2
 
-[node name="Obj2Label" type="Label" parent="Objectives/Obj2Container/Obj2Hbox" index="0"]
+[node name="Obj2Label" type="Label" parent="Container/Obj2Container/Obj2Hbox" index="0"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("5_ctgi4")
 text = "Faça 15 pegadinhas"
 label_settings = SubResource("LabelSettings_hikhc")
 
-[node name="Obj2XP" type="Label" parent="Objectives/Obj2Container/Obj2Hbox" index="1"]
+[node name="Obj2XP" type="Label" parent="Container/Obj2Container/Obj2Hbox" index="1"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("9_0678m")
 text = "5000 xp"
 
-[node name="Obj2Bar" type="ProgressBar" parent="Objectives/Obj2Container" index="1"]
+[node name="Obj2Bar" type="ProgressBar" parent="Container/Obj2Container" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("10_fw3pv")
 
-[node name="Buttons" type="VBoxContainer" parent="." index="4"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 0.35
-anchor_bottom = 1.0
-offset_left = 40.0
-offset_right = -40.0
-offset_bottom = -80.0
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/separation = 16
+[node name="Spacer3" type="Control" parent="Container" index="7"]
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="ResumeButton" type="Button" parent="Buttons" index="0"]
+[node name="ResumeButton" type="Button" parent="Container" index="8"]
 layout_mode = 2
 theme = ExtResource("11_ewf75")
 text = "Retornar ao jogo"
 
-[node name="RestartButton" type="Button" parent="Buttons" index="1"]
+[node name="RestartButton" type="Button" parent="Container" index="9"]
 layout_mode = 2
 theme = ExtResource("11_ewf75")
 text = "Retornar ao menu principal"
 
-[connection signal="pressed" from="Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="Buttons/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Container/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Container/RestartButton" to="." method="_on_restart_button_pressed"]

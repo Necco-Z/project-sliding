@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvb8ybsqrhqbg"]
+
+[ext_resource type="Script" path="res://ui/how_to_play.gd" id="1_1ys3y"]
+[ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_4sruu"]
+[ext_resource type="PackedScene" uid="uid://8nl1pt32m6jn" path="res://ui/instruction_slide.tscn" id="1_fuwsn"]
+[ext_resource type="Texture2D" uid="uid://yf5dex4o7eba" path="res://assets/sprites/ui/tutorial_slide_1.png" id="2_o4hin"]
+[ext_resource type="Texture2D" uid="uid://uojvr01vx0re" path="res://assets/sprites/ui/tutorial_slide_2.png" id="3_4e7gm"]
+[ext_resource type="Texture2D" uid="uid://c5gs4bho6ie74" path="res://assets/sprites/ui/tutorial_slide_3.png" id="4_aflf6"]
+[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="5_v6j6w"]
+
+[node name="HowToPlay" instance=ExtResource("1_4sruu")]
+script = ExtResource("1_1ys3y")
+
+[node name="BG" type="ColorRect" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.172549, 0.172549, 0.188235, 1)
+
+[node name="Container" type="VBoxContainer" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Slides" type="HBoxContainer" parent="Container" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Slide1" parent="Container/Slides" index="0" instance=ExtResource("1_fuwsn")]
+layout_mode = 2
+image = ExtResource("2_o4hin")
+title = "Evite obstáculos"
+description = "Se você colidir com um obstáculo, a corrida acaba"
+
+[node name="Slide2" parent="Container/Slides" index="1" instance=ExtResource("1_fuwsn")]
+layout_mode = 2
+image = ExtResource("3_4e7gm")
+title = "Movimente-se entre faixas"
+description = "Utilize as setas do teclado para se movimentar para os lados"
+
+[node name="Slide3" parent="Container/Slides" index="2" instance=ExtResource("1_fuwsn")]
+layout_mode = 2
+image = ExtResource("4_aflf6")
+title = "Faça pegadinhas"
+description = "Obtenha pontos extras ao desviar no momento certo"
+
+[node name="GoBack" type="Button" parent="Container" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("5_v6j6w")
+text = "Voltar ao menu principal"
+
+[connection signal="pressed" from="Container/GoBack" to="." method="_on_go_back_pressed"]

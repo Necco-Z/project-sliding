@@ -2,11 +2,11 @@
 
 [ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="1_83aqr"]
 [ext_resource type="Script" path="res://script-old/como jogar.gd" id="1_tcxhy"]
-[ext_resource type="Texture2D" uid="uid://yf5dex4o7eba" path="res://assets/sprites/ui/Mask group-1.png" id="2_04lkw"]
-[ext_resource type="Texture2D" uid="uid://c5gs4bho6ie74" path="res://assets/sprites/ui/Mask group-2.png" id="3_66xnm"]
+[ext_resource type="Texture2D" uid="uid://yf5dex4o7eba" path="res://assets/sprites/ui/tutorial_slide_1.png" id="2_04lkw"]
+[ext_resource type="Texture2D" uid="uid://c5gs4bho6ie74" path="res://assets/sprites/ui/tutorial_slide_3.png" id="3_66xnm"]
 [ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="3_ageoe"]
 [ext_resource type="FontFile" uid="uid://bee2g0rtgatvm" path="res://fonts/Poppins-Medium.ttf" id="4_qltqw"]
-[ext_resource type="Texture2D" uid="uid://uojvr01vx0re" path="res://assets/sprites/ui/Mask group.png" id="4_sifay"]
+[ext_resource type="Texture2D" uid="uid://uojvr01vx0re" path="res://assets/sprites/ui/tutorial_slide_2.png" id="4_sifay"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bti6"]
 bg_color = Color(0.470588, 0.396078, 0.917647, 1)

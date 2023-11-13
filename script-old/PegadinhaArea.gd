@@ -1,5 +1,6 @@
 extends Area3D
 
+signal prank_completed
 
 @export var prank_punctuation:int = 1
 @export var prank_description:String = "Boneco de neve"

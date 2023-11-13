@@ -2,10 +2,10 @@ extends "res://scripts/classes/menus.gd"
 
 signal restart_pressed
 
-@onready var obj1_bar = $Container/Objectives/Obj1Bar as ProgressBar
-@onready var obj2_bar = $Container/Objectives/Obj2Bar as ProgressBar
-@onready var coins_label = $Container/Coins/CoinsLabel as Label
-@onready var score_label = $Container/Score/ScoreLabel as Label
+@onready var obj1_bar = %Obj1Bar as ProgressBar
+@onready var obj2_bar = %Obj2Bar as ProgressBar
+@onready var coins_label = %CoinsLabel as Label
+@onready var score_label = %ScoreLabel as Label
 
 
 func update_coins(value: int) -> void:

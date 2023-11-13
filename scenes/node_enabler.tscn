@@ -4,16 +4,16 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqmya"]
 
-[node name="NodeEnabler" type="Node3D"]
-process_mode = 3
-script = ExtResource("1_f074p")
-
-[node name="Area3D" type="Area3D" parent="."]
+[node name="NodeEnabler" type="Area3D"]
 collision_layer = 0
 collision_mask = 128
+script = ExtResource("1_f074p")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_vqmya")
 
-[connection signal="area_entered" from="Area3D" to="." method="enable_node"]
-[connection signal="area_exited" from="Area3D" to="." method="behind_player"]
+[node name="NodeEnabler" type="Node3D" parent="."]
+process_mode = 3
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

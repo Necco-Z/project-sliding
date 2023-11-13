@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://8nl1pt32m6jn"]
+
+[ext_resource type="Script" path="res://ui/instruction_slide.gd" id="1_s2f63"]
+[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="2_notvf"]
+[ext_resource type="FontFile" uid="uid://bee2g0rtgatvm" path="res://fonts/Poppins-Medium.ttf" id="3_13ped"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bti6"]
+bg_color = Color(0.470588, 0.396078, 0.917647, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.470588, 0.396078, 0.917647, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Theme" id="Theme_sd4jg"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_2bti6")
+
+[sub_resource type="Theme" id="Theme_ux3pv"]
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("2_notvf")
+
+[sub_resource type="Theme" id="Theme_fulmf"]
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("3_13ped")
+
+[node name="InstructionSlide" type="VBoxContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+script = ExtResource("1_s2f63")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_sd4jg")
+
+[node name="Image" type="TextureRect" parent="Panel"]
+custom_minimum_size = Vector2(318, 391)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_ux3pv")
+text = "Título"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 6
+theme = SubResource("Theme_fulmf")
+text = "Subtítulo"
+horizontal_alignment = 1
+autowrap_mode = 2

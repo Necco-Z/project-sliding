@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cg4jy1bjo2ysi"]
+[gd_scene load_steps=10 format=3 uid="uid://cg4jy1bjo2ysi"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_teysb"]
 [ext_resource type="Script" path="res://ui/menus/start_menu.gd" id="2_1vfgs"]
@@ -9,96 +9,6 @@
 [ext_resource type="Theme" uid="uid://dcgvgel77iwan" path="res://assets/themes/objective_xp_theme.tres" id="6_7witb"]
 [ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="7_xrxye"]
 
-[sub_resource type="Animation" id="Animation_04fr5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:anchor_left")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:anchor_right")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-
-[sub_resource type="Animation" id="Animation_ubi2j"]
-resource_name = "show"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:anchor_left")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-1.0, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:anchor_right")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_qsuml"]
-resource_name = "hide"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:anchor_left")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:anchor_right")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_64xfj"]
-_data = {
-"RESET": SubResource("Animation_04fr5"),
-"hide": SubResource("Animation_qsuml"),
-"show": SubResource("Animation_ubi2j")
-}
-
 [sub_resource type="LabelSettings" id="LabelSettings_hikhc"]
 font_size = 24
 font_color = Color(0.956863, 0.956863, 0.956863, 1)
@@ -108,12 +18,7 @@ outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 anchors_preset = -1
 script = ExtResource("2_1vfgs")
 
-[node name="AnimationPlayer" parent="." index="0"]
-libraries = {
-"": SubResource("AnimationLibrary_64xfj")
-}
-
-[node name="BG" type="TextureRect" parent="." index="1"]
+[node name="BG" type="TextureRect" parent="." index="0"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.43
@@ -123,31 +28,33 @@ grow_vertical = 2
 texture = ExtResource("2_haeu6")
 expand_mode = 3
 
-[node name="Objectives" type="VBoxContainer" parent="." index="2"]
+[node name="Container" type="VBoxContainer" parent="." index="1"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.35
+anchor_bottom = 1.0
 offset_left = 40.0
 offset_top = 60.0
 offset_right = -40.0
+offset_bottom = -80.0
 
-[node name="ObjectivesLabel" type="Label" parent="Objectives" index="0"]
+[node name="ObjectivesLabel" type="Label" parent="Container" index="0"]
 layout_mode = 2
 theme = ExtResource("3_30vsm")
 text = "Objetivos"
 
-[node name="Separator" type="TextureRect" parent="Objectives" index="1"]
+[node name="Separator" type="TextureRect" parent="Container" index="1"]
 layout_mode = 2
 texture = ExtResource("4_y6mgq")
 
-[node name="Spacer" type="MarginContainer" parent="Objectives" index="2"]
-layout_mode = 2
-theme_override_constants/margin_bottom = 16
-
-[node name="Obj1" type="HBoxContainer" parent="Objectives" index="3"]
+[node name="Spacer" type="Control" parent="Container" index="2"]
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
-[node name="Obj1Label" type="Label" parent="Objectives/Obj1" index="0"]
+[node name="Obj1" type="HBoxContainer" parent="Container" index="3"]
+layout_mode = 2
+
+[node name="Obj1Label" type="Label" parent="Container/Obj1" index="0"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("5_tq0sf")
@@ -155,75 +62,69 @@ text = "Colete 50 moedas"
 label_settings = SubResource("LabelSettings_hikhc")
 justification_flags = 160
 
-[node name="Obj1XP" type="Label" parent="Objectives/Obj1" index="1"]
+[node name="Obj1XP" type="Label" parent="Container/Obj1" index="1"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("6_7witb")
 text = "5000 xp"
 
-[node name="Obj2" type="HBoxContainer" parent="Objectives" index="4"]
+[node name="Obj2" type="HBoxContainer" parent="Container" index="4"]
 layout_mode = 2
 
-[node name="Obj2Label" type="Label" parent="Objectives/Obj2" index="0"]
+[node name="Obj2Label" type="Label" parent="Container/Obj2" index="0"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("5_tq0sf")
 text = "Faça 15 pegadinhas"
 label_settings = SubResource("LabelSettings_hikhc")
 
-[node name="Obj2XP" type="Label" parent="Objectives/Obj2" index="1"]
+[node name="Obj2XP" type="Label" parent="Container/Obj2" index="1"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("6_7witb")
 text = "5000 xp"
 
-[node name="Buttons" type="VBoxContainer" parent="." index="3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 0.35
-anchor_bottom = 1.0
-offset_bottom = -80.0
-grow_vertical = 0
-size_flags_vertical = 8
+[node name="Spacer2" type="Control" parent="Container" index="5"]
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="StartButton" type="Button" parent="Buttons" index="0"]
+[node name="StartButton" type="Button" parent="Container" index="6"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("7_xrxye")
 text = "Iniciar jogo"
 
-[node name="TutorialButton" type="Button" parent="Buttons" index="1"]
+[node name="TutorialButton" type="Button" parent="Container" index="7"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("7_xrxye")
 text = "Como jogar"
 
-[node name="CreditsButton" type="Button" parent="Buttons" index="2"]
+[node name="CreditsButton" type="Button" parent="Container" index="8"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("7_xrxye")
 text = "Créditos"
 
-[node name="ConfigsButton" type="Button" parent="Buttons" index="3"]
+[node name="ConfigsButton" type="Button" parent="Container" index="9"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("7_xrxye")
 text = "Configurações"
 
-[node name="ExitButton" type="Button" parent="Buttons" index="4"]
+[node name="ExitButton" type="Button" parent="Container" index="10"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("7_xrxye")
 text = "Fechar jogo"
 
-[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Buttons/TutorialButton" to="." method="_on_tutorial_button_pressed"]
-[connection signal="pressed" from="Buttons/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="Buttons/ConfigsButton" to="." method="_on_config_button_pressed"]
-[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Container/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Container/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="Container/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Container/ConfigsButton" to="." method="_on_config_button_pressed"]
+[connection signal="pressed" from="Container/ExitButton" to="." method="_on_exit_button_pressed"]

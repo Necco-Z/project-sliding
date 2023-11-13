@@ -6,7 +6,7 @@ signal coin_collected
 
 
 func _ready() -> void:
-	pass
+	owner.connect_coin(self)
 
 
 func _physics_process(_delta) -> void:

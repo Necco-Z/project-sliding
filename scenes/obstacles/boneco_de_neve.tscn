@@ -36,7 +36,6 @@ prank_punctuation = 200
 shape = SubResource("BoxShape3D_03h80")
 
 [node name="CollisionDetector" type="Area3D" parent="."]
-visible = false
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionDetector"]
@@ -44,4 +43,4 @@ shape = SubResource("BoxShape3D_c1rrr")
 
 [node name="NodeEnabler" parent="." instance=ExtResource("4_tut0n")]
 
-[connection signal="body_entered" from="CollisionDetector" to="." method="player_collided"]
+[connection signal="body_entered" from="CollisionDetector" to="." method="_on_body_collided"]

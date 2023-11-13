@@ -1,5 +1,7 @@
 extends Node
 
+signal prank_changed(text: String)
+
 
 var punctuation_label
 
@@ -8,8 +10,6 @@ var coins_panel
 var coins_timer
 
 var prank_area
-
-var prank_scene = preload("res://scenes/labels/label_new_prank.tscn")
 
 var animation_player_canvas
 
@@ -22,6 +22,10 @@ func _ready():
 	punctuation_label = labels[1]
 	prank_area = labels[2]
 	animation_player_canvas = get_tree().get_nodes_in_group("animation_player")[1]
+	print(coins_label.name)
+	print(coins_panel.name)
+	print(coins_timer.name)
+	print(punctuation_label.name)
 
 
 func change_punctuation_label(value:int):
@@ -29,9 +33,7 @@ func change_punctuation_label(value:int):
 
 
 func new_prank_label(description:String):
-	var instantiated_prank_label = prank_scene.instantiate()
-	instantiated_prank_label.get_node("HBoxContainer").get_node("Punctuation").set_text(description)
-	prank_area.add_child(instantiated_prank_label)
+	prank_changed.emit(description)
 
 
 func change_coin_label(value:int):

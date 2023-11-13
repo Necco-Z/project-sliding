@@ -16,14 +16,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if !game_running:
-		return
-
-	punctuation_step += 1
-	if punctuation_step >= 5:
-		punctuation += 1
-		punctuation_step = 0
-		canvas_handler.change_punctuation_label(punctuation)
+	pass
 
 
 func prank_punctuation(new_punctuation:int, new_prank_description:String):
@@ -37,12 +30,6 @@ func objective_punctuation(new_punctuation, objective_description):
 	punctuation += new_punctuation
 	canvas_handler.change_punctuation_label(punctuation)
 	canvas_handler.new_prank_label(objective_description)
-
-
-func coin_collected():
-	coins += 1
-	canvas_handler.change_coin_label(coins)
-	objective_handler.verify_coins(coins)
 
 
 func stop_game():
