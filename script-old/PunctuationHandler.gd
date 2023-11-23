@@ -20,10 +20,7 @@ func _physics_process(delta):
 
 
 func prank_punctuation(new_punctuation:int, new_prank_description:String):
-	punctuation += new_punctuation
-	canvas_handler.change_punctuation_label(punctuation)
-	canvas_handler.new_prank_label(new_prank_description)
-	objective_handler.add_prank()
+	pass
 
 
 func objective_punctuation(new_punctuation, objective_description):

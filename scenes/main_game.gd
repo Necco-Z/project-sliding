@@ -1,19 +1,20 @@
 extends Node
 
-var coins := 0
+var is_running := false :
+	set = _set_running
 
 @onready var game_menus := $GameMenus as CanvasLayer
 
 # Variáveis para refatorar
-@onready var character := $Jogador as CharacterBody3D
+@onready var player := $Player as CharacterBody3D
 @onready var camera := $Camera3D as Camera3D
 @onready var node_enabler_detector := $NodeEnablerDetector as Node3D
-@onready var punctuation_handler := $Handlers/PunctuationHandler as Node
 
 
 ### Funções herdadas (_init, _ready e outras)
 func _ready() -> void:
-	pass
+	ScoreData.coins_updated.connect(game_menus.update_coins)
+	ScoreData.score_updated.connect(game_menus.update_score)
 
 
 ### Funções públicas
@@ -23,31 +24,48 @@ func connect_coin(coin: Area3D) -> void:
 
 func connect_obstacle(obstacle: StaticBody3D) -> void:
 	obstacle.player_collided.connect(_on_player_collided)
+	if obstacle.has_signal("prank_executed"):
+		obstacle.prank_executed.connect(_on_prank_executed)
+
+
+func start_game() -> void:
+	ScoreData.reset_data()
+	game_menus.start_countdown()
 
 
 # Funções para refatorar
 func pause_components() -> void:
-	character.end_game()
+	player.end_game()
 	camera.end_game()
 	node_enabler_detector.end_game()
-	punctuation_handler.stop_game()
+	ScoreData.pause_score_timer()
 
 
 func start_components() -> void:
-	character.begin_game()
+	player.begin_game()
 	camera.begin_game()
 	node_enabler_detector.begin_game()
-	punctuation_handler.start_game()
+	ScoreData.start_score_timer()
 
 
+# Funções setter
+func _set_running(value: bool) -> void:
+	is_running = value
+	if value == true:
+		start_components()
+	else:
+		pause_components()
+
+
+# Funções de sinal
 func _on_pause_pressed() -> void:
 	game_menus.change_menu("PauseMenu")
-	pause_components()
+	is_running = false
 
 
 func _on_start_pressed():
 	game_menus.change_menu("GameHUD")
-	start_components()
+	game_menus.start_countdown()
 
 
 func _on_tutorial_pressed() -> void:
@@ -72,12 +90,22 @@ func _on_restart_pressed() -> void:
 
 func _on_resume_pressed() -> void:
 	game_menus.change_menu("GameHUD")
+	is_running = true
 
 
 func _on_coin_collected() -> void:
-	Score.add_coins()
-	game_menus.update_coins(Score.coins)
+	ScoreData.add_coins()
 
 
 func _on_player_collided() -> void:
-	print("Game ended")
+	pause_components()
+	game_menus.change_menu("EndGame")
+
+
+func _on_prank_executed(prank_score := 0, desc := "") -> void:
+	ScoreData.score += prank_score
+	game_menus.add_prank(prank_score, desc)
+
+
+func _on_countdown_finished() -> void:
+	is_running = true

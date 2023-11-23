@@ -31,7 +31,7 @@ func _physics_process(delta):
 	var character_will_move = switch_lanes()
 
 	if character_will_move and can_do_prank:
-		actual_prank_area.give_credits()
+		actual_prank_area.send_prank()
 
 	if moving_between_lanes:
 		velocity.z = direction * LANE_SWITCH_SPEED

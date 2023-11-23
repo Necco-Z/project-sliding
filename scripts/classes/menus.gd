@@ -14,7 +14,6 @@ func _ready() -> void:
 
 ### Funções públicas
 func show_menu(instant := false) -> void:
-	print("show ", name)
 	visible = true
 	if instant:
 		anchor_left = 0
@@ -28,7 +27,6 @@ func show_menu(instant := false) -> void:
 
 
 func hide_menu(instant := false) -> void:
-	print("hiding ", name)
 	if instant:
 		anchor_left = -1
 		anchor_right = 0

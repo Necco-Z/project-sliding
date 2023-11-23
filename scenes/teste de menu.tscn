@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://dvjvpdafxerwn"]
+[gd_scene load_steps=25 format=3 uid="uid://dvjvpdafxerwn"]
 
-[ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://scenes/jogador.tscn" id="1_1ts6d"]
+[ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://actors/player.tscn" id="1_1ts6d"]
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_hws7p"]
 [ext_resource type="Script" path="res://script-old/GameCamera.gd" id="2_v7y7e"]
 [ext_resource type="PackedScene" uid="uid://co8pmr34kfvs0" path="res://scenes/obstacles/boneco_de_neve.tscn" id="4_1r0qp"]
@@ -12,12 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bxtexrjd3hr6k" path="res://scenes/coin.tscn" id="8_j6nae"]
 [ext_resource type="PackedScene" uid="uid://ds1vfulxqv3xv" path="res://models/Bandeira_Chegada.tscn" id="10_0kxe8"]
 [ext_resource type="Texture2D" uid="uid://v4cgdqta0bhk" path="res://hdri/rocky_ridge_puresky_2k.hdr" id="10_t7arf"]
-[ext_resource type="Script" path="res://script-old/PunctuationHandler.gd" id="11_2r5tm"]
-[ext_resource type="Script" path="res://script-old/CanvasHandler.gd" id="11_amicf"]
-[ext_resource type="Script" path="res://script-old/GameRunHandler.gd" id="12_05k07"]
 [ext_resource type="PackedScene" uid="uid://dt8ohiqvrdwg4" path="res://ui/game_menus.tscn" id="12_itv2k"]
 [ext_resource type="PackedScene" uid="uid://gmox06l6ncsh" path="res://models/ch╞o.glb" id="16_8o2iv"]
-[ext_resource type="Script" path="res://script-old/ObjectivesHandler.gd" id="16_wvax5"]
 [ext_resource type="PackedScene" uid="uid://oq35gvly2ofl" path="res://models/montanha.glb" id="17_y0p02"]
 [ext_resource type="PackedScene" uid="uid://cd0eiifggvfw7" path="res://models/Pinheiro.glb" id="31_ykpw4"]
 [ext_resource type="PackedScene" uid="uid://dwfryhap8b4mk" path="res://models/Pedra.glb" id="32_j1tq7"]
@@ -51,7 +47,7 @@ volumetric_fog_density = 0.02
 [node name="World" type="Node"]
 script = ExtResource("1_hws7p")
 
-[node name="Jogador" parent="." instance=ExtResource("1_1ts6d")]
+[node name="Player" parent="." instance=ExtResource("1_1ts6d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.65, 0.227, 3)
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["main_camera"]]
@@ -633,20 +629,6 @@ light_color = Color(0.439216, 0.431373, 0.415686, 1)
 shadow_enabled = true
 
 [node name="GameMenus" parent="." instance=ExtResource("12_itv2k")]
-
-[node name="Handlers" type="Node" parent="."]
-
-[node name="PunctuationHandler" type="Node" parent="Handlers" groups=["handlers"]]
-script = ExtResource("11_2r5tm")
-
-[node name="CanvasHandler" type="Node" parent="Handlers" groups=["handlers"]]
-script = ExtResource("11_amicf")
-
-[node name="GameRunHandler" type="Node" parent="Handlers" groups=["handlers"]]
-script = ExtResource("12_05k07")
-
-[node name="ObjectivesHandler" type="Node" parent="Handlers" groups=["handlers"]]
-script = ExtResource("16_wvax5")
 
 [node name="chão" parent="." instance=ExtResource("16_8o2iv")]
 transform = Transform3D(-2.23348e-08, 0, -1, 0, 1, 0, 0.510961, 0, -4.37114e-08, 283.598, 5.886, 1.705)
@@ -1611,15 +1593,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 596.687, 6.27633, -20.427)
 
 [node name="NodeEnabler" parent="ObjetosDoCenario/Pedra63" instance=ExtResource("6_ims7l")]
 
-[connection signal="body_entered" from="Pistas/Area3D" to="Jogador" method="on_lane_entered" binds= [-2.117]]
-[connection signal="body_entered" from="Pistas/Area3D2" to="Jogador" method="on_lane_entered" binds= [3]]
-[connection signal="body_entered" from="Pistas/Area3D3" to="Jogador" method="on_lane_entered" binds= [7.797]]
-[connection signal="body_entered" from="Area3D" to="Handlers/GameRunHandler" method="end_game"]
+[connection signal="body_entered" from="Pistas/Area3D" to="Player" method="on_lane_entered" binds= [-2.117]]
+[connection signal="body_entered" from="Pistas/Area3D2" to="Player" method="on_lane_entered" binds= [3]]
+[connection signal="body_entered" from="Pistas/Area3D3" to="Player" method="on_lane_entered" binds= [7.797]]
 [connection signal="configs_pressed" from="GameMenus" to="." method="_on_configs_pressed"]
+[connection signal="countdown_finished" from="GameMenus" to="." method="_on_countdown_finished"]
 [connection signal="credits_pressed" from="GameMenus" to="." method="_on_credits_pressed"]
 [connection signal="exit_pressed" from="GameMenus" to="." method="_on_exit_pressed"]
 [connection signal="pause_pressed" from="GameMenus" to="." method="_on_pause_pressed"]
 [connection signal="restart_pressed" from="GameMenus" to="." method="_on_restart_pressed"]
 [connection signal="resume_pressed" from="GameMenus" to="." method="_on_resume_pressed"]
 [connection signal="start_pressed" from="GameMenus" to="." method="_on_start_pressed"]
-[connection signal="tutorial_pressed" from="GameMenus" to="." method="_on_tutorial_pressed"]

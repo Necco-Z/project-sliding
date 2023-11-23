@@ -21,7 +21,6 @@ script = ExtResource("1_3s2bc")
 [node name="boneco de neve" parent="." instance=ExtResource("1_8g5pr")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-visible = false
 shape = SubResource("BoxShape3D_ifbh3")
 
 [node name="PegadinhaArea" type="Area3D" parent="."]
@@ -30,7 +29,6 @@ collision_layer = 32
 collision_mask = 0
 monitoring = false
 script = ExtResource("2_ujb8l")
-prank_punctuation = 200
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PegadinhaArea"]
 shape = SubResource("BoxShape3D_03h80")
@@ -43,4 +41,5 @@ shape = SubResource("BoxShape3D_c1rrr")
 
 [node name="NodeEnabler" parent="." instance=ExtResource("4_tut0n")]
 
+[connection signal="prank_executed" from="PegadinhaArea" to="." method="_on_prank_executed"]
 [connection signal="body_entered" from="CollisionDetector" to="." method="_on_body_collided"]

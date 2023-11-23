@@ -2,7 +2,6 @@ extends CanvasLayer
 
 signal pause_pressed
 signal start_pressed
-signal tutorial_pressed
 signal credits_pressed
 signal configs_pressed
 signal exit_pressed
@@ -28,6 +27,8 @@ func _ready() -> void:
 
 ### Funções públicas
 func change_menu(to: String, instant := false) -> void:
+	if current_menu and current_menu.name == to:
+		return
 	for i in get_children():
 		if i is Control and i.name == to:
 			if current_menu:
@@ -70,6 +71,10 @@ func update_score(value: int) -> void:
 
 func start_countdown() -> void:
 	game_hud.start_countdown()
+
+
+func add_prank(score := 0, text := "") -> void:
+	game_hud.add_prank(score, text)
 
 
 ### Funções de sinal dos menus

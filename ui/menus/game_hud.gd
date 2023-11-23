@@ -33,10 +33,10 @@ func update_coins(value: int) -> void:
 	coins_label.text = str(value)
 
 
-func add_prank(text := "") -> void:
+func add_prank(score, text) -> void:
 	var p = prank_scene.instantiate()
 	pranks_container.add_child(p)
-	p.start_anim(text)
+	p.start_anim("+" + str(score) + " " + text)
 
 
 func start_countdown() -> void:
