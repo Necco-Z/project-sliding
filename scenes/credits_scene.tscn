@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://script-old/config_scene.gd" id="1_td8ca"]
 [ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="2_27u0f"]
 [ext_resource type="FontFile" uid="uid://bee2g0rtgatvm" path="res://fonts/Poppins-Medium.ttf" id="3_d4m71"]
-[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://themes/button_theme.tres" id="4_wgifn"]
+[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="4_wgifn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5hf2"]
 bg_color = Color(0.470588, 0.396078, 0.917647, 1)

@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://ds1vfulxqv3xv"]
+[gd_scene load_steps=10 format=3 uid="uid://ds1vfulxqv3xv"]
 
-[ext_resource type="Texture2D" uid="uid://c6lhwmp4lseq5" path="res://models/chão_MadeiraTextura.png" id="1_f435n"]
-[ext_resource type="PackedScene" uid="uid://rqtuagw2gt4f" path="res://scenes/node_enabler.tscn" id="2_qdn65"]
+[ext_resource type="Texture2D" uid="uid://c6lhwmp4lseq5" path="res://models/ch╞o_MadeiraTextura.png" id="1_f435n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dx5ou"]
+size = Vector3(1, 7, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpgip"]
 resource_name = "PretoBandeira"
@@ -105,42 +107,25 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2gu1j")
 
-[sub_resource type="Animation" id="Animation_nrwuy"]
-resource_name = "Bandeira"
+[node name="EndFlag" type="Area3D"]
 
-[sub_resource type="Animation" id="Animation_gb6ts"]
-resource_name = "Madeira1_Bandeira"
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+shape = SubResource("BoxShape3D_dx5ou")
 
-[sub_resource type="Animation" id="Animation_h3lkd"]
-resource_name = "Madeira2_Bandeira"
+[node name="Object" type="Node3D" parent="."]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_oyg2w"]
-_data = {
-"Bandeira": SubResource("Animation_nrwuy"),
-"Madeira1_Bandeira": SubResource("Animation_gb6ts"),
-"Madeira2_Bandeira": SubResource("Animation_h3lkd")
-}
-
-[node name="Bandeira_Chegada" type="Node3D"]
-
-[node name="Bandeira" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 8.33617, 7.45147)
+[node name="Bandeira" type="MeshInstance3D" parent="Object"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 8.93526, 0)
 mesh = SubResource("ArrayMesh_3q3um")
 skeleton = NodePath("")
 
-[node name="Madeira1_Bandeira" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.462067, 0, 0, 0, 5.17938, 0, 0, 0, 0.462067, 0, 5.16037, -2.2119)
+[node name="Madeira1_Bandeira" type="MeshInstance3D" parent="Object"]
+transform = Transform3D(0.462067, 0, 0, 0, 5.17938, 0, 0, 0, 0.462067, 0, 5.16037, -10.0528)
 mesh = SubResource("ArrayMesh_qdn4i")
 skeleton = NodePath("")
 
-[node name="Madeira2_Bandeira" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.462067, 0, 0, 0, 5.17938, 0, 0, 0, 0.462067, 0, 5.16037, 17.144)
+[node name="Madeira2_Bandeira" type="MeshInstance3D" parent="Object"]
+transform = Transform3D(0.462067, 0, 0, 0, 5.17938, 0, 0, 0, 0.462067, 0, 5.16037, 10.0921)
 mesh = SubResource("ArrayMesh_qdn4i")
 skeleton = NodePath("")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_oyg2w")
-}
-
-[node name="NodeEnabler" parent="." instance=ExtResource("2_qdn65")]

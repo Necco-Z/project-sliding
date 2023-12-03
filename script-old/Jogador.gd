@@ -71,7 +71,7 @@ func switch_lanes():
 		return true
 
 
-func on_lane_entered(body, position_z):
+func on_lane_entered(_body, position_z):
 	position = Vector3(position.x, position.y, position_z)
 	moving_between_lanes = false
 
@@ -83,7 +83,7 @@ func prank_available(area):
 		animation_player.play("Prank_available")
 
 
-func prank_unavailable(area):
+func prank_unavailable(_area):
 	actual_prank_area = null
 	can_do_prank = false
 	prank_warning.set_visible(false)

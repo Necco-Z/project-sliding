@@ -8,7 +8,7 @@ var is_running := false :
 # Variáveis para refatorar
 @onready var player := $Player as CharacterBody3D
 @onready var camera := $Camera3D as Camera3D
-@onready var node_enabler_detector := $NodeEnablerDetector as Node3D
+@onready var end_flag := $EndFlag as Area3D
 
 
 ### Funções herdadas (_init, _ready e outras)
@@ -37,14 +37,14 @@ func start_game() -> void:
 func pause_components() -> void:
 	player.end_game()
 	camera.end_game()
-	node_enabler_detector.end_game()
+	end_flag.set_deferred("monitoring", false)
 	ScoreData.pause_score_timer()
 
 
 func start_components() -> void:
 	player.begin_game()
 	camera.begin_game()
-	node_enabler_detector.begin_game()
+	end_flag.set_deferred("monitoring", true)
 	ScoreData.start_score_timer()
 
 
@@ -109,3 +109,9 @@ func _on_prank_executed(prank_score := 0, desc := "") -> void:
 
 func _on_countdown_finished() -> void:
 	is_running = true
+
+
+func _on_end_flag_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		is_running = false
+		game_menus.change_menu("EndGame")
