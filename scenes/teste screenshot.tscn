@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://djwqsilrifohg"]
 
-[ext_resource type="PackedScene" uid="uid://gmox06l6ncsh" path="res://models/chão.glb" id="4_oqosl"]
-[ext_resource type="Texture2D" uid="uid://v4cgdqta0bhk" path="res://hdri/rocky_ridge_puresky_2k.hdr" id="5_fhnl1"]
-[ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://scenes/jogador.tscn" id="5_j407l"]
+[ext_resource type="PackedScene" uid="uid://gmox06l6ncsh" path="res://models/ch╞o.glb" id="4_oqosl"]
+[ext_resource type="Texture2D" uid="uid://v4cgdqta0bhk" path="res://assets/hdri/rocky_ridge_puresky_2k.hdr" id="5_fhnl1"]
+[ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://actors/player.tscn" id="5_j407l"]
 [ext_resource type="Script" path="res://script/GameCamera.gd" id="6_s85ib"]
 [ext_resource type="PackedScene" uid="uid://co8pmr34kfvs0" path="res://scenes/obstacles/boneco_de_neve.tscn" id="7_iefyp"]
 

@@ -7,7 +7,7 @@
 [ext_resource type="Theme" uid="uid://bpjr4w8rmokgi" path="res://assets/themes/ingame_label_theme.tres" id="3_bim41"]
 [ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="4_5geno"]
 [ext_resource type="Theme" uid="uid://j3okp0fet333" path="res://assets/themes/pause_button_theme.tres" id="5_4fodc"]
-[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="6_t3t1l"]
+[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://assets/fonts/TitanOne-Regular.ttf" id="6_t3t1l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptd6b"]
 font_size = 36

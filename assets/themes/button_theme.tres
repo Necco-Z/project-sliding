@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=9 format=3 uid="uid://ces6mx84dvs8r"]
 
-[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="1_hyup8"]
+[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://assets/fonts/TitanOne-Regular.ttf" id="1_hyup8"]
 [ext_resource type="Texture2D" uid="uid://cipsxau0r6m4n" path="res://assets/sprites/ui/button_hover.png" id="2_tfhyl"]
 [ext_resource type="Texture2D" uid="uid://ckmj0dacvfl3x" path="res://assets/sprites/ui/button.png" id="2_wla1y"]
 [ext_resource type="Texture2D" uid="uid://cjhbtnsqdjm1c" path="res://assets/sprites/ui/button_pressed.png" id="4_4yvgp"]

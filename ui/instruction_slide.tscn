@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://8nl1pt32m6jn"]
 
 [ext_resource type="Script" path="res://ui/instruction_slide.gd" id="1_s2f63"]
-[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://fonts/TitanOne-Regular.ttf" id="2_notvf"]
-[ext_resource type="FontFile" uid="uid://bee2g0rtgatvm" path="res://fonts/Poppins-Medium.ttf" id="3_13ped"]
+[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://assets/fonts/TitanOne-Regular.ttf" id="2_notvf"]
+[ext_resource type="FontFile" uid="uid://bee2g0rtgatvm" path="res://assets/fonts/Poppins-Medium.ttf" id="3_13ped"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bti6"]
 bg_color = Color(0.470588, 0.396078, 0.917647, 1)

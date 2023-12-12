@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cio1r68trlja7" path="res://scenes/obstacles/casa de neve.tscn" id="7_mpsqm"]
 [ext_resource type="PackedScene" uid="uid://bxtexrjd3hr6k" path="res://scenes/coin.tscn" id="8_j6nae"]
 [ext_resource type="PackedScene" uid="uid://ds1vfulxqv3xv" path="res://actors/end_flag.tscn" id="10_0kxe8"]
-[ext_resource type="Texture2D" uid="uid://v4cgdqta0bhk" path="res://hdri/rocky_ridge_puresky_2k.hdr" id="10_t7arf"]
+[ext_resource type="Texture2D" uid="uid://v4cgdqta0bhk" path="res://assets/hdri/rocky_ridge_puresky_2k.hdr" id="10_t7arf"]
 [ext_resource type="PackedScene" uid="uid://dt8ohiqvrdwg4" path="res://ui/game_menus.tscn" id="12_itv2k"]
 [ext_resource type="PackedScene" uid="uid://gmox06l6ncsh" path="res://models/ch╞o.glb" id="16_8o2iv"]
 [ext_resource type="PackedScene" uid="uid://oq35gvly2ofl" path="res://models/montanha.glb" id="17_y0p02"]

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bvw56ao238pl1"
-path="res://.godot/imported/Poppins-SemiBold.ttf-6ad75a87dc61f13eca65633816672b2e.fontdata"
+uid="uid://de0ya2u4i5x0q"
+path="res://.godot/imported/TitanOne-Regular.ttf-464d635f0aff86f04a099d6238fda35f.fontdata"
 
 [deps]
 
-source_file="res://fonts/Poppins-SemiBold.ttf"
-dest_files=["res://.godot/imported/Poppins-SemiBold.ttf-6ad75a87dc61f13eca65633816672b2e.fontdata"]
+source_file="res://assets/fonts/TitanOne-Regular.ttf"
+dest_files=["res://.godot/imported/TitanOne-Regular.ttf-464d635f0aff86f04a099d6238fda35f.fontdata"]
 
 [params]
 

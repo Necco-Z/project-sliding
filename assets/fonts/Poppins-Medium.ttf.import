@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bee2g0rtgatvm"
-path="res://.godot/imported/Poppins-Medium.ttf-8e4b1c762f63ba52afb732bb5e0b8b16.fontdata"
+path="res://.godot/imported/Poppins-Medium.ttf-fb4a27cb2db5c4369f75445ec2c05876.fontdata"
 
 [deps]
 
-source_file="res://fonts/Poppins-Medium.ttf"
-dest_files=["res://.godot/imported/Poppins-Medium.ttf-8e4b1c762f63ba52afb732bb5e0b8b16.fontdata"]
+source_file="res://assets/fonts/Poppins-Medium.ttf"
+dest_files=["res://.godot/imported/Poppins-Medium.ttf-fb4a27cb2db5c4369f75445ec2c05876.fontdata"]
 
 [params]
 

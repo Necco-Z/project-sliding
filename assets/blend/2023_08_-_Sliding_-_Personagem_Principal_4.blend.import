@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://lvk0gop8tsom"
-path="res://.godot/imported/2023_08_-_Sliding_-_Personagem_Principal_4.blend-f72df6b49c6a2ddb5ca2264c603b538a.scn"
+path="res://.godot/imported/2023_08_-_Sliding_-_Personagem_Principal_4.blend-9afac94c3b82576e89505708b06bfcfa.scn"
 
 [deps]
 
-source_file="res://blend/2023_08_-_Sliding_-_Personagem_Principal_4.blend"
-dest_files=["res://.godot/imported/2023_08_-_Sliding_-_Personagem_Principal_4.blend-f72df6b49c6a2ddb5ca2264c603b538a.scn"]
+source_file="res://assets/blend/2023_08_-_Sliding_-_Personagem_Principal_4.blend"
+dest_files=["res://.godot/imported/2023_08_-_Sliding_-_Personagem_Principal_4.blend-9afac94c3b82576e89505708b06bfcfa.scn"]
 
 [params]
 

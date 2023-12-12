@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://bpjr4w8rmokgi"]
 
-[ext_resource type="FontFile" uid="uid://bvw56ao238pl1" path="res://fonts/Poppins-SemiBold.ttf" id="1_wwxwo"]
+[ext_resource type="FontFile" uid="uid://bvw56ao238pl1" path="res://assets/fonts/Poppins-SemiBold.ttf" id="1_wwxwo"]
 
 [resource]
 Label/colors/font_color = Color(0.956863, 0.956863, 0.956863, 1)

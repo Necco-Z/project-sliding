@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyyif05003vul"
-path.s3tc="res://.godot/imported/fogo.png-eb230d1091da7f146c6709a004d48612.s3tc.ctex"
+path.s3tc="res://.godot/imported/fogo.png-2a6c176c8436d8a79d3e2fd54bf2dac8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://blend/textures/fogo.png"
-dest_files=["res://.godot/imported/fogo.png-eb230d1091da7f146c6709a004d48612.s3tc.ctex"]
+source_file="res://assets/blend/textures/fogo.png"
+dest_files=["res://.godot/imported/fogo.png-2a6c176c8436d8a79d3e2fd54bf2dac8.s3tc.ctex"]
 
 [params]
 
