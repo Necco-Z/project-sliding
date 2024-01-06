@@ -16,7 +16,7 @@
 [node name="EndGame" instance=ExtResource("1_0eo41")]
 script = ExtResource("2_qq6ao")
 
-[node name="BG" type="TextureRect" parent="." index="1"]
+[node name="BG" type="TextureRect" parent="." index="0"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.43
@@ -28,7 +28,7 @@ grow_vertical = 2
 texture = ExtResource("2_20xdo")
 expand_mode = 3
 
-[node name="Container" type="VBoxContainer" parent="." index="2"]
+[node name="Container" type="VBoxContainer" parent="." index="1"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.35

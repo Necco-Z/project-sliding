@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo6bak8i6rk68"]
+
+[ext_resource type="Script" path="res://test/menu_test.gd" id="1_rd4r6"]
+[ext_resource type="PackedScene" uid="uid://dt8ohiqvrdwg4" path="res://ui/game_menus.tscn" id="2_q705b"]
+
+[node name="MenuTest" type="Node"]
+script = ExtResource("1_rd4r6")
+
+[node name="GameMenus" parent="." instance=ExtResource("2_q705b")]
+
+[connection signal="configs_pressed" from="GameMenus" to="." method="_on_configs_pressed"]
+[connection signal="countdown_finished" from="GameMenus" to="." method="_on_countdown_finished"]
+[connection signal="credits_pressed" from="GameMenus" to="." method="_on_credits_pressed"]
+[connection signal="exit_pressed" from="GameMenus" to="." method="_on_exit_pressed"]
+[connection signal="pause_pressed" from="GameMenus" to="." method="_on_pause_pressed"]
+[connection signal="restart_pressed" from="GameMenus" to="." method="_on_restart_pressed"]
+[connection signal="resume_pressed" from="GameMenus" to="." method="_on_resume_pressed"]
+[connection signal="start_pressed" from="GameMenus" to="." method="_on_start_pressed"]
+[connection signal="tutorial_pressed" from="GameMenus" to="." method="_on_tutorial_pressed"]
+
+[editable path="GameMenus"]

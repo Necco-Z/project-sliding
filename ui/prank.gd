@@ -12,4 +12,8 @@ func start_anim(text := "Adicionar texto") -> void:
 	t.tween_interval(1.6)
 	t.tween_property(self, "modulate", Color.TRANSPARENT, 0.2)
 	await t.finished
-	queue_free()
+	var parent = get_parent()
+	if parent.has_method("remove_label"):
+		parent.remove_label(self)
+	else:
+		queue_free()

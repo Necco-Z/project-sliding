@@ -7,7 +7,7 @@ var prank_scene = preload("res://ui/prank.tscn")
 
 @onready var score_label := %ScoreLabel as Label
 @onready var coins_label := %CoinsLabel as Label
-@onready var pranks_container := %PranksContainer as VBoxContainer
+@onready var pranks_container := %PranksContainer as Control
 @onready var countdown := %Countdown as Label
 @onready var timer := $Timer as Timer
 
@@ -35,7 +35,7 @@ func update_coins(value: int) -> void:
 
 func add_prank(score, text) -> void:
 	var p = prank_scene.instantiate()
-	pranks_container.add_child(p)
+	pranks_container.add_label(p)
 	p.start_anim("+" + str(score) + " " + text)
 
 
