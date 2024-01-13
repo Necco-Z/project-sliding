@@ -2,8 +2,6 @@ extends CanvasLayer
 
 signal pause_pressed
 signal start_pressed
-signal credits_pressed
-signal configs_pressed
 signal exit_pressed
 signal restart_pressed
 signal resume_pressed
@@ -88,24 +86,12 @@ func _on_countdown_finished() -> void:
 
 
 # StartMenu
-func _on_configs_pressed() -> void:
-	configs_pressed.emit()
-
-
-func _on_credits_pressed() -> void:
-	credits_pressed.emit()
-
-
 func _on_exit_pressed() -> void:
 	exit_pressed.emit()
 
 
 func _on_start_pressed() -> void:
 	start_pressed.emit()
-
-
-func _on_tutorial_pressed() -> void:
-	open_submenu("HowToPlay")
 
 
 func _on_tutorial_closed() -> void:

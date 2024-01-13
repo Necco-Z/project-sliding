@@ -37,7 +37,6 @@ func add_prank(score, text) -> void:
 	var p = prank_scene.instantiate()
 	pranks_container.add_label(p)
 	p.start_anim("+" + str(score) + " " + text)
-	ScoreData.prank_total += 1
 
 
 func start_countdown() -> void:

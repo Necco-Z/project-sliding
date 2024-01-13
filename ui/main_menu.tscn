@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://d15awftd1p8gf"]
+
+[ext_resource type="Script" path="res://ui/main_menu.gd" id="1_drgtq"]
+[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="1_pq6mq"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_drgtq")
+game_scene_path = "res://scenes/main_game.tscn"
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.35
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 60.0
+offset_right = -40.0
+offset_bottom = -80.0
+alignment = 2
+
+[node name="StartButton" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("1_pq6mq")
+text = "Iniciar jogo"
+
+[node name="TutorialButton" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("1_pq6mq")
+text = "Como jogar"
+
+[node name="CreditsButton" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("1_pq6mq")
+text = "Créditos"
+
+[node name="ConfigsButton" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("1_pq6mq")
+text = "Configurações"
+
+[node name="ExitButton" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("1_pq6mq")
+text = "Fechar jogo"
+
+[node name="GameLogo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.45
+
+[connection signal="pressed" from="Container/StartButton" to="." method="_on_start_button_pressed"]

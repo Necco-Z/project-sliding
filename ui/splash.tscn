@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://b074prd4stcb4"]
+
+[ext_resource type="Script" path="res://ui/splash.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dh2x3emd5ouv3" path="res://assets/icon.svg" id="2_fr68x"]
+
+[node name="Splash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+next_scene = "res://ui/main_menu.tscn"
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logos" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Studio" type="TextureRect" parent="Logos"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fr68x")
+stretch_mode = 3

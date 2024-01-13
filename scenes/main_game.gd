@@ -1,5 +1,7 @@
 extends Node
 
+const MAIN_MENU = "res://ui/main_menu.tscn"
+
 var is_running := false :
 	set = _set_running
 
@@ -13,6 +15,7 @@ var is_running := false :
 
 ### Funções herdadas (_init, _ready e outras)
 func _ready() -> void:
+	Fader.fade_in()
 	ScoreData.coins_updated.connect(game_menus.update_coins)
 	ScoreData.score_updated.connect(game_menus.update_score)
 
@@ -68,20 +71,10 @@ func _on_start_pressed():
 	game_menus.start_countdown()
 
 
-func _on_tutorial_pressed() -> void:
-	get_tree().change_scene_to_packed(load("res://scenes/como jogar.tscn")) # Revisar depois
-
-
-func _on_credits_pressed() -> void:
-	get_tree().change_scene_to_packed(load("res://scenes/credits_scene.tscn")) # Revisar depois
-
-
-func _on_configs_pressed() -> void:
-	get_tree().change_scene_to_packed(load("res://scenes/config_scene.tscn")) # Revisar depois
-
-
 func _on_exit_pressed():
-	get_tree().quit()
+	Fader.fade_out()
+	await Fader.fade_finished
+	get_tree().change_scene_to_file(MAIN_MENU)
 
 
 func _on_restart_pressed() -> void:
@@ -103,6 +96,7 @@ func _on_player_collided() -> void:
 
 
 func _on_prank_executed(prank_score := 0, desc := "") -> void:
+	ScoreData.prank_total += 1
 	ScoreData.score += prank_score
 	game_menus.add_prank(prank_score, desc)
 

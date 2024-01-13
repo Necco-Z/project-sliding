@@ -29,11 +29,8 @@ visible = false
 
 [connection signal="countdown_finished" from="GameHUD" to="." method="_on_countdown_finished"]
 [connection signal="pause_pressed" from="GameHUD" to="." method="_on_pause_pressed"]
-[connection signal="configs_pressed" from="StartMenu" to="." method="_on_configs_pressed"]
-[connection signal="credits_pressed" from="StartMenu" to="." method="_on_credits_pressed"]
 [connection signal="exit_pressed" from="StartMenu" to="." method="_on_exit_pressed"]
 [connection signal="start_pressed" from="StartMenu" to="." method="_on_start_pressed"]
-[connection signal="tutorial_pressed" from="StartMenu" to="." method="_on_tutorial_pressed"]
 [connection signal="restart_pressed" from="EndGame" to="." method="_on_restart_pressed"]
 [connection signal="restart_pressed" from="PauseMenu" to="." method="_on_restart_pressed"]
 [connection signal="resume_pressed" from="PauseMenu" to="." method="_on_resume_pressed"]

@@ -93,38 +93,14 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("7_xrxye")
-text = "Iniciar jogo"
+text = "Começar"
 
-[node name="TutorialButton" type="Button" parent="Container" index="7"]
+[node name="ExitButton" type="Button" parent="Container" index="7"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("7_xrxye")
-text = "Como jogar"
-
-[node name="CreditsButton" type="Button" parent="Container" index="8"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("7_xrxye")
-text = "Créditos"
-
-[node name="ConfigsButton" type="Button" parent="Container" index="9"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("7_xrxye")
-text = "Configurações"
-
-[node name="ExitButton" type="Button" parent="Container" index="10"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("7_xrxye")
-text = "Fechar jogo"
+text = "Voltar ao menu"
 
 [connection signal="pressed" from="Container/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Container/TutorialButton" to="." method="_on_tutorial_button_pressed"]
-[connection signal="pressed" from="Container/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="Container/ConfigsButton" to="." method="_on_config_button_pressed"]
 [connection signal="pressed" from="Container/ExitButton" to="." method="_on_exit_button_pressed"]
