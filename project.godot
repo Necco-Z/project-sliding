@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 ScoreData="*res://scripts/autoloads/score_data.tscn"
+Fader="*res://scripts/autoloads/fader.tscn"
 
 [debug]
 

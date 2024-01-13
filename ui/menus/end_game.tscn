@@ -75,6 +75,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("7_3073i")
+max_value = 1.0
 
 [node name="Obj2Container" type="VBoxContainer" parent="Container" index="4"]
 layout_mode = 2
@@ -98,6 +99,7 @@ text = "5000 xp"
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("7_3073i")
+max_value = 1.0
 
 [node name="Spacer2" type="Control" parent="Container" index="5"]
 custom_minimum_size = Vector2(0, 16)

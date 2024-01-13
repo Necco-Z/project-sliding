@@ -17,6 +17,7 @@ var score: int :
 	set = _set_score
 var coins: int :
 	set = _set_coins
+var prank_total: int
 
 ### variáveis privadas
 
@@ -53,6 +54,7 @@ func set_score_interval(value: float) -> void:
 func reset_data() -> void:
 	score = 0
 	coins = 0
+	prank_total = 0
 
 
 ### funções privadas
