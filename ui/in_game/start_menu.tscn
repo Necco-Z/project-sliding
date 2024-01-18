@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=3 uid="uid://cg4jy1bjo2ysi"]
+
+[ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_teysb"]
+[ext_resource type="Script" path="res://ui/in_game/start_menu.gd" id="2_1vfgs"]
+[ext_resource type="Texture2D" uid="uid://dj78t7fk71vl0" path="res://assets/sprites/ui/menu_background.png" id="2_haeu6"]
+[ext_resource type="Theme" uid="uid://cgi8bxd4ey6hu" path="res://assets/themes/title_theme.tres" id="3_30vsm"]
+[ext_resource type="Texture2D" uid="uid://b5he6l7cp7o27" path="res://assets/sprites/ui/Line 1.svg" id="4_y6mgq"]
+[ext_resource type="Theme" uid="uid://b4q7bpijyr7ol" path="res://assets/themes/Objective_label_theme.tres" id="5_tq0sf"]
+[ext_resource type="Theme" uid="uid://dcgvgel77iwan" path="res://assets/themes/objective_xp_theme.tres" id="6_7witb"]
+[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="7_xrxye"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hikhc"]
+font_size = 24
+font_color = Color(0.956863, 0.956863, 0.956863, 1)
+outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+
+[node name="StartMenu" instance=ExtResource("1_teysb")]
+anchors_preset = -1
+script = ExtResource("2_1vfgs")
+
+[node name="BG" type="TextureRect" parent="." index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.43
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_haeu6")
+expand_mode = 3
+
+[node name="Container" type="VBoxContainer" parent="." index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.35
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 60.0
+offset_right = -40.0
+offset_bottom = -80.0
+
+[node name="ObjectivesLabel" type="Label" parent="Container" index="0"]
+layout_mode = 2
+theme = ExtResource("3_30vsm")
+text = "Objetivos"
+
+[node name="Separator" type="TextureRect" parent="Container" index="1"]
+layout_mode = 2
+texture = ExtResource("4_y6mgq")
+
+[node name="Spacer" type="Control" parent="Container" index="2"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Obj1" type="HBoxContainer" parent="Container" index="3"]
+layout_mode = 2
+
+[node name="Obj1Label" type="Label" parent="Container/Obj1" index="0"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("5_tq0sf")
+text = "Colete 50 moedas"
+label_settings = SubResource("LabelSettings_hikhc")
+justification_flags = 160
+
+[node name="Obj1XP" type="Label" parent="Container/Obj1" index="1"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("6_7witb")
+text = "5000 xp"
+
+[node name="Obj2" type="HBoxContainer" parent="Container" index="4"]
+layout_mode = 2
+
+[node name="Obj2Label" type="Label" parent="Container/Obj2" index="0"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("5_tq0sf")
+text = "Faça 15 pegadinhas"
+label_settings = SubResource("LabelSettings_hikhc")
+
+[node name="Obj2XP" type="Label" parent="Container/Obj2" index="1"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("6_7witb")
+text = "5000 xp"
+
+[node name="Spacer2" type="Control" parent="Container" index="5"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartButton" type="Button" parent="Container" index="6"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("7_xrxye")
+text = "Começar"
+
+[node name="ExitButton" type="Button" parent="Container" index="7"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("7_xrxye")
+text = "Voltar ao menu"
+
+[connection signal="pressed" from="Container/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Container/ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,0 +1,129 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdsmndg54xjgb"]
+
+[ext_resource type="Theme" uid="uid://dr5l2rte7t1uy" path="res://assets/themes/panel_ingame_menu_theme.tres" id="1_ie0vg"]
+[ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_sx2td"]
+[ext_resource type="Theme" uid="uid://bp21tk2vfowe5" path="res://assets/themes/xp_icon_theme.tres" id="2_5djrb"]
+[ext_resource type="Script" path="res://ui/in_game/game_hud.gd" id="2_5x5tn"]
+[ext_resource type="Theme" uid="uid://bpjr4w8rmokgi" path="res://assets/themes/ingame_label_theme.tres" id="3_bim41"]
+[ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="4_5geno"]
+[ext_resource type="Theme" uid="uid://j3okp0fet333" path="res://assets/themes/pause_button_theme.tres" id="5_4fodc"]
+[ext_resource type="FontFile" uid="uid://de0ya2u4i5x0q" path="res://assets/fonts/TitanOne-Regular.ttf" id="6_t3t1l"]
+[ext_resource type="Script" path="res://ui/in_game/pranks_container.gd" id="8_3r5pw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ptd6b"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_s2qer"]
+font = ExtResource("6_t3t1l")
+font_size = 60
+font_color = Color(0.996078, 0.384314, 0.113725, 1)
+outline_size = 10
+outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+
+[node name="GameHUD" instance=ExtResource("1_sx2td")]
+script = ExtResource("2_5x5tn")
+
+[node name="ScoreBox" type="PanelContainer" parent="." index="0"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 40.0
+offset_top = 72.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("1_ie0vg")
+
+[node name="Container" type="HBoxContainer" parent="ScoreBox" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ScoreIcon" type="Label" parent="ScoreBox/Container" index="0"]
+layout_mode = 2
+theme = ExtResource("2_5djrb")
+text = "XP"
+label_settings = SubResource("LabelSettings_ptd6b")
+
+[node name="ScoreLabel" type="Label" parent="ScoreBox/Container" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("3_bim41")
+text = "0"
+horizontal_alignment = 2
+
+[node name="CoinsBox" type="PanelContainer" parent="." index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 72.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("1_ie0vg")
+
+[node name="Container" type="HBoxContainer" parent="CoinsBox" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CoinsSprite" type="TextureRect" parent="CoinsBox/Container" index="0"]
+layout_mode = 2
+texture = ExtResource("4_5geno")
+expand_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="CoinsBox/Container" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_bim41")
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseButton" type="Button" parent="." index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 66.0
+offset_right = -40.0
+offset_bottom = 126.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("5_4fodc")
+
+[node name="PranksContainer" type="Control" parent="." index="3"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+offset_left = 26.0
+offset_top = 157.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("8_3r5pw")
+
+[node name="Countdown" type="Label" parent="." index="4"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -36.5
+offset_right = 20.0
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+label_settings = SubResource("LabelSettings_s2qer")
+
+[node name="Timer" type="Timer" parent="." index="5"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
