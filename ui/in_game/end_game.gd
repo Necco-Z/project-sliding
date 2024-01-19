@@ -10,6 +10,12 @@ const BAR_FILL_DURATION = 1.0
 @onready var score_label = %ScoreLabel as Label
 
 
+func set_connections(game_scene: Node) -> void:
+	restart_pressed.connect(game_scene._on_restart_pressed)
+	ScoreData.score_updated.connect(update_score)
+	ScoreData.coins_updated.connect(update_coins)
+
+
 func show_menu(_instant := false) -> void:
 	super.show_menu(false)
 	var obj1_value = min(ScoreData.coins / 50.0, 1.0)

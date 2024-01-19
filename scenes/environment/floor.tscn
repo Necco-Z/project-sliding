@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://xtwivbdnkec2"]
+
+[ext_resource type="PackedScene" uid="uid://cgh36pp7alm0h" path="res://assets/models/main_path/floor.glb" id="1_ehtv5"]
+[ext_resource type="PackedScene" uid="uid://dxu5aqbu3oq6u" path="res://assets/models/main_path/snow.glb" id="2_ggisu"]
+
+[node name="Floor" type="Node3D"]
+
+[node name="TrackFloor" parent="." instance=ExtResource("1_ehtv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
+
+[node name="SnowLeft" parent="." instance=ExtResource("2_ggisu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="SnowRight" parent="." instance=ExtResource("2_ggisu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 0, 9)

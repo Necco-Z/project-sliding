@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://actors/player.tscn" id="1_1ts6d"]
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_hws7p"]
 [ext_resource type="PackedScene" uid="uid://c3bxng6l2algc" path="res://actors/game_camera.tscn" id="5_7nf5h"]
-[ext_resource type="PackedScene" uid="uid://ds1vfulxqv3xv" path="res://actors/end_flag.tscn" id="10_0kxe8"]
+[ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/floor.tscn" id="6_mgdkl"]
 [ext_resource type="Texture2D" uid="uid://v4cgdqta0bhk" path="res://assets/hdri/rocky_ridge_puresky_2k.hdr" id="10_t7arf"]
 [ext_resource type="PackedScene" uid="uid://dt8ohiqvrdwg4" path="res://ui/in_game/in_game_menus.tscn" id="12_itv2k"]
 
@@ -23,6 +23,7 @@ volumetric_fog_density = 0.02
 
 [node name="MainGame" type="Node"]
 script = ExtResource("1_hws7p")
+player_node = NodePath("Player")
 
 [node name="InGameMenus" parent="." instance=ExtResource("12_itv2k")]
 
@@ -34,19 +35,32 @@ transform = Transform3D(0.969719, 0.171807, -0.173573, 5.00435e-08, 0.710713, 0.
 light_color = Color(0.439216, 0.431373, 0.415686, 1)
 shadow_enabled = true
 
+[node name="TrackPoints" type="Node3D" parent="."]
+
+[node name="Left" type="Marker3D" parent="TrackPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="Center" type="Marker3D" parent="TrackPoints"]
+
+[node name="Right" type="Marker3D" parent="TrackPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
 [node name="Player" parent="." instance=ExtResource("1_1ts6d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+track_points_node = NodePath("../TrackPoints")
 
 [node name="GameCamera" parent="." instance=ExtResource("5_7nf5h")]
+transform = Transform3D(-4.37114e-08, 0.573576, -0.819152, 0, 0.819152, 0.573576, 1, 2.50718e-08, -3.58063e-08, -5, 7.2, 0)
+player_node = NodePath("../Player")
 
-[node name="EndFlag" parent="." instance=ExtResource("10_0kxe8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 573.95, 0.204276, 3.29792)
-monitoring = false
+[node name="Floors" type="Node3D" parent="."]
 
-[connection signal="countdown_finished" from="InGameMenus" to="." method="_on_countdown_finished"]
-[connection signal="exit_pressed" from="InGameMenus" to="." method="_on_exit_pressed"]
-[connection signal="pause_pressed" from="InGameMenus" to="." method="_on_pause_pressed"]
-[connection signal="restart_pressed" from="InGameMenus" to="." method="_on_restart_pressed"]
-[connection signal="resume_pressed" from="InGameMenus" to="." method="_on_resume_pressed"]
-[connection signal="start_pressed" from="InGameMenus" to="." method="_on_start_pressed"]
-[connection signal="body_entered" from="EndFlag" to="." method="_on_end_flag_body_entered"]
+[node name="Floor" parent="Floors" instance=ExtResource("6_mgdkl")]
+
+[node name="Floor2" parent="Floors" instance=ExtResource("6_mgdkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
+[node name="Floor3" parent="Floors" instance=ExtResource("6_mgdkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+
+[node name="Floor4" parent="Floors" instance=ExtResource("6_mgdkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0)

@@ -1,11 +1,13 @@
 extends "res://scripts/classes/menus.gd"
 
-signal tutorial_closed
-
 
 func _init() -> void:
 	is_submenu = true
 
 
+func set_connections(_game_scene: Node) -> void:
+	pass
+
+
 func _on_go_back_pressed() -> void:
-	tutorial_closed.emit()
+	owner.close_submenu()

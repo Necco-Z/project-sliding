@@ -7,6 +7,13 @@ signal restart_pressed
 @onready var score_label := %ScoreLabel as Label
 
 
+func set_connections(game_scene: Node) -> void:
+	resume_pressed.connect(game_scene._on_resume_pressed)
+	restart_pressed.connect(game_scene._on_restart_pressed)
+	ScoreData.score_updated.connect(update_score)
+	ScoreData.coins_updated.connect(update_coins)
+
+
 func update_coins(value: int) -> void:
 	coins_label.text = str(value)
 

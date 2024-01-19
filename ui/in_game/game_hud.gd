@@ -17,6 +17,11 @@ func _process(_delta: float) -> void:
 		countdown.text = "%d" % min(3, timer.time_left + 1)
 
 
+func set_connections(game_scene: Node) -> void:
+	pause_pressed.connect(game_scene._on_pause_pressed)
+	countdown_finished.connect(game_scene._on_countdown_finished)
+
+
 func show_menu(_instant := true) -> void:
 	super.show_menu(true)
 

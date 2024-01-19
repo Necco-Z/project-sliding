@@ -1,18 +1,18 @@
 extends Node3D
 
+@export_node_path("CharacterBody3D") var player_node
 
-const SPEED = 7.5
-var game_running = false
+var offset: Vector3
 
-
-func _physics_process(delta):
-	if game_running:
-		position.x += SPEED * delta
+@onready var player = get_node(player_node) as CharacterBody3D
 
 
-func begin_game():
-	game_running = true
+# Built-in functions
+func _ready() -> void:
+	offset = player.global_position - global_position
 
 
-func end_game():
-	game_running = false
+func _process(_delta: float) -> void:
+	global_position = player.global_position - offset
+
+

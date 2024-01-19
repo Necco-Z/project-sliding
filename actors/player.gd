@@ -1,97 +1,62 @@
 extends CharacterBody3D
 
+@export_node_path("Node3D") var track_points_node
+@export var speed := 7.5
+@export var lane_switch_time := 0.5
 
-const SPEED = 7.5
-const JUMP_VELOCITY = 4.5
-const LANE_SWITCH_SPEED = 10
+var is_active := false:
+	set = _set_active
+var can_control := false:
+	set = _set_control
+var is_moving := false
+var current_lane := 1
+var player_zpos := 0.0
 
-var moving_between_lanes:bool = false
-var can_do_prank:bool = false
-var alive = false
-var direction = 0
-
-var actual_prank_area:Area3D = null
-
-var prank_warning
-var animation_player
-
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var track_points := get_node(track_points_node).get_children()
 
 
-func _ready():
-	prank_warning = get_node("PrankWarning")
-	prank_warning.set_visible(false)
-	animation_player = get_node("AnimationPlayer")
+# Funções herdadas
+func _ready() -> void:
+	pass
 
 
-func _physics_process(delta):
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-
-	var character_will_move = switch_lanes()
-
-	if character_will_move and can_do_prank:
-		actual_prank_area.send_prank()
-
-	if moving_between_lanes:
-		velocity.z = direction * LANE_SWITCH_SPEED
-	else:
-		velocity.x = SPEED
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-
-	if alive:
-		move_and_slide()
+func _physics_process(delta: float) -> void:
+	if can_control and not is_moving:
+		_set_lane_movement()
+	if is_active:
+		var new_dir = Vector3.RIGHT * speed * delta
+		new_dir.z = player_zpos - global_position.z
+		move_and_collide(new_dir)
 
 
-func switch_lanes():
-	var input_dir_right = Input.is_action_pressed("ui_right")
-	var input_dir_left = Input.is_action_pressed("ui_left")
+# Funções internas
+func _set_lane_movement() -> void:
+	var move_dir = roundf(Input.get_axis("move_left", "move_right"))
+	if move_dir == 0:
+		return
 
-	if moving_between_lanes:
-		return false
-
-	if !input_dir_left and !input_dir_right:
-		direction = 0
-		return false
-
-	if input_dir_left and input_dir_right:
-		direction = 0
-		return false
-
-	elif input_dir_left and !position.z <= 0:
-		animation_player.play("Rotate_player_left")
-		moving_between_lanes = true
-		direction = -1
-		return true
-
-	elif input_dir_right and !position.z >= 6:
-		animation_player.play("Rotate_player_right")
-		moving_between_lanes = true
-		direction = 1
-		return true
+	var last_lane = current_lane
+	current_lane = clampi(current_lane + move_dir, 0, track_points.size() - 1)
+	if current_lane != last_lane:
+		is_moving = true
+		var t = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+		t.tween_property(self, "player_zpos", _get_track_zpos(current_lane), lane_switch_time)
+		await t.finished
+		is_moving = false
 
 
-func on_lane_entered(_body, position_z):
-	position = Vector3(position.x, position.y, position_z)
-	moving_between_lanes = false
+func _get_track_zpos(lane: int) -> float:
+	return track_points[lane].global_position.z
 
 
-func prank_available(area):
-	can_do_prank = true
-	actual_prank_area = area
-	if !moving_between_lanes:
-		animation_player.play("Prank_available")
+# Setters and getters
+func _set_active(value: bool) -> void:
+	if value == false:
+		can_control = false
+	is_active = value
 
 
-func prank_unavailable(_area):
-	actual_prank_area = null
-	can_do_prank = false
-	prank_warning.set_visible(false)
-
-
-func begin_game():
-	alive = true
-
-
-func end_game():
-	alive = false
+func _set_control(value: bool) -> void:
+	if value == true:
+		is_active = true
+	can_control = value
