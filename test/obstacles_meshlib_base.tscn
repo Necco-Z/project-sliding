@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://cgx3l5tiwbtvo"]
+
+[ext_resource type="ArrayMesh" uid="uid://q41p4jqasw8y" path="res://assets/meshes/bush.res" id="1_kx5pp"]
+[ext_resource type="ArrayMesh" uid="uid://dexpr273caapo" path="res://assets/meshes/log_01.res" id="2_lu3im"]
+[ext_resource type="ArrayMesh" uid="uid://cnm44qjx2f68n" path="res://assets/meshes/log_02.res" id="3_7e33n"]
+[ext_resource type="ArrayMesh" uid="uid://b1a0squ5qu1ov" path="res://assets/meshes/log_03.res" id="4_cghgk"]
+[ext_resource type="ArrayMesh" uid="uid://g531ddvsbmad" path="res://assets/meshes/snowman.res" id="5_r3nb6"]
+[ext_resource type="ArrayMesh" uid="uid://smgyrk1kvou8" path="res://assets/meshes/snow_bump.res" id="6_x7dtt"]
+[ext_resource type="ArrayMesh" uid="uid://bwrq1mcufltfx" path="res://assets/meshes/stone_01.res" id="7_f8cxq"]
+[ext_resource type="ArrayMesh" uid="uid://hgo615bxaale" path="res://assets/meshes/stone_02.res" id="8_ifn8w"]
+[ext_resource type="ArrayMesh" uid="uid://dhcml44hmdwrt" path="res://assets/meshes/stone_03.res" id="9_y8t3a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tws4b"]
+radius = 1.0
+height = 3.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nsiyt"]
+radius = 1.5
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Bush" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.33, 0, 0, 0, 1.33, 0, 0, 0, 1.33, 0, 1.46732, 0)
+visible = false
+mesh = ExtResource("1_kx5pp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bush"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332852, 0)
+shape = SubResource("CapsuleShape3D_tws4b")
+
+[node name="Log01" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = ExtResource("2_lu3im")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Log01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18052, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Log01/StaticBody3D"]
+shape = SubResource("SphereShape3D_nsiyt")
+
+[node name="Log02" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.325, 0, 0, 0, 1.325, 0, 0, 0, 1.325, 0, 2.00157, 0)
+mesh = ExtResource("3_7e33n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Log02"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18052, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Log02/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18422, 0)
+shape = SubResource("CapsuleShape3D_tws4b")
+
+[node name="Log03" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.36639e-08, -0.998913, -0.0466184, -2.03775e-09, -0.0466184, 0.998913, -1, 4.37114e-08, 1.91069e-15, 0.201434, 0.474945, 0)
+visible = false
+mesh = ExtResource("4_cghgk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Log03"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18052, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Log03/StaticBody3D"]
+shape = SubResource("SphereShape3D_nsiyt")
+
+[node name="Snowman" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.095, 0, 0, 0, 1.095, 0, 0, 0, 1.095, 0, 1.06982, 0)
+visible = false
+mesh = ExtResource("5_r3nb6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Snowman"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18052, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Snowman/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332852, 0)
+shape = SubResource("CapsuleShape3D_tws4b")
+
+[node name="SnowBump" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.864306, 0)
+visible = false
+mesh = ExtResource("6_x7dtt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SnowBump"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18052, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SnowBump/StaticBody3D"]
+shape = SubResource("SphereShape3D_nsiyt")
+
+[node name="Stone01" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.17, 0, 0, 0, 1.6, 0, 0, 0, 1.17, 0.282766, 1.99371, 0)
+visible = false
+mesh = ExtResource("7_f8cxq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stone01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18052, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stone01/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332852, 0)
+shape = SubResource("CapsuleShape3D_tws4b")
+
+[node name="Stone02" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68512, 0)
+visible = false
+mesh = ExtResource("8_ifn8w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stone02"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18052, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stone02/StaticBody3D"]
+shape = SubResource("SphereShape3D_nsiyt")
+
+[node name="Stone03" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.621878, 0)
+visible = false
+mesh = ExtResource("9_y8t3a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stone03"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18052, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stone03/StaticBody3D"]
+shape = SubResource("SphereShape3D_nsiyt")

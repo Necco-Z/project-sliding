@@ -9,8 +9,8 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3bwc1"]
 sky_cover = ExtResource("10_t7arf")
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(1, 1, 1, 1)
+ground_bottom_color = Color(0.854902, 0.964706, 0.968627, 1)
+ground_horizon_color = Color(0.854902, 0.964706, 0.968627, 1)
 
 [sub_resource type="Sky" id="Sky_ta835"]
 sky_material = SubResource("ProceduralSkyMaterial_3bwc1")
@@ -31,8 +31,9 @@ player_node = NodePath("Player")
 environment = SubResource("Environment_7e5bw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.969719, 0.171807, -0.173573, 5.00435e-08, 0.710713, 0.703482, 0.244224, -0.68218, 0.689192, -15.5535, 15.3114, 2.07461)
-light_color = Color(0.439216, 0.431373, 0.415686, 1)
+transform = Transform3D(0.656059, 0.562618, -0.503038, 0, 0.666532, 0.745476, 0.75471, -0.489076, 0.437285, -15.5535, 15.3114, 2.07461)
+light_color = Color(0.984314, 0.905882, 0.705882, 1)
+light_energy = 0.658
 shadow_enabled = true
 
 [node name="TrackPoints" type="Node3D" parent="."]
@@ -49,20 +50,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 track_points_node = NodePath("../TrackPoints")
 
 [node name="GameCamera" parent="." instance=ExtResource("5_7nf5h")]
-transform = Transform3D(-4.37114e-08, 0.573576, -0.819152, 0, 0.819152, 0.573576, 1, 2.50718e-08, -3.58063e-08, -5, 7.2, 0)
+transform = Transform3D(-4.36604e-08, 0.533349, -0.845896, -2.11091e-09, 0.845896, 0.533349, 1, 2.50718e-08, -3.58063e-08, -6.89588, 9.39164, 0)
+fov = 62.0
 player_node = NodePath("../Player")
 
 [node name="Floors" type="Node3D" parent="."]
 
-[node name="Floor" parent="Floors" instance=ExtResource("6_mgdkl")]
+[node name="FloorG" parent="Floors" instance=ExtResource("6_mgdkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="Floor1" parent="Floors" instance=ExtResource("6_mgdkl")]
 
 [node name="Floor2" parent="Floors" instance=ExtResource("6_mgdkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
-
-[node name="GridMap" parent="Floors/Floor2" index="3"]
-data = {
-"cells": PackedInt32Array(0, 0, 1441794, 2, 65535, 1441794, 4, 0, 1441792, 8, 65535, 1441792, 6, 1, 1441796)
-}
 
 [node name="Floor3" parent="Floors" instance=ExtResource("6_mgdkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
@@ -70,4 +70,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
 [node name="Floor4" parent="Floors" instance=ExtResource("6_mgdkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0)
 
-[editable path="Floors/Floor2"]
+[node name="Floor5" parent="Floors" instance=ExtResource("6_mgdkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
+
+[node name="Floor6" parent="Floors" instance=ExtResource("6_mgdkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 0, 0)
+
+[node name="Floor7" parent="Floors" instance=ExtResource("6_mgdkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, 0)

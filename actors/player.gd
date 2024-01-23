@@ -13,6 +13,8 @@ var current_lane := 1
 var player_zpos := 0.0
 
 @onready var track_points := get_node(track_points_node).get_children()
+@onready var anim_playback := ($AnimationTree["parameters/playback"]
+		as AnimationNodeStateMachinePlayback)
 
 
 # Funções herdadas
@@ -35,14 +37,23 @@ func _set_lane_movement() -> void:
 	if move_dir == 0:
 		return
 
-	var last_lane = current_lane
+	var last_lane := current_lane
 	current_lane = clampi(current_lane + move_dir, 0, track_points.size() - 1)
 	if current_lane != last_lane:
 		is_moving = true
 		var t = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 		t.tween_property(self, "player_zpos", _get_track_zpos(current_lane), lane_switch_time)
+		_set_move_animation(current_lane - last_lane)
 		await t.finished
 		is_moving = false
+
+
+func _set_move_animation(dir: int) -> void:
+	match dir:
+		1:
+			anim_playback.travel("Right")
+		-1:
+			anim_playback.travel("Left")
 
 
 func _get_track_zpos(lane: int) -> float:
