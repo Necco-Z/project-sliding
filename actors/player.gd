@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 signal prank_executed(gui_name: String, score: int)
 signal player_collided
+signal coin_collected
 
 @export_node_path("Node3D") var track_points_node
 @export var speed := 7.5
@@ -44,6 +45,10 @@ func _physics_process(delta: float) -> void:
 func set_connections(main_scene: Node) -> void:
 	prank_executed.connect(main_scene._on_prank_executed)
 	player_collided.connect(main_scene._on_player_collided)
+
+
+func collect_coin() -> void:
+	ScoreData.coins += 1
 
 
 # Funções privadas

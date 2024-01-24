@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://du8ssy1227k34"]
+[gd_scene load_steps=13 format=3 uid="uid://du8ssy1227k34"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_xgpu5"]
 [ext_resource type="Texture2D" uid="uid://dj78t7fk71vl0" path="res://assets/sprites/ui/menu_background.png" id="2_85pre"]
@@ -6,7 +6,6 @@
 [ext_resource type="Theme" uid="uid://d4gsvekoqjros" path="res://assets/themes/icon__menu_panel_theme.tres" id="3_0e7rs"]
 [ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="4_5rhab"]
 [ext_resource type="Theme" uid="uid://b4q7bpijyr7ol" path="res://assets/themes/Objective_label_theme.tres" id="5_ctgi4"]
-[ext_resource type="Theme" uid="uid://bp21tk2vfowe5" path="res://assets/themes/xp_icon_theme.tres" id="6_n16ac"]
 [ext_resource type="Theme" uid="uid://cgi8bxd4ey6hu" path="res://assets/themes/title_theme.tres" id="7_eccfc"]
 [ext_resource type="Texture2D" uid="uid://b5he6l7cp7o27" path="res://assets/sprites/ui/Line 1.svg" id="8_cfhm6"]
 [ext_resource type="Theme" uid="uid://dcgvgel77iwan" path="res://assets/themes/objective_xp_theme.tres" id="9_0678m"]
@@ -21,7 +20,7 @@ outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 [node name="PauseMenu" instance=ExtResource("1_xgpu5")]
 script = ExtResource("2_hr8f6")
 
-[node name="BG" type="TextureRect" parent="." index="1"]
+[node name="BG" type="TextureRect" parent="." index="0"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.43
@@ -33,7 +32,7 @@ grow_vertical = 2
 texture = ExtResource("2_85pre")
 expand_mode = 3
 
-[node name="Container" type="VBoxContainer" parent="." index="2"]
+[node name="Container" type="VBoxContainer" parent="." index="1"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.35
@@ -68,30 +67,6 @@ layout_mode = 2
 theme = ExtResource("5_ctgi4")
 theme_override_font_sizes/font_size = 32
 text = "12"
-
-[node name="Score" type="HBoxContainer" parent="Container/TopLabels" index="1"]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="ScoreBox" type="PanelContainer" parent="Container/TopLabels/Score" index="0"]
-layout_mode = 2
-theme = ExtResource("3_0e7rs")
-
-[node name="ScoreText" type="Label" parent="Container/TopLabels/Score/ScoreBox" index="0"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("6_n16ac")
-theme_override_colors/font_color = Color(0.470588, 0.396078, 0.917647, 1)
-theme_override_font_sizes/font_size = 32
-text = "XP"
-
-[node name="ScoreLabel" type="Label" parent="Container/TopLabels/Score" index="1"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("5_ctgi4")
-theme_override_font_sizes/font_size = 32
-text = "320"
 
 [node name="Spacer" type="Control" parent="Container" index="1"]
 custom_minimum_size = Vector2(0, 30)

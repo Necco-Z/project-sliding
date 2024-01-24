@@ -74,7 +74,7 @@ states/Right/position = Vector2(499, 233)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_3a85n"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_4qcbk"), "Idle", "Left", SubResource("AnimationNodeStateMachineTransition_0vn0b"), "Left", "Idle", SubResource("AnimationNodeStateMachineTransition_n3jjj"), "Idle", "Right", SubResource("AnimationNodeStateMachineTransition_kku4i"), "Right", "Idle", SubResource("AnimationNodeStateMachineTransition_qhv04")]
 graph_offset = Vector2(-133, -102)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_mask = 30
 script = ExtResource("1_wjmk5")
 

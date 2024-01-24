@@ -7,12 +7,10 @@ const BAR_FILL_DURATION = 1.0
 @onready var obj1_bar = %Obj1Bar as ProgressBar
 @onready var obj2_bar = %Obj2Bar as ProgressBar
 @onready var coins_label = %CoinsLabel as Label
-@onready var score_label = %ScoreLabel as Label
 
 
 func set_connections(game_scene: Node) -> void:
 	restart_pressed.connect(game_scene._on_restart_pressed)
-	ScoreData.score_updated.connect(update_score)
 	ScoreData.coins_updated.connect(update_coins)
 
 
@@ -25,17 +23,13 @@ func show_menu(_instant := false) -> void:
 	t.tween_property(obj2_bar, "value", obj2_value, BAR_FILL_DURATION)
 	await t.finished
 	if obj1_value == 1:
-		ScoreData.score += 5000
+		ScoreData.coins += 500
 	if obj2_value == 1:
-		ScoreData.score += 5000
+		ScoreData.coins += 500
 
 
 func update_coins(value: int) -> void:
 	coins_label.text = str(value)
-
-
-func update_score(value: int) -> void:
-	score_label.text = str(value)
 
 
 func _on_restart_game_pressed() -> void:

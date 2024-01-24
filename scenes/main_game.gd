@@ -74,7 +74,7 @@ func _on_player_collided() -> void:
 
 func _on_prank_executed(prank_name := "", prank_score := 0) -> void:
 	ScoreData.prank_total += 1
-	ScoreData.score += prank_score
+	ScoreData.coins += prank_score
 	game_menus.add_prank(prank_score, prank_name)
 
 

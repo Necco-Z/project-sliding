@@ -5,7 +5,6 @@ signal countdown_finished
 
 var prank_scene = preload("res://ui/prank.tscn")
 
-@onready var score_label := %ScoreLabel as Label
 @onready var coins_label := %CoinsLabel as Label
 @onready var pranks_container := %PranksContainer as Control
 @onready var countdown := %Countdown as Label
@@ -20,6 +19,7 @@ func _process(_delta: float) -> void:
 func set_connections(game_scene: Node) -> void:
 	pause_pressed.connect(game_scene._on_pause_pressed)
 	countdown_finished.connect(game_scene._on_countdown_finished)
+	ScoreData.coins_updated.connect(_on_coins_updated)
 
 
 func show_menu(_instant := true) -> void:
@@ -28,10 +28,6 @@ func show_menu(_instant := true) -> void:
 
 func hide_menu(_instant := true) -> void:
 	super.hide_menu(true)
-
-
-func update_score(value: int) -> void:
-	score_label.text = str(value)
 
 
 func update_coins(value: int) -> void:
@@ -47,6 +43,10 @@ func add_prank(score, text) -> void:
 func start_countdown() -> void:
 	countdown.visible = true
 	timer.start()
+
+
+func _on_coins_updated(value: int) -> void:
+	coins_label.text = str(value)
 
 
 func _on_pause_button_pressed() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://btpfgj8syn123"]
+[gd_scene load_steps=12 format=3 uid="uid://btpfgj8syn123"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_0eo41"]
 [ext_resource type="Texture2D" uid="uid://dj78t7fk71vl0" path="res://assets/sprites/ui/menu_background.png" id="2_20xdo"]
@@ -10,7 +10,6 @@
 [ext_resource type="Theme" uid="uid://cqajmgbj0kgsk" path="res://assets/themes/progress_bar_theme.tres" id="7_3073i"]
 [ext_resource type="Theme" uid="uid://d4gsvekoqjros" path="res://assets/themes/icon__menu_panel_theme.tres" id="8_jqjr5"]
 [ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="9_c5211"]
-[ext_resource type="Theme" uid="uid://bp21tk2vfowe5" path="res://assets/themes/xp_icon_theme.tres" id="10_u4im5"]
 [ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="11_fovs4"]
 
 [node name="EndGame" instance=ExtResource("1_0eo41")]
@@ -138,34 +137,11 @@ theme = ExtResource("5_853k5")
 theme_override_font_sizes/font_size = 32
 text = "10"
 
-[node name="ScoreBox" type="HBoxContainer" parent="Container" index="10"]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="IconBox" type="PanelContainer" parent="Container/ScoreBox" index="0"]
-layout_mode = 2
-theme = ExtResource("8_jqjr5")
-
-[node name="IconLabel" type="Label" parent="Container/ScoreBox/IconBox" index="0"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("10_u4im5")
-theme_override_colors/font_color = Color(0.470588, 0.396078, 0.917647, 1)
-theme_override_font_sizes/font_size = 28
-text = "XP"
-
-[node name="ScoreLabel" type="Label" parent="Container/ScoreBox" index="1"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("5_853k5")
-theme_override_font_sizes/font_size = 32
-text = "10"
-
-[node name="Spacer4" type="Control" parent="Container" index="11"]
+[node name="Spacer4" type="Control" parent="Container" index="10"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="RestartGame" type="Button" parent="Container" index="12"]
+[node name="RestartGame" type="Button" parent="Container" index="11"]
 layout_mode = 2
 theme = ExtResource("11_fovs4")
 text = "Retornar ao menu principal"
