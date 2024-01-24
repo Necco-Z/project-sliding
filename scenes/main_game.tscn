@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://actors/player.tscn" id="1_1ts6d"]
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_hws7p"]
 [ext_resource type="PackedScene" uid="uid://c3bxng6l2algc" path="res://actors/game_camera.tscn" id="5_7nf5h"]
-[ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/floor.tscn" id="6_mgdkl"]
+[ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="6_mgdkl"]
 [ext_resource type="Texture2D" uid="uid://v4cgdqta0bhk" path="res://assets/hdri/rocky_ridge_puresky_2k.hdr" id="10_t7arf"]
 [ext_resource type="PackedScene" uid="uid://dt8ohiqvrdwg4" path="res://ui/in_game/in_game_menus.tscn" id="12_itv2k"]
 
