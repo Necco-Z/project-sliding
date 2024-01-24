@@ -17,6 +17,7 @@ var is_running := false:
 func _ready() -> void:
 	Fader.fade_in()
 	game_menus.set_connections(self)
+	player.set_connections(self)
 	_replace_all_items()
 
 
@@ -66,18 +67,15 @@ func _on_resume_pressed() -> void:
 	is_running = true
 
 
-func _on_coin_collected() -> void:
-	ScoreData.add_coins()
-
-
 func _on_player_collided() -> void:
+	is_running = false
 	game_menus.change_menu("EndGame")
 
 
-func _on_prank_executed(prank_score := 0, desc := "") -> void:
+func _on_prank_executed(prank_name := "", prank_score := 0) -> void:
 	ScoreData.prank_total += 1
 	ScoreData.score += prank_score
-	game_menus.add_prank(prank_score, desc)
+	game_menus.add_prank(prank_score, prank_name)
 
 
 func _on_countdown_finished() -> void:

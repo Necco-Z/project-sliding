@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 signal prank_executed(gui_name: String, score: int)
+signal player_collided
 
 @export_node_path("Node3D") var track_points_node
 @export var speed := 7.5
@@ -34,10 +35,18 @@ func _physics_process(delta: float) -> void:
 	if is_active:
 		var new_dir = Vector3.RIGHT * speed * delta
 		new_dir.z = player_zpos - global_position.z
-		move_and_collide(new_dir)
+		var col = move_and_collide(new_dir)
+		if col:
+			player_collided.emit()
 
 
-# Funções internas
+# Funções públicas
+func set_connections(main_scene: Node) -> void:
+	prank_executed.connect(main_scene._on_prank_executed)
+	player_collided.connect(main_scene._on_player_collided)
+
+
+# Funções privadas
 func _set_lane_movement() -> void:
 	var move_dir = roundf(Input.get_axis("move_left", "move_right"))
 	if move_dir == 0:
