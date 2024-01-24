@@ -59,8 +59,15 @@ player_node = NodePath("../Player")
 [node name="Floor2" parent="Floors" instance=ExtResource("6_mgdkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
 
+[node name="GridMap" parent="Floors/Floor2" index="3"]
+data = {
+"cells": PackedInt32Array(0, 0, 1441794, 2, 65535, 1441794, 4, 0, 1441792, 8, 65535, 1441792, 6, 1, 1441796)
+}
+
 [node name="Floor3" parent="Floors" instance=ExtResource("6_mgdkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
 
 [node name="Floor4" parent="Floors" instance=ExtResource("6_mgdkl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0)
+
+[editable path="Floors/Floor2"]
