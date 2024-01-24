@@ -31,7 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332852, 0)
 shape = SubResource("CapsuleShape3D_tws4b")
 
 [node name="Log01" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
 visible = false
 mesh = ExtResource("2_lu3im")
 
@@ -42,7 +42,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18052, 0)
 shape = SubResource("SphereShape3D_nsiyt")
 
 [node name="Log02" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.325, 0, 0, 0, 1.325, 0, 0, 0, 1.325, 0, 2.00157, 0)
+transform = Transform3D(-5.79176e-08, 0, -1.325, 0, 1.325, 0, 1.325, 0, -5.79176e-08, 0, 2.00157, 0)
+visible = false
 mesh = ExtResource("3_7e33n")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Log02"]
@@ -53,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18422, 0)
 shape = SubResource("CapsuleShape3D_tws4b")
 
 [node name="Log03" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.36639e-08, -0.998913, -0.0466184, -2.03775e-09, -0.0466184, 0.998913, -1, 4.37114e-08, 1.91069e-15, 0.201434, 0.474945, 0)
+transform = Transform3D(1, -1.74749e-07, -4.11818e-09, -4.11817e-09, -0.0471064, 0.99889, -1.74748e-07, -0.99889, -0.0471064, 0.201434, 0.474945, 0)
 visible = false
 mesh = ExtResource("4_cghgk")
 
@@ -64,7 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18052, 0)
 shape = SubResource("SphereShape3D_nsiyt")
 
 [node name="Snowman" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.095, 0, 0, 0, 1.095, 0, 0, 0, 1.095, 0, 1.06982, 0)
+transform = Transform3D(-4.7864e-08, 0, -1.095, 0, 1.095, 0, 1.095, 0, -4.7864e-08, 0, 1.06982, 0)
 visible = false
 mesh = ExtResource("5_r3nb6")
 
@@ -76,18 +77,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332852, 0)
 shape = SubResource("CapsuleShape3D_tws4b")
 
 [node name="SnowBump" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.864306, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0291501, 0)
 visible = false
 mesh = ExtResource("6_x7dtt")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SnowBump"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18052, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5207, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SnowBump/StaticBody3D"]
 shape = SubResource("SphereShape3D_nsiyt")
 
 [node name="Stone01" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.17, 0, 0, 0, 1.6, 0, 0, 0, 1.17, 0.282766, 1.99371, 0)
+transform = Transform3D(0.827315, 0, 0.827315, 0, 1.6, 0, -0.827315, 0, 0.827315, 0.282766, 1.99371, 0)
 visible = false
 mesh = ExtResource("7_f8cxq")
 
@@ -110,7 +111,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18052, 0)
 shape = SubResource("SphereShape3D_nsiyt")
 
 [node name="Stone03" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.621878, 0)
+transform = Transform3D(0.771625, 0, 0.636078, 0, 1, 0, -0.636078, 0, 0.771625, 0, 0.621878, 0)
 visible = false
 mesh = ExtResource("9_y8t3a")
 
