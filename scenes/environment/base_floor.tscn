@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://xtwivbdnkec2"]
+[gd_scene load_steps=11 format=3 uid="uid://xtwivbdnkec2"]
 
 [ext_resource type="Script" path="res://scenes/environment/base_floor.gd" id="1_cfdkb"]
 [ext_resource type="PackedScene" uid="uid://cgh36pp7alm0h" path="res://assets/models/main_path/floor.glb" id="1_ehtv5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dxu5aqbu3oq6u" path="res://assets/models/main_path/snow.glb" id="2_ggisu"]
 [ext_resource type="PackedScene" uid="uid://bgibcabmsmfis" path="res://assets/models/environment/fence_01.glb" id="3_1iufg"]
 [ext_resource type="PackedScene" uid="uid://bhu733uxtwh3s" path="res://assets/models/environment/fence_02.glb" id="4_ohlme"]
+[ext_resource type="MeshLibrary" uid="uid://2krps2vk813u" path="res://assets/obstacles_meshlib.tres" id="5_ulk7h"]
 [ext_resource type="PackedScene" uid="uid://dtmwxnoduacy2" path="res://assets/models/environment/fence_03.glb" id="5_vq4q7"]
 [ext_resource type="PackedScene" uid="uid://cduigy12fppku" path="res://assets/models/environment/tree.glb" id="6_agvj4"]
 [ext_resource type="PackedScene" uid="uid://bguecaoiqbiqy" path="res://assets/models/environment/sign_01.glb" id="8_iim1q"]
@@ -38,6 +39,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 0,
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+mesh_library = ExtResource("5_ulk7h")
 cell_size = Vector3(5, 2, 6)
 cell_center_y = false
 collision_layer = 0

@@ -3,18 +3,21 @@ extends Node
 const MAIN_MENU = "res://ui/main_menu.tscn"
 
 @export_node_path("CharacterBody3D") var player_node
+@export var replacers: Array[ReplaceItem]
 
 var is_running := false:
 	set = _set_running
 
 @onready var player := get_node(player_node) as CharacterBody3D
 @onready var game_menus := $InGameMenus as CanvasLayer
+@onready var floors := $Floors as Node3D
 
 
 ### Funções herdadas (_init, _ready e outras)
 func _ready() -> void:
 	Fader.fade_in()
 	game_menus.set_connections(self)
+	_replace_all_items()
 
 
 ### Funções públicas
@@ -23,11 +26,18 @@ func start_game() -> void:
 	game_menus.start_countdown()
 
 
+### Funções privadas
+func _replace_all_items() -> void:
+	var all_floors = floors.get_children()
+	for r in replacers:
+		for f in all_floors:
+			f.replace_on_grid(r.name, r.replace_file)
+
 
 # Setters e getters
 func _set_running(value: bool) -> void:
 	is_running = value
-	player.can_control = true
+	player.can_control = value
 
 
 # Funções de sinal
