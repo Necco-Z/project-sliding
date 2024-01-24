@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b074prd4stcb4"]
 
 [ext_resource type="Script" path="res://ui/splash.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dh2x3emd5ouv3" path="res://assets/icon.svg" id="2_fr68x"]
+[ext_resource type="Texture2D" uid="uid://d3lc5bprf4b6t" path="res://assets/sprites/ui/logo.png" id="3_otter"]
 
 [node name="Splash" type="Control"]
 layout_mode = 3
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.219608, 0.341176, 0.8, 1)
 
 [node name="Logos" type="Control" parent="."]
 layout_mode = 1
@@ -38,5 +38,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_fr68x")
+texture = ExtResource("3_otter")
 stretch_mode = 3

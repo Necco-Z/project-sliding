@@ -1,106 +1,521 @@
-[gd_scene load_steps=10 format=3 uid="uid://cg4jy1bjo2ysi"]
+[gd_scene load_steps=25 format=3 uid="uid://cg4jy1bjo2ysi"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_teysb"]
 [ext_resource type="Script" path="res://ui/in_game/start_menu.gd" id="2_1vfgs"]
-[ext_resource type="Texture2D" uid="uid://dj78t7fk71vl0" path="res://assets/sprites/ui/menu_background.png" id="2_haeu6"]
-[ext_resource type="Theme" uid="uid://cgi8bxd4ey6hu" path="res://assets/themes/title_theme.tres" id="3_30vsm"]
-[ext_resource type="Texture2D" uid="uid://b5he6l7cp7o27" path="res://assets/sprites/ui/Line 1.svg" id="4_y6mgq"]
-[ext_resource type="Theme" uid="uid://b4q7bpijyr7ol" path="res://assets/themes/Objective_label_theme.tres" id="5_tq0sf"]
-[ext_resource type="Theme" uid="uid://dcgvgel77iwan" path="res://assets/themes/objective_xp_theme.tres" id="6_7witb"]
-[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="7_xrxye"]
+[ext_resource type="Texture2D" uid="uid://brkkq4dee1ji5" path="res://assets/sprites/ui/menu_background_icons.png" id="3_0xdde"]
+[ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="4_s4smg"]
+[ext_resource type="Theme" uid="uid://dr5l2rte7t1uy" path="res://assets/themes/panel_ingame_menu_theme.tres" id="5_t7qud"]
+[ext_resource type="FontFile" uid="uid://dyu0loxxcgqfy" path="res://assets/fonts/Nunito-SemiBold.ttf" id="6_ko3gi"]
+[ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="7_lfqyf"]
+[ext_resource type="Texture2D" uid="uid://b8tyvoesptjt2" path="res://assets/sprites/ui/seta_icon.png" id="8_htc3b"]
+[ext_resource type="Texture2D" uid="uid://drc3cir47vw8v" path="res://assets/sprites/ui/seta_pressed_icon.png" id="9_cr6gk"]
+[ext_resource type="Texture2D" uid="uid://d0ve6w53uh3uu" path="res://assets/sprites/ui/seta_hover_icon.png" id="10_ydyxr"]
+[ext_resource type="Texture2D" uid="uid://d4crykj885nem" path="res://assets/sprites/ui/choose_skin_figure.png" id="11_na7on"]
+[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="12_3gv3k"]
+[ext_resource type="Texture2D" uid="uid://qw15v4fm034i" path="res://assets/sprites/ui/play_icon.png" id="13_d0h5b"]
+[ext_resource type="Theme" uid="uid://cohe3pikkdbvl" path="res://assets/themes/cancel_button_theme.tres" id="14_77gwg"]
+[ext_resource type="Texture2D" uid="uid://d1ku08gejy800" path="res://assets/sprites/ui/exit_icon.png" id="15_pepqp"]
+[ext_resource type="Texture2D" uid="uid://bsverjoat3vcm" path="res://assets/sprites/ui/star_objective_ui_unachieved_big.png" id="15_qeub2"]
+[ext_resource type="FontFile" uid="uid://c4xapcx77tcqy" path="res://assets/fonts/Nunito-Regular.ttf" id="16_tr7ee"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_hikhc"]
-font_size = 24
-font_color = Color(0.956863, 0.956863, 0.956863, 1)
-outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+[sub_resource type="Animation" id="Animation_xenot"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.09]
+}
+
+[sub_resource type="Animation" id="Animation_tqo5b"]
+resource_name = "background_icons_animation"
+length = 40.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.09]
+}
+
+[sub_resource type="Animation" id="Animation_je5oy"]
+resource_name = "background_icons_animation_inverse"
+length = 40.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.09, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dcdc"]
+_data = {
+"RESET": SubResource("Animation_xenot"),
+"background_icons_animation": SubResource("Animation_tqo5b"),
+"background_icons_animation_inverse": SubResource("Animation_je5oy")
+}
+
+[sub_resource type="Theme" id="Theme_qhace"]
+Label/colors/font_color = Color(0.839216, 0.552941, 0.137255, 1)
+Label/colors/font_outline_color = Color(0.854902, 0.964706, 0.968627, 1)
+Label/constants/outline_size = 20
+Label/font_sizes/font_size = 72
+Label/fonts/font = ExtResource("4_s4smg")
+
+[sub_resource type="Theme" id="Theme_kmta6"]
+Label/colors/font_color = Color(0.152941, 0.152941, 0.152941, 1)
+Label/constants/line_spacing = 0
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("6_ko3gi")
+label/colors/fae = Color(0, 0, 0, 1)
+label/constants/fae = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlpmb"]
+content_margin_left = 120.0
+content_margin_top = 32.0
+content_margin_right = 120.0
+content_margin_bottom = 20.0
+bg_color = Color(0.854902, 0.964706, 0.968627, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
 
 [node name="StartMenu" instance=ExtResource("1_teysb")]
-anchors_preset = -1
 script = ExtResource("2_1vfgs")
 
-[node name="BG" type="TextureRect" parent="." index="0"]
+[node name="ColorRect" type="ColorRect" parent="." index="0"]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.43
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_haeu6")
-expand_mode = 3
+color = Color(0.219608, 0.341176, 0.8, 1)
 
-[node name="Container" type="VBoxContainer" parent="." index="1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="1"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.35
+anchor_top = -1.09
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 120
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer" index="0"]
+root_node = NodePath("../TextureRect")
+libraries = {
+"": SubResource("AnimationLibrary_8dcdc")
+}
+autoplay = "background_icons_animation"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" index="3"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer" index="4"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer" index="5"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer" index="6"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect7" type="TextureRect" parent="HBoxContainer" index="7"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect8" type="TextureRect" parent="HBoxContainer" index="8"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect9" type="TextureRect" parent="HBoxContainer" index="9"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect10" type="TextureRect" parent="HBoxContainer" index="10"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect11" type="TextureRect" parent="HBoxContainer" index="11"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -1.09
+offset_left = 90.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 120
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer2" index="0"]
+root_node = NodePath("../TextureRect")
+libraries = {
+"": SubResource("AnimationLibrary_8dcdc")
+}
+autoplay = "background_icons_animation_inverse"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2" index="1"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer2" index="2"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer2" index="3"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer2" index="4"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer2" index="5"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer2" index="6"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect7" type="TextureRect" parent="HBoxContainer2" index="7"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect8" type="TextureRect" parent="HBoxContainer2" index="8"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect9" type="TextureRect" parent="HBoxContainer2" index="9"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect10" type="TextureRect" parent="HBoxContainer2" index="10"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="TextureRect11" type="TextureRect" parent="HBoxContainer2" index="11"]
+layout_mode = 2
+texture = ExtResource("3_0xdde")
+
+[node name="Control" type="Control" parent="." index="3"]
+visible = false
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.12
+anchor_right = 0.95
+anchor_bottom = 0.12
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Control" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.5
+offset_top = -11.5
+offset_right = 95.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qhace")
+text = "Escolha seu personagem"
+
+[node name="CoinsBox" type="PanelContainer" parent="Control" index="1"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -47.0
+offset_bottom = 47.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("5_t7qud")
+
+[node name="Container" type="HBoxContainer" parent="Control/CoinsBox" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="CoinsLabel" type="Label" parent="Control/CoinsBox/Container" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_kmta6")
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinsSprite" type="TextureRect" parent="Control/CoinsBox/Container" index="1"]
+layout_mode = 2
+texture = ExtResource("7_lfqyf")
+
+[node name="Skins" type="Control" parent="." index="4"]
+visible = false
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.5
+anchor_right = 0.95
+anchor_bottom = 0.5
+offset_top = -60.5
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="Skins" index="0"]
+layout_mode = 2
+offset_right = 120.0
+offset_bottom = 121.0
+texture_normal = ExtResource("8_htc3b")
+texture_pressed = ExtResource("9_cr6gk")
+texture_hover = ExtResource("10_ydyxr")
+flip_h = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Skins" index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -60.5
+offset_right = 4.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 200
+
+[node name="TextureRect" type="TextureRect" parent="Skins/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("11_na7on")
+
+[node name="TextureRect2" type="TextureRect" parent="Skins/HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("11_na7on")
+
+[node name="TextureRect3" type="TextureRect" parent="Skins/HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("11_na7on")
+
+[node name="TextureButton2" type="TextureButton" parent="Skins" index="2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -60.5
+offset_bottom = 60.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("8_htc3b")
+texture_pressed = ExtResource("9_cr6gk")
+texture_hover = ExtResource("10_ydyxr")
+
+[node name="buttons" type="Control" parent="." index="5"]
+visible = false
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.875
+anchor_right = 0.95
+anchor_bottom = 0.875
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="buttons" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -33.0
+offset_right = 83.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("12_3gv3k")
+text = "Escolher skin"
+
+[node name="StartButton2" type="Button" parent="buttons" index="1"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("14_77gwg")
+text = "Voltar"
+icon = ExtResource("15_pepqp")
+
+[node name="LevelName" type="Control" parent="." index="6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = 60.0
-offset_right = -40.0
-offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ObjectivesLabel" type="Label" parent="Container" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelName" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.0
+offset_top = -58.0
+offset_right = 346.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="LevelName/VBoxContainer" index="0"]
 layout_mode = 2
-theme = ExtResource("3_30vsm")
-text = "Objetivos"
+theme_override_colors/font_color = Color(0.839216, 0.552941, 0.137255, 1)
+theme_override_fonts/font = ExtResource("4_s4smg")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_qlpmb")
+text = "PRIMEIRO NÍVEL"
 
-[node name="Separator" type="TextureRect" parent="Container" index="1"]
-layout_mode = 2
-texture = ExtResource("4_y6mgq")
-
-[node name="Spacer" type="Control" parent="Container" index="2"]
-custom_minimum_size = Vector2(0, 16)
-layout_mode = 2
-
-[node name="Obj1" type="HBoxContainer" parent="Container" index="3"]
-layout_mode = 2
-
-[node name="Obj1Label" type="Label" parent="Container/Obj1" index="0"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_tq0sf")
-text = "Colete 50 moedas"
-label_settings = SubResource("LabelSettings_hikhc")
-justification_flags = 160
-
-[node name="Obj1XP" type="Label" parent="Container/Obj1" index="1"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme = ExtResource("6_7witb")
-text = "5000 xp"
-
-[node name="Obj2" type="HBoxContainer" parent="Container" index="4"]
-layout_mode = 2
-
-[node name="Obj2Label" type="Label" parent="Container/Obj2" index="0"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_tq0sf")
-text = "Faça 15 pegadinhas"
-label_settings = SubResource("LabelSettings_hikhc")
-
-[node name="Obj2XP" type="Label" parent="Container/Obj2" index="1"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme = ExtResource("6_7witb")
-text = "5000 xp"
-
-[node name="Spacer2" type="Control" parent="Container" index="5"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="StartButton" type="Button" parent="Container" index="6"]
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelName/VBoxContainer" index="1"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("7_xrxye")
-text = "Começar"
 
-[node name="ReturnButton" type="Button" parent="Container" index="7"]
+[node name="TextureRect" type="TextureRect" parent="LevelName/VBoxContainer/HBoxContainer" index="0"]
 layout_mode = 2
+texture = ExtResource("15_qeub2")
+
+[node name="TextureRect2" type="TextureRect" parent="LevelName/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("15_qeub2")
+
+[node name="TextureRect3" type="TextureRect" parent="LevelName/VBoxContainer/HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("15_qeub2")
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="LevelName/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="LevelName/VBoxContainer/HBoxContainer2" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
+theme_override_fonts/font = ExtResource("16_tr7ee")
+theme_override_font_sizes/font_size = 32
+text = "Objetivo 1"
+
+[node name="Label2" type="Label" parent="LevelName/VBoxContainer/HBoxContainer2" index="1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
+theme_override_fonts/font = ExtResource("16_tr7ee")
+theme_override_font_sizes/font_size = 32
+text = "Objetivo 1"
+
+[node name="Label3" type="Label" parent="LevelName/VBoxContainer/HBoxContainer2" index="2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
+theme_override_fonts/font = ExtResource("16_tr7ee")
+theme_override_font_sizes/font_size = 32
+text = "Objetivo 1"
+
+[node name="Control3" type="Control" parent="LevelName" index="1"]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.875
+anchor_right = 0.95
+anchor_bottom = 0.875
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartButton3" type="Button" parent="LevelName/Control3" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -44.0
+offset_right = 104.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("7_xrxye")
-text = "Voltar ao menu"
+theme = ExtResource("12_3gv3k")
+text = "Jogar"
+icon = ExtResource("13_d0h5b")
 
-[connection signal="pressed" from="Container/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Container/ReturnButton" to="." method="_on_return_button_pressed"]
+[node name="ReturnButton" type="Button" parent="LevelName/Control3" index="1"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -44.0
+offset_bottom = 44.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("14_77gwg")
+text = "Voltar"
+icon = ExtResource("15_pepqp")
+
+[connection signal="pressed" from="LevelName/Control3/StartButton3" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="LevelName/Control3/ReturnButton" to="." method="_on_return_button_pressed"]

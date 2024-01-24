@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d15awftd1p8gf"]
+[gd_scene load_steps=7 format=3 uid="uid://d15awftd1p8gf"]
 
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_drgtq"]
 [ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="1_pq6mq"]
+[ext_resource type="Texture2D" uid="uid://b35xdt0wsy8dq" path="res://assets/sprites/ui/main_menu_background_image.png" id="2_pfv4s"]
+[ext_resource type="Texture2D" uid="uid://cp8vw71ri1t4a" path="res://assets/sprites/ui/main_menu_panel_ui.png" id="3_yeulb"]
+[ext_resource type="Texture2D" uid="uid://oy75p8euqu0u" path="res://assets/sprites/ui/logo_main_menu.png" id="4_ht387"]
+[ext_resource type="Theme" uid="uid://cohe3pikkdbvl" path="res://assets/themes/cancel_button_theme.tres" id="6_mnle3"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,56 +17,66 @@ grow_vertical = 2
 script = ExtResource("1_drgtq")
 game_scene_path = "res://scenes/main_game.tscn"
 
-[node name="Container" type="VBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_pfv4s")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.8
+anchor_right = 0.8
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -459.5
+offset_right = 270.0
+offset_bottom = 459.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_yeulb")
+
+[node name="BoxContainer" type="BoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.35
-anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = 60.0
-offset_right = -40.0
-offset_bottom = -80.0
-alignment = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+vertical = true
 
-[node name="StartButton" type="Button" parent="Container"]
+[node name="GameLogo" type="TextureRect" parent="Control/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_ht387")
+
+[node name="Container" type="VBoxContainer" parent="Control/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="StartButton" type="Button" parent="Control/BoxContainer/Container"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("1_pq6mq")
 text = "Iniciar jogo"
 
-[node name="TutorialButton" type="Button" parent="Container"]
+[node name="ExitButton" type="Button" parent="Control/BoxContainer/Container"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("1_pq6mq")
-text = "Como jogar"
+theme = ExtResource("6_mnle3")
+text = "Sair"
 
-[node name="CreditsButton" type="Button" parent="Container"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("1_pq6mq")
-text = "Créditos"
-
-[node name="ConfigsButton" type="Button" parent="Container"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("1_pq6mq")
-text = "Configurações"
-
-[node name="ExitButton" type="Button" parent="Container"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("1_pq6mq")
-text = "Fechar jogo"
-
-[node name="GameLogo" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.45
-
-[connection signal="pressed" from="Container/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/BoxContainer/Container/StartButton" to="." method="_on_start_button_pressed"]
