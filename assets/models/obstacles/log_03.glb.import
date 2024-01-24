@@ -38,7 +38,7 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/make_streamable": "",
+"save_to_file/make_streamable": true,
 "save_to_file/path": "res://assets/meshes/log_03.res"
 }
 }
