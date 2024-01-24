@@ -70,9 +70,9 @@ states/Idle/position = Vector2(499, 100)
 states/Left/node = SubResource("AnimationNodeBlendTree_unrdu")
 states/Left/position = Vector2(499, -32)
 states/Right/node = SubResource("AnimationNodeBlendTree_oxwxl")
-states/Right/position = Vector2(499, 234)
+states/Right/position = Vector2(499, 233)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_3a85n"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_4qcbk"), "Idle", "Left", SubResource("AnimationNodeStateMachineTransition_0vn0b"), "Left", "Idle", SubResource("AnimationNodeStateMachineTransition_n3jjj"), "Idle", "Right", SubResource("AnimationNodeStateMachineTransition_kku4i"), "Right", "Idle", SubResource("AnimationNodeStateMachineTransition_qhv04")]
-graph_offset = Vector2(-115, -81)
+graph_offset = Vector2(-133, -102)
 
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 30
@@ -99,3 +99,8 @@ root_node = NodePath("../../PlayerModel")
 libraries = {
 "": SubResource("AnimationLibrary_73ncs")
 }
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+target_position = Vector3(6, 0, 0)
+collision_mask = 8

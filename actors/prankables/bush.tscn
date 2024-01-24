@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5vvemd16gdrr"]
+
+[ext_resource type="PackedScene" uid="uid://fa2p3pd74dyr" path="res://actors/prankables/base_prankable.tscn" id="1_udses"]
+[ext_resource type="PackedScene" uid="uid://muy44h000f43" path="res://assets/models/obstacles/bush.glb" id="2_hw5q4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0lsi2"]
+radius = 1.40019
+
+[node name="Bush" instance=ExtResource("1_udses")]
+gui_name = "Arbusto"
+score = 10
+anim_name = "Bush_001Action"
+model_node_path = NodePath("bush")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28459, 0)
+shape = SubResource("SphereShape3D_0lsi2")
+
+[node name="bush" parent="." index="1" instance=ExtResource("2_hw5q4")]
+
+[node name="Bush_snow" parent="bush" index="1"]
+transform = Transform3D(-0.19484, 0, -0.488451, 0, 0.525877, 0, 0.488451, 0, -0.19484, 0, 1.20854, 0)
+
+[editable path="bush"]
