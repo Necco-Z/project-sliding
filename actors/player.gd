@@ -26,6 +26,7 @@ var is_near_prankable := false
 @onready var anim_playback := ($AnimationTree["parameters/playback"]
 		as AnimationNodeStateMachinePlayback)
 @onready var raycast := $RayCast3D as RayCast3D
+@onready var lamp_anim := $lamp/AnimationPlayer as AnimationPlayer
 
 
 # Funções virtuais e herdadas
@@ -97,9 +98,11 @@ func _set_move_animation(dir: int) -> void:
 
 func _check_for_prankables() -> void:
 	if raycast.is_colliding() and not is_near_prankable:
-		pass #TODO: adicionar forma de mostrar que está perto
+		is_near_prankable = true
+		lamp_anim.play("show_lamp")
 	elif not raycast.is_colliding() and is_near_prankable:
 		is_near_prankable = false
+		lamp_anim.play("hide_lamp")
 
 
 func _execute_prank() -> void:

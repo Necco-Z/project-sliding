@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://b14r5butfkten"]
+[gd_scene load_steps=28 format=3 uid="uid://b14r5butfkten"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_wjmk5"]
 [ext_resource type="PackedScene" uid="uid://dt2pxdp046quf" path="res://assets/models/actors/player.glb" id="2_qphg4"]
 [ext_resource type="Animation" uid="uid://e8ykpqet12j1" path="res://assets/animations/player/Idle.res" id="3_07ncg"]
 [ext_resource type="Animation" uid="uid://b85gs787r3vs1" path="res://assets/animations/player/Turn_Left.res" id="4_j274r"]
 [ext_resource type="Animation" uid="uid://bced2w3ya505l" path="res://assets/animations/player/Turn_Right.res" id="5_ymv4t"]
+[ext_resource type="PackedScene" uid="uid://b2qeu207qi7dp" path="res://assets/models/actors/lamp.glb" id="6_07u2m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ck7m7"]
 size = Vector3(1, 4.18, 1)
@@ -78,6 +79,94 @@ states/Right/position = Vector2(499, 233)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_3a85n"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_4qcbk"), "Idle", "Left", SubResource("AnimationNodeStateMachineTransition_0vn0b"), "Left", "Idle", SubResource("AnimationNodeStateMachineTransition_n3jjj"), "Idle", "Right", SubResource("AnimationNodeStateMachineTransition_kku4i"), "Right", "Idle", SubResource("AnimationNodeStateMachineTransition_qhv04")]
 graph_offset = Vector2(-104, -67)
 
+[sub_resource type="Animation" id="Animation_s4w6p"]
+resource_name = "show_lamp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.4859, 0), Vector3(0, 4.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_i5oue"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.4859, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_e6sug"]
+resource_name = "hide_lamp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 4.5, 0), Vector3(0, 2.4859, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.1, 0.1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hddjw"]
+_data = {
+"RESET": SubResource("Animation_i5oue"),
+"hide_lamp": SubResource("Animation_e6sug"),
+"show_lamp": SubResource("Animation_s4w6p")
+}
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_mask = 30
 script = ExtResource("1_wjmk5")
@@ -108,3 +197,11 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 target_position = Vector3(6, 0, 0)
 collision_mask = 8
+
+[node name="lamp" parent="." instance=ExtResource("6_07u2m")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 2.4859, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="lamp"]
+libraries = {
+"": SubResource("AnimationLibrary_hddjw")
+}
