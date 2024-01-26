@@ -22,6 +22,7 @@ Label/fonts/font = ExtResource("4_3p3gp")
 
 [node name="EndGame" instance=ExtResource("1_0eo41")]
 script = ExtResource("2_qq6ao")
+screen_title = ""
 
 [node name="MiddleBG" type="TextureRect" parent="." index="0"]
 layout_mode = 1
@@ -114,4 +115,5 @@ theme_override_font_sizes/font_size = 40
 text = "Reiniciar"
 icon = ExtResource("10_47pwi")
 
+[connection signal="pressed" from="MainContainer/Buttons/ExitGame" to="." method="_on_return_game_pressed"]
 [connection signal="pressed" from="MainContainer/Buttons/RestartGame" to="." method="_on_restart_game_pressed"]

@@ -4,8 +4,6 @@ var current_menu: Control
 var current_submenu: Control
 
 @onready var game_hud := $GameHUD as Control
-@onready var end_game := $EndGame as Control
-@onready var pause_menu := $PauseMenu as Control
 @onready var blur := $BlurLayer.material as ShaderMaterial
 
 

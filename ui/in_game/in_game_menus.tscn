@@ -36,6 +36,7 @@ visible = false
 screen_title = "Vitória"
 
 [node name="LoseGame" parent="." instance=ExtResource("4_jo2td")]
+visible = false
 screen_title = "Derrota"
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_sbgga")]
