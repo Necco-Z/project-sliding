@@ -1,0 +1,47 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cohe3pikkdbvl"]
+
+[ext_resource type="FontFile" uid="uid://dyu0loxxcgqfy" path="res://assets/fonts/Nunito-SemiBold.ttf" id="1_smi6u"]
+[ext_resource type="Texture2D" uid="uid://b1cao6j204lqf" path="res://assets/sprites/ui/button_cancel_hover.png" id="2_c86hb"]
+[ext_resource type="Texture2D" uid="uid://bgxc0wfjsvrkw" path="res://assets/sprites/ui/button_cancel_normal.png" id="3_tujna"]
+[ext_resource type="Texture2D" uid="uid://cujst1lq0xws3" path="res://assets/sprites/ui/button_cancel_pressed.png" id="4_qi2gt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0qyf"]
+content_margin_left = 24.0
+content_margin_top = 16.0
+content_margin_right = 24.0
+content_margin_bottom = 16.0
+texture = ExtResource("2_c86hb")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mwvjx"]
+content_margin_left = 24.0
+content_margin_top = 16.0
+content_margin_right = 24.0
+content_margin_bottom = 16.0
+texture = ExtResource("3_tujna")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_743hb"]
+content_margin_left = 24.0
+content_margin_top = 16.0
+content_margin_right = 24.0
+content_margin_bottom = 16.0
+texture = ExtResource("4_qi2gt")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[resource]
+Button/constants/h_separation = 8
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_smi6u")
+Button/styles/hover = SubResource("StyleBoxTexture_s0qyf")
+Button/styles/normal = SubResource("StyleBoxTexture_mwvjx")
+Button/styles/pressed = SubResource("StyleBoxTexture_743hb")

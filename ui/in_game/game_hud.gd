@@ -7,6 +7,7 @@ var prank_scene = preload("res://ui/prank.tscn")
 
 @onready var coins_label := %CoinsLabel as Label
 @onready var pranks_container := %PranksContainer as Control
+@onready var star_counter := %StarContainer as HBoxContainer
 @onready var countdown := %Countdown as Label
 @onready var timer := $Timer as Timer
 
@@ -47,6 +48,10 @@ func start_countdown() -> void:
 
 func _on_coins_updated(value: int) -> void:
 	coins_label.text = str(value)
+
+
+func _on_object_achieved() -> void:
+	star_counter.value += 1
 
 
 func _on_pause_button_pressed() -> void:

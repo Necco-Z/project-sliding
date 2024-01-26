@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://cafyiisvynwtf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_phfui"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_o7a7f"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ooq8j"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_w113g"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_kgoon"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_but4p"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_ryf1u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6yyt"]
+albedo_color = Color(0.87451, 0.623529, 0.929412, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lugau"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxooq"]
+albedo_color = Color(0.235294, 0.317647, 0.623529, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_phfui")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_o7a7f")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CylinderMesh_ooq8j")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("TorusMesh_w113g")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PrismMesh_kgoon")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_but4p")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PrismMesh_ryf1u")
+surface_material_override/0 = SubResource("StandardMaterial3D_j6yyt")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_lugau")
+surface_material_override/0 = SubResource("StandardMaterial3D_gxooq")

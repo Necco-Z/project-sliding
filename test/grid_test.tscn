@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://3smpgwtoh7wa"]
+
+[ext_resource type="Script" path="res://test/grid_test.gd" id="1_14c8y"]
+[ext_resource type="MeshLibrary" uid="uid://2krps2vk813u" path="res://assets/obstacles_meshlib.tres" id="1_tt5km"]
+[ext_resource type="Script" path="res://scripts/classes/replace_item.gd" id="3_0owb5"]
+
+[sub_resource type="Resource" id="Resource_g15u2"]
+script = ExtResource("3_0owb5")
+name = "Snowman"
+
+[sub_resource type="QuadMesh" id="QuadMesh_ygnnn"]
+size = Vector2(4, 4)
+
+[node name="GridTest" type="Node3D"]
+script = ExtResource("1_14c8y")
+replacer_path = "res://test/replacer.tscn"
+replacers = Array[ExtResource("3_0owb5")]([SubResource("Resource_g15u2")])
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0749785, 0.405592, -0.910974, 0, 0.913545, 0.406737, 0.997185, -0.0304965, 0.0684963, 0, 0, 0)
+shadow_enabled = true
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_tt5km")
+cell_size = Vector3(5, 2, 6)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(0, 0, 0, 2, 0, 0, 65534, 0, 0, 1, 0, 4, 65535, 0, 4)
+}
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.10804, 17.1406)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.000104709, 1, 0, -1, -0.000104709, -3, 0, 3)
+mesh = SubResource("QuadMesh_ygnnn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.000104709, 1, 0, -1, -0.000104709, 8, 0, 3)
+mesh = SubResource("QuadMesh_ygnnn")

@@ -6,12 +6,13 @@ var current_submenu: Control
 @onready var game_hud := $GameHUD as Control
 @onready var end_game := $EndGame as Control
 @onready var pause_menu := $PauseMenu as Control
+@onready var blur := $BlurLayer.material as ShaderMaterial
 
 
 ### Funções básicas
 func _ready() -> void:
 	for i in get_children():
-		if i is Control:
+		if i is Control and not i is ColorRect:
 			i.hide_menu(true)
 	change_menu("StartMenu", true)
 
@@ -19,7 +20,8 @@ func _ready() -> void:
 ### Funções públicas
 func set_connections(game_scene: Node) -> void:
 	for i in get_children():
-		i.set_connections(game_scene)
+		if not i is ColorRect:
+			i.set_connections(game_scene)
 
 
 func change_menu(to: String, instant := false) -> void:
@@ -31,9 +33,11 @@ func change_menu(to: String, instant := false) -> void:
 				current_menu.hide_menu(instant)
 			i.show_menu(instant)
 			current_menu = i
-			return
-
-	printerr("Não existe menu chamado \"", to, "\"")
+	var t = create_tween()
+	if to != "GameHUD":
+		t.tween_method(_set_blur_value, 0.0, 1.0, 0.3)
+	else:
+		t.tween_method(_set_blur_value, 1.0, 0.0, 0.3)
 
 
 func open_submenu(submenu: String, instant := false) -> void:
@@ -59,3 +63,7 @@ func start_countdown() -> void:
 
 func add_prank(score := 0, text := "") -> void:
 	game_hud.add_prank(score, text)
+
+
+func _set_blur_value(value: float) -> void:
+	blur.set_shader_parameter("amount", value)

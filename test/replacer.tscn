@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://hgou0y2rf8ng"]
+
+[ext_resource type="ArrayMesh" uid="uid://g531ddvsbmad" path="res://assets/meshes/snowman.res" id="1_ebjqp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_obikb"]
+albedo_color = Color(0.576471, 0.639216, 0.945098, 1)
+roughness = 0.33
+
+[node name="Replacer" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.095, 0, 0, 0, 1.095, 0, 0, 0, 1.095, 0, 1.07, 0)
+mesh = ExtResource("1_ebjqp")
+surface_material_override/0 = SubResource("StandardMaterial3D_obikb")

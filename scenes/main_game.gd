@@ -15,16 +15,13 @@ var is_running := false:
 
 ### Funções herdadas (_init, _ready e outras)
 func _ready() -> void:
-	Fader.fade_in()
 	game_menus.set_connections(self)
 	player.set_connections(self)
 	_replace_all_items()
+	Fader.fade_in()
 
 
-### Funções públicas
-func start_game() -> void:
-	ScoreData.reset_data() # TODO: retirar essa chamada
-	game_menus.start_countdown()
+#### Funções públicas
 
 
 ### Funções privadas
@@ -38,7 +35,7 @@ func _replace_all_items() -> void:
 # Setters e getters
 func _set_running(value: bool) -> void:
 	is_running = value
-	player.can_control = value
+	player.is_active = value
 
 
 # Funções de sinal
@@ -59,6 +56,8 @@ func _on_return_pressed():
 
 
 func _on_restart_pressed() -> void:
+	Fader.fade_out()
+	await Fader.fade_finished
 	get_tree().reload_current_scene()
 
 
