@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b14r5butfkten"]
+[gd_scene load_steps=23 format=3 uid="uid://b14r5butfkten"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_wjmk5"]
 [ext_resource type="PackedScene" uid="uid://dt2pxdp046quf" path="res://assets/models/actors/player.glb" id="2_qphg4"]
@@ -9,9 +9,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ck7m7"]
 size = Vector3(1, 4.18, 1)
 
+[sub_resource type="Animation" id="Animation_bper7"]
+length = 0.001
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_73ncs"]
 _data = {
 "Idle": ExtResource("3_07ncg"),
+"RESET": SubResource("Animation_bper7"),
 "Turn_Left": ExtResource("4_j274r"),
 "Turn_Right": ExtResource("5_ymv4t")
 }
@@ -68,11 +72,11 @@ states/End/position = Vector2(813, 100)
 states/Idle/node = SubResource("AnimationNodeAnimation_blx65")
 states/Idle/position = Vector2(499, 100)
 states/Left/node = SubResource("AnimationNodeBlendTree_unrdu")
-states/Left/position = Vector2(499, -32)
+states/Left/position = Vector2(499, -33)
 states/Right/node = SubResource("AnimationNodeBlendTree_oxwxl")
 states/Right/position = Vector2(499, 233)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_3a85n"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_4qcbk"), "Idle", "Left", SubResource("AnimationNodeStateMachineTransition_0vn0b"), "Left", "Idle", SubResource("AnimationNodeStateMachineTransition_n3jjj"), "Idle", "Right", SubResource("AnimationNodeStateMachineTransition_kku4i"), "Right", "Idle", SubResource("AnimationNodeStateMachineTransition_qhv04")]
-graph_offset = Vector2(-133, -102)
+graph_offset = Vector2(-104, -67)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_mask = 30

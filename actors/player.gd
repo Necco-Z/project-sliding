@@ -5,8 +5,9 @@ signal player_collided
 signal coin_collected
 
 @export_node_path("Node3D") var track_points_node
-@export var speed := 7.5
+@export var speed := 8
 @export var lane_switch_time := 0.5
+@export var jump_time := 1.5
 @export var raycast_distance := 6
 
 var is_active := false:
@@ -16,6 +17,8 @@ var can_control := false:
 var is_moving := false
 var current_lane := 1
 var player_zpos := 0.0
+var is_jumping := false
+var player_ypos := 0.0
 var is_near_prankable := false
 
 @onready var track_points := get_node(track_points_node).get_children()
@@ -30,12 +33,16 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if can_control and not is_moving:
-		_check_for_prankables()
-		_set_lane_movement()
+	if can_control:
+		if not is_moving:
+			_set_lane_movement()
+		if not is_jumping:
+			_set_jump()
 	if is_active:
+		_check_for_prankables()
 		var new_dir = Vector3.RIGHT * speed * delta
 		new_dir.z = player_zpos - global_position.z
+		new_dir.y = player_ypos - global_position.y
 		var col = move_and_collide(new_dir)
 		if col:
 			player_collided.emit()
@@ -67,6 +74,17 @@ func _set_lane_movement() -> void:
 		_set_move_animation(current_lane - last_lane)
 		await t.finished
 		is_moving = false
+
+
+func _set_jump() -> void:
+	if Input.is_action_just_pressed("jump"):
+		is_jumping = true
+		var t = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		t.tween_property(self, "player_ypos", 2.5, jump_time * 0.3)
+		t.tween_interval(jump_time * 0.4)
+		t.tween_property(self, "player_ypos", 0, jump_time * 0.3).set_ease(Tween.EASE_IN)
+		await t.finished
+		is_jumping = false
 
 
 func _set_move_animation(dir: int) -> void:
