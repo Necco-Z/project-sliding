@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvjvpdafxerwn"]
+[gd_scene load_steps=16 format=3 uid="uid://dvjvpdafxerwn"]
 
 [ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://actors/player.tscn" id="1_1ts6d"]
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_hws7p"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://04yon5gtykvt" path="res://actors/coin_group.tscn" id="4_mdolu"]
 [ext_resource type="PackedScene" uid="uid://c3bxng6l2algc" path="res://actors/game_camera.tscn" id="5_7nf5h"]
 [ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="6_mgdkl"]
+[ext_resource type="PackedScene" uid="uid://csd3siet5t7gh" path="res://scenes/stage01.tscn" id="10_sv3qh"]
 [ext_resource type="Texture2D" uid="uid://v4cgdqta0bhk" path="res://assets/hdri/rocky_ridge_puresky_2k.hdr" id="10_t7arf"]
 [ext_resource type="PackedScene" uid="uid://dt8ohiqvrdwg4" path="res://ui/in_game/in_game_menus.tscn" id="12_itv2k"]
 
@@ -69,34 +70,8 @@ transform = Transform3D(-4.36647e-08, 0.535119, -0.844777, -2.01946e-09, 0.84477
 fov = 62.0
 player_node = NodePath("../Player")
 
-[node name="Floors" type="Node3D" parent="."]
+[node name="BaseFloor" parent="." instance=ExtResource("6_mgdkl")]
 
-[node name="FloorG" parent="Floors" instance=ExtResource("6_mgdkl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+[node name="Stage" type="Node3D" parent="."]
 
-[node name="Floor1" parent="Floors" instance=ExtResource("6_mgdkl")]
-
-[node name="Floor2" parent="Floors" instance=ExtResource("6_mgdkl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
-
-[node name="Floor3" parent="Floors" instance=ExtResource("6_mgdkl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
-
-[node name="Floor4" parent="Floors" instance=ExtResource("6_mgdkl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0)
-
-[node name="GridMap" parent="Floors/Floor4" index="4"]
-data = {
-"cells": PackedInt32Array(65527, 0, 0, 65530, 65535, 0, 65534, 1, 0, 65525, 1, 9, 65526, 1, 9, 65527, 1, 9)
-}
-
-[node name="Floor5" parent="Floors" instance=ExtResource("6_mgdkl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
-
-[node name="Floor6" parent="Floors" instance=ExtResource("6_mgdkl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 0, 0)
-
-[node name="Floor7" parent="Floors" instance=ExtResource("6_mgdkl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, 0)
-
-[editable path="Floors/Floor4"]
+[node name="Stage01" parent="Stage" instance=ExtResource("10_sv3qh")]
