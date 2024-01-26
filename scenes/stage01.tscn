@@ -65,7 +65,7 @@
 [ext_resource type="PackedScene" uid="uid://bgc0felo4wxt6" path="res://scenes/environment/misto_8.tscn" id="63_o5go1"]
 [ext_resource type="PackedScene" uid="uid://bonj3g21gmwnr" path="res://scenes/environment/misto_2.tscn" id="64_mc4nx"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Stage01" type="Node3D"]
 
 [node name="tutorial" type="Node3D" parent="."]
 

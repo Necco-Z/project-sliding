@@ -10,7 +10,6 @@ var is_running := false:
 
 @onready var player := get_node(player_node) as CharacterBody3D
 @onready var game_menus := $InGameMenus as CanvasLayer
-@onready var floors := $Floors as Node3D
 
 
 ### Funções herdadas (_init, _ready e outras)
@@ -26,7 +25,7 @@ func _ready() -> void:
 
 ### Funções privadas
 func _replace_all_items() -> void:
-	var all_floors = floors.get_children()
+	var all_floors = get_tree().get_nodes_in_group("floor_part")
 	for r in replacers:
 		for f in all_floors:
 			f.replace_on_grid(r.name, r.replace_file)
@@ -35,7 +34,7 @@ func _replace_all_items() -> void:
 # Setters e getters
 func _set_running(value: bool) -> void:
 	is_running = value
-	player.is_active = value
+	player.can_control = value
 
 
 # Funções de sinal

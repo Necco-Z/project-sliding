@@ -34,6 +34,7 @@ func change_menu(to: String, instant := false) -> void:
 			i.show_menu(instant)
 			current_menu = i
 	var t = create_tween()
+
 	if to != "GameHUD":
 		t.tween_method(_set_blur_value, 0.0, 1.0, 0.3)
 	else:

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cduigy12fppku" path="res://assets/models/environment/tree.glb" id="6_agvj4"]
 [ext_resource type="PackedScene" uid="uid://bguecaoiqbiqy" path="res://assets/models/environment/sign_01.glb" id="8_iim1q"]
 
-[node name="BaseFloor" type="Node3D"]
+[node name="BaseFloor" type="Node3D" groups=["floor_part"]]
 script = ExtResource("1_cfdkb")
 
 [node name="SideBG" type="Node3D" parent="."]
@@ -42,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 mesh_library = ExtResource("5_ulk7h")
 cell_size = Vector3(5, 2, 6)
 cell_center_y = false
-collision_layer = 0
+collision_layer = 4
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Decorations" type="Node3D" parent="."]
