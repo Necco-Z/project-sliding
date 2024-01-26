@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://du8ssy1227k34"]
+[gd_scene load_steps=14 format=3 uid="uid://du8ssy1227k34"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_xgpu5"]
 [ext_resource type="Script" path="res://ui/in_game/pause_menu.gd" id="2_hr8f6"]
 [ext_resource type="Texture2D" uid="uid://cwxba1ksgpdou" path="res://assets/sprites/ui/pause_menu_background.png" id="3_6ojqw"]
 [ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="4_jflbp"]
 [ext_resource type="Texture2D" uid="uid://cwk4f4fuqy0gu" path="res://assets/sprites/ui/star_objective_ui_big.png" id="5_3e5r5"]
+[ext_resource type="PackedScene" uid="uid://chxy0qqhv42rx" path="res://ui/star_container.tscn" id="5_bbogl"]
 [ext_resource type="Texture2D" uid="uid://bsverjoat3vcm" path="res://assets/sprites/ui/star_objective_ui_unachieved_big.png" id="6_cohif"]
 [ext_resource type="FontFile" uid="uid://c4xapcx77tcqy" path="res://assets/fonts/Nunito-Regular.ttf" id="7_573r8"]
 [ext_resource type="Theme" uid="uid://cohe3pikkdbvl" path="res://assets/themes/cancel_button_theme.tres" id="8_1giyr"]
@@ -22,7 +23,7 @@ Label/fonts/font = ExtResource("4_jflbp")
 [node name="PauseMenu" instance=ExtResource("1_xgpu5")]
 script = ExtResource("2_hr8f6")
 
-[node name="TextureRect" type="TextureRect" parent="." index="0"]
+[node name="MiddleBG" type="TextureRect" parent="." index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_6ojqw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
+[node name="MainContainer" type="VBoxContainer" parent="." index="1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -52,74 +53,62 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 72
 
-[node name="Label" type="Label" parent="VBoxContainer" index="0"]
+[node name="Title" type="Label" parent="MainContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_jjj5n")
 text = "JOGO PAUSADO"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" index="1"]
+[node name="StarContainer" parent="MainContainer" index="1" instance=ExtResource("5_bbogl")]
 layout_mode = 2
-theme_override_constants/separation = 24
+alignment = 1
+texture_lit = ExtResource("5_3e5r5")
+texture_unlit = ExtResource("6_cohif")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer" index="0"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/HBoxContainer" index="0"]
-layout_mode = 2
-texture = ExtResource("5_3e5r5")
-
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/VBoxContainer/HBoxContainer" index="1"]
-layout_mode = 2
-texture = ExtResource("6_cohif")
-
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/VBoxContainer/HBoxContainer" index="2"]
-layout_mode = 2
-texture = ExtResource("6_cohif")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="1"]
+[node name="Objectives" type="VBoxContainer" parent="MainContainer" index="2"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/VBoxContainer" index="0"]
+[node name="Label" type="Label" parent="MainContainer/Objectives" index="0"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
 theme_override_fonts/font = ExtResource("7_573r8")
 theme_override_font_sizes/font_size = 32
 text = "Objetivo 1"
 
-[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer/VBoxContainer" index="1"]
+[node name="Label2" type="Label" parent="MainContainer/Objectives" index="1"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
 theme_override_fonts/font = ExtResource("7_573r8")
 theme_override_font_sizes/font_size = 32
 text = "Objetivo 1"
 
-[node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer/VBoxContainer" index="2"]
+[node name="Label3" type="Label" parent="MainContainer/Objectives" index="2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
 theme_override_fonts/font = ExtResource("7_573r8")
 theme_override_font_sizes/font_size = 32
 text = "Objetivo 1"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="2"]
+[node name="Buttons" type="HBoxContainer" parent="MainContainer" index="3"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 24
 
-[node name="RestartButton" type="Button" parent="VBoxContainer/HBoxContainer" index="0"]
+[node name="RestartButton" type="Button" parent="MainContainer/Buttons" index="0"]
 layout_mode = 2
 theme = ExtResource("8_1giyr")
 theme_override_font_sizes/font_size = 40
-text = "Sair"
+text = "Reiniciar"
 icon = ExtResource("9_cnryi")
 
-[node name="ResumeButton" type="Button" parent="VBoxContainer/HBoxContainer" index="1"]
+[node name="ResumeButton" type="Button" parent="MainContainer/Buttons" index="1"]
 layout_mode = 2
 theme = ExtResource("11_ewf75")
 theme_override_font_sizes/font_size = 40
-text = "Jogar"
+text = "Continuar"
 icon = ExtResource("10_40mrs")
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainContainer/Buttons/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MainContainer/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]

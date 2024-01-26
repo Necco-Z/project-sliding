@@ -8,6 +8,7 @@ signal coins_updated
 ### enums
 
 ### constantes
+const GAME_SCENE_PATH := "res://scenes/main_game.tscn"
 
 ### variáveis de @export
 
@@ -15,6 +16,8 @@ signal coins_updated
 var coins: int :
 	set = _set_coins
 var prank_total: int
+var game_scene: PackedScene
+var load_status := ResourceLoader.THREAD_LOAD_IN_PROGRESS
 
 ### variáveis privadas
 
@@ -23,7 +26,14 @@ var prank_total: int
 
 ### funções herdadas (_init, _ready e outras)
 func _ready() -> void:
-	pass
+	ResourceLoader.load_threaded_request(GAME_SCENE_PATH)
+
+
+func _process(_delta: float) -> void:
+	if load_status != ResourceLoader.THREAD_LOAD_LOADED:
+		load_status = ResourceLoader.load_threaded_get_status(GAME_SCENE_PATH)
+		if load_status == ResourceLoader.THREAD_LOAD_LOADED:
+			game_scene = ResourceLoader.load_threaded_get(GAME_SCENE_PATH)
 
 
 ### funções públicas

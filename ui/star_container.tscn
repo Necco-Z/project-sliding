@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://chxy0qqhv42rx"]
+
+[ext_resource type="Script" path="res://ui/star_container.gd" id="1_m6115"]
+[ext_resource type="Texture2D" uid="uid://cs3htxo3dflpn" path="res://assets/sprites/ui/star_objective_ui.png" id="1_qsc54"]
+[ext_resource type="Texture2D" uid="uid://5b65wq2i02fh" path="res://assets/sprites/ui/star_objective_ui_unachieved.png" id="2_4uvmb"]
+
+[node name="StarContainer" type="HBoxContainer"]
+theme_override_constants/separation = 10
+script = ExtResource("1_m6115")
+
+[node name="Star1" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_qsc54")
+
+[node name="Star2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_4uvmb")
+
+[node name="Star3" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_4uvmb")

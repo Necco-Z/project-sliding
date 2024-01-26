@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cg4jy1bjo2ysi"]
+[gd_scene load_steps=21 format=3 uid="uid://cg4jy1bjo2ysi"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_teysb"]
 [ext_resource type="Script" path="res://ui/in_game/start_menu.gd" id="2_1vfgs"]
@@ -17,63 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://d1ku08gejy800" path="res://assets/sprites/ui/exit_icon.png" id="15_pepqp"]
 [ext_resource type="Texture2D" uid="uid://bsverjoat3vcm" path="res://assets/sprites/ui/star_objective_ui_unachieved_big.png" id="15_qeub2"]
 [ext_resource type="FontFile" uid="uid://c4xapcx77tcqy" path="res://assets/fonts/Nunito-Regular.ttf" id="16_tr7ee"]
-
-[sub_resource type="Animation" id="Animation_xenot"]
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:anchor_top")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.09]
-}
-
-[sub_resource type="Animation" id="Animation_tqo5b"]
-resource_name = "background_icons_animation"
-length = 40.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:anchor_top")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 40),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -1.09]
-}
-
-[sub_resource type="Animation" id="Animation_je5oy"]
-resource_name = "background_icons_animation_inverse"
-length = 40.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:anchor_top")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 40),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-1.09, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dcdc"]
-_data = {
-"RESET": SubResource("Animation_xenot"),
-"background_icons_animation": SubResource("Animation_tqo5b"),
-"background_icons_animation_inverse": SubResource("Animation_je5oy")
-}
 
 [sub_resource type="Theme" id="Theme_qhace"]
 Label/colors/font_color = Color(0.839216, 0.552941, 0.137255, 1)
@@ -103,8 +46,10 @@ corner_radius_bottom_left = 60
 
 [node name="StartMenu" instance=ExtResource("1_teysb")]
 script = ExtResource("2_1vfgs")
+anim_speed = 5.0
 
 [node name="ColorRect" type="ColorRect" parent="." index="0"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,124 +58,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.219608, 0.341176, 0.8, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." index="1"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = -1.09
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 120
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer" index="0"]
-root_node = NodePath("../TextureRect")
-libraries = {
-"": SubResource("AnimationLibrary_8dcdc")
-}
-autoplay = "background_icons_animation"
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" index="1"]
-layout_mode = 2
+[node name="BgUp" type="Sprite2D" parent="." index="1"]
+texture_repeat = 2
+position = Vector2(960, 540)
 texture = ExtResource("3_0xdde")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 1080)
 
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" index="2"]
-layout_mode = 2
+[node name="BgDown" type="Sprite2D" parent="." index="2"]
+texture_repeat = 2
+position = Vector2(1020, 540)
 texture = ExtResource("3_0xdde")
-
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" index="3"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect4" type="TextureRect" parent="HBoxContainer" index="4"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect5" type="TextureRect" parent="HBoxContainer" index="5"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect6" type="TextureRect" parent="HBoxContainer" index="6"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect7" type="TextureRect" parent="HBoxContainer" index="7"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect8" type="TextureRect" parent="HBoxContainer" index="8"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect9" type="TextureRect" parent="HBoxContainer" index="9"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect10" type="TextureRect" parent="HBoxContainer" index="10"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect11" type="TextureRect" parent="HBoxContainer" index="11"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="." index="2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = -1.09
-offset_left = 90.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 120
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer2" index="0"]
-root_node = NodePath("../TextureRect")
-libraries = {
-"": SubResource("AnimationLibrary_8dcdc")
-}
-autoplay = "background_icons_animation_inverse"
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer2" index="1"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer2" index="2"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer2" index="3"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect4" type="TextureRect" parent="HBoxContainer2" index="4"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect5" type="TextureRect" parent="HBoxContainer2" index="5"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect6" type="TextureRect" parent="HBoxContainer2" index="6"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect7" type="TextureRect" parent="HBoxContainer2" index="7"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect8" type="TextureRect" parent="HBoxContainer2" index="8"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect9" type="TextureRect" parent="HBoxContainer2" index="9"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect10" type="TextureRect" parent="HBoxContainer2" index="10"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
-
-[node name="TextureRect11" type="TextureRect" parent="HBoxContainer2" index="11"]
-layout_mode = 2
-texture = ExtResource("3_0xdde")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 1080)
 
 [node name="Control" type="Control" parent="." index="3"]
 visible = false
@@ -447,6 +287,7 @@ layout_mode = 2
 texture = ExtResource("15_qeub2")
 
 [node name="HBoxContainer2" type="VBoxContainer" parent="LevelName/VBoxContainer" index="2"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/separation = 16
 

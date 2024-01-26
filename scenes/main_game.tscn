@@ -65,7 +65,7 @@ track_points_node = NodePath("../TrackPoints")
 raycast_distance = 10
 
 [node name="GameCamera" parent="." instance=ExtResource("5_7nf5h")]
-transform = Transform3D(-4.36604e-08, 0.533349, -0.845896, -2.11091e-09, 0.845896, 0.533349, 1, 2.50718e-08, -3.58063e-08, -6.89588, 9.39164, 0)
+transform = Transform3D(-4.36647e-08, 0.535119, -0.844777, -2.01946e-09, 0.844777, 0.535119, 1, 2.50718e-08, -3.58063e-08, -8.98184, 11.1627, 0)
 fov = 62.0
 player_node = NodePath("../Player")
 
