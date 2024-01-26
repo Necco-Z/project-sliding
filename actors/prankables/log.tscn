@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://butqhus35eiis"]
+
+[ext_resource type="PackedScene" uid="uid://fa2p3pd74dyr" path="res://actors/prankables/base_prankable.tscn" id="1_0rp5d"]
+[ext_resource type="PackedScene" uid="uid://bi5x85e8s6m8g" path="res://assets/models/obstacles/log_03.glb" id="2_iui7s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s2i1q"]
+radius = 0.794627
+
+[node name="Log" instance=ExtResource("1_0rp5d")]
+gui_name = "Tronco"
+score = 10
+anim_name = "Cube_001Action"
+model_node_path = NodePath("log_03")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.763524, 0)
+shape = SubResource("SphereShape3D_s2i1q")
+
+[node name="log_03" parent="." index="1" instance=ExtResource("2_iui7s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0.0248684, 0.999691, -1.08703e-09, 0.999691, -0.0248684, -4.36979e-08, 0, -0.0544108, 0)
+
+[node name="Log_snow" parent="log_03" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171951, 1.28032, -7.70102e-09)
+
+[editable path="log_03"]

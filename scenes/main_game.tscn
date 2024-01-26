@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dvjvpdafxerwn"]
+[gd_scene load_steps=20 format=3 uid="uid://dvjvpdafxerwn"]
 
 [ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://actors/player.tscn" id="1_1ts6d"]
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_hws7p"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://scripts/classes/replace_item.gd" id="3_75aig"]
 [ext_resource type="PackedScene" uid="uid://04yon5gtykvt" path="res://actors/coin_group.tscn" id="4_mdolu"]
 [ext_resource type="PackedScene" uid="uid://c3bxng6l2algc" path="res://actors/game_camera.tscn" id="5_7nf5h"]
+[ext_resource type="PackedScene" uid="uid://butqhus35eiis" path="res://actors/prankables/log.tscn" id="5_60301"]
 [ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="6_mgdkl"]
+[ext_resource type="PackedScene" uid="uid://dv3vofb0st6jy" path="res://actors/prankables/snow_bump.tscn" id="6_ynaxp"]
 [ext_resource type="PackedScene" uid="uid://csd3siet5t7gh" path="res://scenes/stage01.tscn" id="10_sv3qh"]
 [ext_resource type="Texture2D" uid="uid://v4cgdqta0bhk" path="res://assets/hdri/rocky_ridge_puresky_2k.hdr" id="10_t7arf"]
 [ext_resource type="PackedScene" uid="uid://dt8ohiqvrdwg4" path="res://ui/in_game/in_game_menus.tscn" id="12_itv2k"]
@@ -20,6 +22,16 @@ replace_file = ExtResource("2_olpo4")
 script = ExtResource("3_75aig")
 name = "Coin"
 replace_file = ExtResource("4_mdolu")
+
+[sub_resource type="Resource" id="Resource_rctie"]
+script = ExtResource("3_75aig")
+name = "Log03"
+replace_file = ExtResource("5_60301")
+
+[sub_resource type="Resource" id="Resource_d41j0"]
+script = ExtResource("3_75aig")
+name = "SnowBump"
+replace_file = ExtResource("6_ynaxp")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3bwc1"]
 sky_cover = ExtResource("10_t7arf")
@@ -38,7 +50,7 @@ volumetric_fog_density = 0.02
 [node name="MainGame" type="Node"]
 script = ExtResource("1_hws7p")
 player_node = NodePath("Player")
-replacers = Array[ExtResource("3_75aig")]([SubResource("Resource_kpxey"), SubResource("Resource_cr5rv")])
+replacers = Array[ExtResource("3_75aig")]([SubResource("Resource_kpxey"), SubResource("Resource_cr5rv"), SubResource("Resource_rctie"), SubResource("Resource_d41j0")])
 
 [node name="InGameMenus" parent="." instance=ExtResource("12_itv2k")]
 

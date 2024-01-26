@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://fa2p3pd74dyr" path="res://actors/prankables/base_prankable.tscn" id="1_udses"]
 [ext_resource type="PackedScene" uid="uid://muy44h000f43" path="res://assets/models/obstacles/bush.glb" id="2_hw5q4"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_0lsi2"]
-radius = 1.40019
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k4wum"]
+radius = 1.1
+height = 2.5
 
 [node name="Bush" instance=ExtResource("1_udses")]
 gui_name = "Arbusto"
@@ -13,8 +14,8 @@ anim_name = "Bush_001Action"
 model_node_path = NodePath("bush")
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28459, 0)
-shape = SubResource("SphereShape3D_0lsi2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61077, 0)
+shape = SubResource("CapsuleShape3D_k4wum")
 
 [node name="bush" parent="." index="1" instance=ExtResource("2_hw5q4")]
 
