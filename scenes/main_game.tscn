@@ -71,6 +71,7 @@ fov = 62.0
 player_node = NodePath("../Player")
 
 [node name="BaseFloor" parent="." instance=ExtResource("6_mgdkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
 
 [node name="Stage" type="Node3D" parent="."]
 

@@ -8,6 +8,7 @@ signal coin_collected
 @export var speed := 8
 @export var lane_switch_time := 0.5
 @export var jump_time := 1.5
+@export var jump_height := 2.5
 @export var raycast_distance := 6
 
 var is_active := false:
@@ -80,9 +81,9 @@ func _set_jump() -> void:
 	if Input.is_action_just_pressed("jump"):
 		is_jumping = true
 		var t = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-		t.tween_property(self, "player_ypos", 2.5, jump_time * 0.3)
-		t.tween_interval(jump_time * 0.4)
-		t.tween_property(self, "player_ypos", 0, jump_time * 0.3).set_ease(Tween.EASE_IN)
+		t.tween_property(self, "player_ypos", jump_height, jump_time * 0.35)
+		t.tween_interval(jump_time * 0.3)
+		t.tween_property(self, "player_ypos", 0, jump_time * 0.35).set_ease(Tween.EASE_IN)
 		await t.finished
 		is_jumping = false
 
