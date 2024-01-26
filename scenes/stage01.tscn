@@ -84,9 +84,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0)
 [node name="tutorial_warm_up_2" parent="tutorial" instance=ExtResource("5_a8kv3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
 
-[node name="BaseFloor" parent="tutorial" instance=ExtResource("6_i7nc4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
-
 [node name="stone_stage" type="Node3D" parent="."]
 
 [node name="stone_10" parent="stone_stage" instance=ExtResource("6_wj1mw")]
@@ -317,3 +314,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1950, 0, 0)
 
 [node name="BaseFloor16" parent="misto_stage" instance=ExtResource("53_pw0co")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1975, 0, 0)
+
+[node name="EndStage" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2000, 0, 0)
+
+[node name="BaseFloor" parent="EndStage" instance=ExtResource("6_i7nc4")]
+
+[node name="BaseFloor2" parent="EndStage" instance=ExtResource("6_i7nc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
+[node name="BaseFloor3" parent="EndStage" instance=ExtResource("6_i7nc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+
+[node name="BaseFloor4" parent="EndStage" instance=ExtResource("6_i7nc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0)
+
+[node name="BaseFloor5" parent="EndStage" instance=ExtResource("6_i7nc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
+
+[node name="BaseFloor6" parent="EndStage" instance=ExtResource("6_i7nc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 0, 0)
+
+[node name="BaseFloor7" parent="EndStage" instance=ExtResource("6_i7nc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, 0)
+
+[node name="BaseFloor8" parent="EndStage" instance=ExtResource("6_i7nc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 0, 0)
