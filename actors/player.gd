@@ -97,11 +97,9 @@ func _set_move_animation(dir: int) -> void:
 
 func _check_for_prankables() -> void:
 	if raycast.is_colliding() and not is_near_prankable:
-		is_near_prankable = true
-		print("prankable detected: ", raycast.get_collider().name)
+		pass #TODO: adicionar forma de mostrar que está perto
 	elif not raycast.is_colliding() and is_near_prankable:
 		is_near_prankable = false
-		print("no prankables detected")
 
 
 func _execute_prank() -> void:

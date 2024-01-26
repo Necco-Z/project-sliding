@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv3vofb0st6jy"]
+
+[ext_resource type="PackedScene" uid="uid://fa2p3pd74dyr" path="res://actors/prankables/base_prankable.tscn" id="1_41tj1"]
+[ext_resource type="PackedScene" uid="uid://b32eh0btfjjqo" path="res://assets/models/obstacles/snow_bump.glb" id="2_2radx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jrwen"]
+radius = 1.09029
+
+[node name="SnowBump" instance=ExtResource("1_41tj1")]
+gui_name = "Monte de neve"
+score = 10
+anim_name = "Ice MountAction_001"
+model_node_path = NodePath("snow_bump")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07478, 0)
+shape = SubResource("SphereShape3D_jrwen")
+
+[node name="snow_bump" parent="." index="1" instance=ExtResource("2_2radx")]
+
+[editable path="snow_bump"]
