@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bonj3g21gmwnr"]
+
+[ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="1_8bafe"]
+[ext_resource type="MeshLibrary" uid="uid://2krps2vk813u" path="res://scenes/level/obstacles_meshlib.tres" id="2_otmh1"]
+[ext_resource type="PackedScene" uid="uid://cy71ngwl4f16x" path="res://assets/models/actors/coin.glb" id="3_1l32x"]
+
+[node name="BaseFloor" instance=ExtResource("1_8bafe")]
+
+[node name="GridMap" parent="." index="4"]
+mesh_library = ExtResource("2_otmh1")
+data = {
+"cells": PackedInt32Array(3, 0, 1441793, 3, 1, 1441792, 1, 1, 655366)
+}
+
+[node name="coins" type="Node3D" parent="." index="6"]
+
+[node name="coin" parent="coins" index="0" instance=ExtResource("3_1l32x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.5, 0.3, 6)
