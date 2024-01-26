@@ -80,7 +80,7 @@ speed = 13
 lane_switch_time = 0.4
 jump_time = 0.6
 jump_height = 4.0
-raycast_distance = 10
+raycast_distance = 8
 
 [node name="GameCamera" parent="." instance=ExtResource("5_7nf5h")]
 transform = Transform3D(-4.36647e-08, 0.535119, -0.844777, -2.01946e-09, 0.844777, 0.535119, 1, 2.50718e-08, -3.58063e-08, -8.98184, 11.1627, 0)
