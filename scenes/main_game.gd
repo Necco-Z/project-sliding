@@ -67,7 +67,7 @@ func _on_resume_pressed() -> void:
 
 func _on_player_collided() -> void:
 	is_running = false
-	game_menus.change_menu("EndGame")
+	game_menus.change_menu("LoseGame")
 
 
 func _on_prank_executed(prank_name := "", prank_score := 0) -> void:
@@ -83,4 +83,4 @@ func _on_countdown_finished() -> void:
 func _on_end_flag_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		is_running = false
-		game_menus.change_menu("EndGame")
+		game_menus.change_menu("WinGame")
