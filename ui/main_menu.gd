@@ -21,14 +21,13 @@ func _ready() -> void:
 
 
 func _on_start_button_pressed() -> void:
+	ScoreData.reset_data()
 	var t = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 	t.parallel().tween_property(load_screen, "anchor_top", 0, anim_time)
 	t.parallel().tween_property(load_screen, "anchor_bottom", 1, anim_time)
 	t.tween_property(logo, "modulate", Color.WHITE, 0.2)
 	await t.finished
 	anim_player.play("loading")
-	var status = ResourceLoader.load_threaded_get_status(game_scene_path)
-	print(get_load_message(status))
 	while ScoreData.game_scene == null:
 		await get_tree().process_frame
 	Fader.fade_out()
