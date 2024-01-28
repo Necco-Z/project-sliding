@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://3smpgwtoh7wa"]
 
 [ext_resource type="Script" path="res://test/grid_test.gd" id="1_14c8y"]
-[ext_resource type="MeshLibrary" uid="uid://2krps2vk813u" path="res://assets/obstacles_meshlib.tres" id="1_tt5km"]
+[ext_resource type="MeshLibrary" uid="uid://2krps2vk813u" path="res://assets/meshlibs/obstacles_meshlib.tres" id="1_tt5km"]
 [ext_resource type="Script" path="res://scripts/classes/replace_item.gd" id="3_0owb5"]
 
 [sub_resource type="Resource" id="Resource_g15u2"]

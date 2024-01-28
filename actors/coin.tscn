@@ -1,63 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2rivq1hy316p"]
+[gd_scene load_steps=9 format=3 uid="uid://d2rivq1hy316p"]
 
-[ext_resource type="PackedScene" uid="uid://cy71ngwl4f16x" path="res://assets/models/actors/coin.glb" id="1_r6krw"]
 [ext_resource type="Script" path="res://actors/coin.gd" id="1_uvd2n"]
+[ext_resource type="PackedScene" uid="uid://biiw55yykc5p0" path="res://assets/models/actors/coin/coin.glb" id="2_u4eu3"]
+[ext_resource type="Shader" path="res://scripts/shaders/warp_shader.gdshader" id="3_13mlp"]
+[ext_resource type="Texture2D" uid="uid://coqn2xpbyyxc0" path="res://assets/models/actors/coin/coin_Coin_text_Gold_Metallic.png-Coin_text_Gold_Roughness.png" id="4_avy2j"]
+[ext_resource type="Texture2D" uid="uid://d1saeski6x0lv" path="res://assets/models/actors/coin/coin_Coin_text_Gold_Normal.png" id="5_ox3o8"]
+[ext_resource type="Texture2D" uid="uid://cr16it10joj5" path="res://assets/models/actors/coin/coin_Coin_text_Gold_BaseColor.png" id="6_lsurn"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_a5uf2"]
-radius = 0.99535
+[sub_resource type="SphereShape3D" id="SphereShape3D_hlncv"]
+radius = 1.0
 
-[sub_resource type="Animation" id="Animation_4y2s0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Model:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_d3v8l"]
-resource_name = "coin_spin"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Model:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_30b6m"]
-_data = {
-"RESET": SubResource("Animation_4y2s0"),
-"coin_spin": SubResource("Animation_d3v8l")
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cosxb"]
+render_priority = 0
+shader = ExtResource("3_13mlp")
+shader_parameter/texture_file = ExtResource("6_lsurn")
+shader_parameter/normal = ExtResource("5_ox3o8")
+shader_parameter/metal_rough = ExtResource("4_avy2j")
 
 [node name="Coin" type="Area3D"]
 collision_layer = 16
 script = ExtResource("1_uvd2n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53994, 0)
-shape = SubResource("SphereShape3D_a5uf2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54, 0)
+shape = SubResource("SphereShape3D_hlncv")
 
-[node name="Model" parent="." instance=ExtResource("1_r6krw")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.835333, 0)
+[node name="Model" parent="." instance=ExtResource("2_u4eu3")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.85, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_30b6m")
-}
-autoplay = "coin_spin"
+[node name="Coin" parent="Model" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_cosxb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="Model"]

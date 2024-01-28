@@ -1,11 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5vvemd16gdrr"]
+[gd_scene load_steps=12 format=3 uid="uid://c5vvemd16gdrr"]
 
 [ext_resource type="PackedScene" uid="uid://fa2p3pd74dyr" path="res://actors/prankables/base_prankable.tscn" id="1_udses"]
-[ext_resource type="PackedScene" uid="uid://muy44h000f43" path="res://assets/models/obstacles/bush.glb" id="2_hw5q4"]
+[ext_resource type="PackedScene" uid="uid://caq0kpgwmp43f" path="res://assets/models/obstacles/bush/bush.glb" id="2_hw5q4"]
+[ext_resource type="Shader" path="res://scripts/shaders/warp_shader.gdshader" id="3_afttw"]
+[ext_resource type="Texture2D" uid="uid://bh6wqel4aj0dr" path="res://assets/models/obstacles/bush/bush_Logs_Tex_Logs_Metallic.png-Logs_Tex_Logs_Roughness.png" id="4_j63hx"]
+[ext_resource type="Texture2D" uid="uid://vpqat2qcqe58" path="res://assets/models/obstacles/bush/bush_Logs_Tex_Logs_Normal.png" id="5_udxmj"]
+[ext_resource type="Texture2D" uid="uid://utu5paklejor" path="res://assets/models/obstacles/bush/bush_Logs_Tex_Logs_BaseColor.png" id="6_n15bj"]
+[ext_resource type="Texture2D" uid="uid://wxvyb544jnk4" path="res://assets/models/obstacles/bush/bush_Snow_metallic.png-Snow_roughness.png" id="7_34jxc"]
+[ext_resource type="Texture2D" uid="uid://c2gexot4egbdt" path="res://assets/models/obstacles/bush/bush_Snow_basecolor.png" id="8_2571m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k4wum"]
 radius = 1.1
 height = 2.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_asukq"]
+render_priority = 0
+shader = ExtResource("3_afttw")
+shader_parameter/texture_file = ExtResource("6_n15bj")
+shader_parameter/normal = ExtResource("5_udxmj")
+shader_parameter/metal_rough = ExtResource("4_j63hx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4a5x8"]
+render_priority = 0
+shader = ExtResource("3_afttw")
+shader_parameter/texture_file = ExtResource("8_2571m")
+shader_parameter/metal_rough = ExtResource("7_34jxc")
 
 [node name="Bush" instance=ExtResource("1_udses")]
 gui_name = "Arbusto"
@@ -19,7 +38,11 @@ shape = SubResource("CapsuleShape3D_k4wum")
 
 [node name="bush" parent="." index="1" instance=ExtResource("2_hw5q4")]
 
+[node name="Bush" parent="bush" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_asukq")
+
 [node name="Bush_snow" parent="bush" index="1"]
 transform = Transform3D(-0.19484, 0, -0.488451, 0, 0.525877, 0, 0.488451, 0, -0.19484, 0, 1.20854, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_4a5x8")
 
 [editable path="bush"]

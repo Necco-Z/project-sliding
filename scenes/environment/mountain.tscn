@@ -1,0 +1,28 @@
+[gd_scene load_steps=10 format=3 uid="uid://bukrlayjuhkod"]
+
+[ext_resource type="PackedScene" uid="uid://cpff5wsqh5v48" path="res://assets/models/environment/mountain/mountain.glb" id="1_1nfcl"]
+[ext_resource type="Shader" path="res://scripts/shaders/warp_shader.gdshader" id="2_v4fth"]
+[ext_resource type="Texture2D" uid="uid://cxkuu65ma2ppg" path="res://assets/models/environment/mountain/mountain_Snow_metallic.png-Snow_roughness.png" id="3_2f84k"]
+[ext_resource type="Texture2D" uid="uid://bxgyrrm8sxlp1" path="res://assets/models/environment/mountain/mountain_Snow_basecolor.png" id="4_agm85"]
+[ext_resource type="Texture2D" uid="uid://bru6mmpr5o3q2" path="res://assets/models/environment/mountain/mountain_Rocks_Text_Rock_Metallic.png-Rocks_Text_Rock_Roughness.png" id="5_mqa6l"]
+[ext_resource type="Texture2D" uid="uid://clfrith2423a6" path="res://assets/models/environment/mountain/mountain_Rocks_Text_Rock_Normal.png" id="6_ifkd8"]
+[ext_resource type="Texture2D" uid="uid://huaam0fnam4i" path="res://assets/models/environment/mountain/mountain_Rocks_Text_Rock_BaseColor.png" id="7_fflu3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dba56"]
+render_priority = 0
+shader = ExtResource("2_v4fth")
+shader_parameter/texture_file = ExtResource("4_agm85")
+shader_parameter/metal_rough = ExtResource("3_2f84k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6221x"]
+render_priority = 0
+shader = ExtResource("2_v4fth")
+shader_parameter/texture_file = ExtResource("7_fflu3")
+shader_parameter/normal = ExtResource("6_ifkd8")
+shader_parameter/metal_rough = ExtResource("5_mqa6l")
+
+[node name="Mountain" instance=ExtResource("1_1nfcl")]
+
+[node name="Moutain" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_dba56")
+surface_material_override/1 = SubResource("ShaderMaterial_6221x")
