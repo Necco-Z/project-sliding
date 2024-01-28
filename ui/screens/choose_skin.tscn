@@ -1,0 +1,461 @@
+[gd_scene load_steps=18 format=3 uid="uid://cp5i72aiqc8s1"]
+
+[ext_resource type="Texture2D" uid="uid://brkkq4dee1ji5" path="res://assets/sprites/ui/menu_background_icons.png" id="1_tpfn8"]
+[ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_cx7lg"]
+[ext_resource type="Texture2D" uid="uid://b8tyvoesptjt2" path="res://assets/sprites/ui/seta_icon.png" id="2_mlpmc"]
+[ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="3_khku3"]
+[ext_resource type="Texture2D" uid="uid://drc3cir47vw8v" path="res://assets/sprites/ui/seta_pressed_icon.png" id="3_qpkdy"]
+[ext_resource type="FontFile" uid="uid://dyu0loxxcgqfy" path="res://assets/fonts/Nunito-SemiBold.ttf" id="4_0ry5e"]
+[ext_resource type="Texture2D" uid="uid://d0ve6w53uh3uu" path="res://assets/sprites/ui/seta_hover_icon.png" id="4_5msio"]
+[ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="5_1kkpt"]
+[ext_resource type="Texture2D" uid="uid://d4crykj885nem" path="res://assets/sprites/ui/choose_skin_figure.png" id="5_ythlp"]
+[ext_resource type="Texture2D" uid="uid://qw15v4fm034i" path="res://assets/sprites/ui/play_icon.png" id="11_ieexf"]
+[ext_resource type="Texture2D" uid="uid://d1ku08gejy800" path="res://assets/sprites/ui/exit_icon.png" id="13_btcfl"]
+
+[sub_resource type="Animation" id="Animation_xenot"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.09]
+}
+
+[sub_resource type="Animation" id="Animation_tqo5b"]
+resource_name = "background_icons_animation"
+length = 40.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.09]
+}
+
+[sub_resource type="Animation" id="Animation_je5oy"]
+resource_name = "background_icons_animation_inverse"
+length = 40.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.09, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dcdc"]
+_data = {
+"RESET": SubResource("Animation_xenot"),
+"background_icons_animation": SubResource("Animation_tqo5b"),
+"background_icons_animation_inverse": SubResource("Animation_je5oy")
+}
+
+[sub_resource type="Theme" id="Theme_hm1w1"]
+Label/colors/font_color = Color(0.839216, 0.552941, 0.137255, 1)
+Label/colors/font_outline_color = Color(0.854902, 0.964706, 0.968627, 1)
+Label/constants/outline_size = 20
+Label/font_sizes/font_size = 72
+Label/fonts/font = ExtResource("2_cx7lg")
+
+[sub_resource type="Theme" id="Theme_7m7m1"]
+Label/colors/font_color = Color(0.152941, 0.152941, 0.152941, 1)
+Label/constants/line_spacing = 0
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("4_0ry5e")
+label/colors/fae = Color(0, 0, 0, 1)
+label/constants/fae = 0
+
+[node name="ChooseSkin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.219608, 0.341176, 0.8, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -1.09
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 120
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer"]
+root_node = NodePath("../TextureRect")
+libraries = {
+"": SubResource("AnimationLibrary_8dcdc")
+}
+autoplay = "background_icons_animation"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect7" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect8" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect9" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect10" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect11" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect12" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect13" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect14" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect15" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect16" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect17" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect18" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect19" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect20" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -1.09
+offset_left = 90.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 120
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer2"]
+root_node = NodePath("../TextureRect")
+libraries = {
+"": SubResource("AnimationLibrary_8dcdc")
+}
+autoplay = "background_icons_animation_inverse"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect7" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect8" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect9" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect10" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect11" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect12" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect13" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect14" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect15" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect16" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect17" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect18" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect19" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="TextureRect20" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_tpfn8")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.12
+anchor_right = 0.95
+anchor_bottom = 0.12
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.5
+offset_top = -11.5
+offset_right = 95.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_hm1w1")
+text = "Escolha seu personagem"
+
+[node name="CoinsBox" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -47.0
+offset_bottom = 47.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("3_khku3")
+
+[node name="Container" type="HBoxContainer" parent="Control/CoinsBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="CoinsLabel" type="Label" parent="Control/CoinsBox/Container"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_7m7m1")
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinsSprite" type="TextureRect" parent="Control/CoinsBox/Container"]
+layout_mode = 2
+texture = ExtResource("5_1kkpt")
+
+[node name="HBoxContainer3" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.5
+anchor_right = 0.95
+anchor_bottom = 0.5
+offset_top = -60.5
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer3"]
+layout_mode = 2
+offset_right = 120.0
+offset_bottom = 121.0
+texture_normal = ExtResource("2_mlpmc")
+texture_pressed = ExtResource("3_qpkdy")
+texture_hover = ExtResource("4_5msio")
+flip_h = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -60.5
+offset_right = 4.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 200
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_ythlp")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_ythlp")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_ythlp")
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer3"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -60.5
+offset_bottom = 60.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("2_mlpmc")
+texture_pressed = ExtResource("3_qpkdy")
+texture_hover = ExtResource("4_5msio")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.875
+anchor_right = 0.95
+anchor_bottom = 0.875
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -33.0
+offset_right = 83.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("3_khku3")
+text = "Jogar"
+icon = ExtResource("11_ieexf")
+
+[node name="StartButton2" type="Button" parent="Control2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("3_khku3")
+theme_type_variation = &"RedButton"
+text = "Voltar"
+icon = ExtResource("13_btcfl")

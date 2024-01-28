@@ -1,2 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
+
+
+# Temporário - até resolver o problema da meshlib
+assets/obstacles_meshlib.tres
+scenes/level/obstacles_meshlib.tres

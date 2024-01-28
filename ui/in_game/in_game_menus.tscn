@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://dt8ohiqvrdwg4"]
+
+[ext_resource type="Script" path="res://ui/in_game/in_game_menus.gd" id="1_r1kp4"]
+[ext_resource type="PackedScene" uid="uid://bdsmndg54xjgb" path="res://ui/in_game/game_hud.tscn" id="2_3eaex"]
+[ext_resource type="Shader" path="res://scripts/shaders/screen_blur.gdshader" id="2_21w1j"]
+[ext_resource type="PackedScene" uid="uid://cg4jy1bjo2ysi" path="res://ui/in_game/start_menu.tscn" id="3_8i50i"]
+[ext_resource type="PackedScene" uid="uid://btpfgj8syn123" path="res://ui/in_game/end_game.tscn" id="4_jo2td"]
+[ext_resource type="PackedScene" uid="uid://du8ssy1227k34" path="res://ui/in_game/pause_menu.tscn" id="5_sbgga"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kku31"]
+shader = ExtResource("2_21w1j")
+shader_parameter/amount = null
+shader_parameter/brightness_offset = null
+
+[node name="InGameMenus" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_r1kp4")
+
+[node name="BlurLayer" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_kku31")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartMenu" parent="." instance=ExtResource("3_8i50i")]
+
+[node name="GameHUD" parent="." instance=ExtResource("2_3eaex")]
+visible = false
+metadata/_edit_horizontal_guides_ = [56.0, 134.0]
+
+[node name="WinGame" parent="." instance=ExtResource("4_jo2td")]
+visible = false
+screen_title = "Vitória"
+
+[node name="LoseGame" parent="." instance=ExtResource("4_jo2td")]
+visible = false
+screen_title = "Derrota"
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_sbgga")]
+visible = false

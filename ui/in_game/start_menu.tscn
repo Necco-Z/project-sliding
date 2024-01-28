@@ -1,0 +1,175 @@
+[gd_scene load_steps=11 format=3 uid="uid://cg4jy1bjo2ysi"]
+
+[ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_teysb"]
+[ext_resource type="Script" path="res://ui/in_game/start_menu.gd" id="2_1vfgs"]
+[ext_resource type="Texture2D" uid="uid://brkkq4dee1ji5" path="res://assets/sprites/ui/menu_background_icons.png" id="3_0xdde"]
+[ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="4_s4smg"]
+[ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="7_wxgw7"]
+[ext_resource type="Texture2D" uid="uid://qw15v4fm034i" path="res://assets/sprites/ui/play_icon.png" id="13_d0h5b"]
+[ext_resource type="Texture2D" uid="uid://d1ku08gejy800" path="res://assets/sprites/ui/exit_icon.png" id="15_pepqp"]
+[ext_resource type="Texture2D" uid="uid://bsverjoat3vcm" path="res://assets/sprites/ui/star_objective_ui_unachieved_big.png" id="15_qeub2"]
+[ext_resource type="FontFile" uid="uid://c4xapcx77tcqy" path="res://assets/fonts/Nunito-Regular.ttf" id="16_tr7ee"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlpmb"]
+content_margin_left = 120.0
+content_margin_top = 32.0
+content_margin_right = 120.0
+content_margin_bottom = 20.0
+bg_color = Color(0.854902, 0.964706, 0.968627, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[node name="StartMenu" instance=ExtResource("1_teysb")]
+script = ExtResource("2_1vfgs")
+anim_speed = 5.0
+
+[node name="ColorRect" type="ColorRect" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.219608, 0.341176, 0.8, 1)
+
+[node name="BgUp" type="Sprite2D" parent="." index="1"]
+texture_repeat = 2
+position = Vector2(960, 540)
+texture = ExtResource("3_0xdde")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 1080)
+
+[node name="BgDown" type="Sprite2D" parent="." index="2"]
+texture_repeat = 2
+position = Vector2(1020, 540)
+texture = ExtResource("3_0xdde")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 1080)
+
+[node name="LevelName" type="Control" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelName" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.0
+offset_top = -58.0
+offset_right = 346.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="LevelName/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.552941, 0.137255, 1)
+theme_override_fonts/font = ExtResource("4_s4smg")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_qlpmb")
+text = "PRIMEIRO NÍVEL"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelName/VBoxContainer" index="1"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="LevelName/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("15_qeub2")
+
+[node name="TextureRect2" type="TextureRect" parent="LevelName/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+texture = ExtResource("15_qeub2")
+
+[node name="TextureRect3" type="TextureRect" parent="LevelName/VBoxContainer/HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("15_qeub2")
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="LevelName/VBoxContainer" index="2"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="LevelName/VBoxContainer/HBoxContainer2" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
+theme_override_fonts/font = ExtResource("16_tr7ee")
+theme_override_font_sizes/font_size = 32
+text = "Objetivo 1"
+
+[node name="Label2" type="Label" parent="LevelName/VBoxContainer/HBoxContainer2" index="1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
+theme_override_fonts/font = ExtResource("16_tr7ee")
+theme_override_font_sizes/font_size = 32
+text = "Objetivo 1"
+
+[node name="Label3" type="Label" parent="LevelName/VBoxContainer/HBoxContainer2" index="2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
+theme_override_fonts/font = ExtResource("16_tr7ee")
+theme_override_font_sizes/font_size = 32
+text = "Objetivo 1"
+
+[node name="MenuButtons" type="Control" parent="LevelName" index="1"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.875
+anchor_right = 0.95
+anchor_bottom = 0.875
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartButton3" type="Button" parent="LevelName/MenuButtons" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -44.0
+offset_right = 104.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("7_wxgw7")
+text = "Jogar"
+icon = ExtResource("13_d0h5b")
+
+[node name="ReturnButton" type="Button" parent="LevelName/MenuButtons" index="1"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -44.0
+offset_bottom = 44.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("7_wxgw7")
+theme_type_variation = &"RedButton"
+text = "Voltar"
+icon = ExtResource("15_pepqp")
+
+[connection signal="pressed" from="LevelName/MenuButtons/StartButton3" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="LevelName/MenuButtons/ReturnButton" to="." method="_on_return_button_pressed"]

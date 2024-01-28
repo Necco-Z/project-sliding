@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2urdfayrj0s0"]
+
+[ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="1_wbmgw"]
+
+[node name="BaseFloor" instance=ExtResource("1_wbmgw")]
+
+[node name="GridMap" parent="." index="4"]
+data = {
+"cells": PackedInt32Array(4, 0, 1441797, 4, 1, 1441798, 2, 1, 655366, 1, 0, 4, 1, 65535, 8)
+}

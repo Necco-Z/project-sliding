@@ -13,6 +13,10 @@ func _ready() -> void:
 
 
 ### Funções públicas
+func set_connections(_game_scene: Node) -> void:
+	printerr("Virtual function set_connections not overwritten on ", name)
+
+
 func show_menu(instant := false) -> void:
 	visible = true
 	if instant:

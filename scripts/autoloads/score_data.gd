@@ -3,78 +3,61 @@ extends Node
 ## Node responsável pelo score
 
 ### Sinais
-signal score_updated
 signal coins_updated
 
 ### enums
 
 ### constantes
+const GAME_SCENE_PATH := "res://scenes/main_game.tscn"
 
 ### variáveis de @export
 
 ### variáveis públicas
-var score: int :
-	set = _set_score
 var coins: int :
 	set = _set_coins
+var max_coins: int
 var prank_total: int
+var game_scene: PackedScene
+var load_status := ResourceLoader.THREAD_LOAD_IN_PROGRESS
 
 ### variáveis privadas
 
 ### variáveis de @onready
-@onready var score_timer := $ScoreTimer as Timer
 
 
 ### funções herdadas (_init, _ready e outras)
 func _ready() -> void:
-	pass
+	ResourceLoader.load_threaded_request(GAME_SCENE_PATH)
+
+
+func _process(_delta: float) -> void:
+	if load_status != ResourceLoader.THREAD_LOAD_LOADED:
+		load_status = ResourceLoader.load_threaded_get_status(GAME_SCENE_PATH)
+		if load_status == ResourceLoader.THREAD_LOAD_LOADED:
+			game_scene = ResourceLoader.load_threaded_get(GAME_SCENE_PATH)
 
 
 ### funções públicas
-func start_score_timer() -> void:
-	score_timer.start()
-
-
-func pause_score_timer() -> void:
-	score_timer.stop()
-
-
-func add_score(value: int) -> void:
-	score += value
-
-
 func add_coins(value := 1) -> void:
 	coins += value
 
 
-func set_score_interval(value: float) -> void:
-	score_timer.wait_time = value
+func set_max_score() -> void:
+	max_coins = coins
+	coins = 0
 
 
 func reset_data() -> void:
-	score = 0
 	coins = 0
 	prank_total = 0
 
 
 ### funções privadas
 func _update_ui() -> void:
-	score_updated.emit(score)
 	coins_updated.emit(coins)
 
 
 ### funções setters e getters
-func _set_score(value: int) -> void:
-	score = value
-	_update_ui()
-
-
 func _set_coins(value: int) -> void:
 	coins = value
 	_update_ui()
-
-
-### funções de sinal
-## Quando o timer acabar, adicionar ao score
-func _on_score_timer_timeout() -> void:
-	score += 1

@@ -1,0 +1,139 @@
+[gd_scene load_steps=14 format=3 uid="uid://du8ssy1227k34"]
+
+[ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_xgpu5"]
+[ext_resource type="Script" path="res://ui/in_game/pause_menu.gd" id="2_hr8f6"]
+[ext_resource type="Texture2D" uid="uid://cwxba1ksgpdou" path="res://assets/sprites/ui/pause_menu_background.png" id="3_6ojqw"]
+[ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="4_jflbp"]
+[ext_resource type="Texture2D" uid="uid://cwk4f4fuqy0gu" path="res://assets/sprites/ui/star_objective_ui_big.png" id="5_3e5r5"]
+[ext_resource type="PackedScene" uid="uid://chxy0qqhv42rx" path="res://ui/star_container.tscn" id="5_bbogl"]
+[ext_resource type="Texture2D" uid="uid://bsverjoat3vcm" path="res://assets/sprites/ui/star_objective_ui_unachieved_big.png" id="6_cohif"]
+[ext_resource type="FontFile" uid="uid://c4xapcx77tcqy" path="res://assets/fonts/Nunito-Regular.ttf" id="7_573r8"]
+[ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="8_r2xxn"]
+[ext_resource type="Texture2D" uid="uid://d1ku08gejy800" path="res://assets/sprites/ui/exit_icon.png" id="9_cnryi"]
+[ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="9_nlv2b"]
+[ext_resource type="Texture2D" uid="uid://qw15v4fm034i" path="res://assets/sprites/ui/play_icon.png" id="10_40mrs"]
+
+[sub_resource type="Theme" id="Theme_jjj5n"]
+Label/colors/font_color = Color(0.941176, 0.678431, 0.298039, 1)
+Label/colors/font_outline_color = Color(0.854902, 0.964706, 0.968627, 1)
+Label/constants/outline_size = 20
+Label/font_sizes/font_size = 48
+Label/fonts/font = ExtResource("4_jflbp")
+
+[node name="PauseMenu" instance=ExtResource("1_xgpu5")]
+script = ExtResource("2_hr8f6")
+
+[node name="MiddleBG" type="TextureRect" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -332.5
+offset_top = -441.5
+offset_right = 332.5
+offset_bottom = 441.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6ojqw")
+
+[node name="MainContainer" type="VBoxContainer" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -33.0
+offset_right = 173.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 72
+
+[node name="Title" type="Label" parent="MainContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_jjj5n")
+text = "JOGO PAUSADO"
+
+[node name="StarContainer" parent="MainContainer" index="1" instance=ExtResource("5_bbogl")]
+visible = false
+layout_mode = 2
+alignment = 1
+texture_lit = ExtResource("5_3e5r5")
+texture_unlit = ExtResource("6_cohif")
+
+[node name="VBoxContainer" type="BoxContainer" parent="MainContainer" index="2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CoinTexture" type="TextureRect" parent="MainContainer/VBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("8_r2xxn")
+stretch_mode = 5
+
+[node name="CoinLabel" type="Label" parent="MainContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 85
+text = "0"
+
+[node name="Control" type="Control" parent="MainContainer" index="3"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Objectives" type="VBoxContainer" parent="MainContainer" index="4"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/Objectives" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
+theme_override_fonts/font = ExtResource("7_573r8")
+theme_override_font_sizes/font_size = 32
+text = "Objetivo 1"
+
+[node name="Label2" type="Label" parent="MainContainer/Objectives" index="1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
+theme_override_fonts/font = ExtResource("7_573r8")
+theme_override_font_sizes/font_size = 32
+text = "Objetivo 1"
+
+[node name="Label3" type="Label" parent="MainContainer/Objectives" index="2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
+theme_override_fonts/font = ExtResource("7_573r8")
+theme_override_font_sizes/font_size = 32
+text = "Objetivo 1"
+
+[node name="Buttons" type="HBoxContainer" parent="MainContainer" index="5"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 24
+
+[node name="ResumeButton" type="Button" parent="MainContainer/Buttons" index="0"]
+layout_mode = 2
+theme = ExtResource("9_nlv2b")
+theme_override_font_sizes/font_size = 40
+text = "Continuar"
+icon = ExtResource("10_40mrs")
+
+[node name="RestartButton" type="Button" parent="MainContainer/Buttons" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("9_nlv2b")
+theme_type_variation = &"RedButton"
+theme_override_font_sizes/font_size = 40
+text = "Reiniciar"
+icon = ExtResource("9_cnryi")
+
+[connection signal="pressed" from="MainContainer/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainContainer/Buttons/RestartButton" to="." method="_on_restart_button_pressed"]

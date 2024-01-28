@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://fa2p3pd74dyr"]
+
+[ext_resource type="Script" path="res://actors/prankables/base_prankable.gd" id="1_odukw"]
+
+[node name="BasePrankable" type="StaticBody3D"]
+collision_layer = 12
+script = ExtResource("1_odukw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://04yon5gtykvt"]
+
+[ext_resource type="PackedScene" uid="uid://d2rivq1hy316p" path="res://actors/coin.tscn" id="1_3esuu"]
+
+[node name="CoinGroup" type="Node3D"]
+
+[node name="Coin" parent="." instance=ExtResource("1_3esuu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0, 0)
+
+[node name="Coin2" parent="." instance=ExtResource("1_3esuu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 0)

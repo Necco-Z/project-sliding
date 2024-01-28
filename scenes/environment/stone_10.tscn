@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c44hf3aha21yr"]
+
+[ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="1_7ga1i"]
+
+[node name="BaseFloor" instance=ExtResource("1_7ga1i")]
+
+[node name="GridMap" parent="." index="4"]
+data = {
+"cells": PackedInt32Array(2, 0, 655367, 1, 65535, 1441800, 4, 65535, 4, 65538, 0, 9)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
