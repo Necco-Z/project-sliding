@@ -15,6 +15,12 @@ func _ready() -> void:
 	change_menu("StartMenu", true)
 
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		if current_menu == game_hud:
+			game_hud.pause_pressed.emit()
+
+
 ### Funções públicas
 func set_connections(game_scene: Node) -> void:
 	for i in get_children():

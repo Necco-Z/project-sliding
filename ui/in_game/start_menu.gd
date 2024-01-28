@@ -7,6 +7,7 @@ signal return_pressed
 
 @onready var bg_up := $BgUp as Sprite2D
 @onready var bg_down := $BgDown as Sprite2D
+@onready var buttons := %MenuButtons as Control
 
 
 func _ready() -> void:
@@ -17,6 +18,17 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_animate_background(delta)
+
+
+func show_menu(instant := false) -> void:
+	super.show_menu(instant)
+	buttons.visible = true
+	%StartButton3.grab_focus()
+
+
+func hide_menu(instant := false) -> void:
+	super.hide_menu(instant)
+	buttons.visible = false
 
 
 func set_connections(game_scene: Node) -> void:

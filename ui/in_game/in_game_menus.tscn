@@ -25,7 +25,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StartMenu" parent="." instance=ExtResource("3_8i50i")]
-visible = false
 
 [node name="GameHUD" parent="." instance=ExtResource("2_3eaex")]
 visible = false

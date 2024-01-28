@@ -18,6 +18,7 @@ func _ready() -> void:
 	load_screen.anchor_bottom = 0
 	logo.modulate = Color.TRANSPARENT
 	Fader.fade_in()
+	%StartButton.grab_focus()
 
 
 func _on_start_button_pressed() -> void:

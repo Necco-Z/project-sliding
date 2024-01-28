@@ -15,6 +15,7 @@ const GAME_SCENE_PATH := "res://scenes/main_game.tscn"
 ### variáveis públicas
 var coins: int :
 	set = _set_coins
+var max_coins: int
 var prank_total: int
 var game_scene: PackedScene
 var load_status := ResourceLoader.THREAD_LOAD_IN_PROGRESS
@@ -39,6 +40,11 @@ func _process(_delta: float) -> void:
 ### funções públicas
 func add_coins(value := 1) -> void:
 	coins += value
+
+
+func set_max_score() -> void:
+	max_coins = coins
+	coins = 0
 
 
 func reset_data() -> void:

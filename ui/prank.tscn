@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8xekm2k0iur2"]
 
 [ext_resource type="Script" path="res://ui/prank.gd" id="2_1njsy"]
-[ext_resource type="Theme" uid="uid://dr5l2rte7t1uy" path="res://assets/themes/panel_ingame_menu_theme.tres" id="2_eawfy"]
+[ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="2_05jh7"]
 
 [node name="Prank" type="MarginContainer"]
 offset_right = 174.0
@@ -16,7 +16,7 @@ script = ExtResource("2_1njsy")
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-theme = ExtResource("2_eawfy")
+theme = ExtResource("2_05jh7")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 2

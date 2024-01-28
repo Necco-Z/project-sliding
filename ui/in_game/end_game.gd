@@ -7,6 +7,8 @@ signal return_pressed
 
 #@onready var coins_label = %CoinsLabel as Label
 @onready var star_counter = %StarContainer as HBoxContainer
+@onready var coins_label = %CoinLabel as Label
+@onready var buttons = $MainContainer/Buttons as HBoxContainer
 
 
 func set_connections(game_scene: Node) -> void:
@@ -18,11 +20,19 @@ func set_connections(game_scene: Node) -> void:
 
 func show_menu(_instant := false) -> void:
 	super.show_menu(false)
+	ScoreData.set_max_score()
+	coins_label.text = ScoreData.max_coins
+	buttons.visible = true
+	%RestartGame.grab_focus()
 
 
-func update_coins(_value: int) -> void:
-	pass
-	#coins_label.text = str(value)
+func hide_menu(_instant := false) -> void:
+	super.hide_menu()
+	buttons.visible = false
+
+
+func update_coins(value: int) -> void:
+	coins_label.text = str(value)
 
 
 func _on_restart_game_pressed() -> void:

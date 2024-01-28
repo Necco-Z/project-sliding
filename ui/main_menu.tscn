@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://d15awftd1p8gf"]
+[gd_scene load_steps=11 format=3 uid="uid://d15awftd1p8gf"]
 
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_drgtq"]
-[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="1_pq6mq"]
 [ext_resource type="Texture2D" uid="uid://b35xdt0wsy8dq" path="res://assets/sprites/ui/main_menu_background_image.png" id="2_pfv4s"]
 [ext_resource type="Texture2D" uid="uid://cp8vw71ri1t4a" path="res://assets/sprites/ui/main_menu_panel_ui.png" id="3_yeulb"]
 [ext_resource type="Texture2D" uid="uid://oy75p8euqu0u" path="res://assets/sprites/ui/logo_main_menu.png" id="4_ht387"]
-[ext_resource type="Theme" uid="uid://cohe3pikkdbvl" path="res://assets/themes/cancel_button_theme.tres" id="6_mnle3"]
+[ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="5_v3wop"]
 [ext_resource type="Texture2D" uid="uid://df5g0nbljw3xf" path="res://assets/sprites/ui/logo_branca.png" id="7_m5k0i"]
 
 [sub_resource type="Animation" id="Animation_ipge4"]
@@ -102,15 +101,17 @@ custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 
 [node name="StartButton" type="Button" parent="MenuBG/BoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
-theme = ExtResource("1_pq6mq")
+theme = ExtResource("5_v3wop")
 text = "Iniciar jogo"
 
 [node name="ExitButton" type="Button" parent="MenuBG/BoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme = ExtResource("6_mnle3")
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"RedButton"
 text = "Sair"
 
 [node name="LoadingScreen" type="ColorRect" parent="."]

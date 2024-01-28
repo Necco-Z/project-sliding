@@ -1,37 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://cg4jy1bjo2ysi"]
+[gd_scene load_steps=11 format=3 uid="uid://cg4jy1bjo2ysi"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_teysb"]
 [ext_resource type="Script" path="res://ui/in_game/start_menu.gd" id="2_1vfgs"]
 [ext_resource type="Texture2D" uid="uid://brkkq4dee1ji5" path="res://assets/sprites/ui/menu_background_icons.png" id="3_0xdde"]
 [ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="4_s4smg"]
-[ext_resource type="Theme" uid="uid://dr5l2rte7t1uy" path="res://assets/themes/panel_ingame_menu_theme.tres" id="5_t7qud"]
-[ext_resource type="FontFile" uid="uid://dyu0loxxcgqfy" path="res://assets/fonts/Nunito-SemiBold.ttf" id="6_ko3gi"]
-[ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="7_lfqyf"]
-[ext_resource type="Texture2D" uid="uid://b8tyvoesptjt2" path="res://assets/sprites/ui/seta_icon.png" id="8_htc3b"]
-[ext_resource type="Texture2D" uid="uid://drc3cir47vw8v" path="res://assets/sprites/ui/seta_pressed_icon.png" id="9_cr6gk"]
-[ext_resource type="Texture2D" uid="uid://d0ve6w53uh3uu" path="res://assets/sprites/ui/seta_hover_icon.png" id="10_ydyxr"]
-[ext_resource type="Texture2D" uid="uid://d4crykj885nem" path="res://assets/sprites/ui/choose_skin_figure.png" id="11_na7on"]
-[ext_resource type="Theme" uid="uid://ces6mx84dvs8r" path="res://assets/themes/button_theme.tres" id="12_3gv3k"]
+[ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="7_wxgw7"]
 [ext_resource type="Texture2D" uid="uid://qw15v4fm034i" path="res://assets/sprites/ui/play_icon.png" id="13_d0h5b"]
-[ext_resource type="Theme" uid="uid://cohe3pikkdbvl" path="res://assets/themes/cancel_button_theme.tres" id="14_77gwg"]
 [ext_resource type="Texture2D" uid="uid://d1ku08gejy800" path="res://assets/sprites/ui/exit_icon.png" id="15_pepqp"]
 [ext_resource type="Texture2D" uid="uid://bsverjoat3vcm" path="res://assets/sprites/ui/star_objective_ui_unachieved_big.png" id="15_qeub2"]
 [ext_resource type="FontFile" uid="uid://c4xapcx77tcqy" path="res://assets/fonts/Nunito-Regular.ttf" id="16_tr7ee"]
-
-[sub_resource type="Theme" id="Theme_qhace"]
-Label/colors/font_color = Color(0.839216, 0.552941, 0.137255, 1)
-Label/colors/font_outline_color = Color(0.854902, 0.964706, 0.968627, 1)
-Label/constants/outline_size = 20
-Label/font_sizes/font_size = 72
-Label/fonts/font = ExtResource("4_s4smg")
-
-[sub_resource type="Theme" id="Theme_kmta6"]
-Label/colors/font_color = Color(0.152941, 0.152941, 0.152941, 1)
-Label/constants/line_spacing = 0
-Label/font_sizes/font_size = 40
-Label/fonts/font = ExtResource("6_ko3gi")
-label/colors/fae = Color(0, 0, 0, 1)
-label/constants/fae = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlpmb"]
 content_margin_left = 120.0
@@ -49,7 +26,6 @@ script = ExtResource("2_1vfgs")
 anim_speed = 5.0
 
 [node name="ColorRect" type="ColorRect" parent="." index="0"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,174 +48,7 @@ texture = ExtResource("3_0xdde")
 region_enabled = true
 region_rect = Rect2(0, 0, 1920, 1080)
 
-[node name="Control" type="Control" parent="." index="3"]
-visible = false
-layout_mode = 1
-anchor_left = 0.05
-anchor_top = 0.12
-anchor_right = 0.95
-anchor_bottom = 0.12
-grow_horizontal = 2
-
-[node name="Label" type="Label" parent="Control" index="0"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -95.5
-offset_top = -11.5
-offset_right = 95.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_qhace")
-text = "Escolha seu personagem"
-
-[node name="CoinsBox" type="PanelContainer" parent="Control" index="1"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -47.0
-offset_bottom = 47.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-theme = ExtResource("5_t7qud")
-
-[node name="Container" type="HBoxContainer" parent="Control/CoinsBox" index="0"]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="CoinsLabel" type="Label" parent="Control/CoinsBox/Container" index="0"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = SubResource("Theme_kmta6")
-text = "0"
-metadata/_edit_use_anchors_ = true
-
-[node name="CoinsSprite" type="TextureRect" parent="Control/CoinsBox/Container" index="1"]
-layout_mode = 2
-texture = ExtResource("7_lfqyf")
-
-[node name="Skins" type="Control" parent="." index="4"]
-visible = false
-layout_mode = 1
-anchor_left = 0.05
-anchor_top = 0.5
-anchor_right = 0.95
-anchor_bottom = 0.5
-offset_top = -60.5
-offset_bottom = 60.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureButton" type="TextureButton" parent="Skins" index="0"]
-layout_mode = 2
-offset_right = 120.0
-offset_bottom = 121.0
-texture_normal = ExtResource("8_htc3b")
-texture_pressed = ExtResource("9_cr6gk")
-texture_hover = ExtResource("10_ydyxr")
-flip_h = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Skins" index="1"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -60.5
-offset_right = 4.0
-offset_bottom = 60.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 200
-
-[node name="TextureRect" type="TextureRect" parent="Skins/HBoxContainer" index="0"]
-layout_mode = 2
-texture = ExtResource("11_na7on")
-
-[node name="TextureRect2" type="TextureRect" parent="Skins/HBoxContainer" index="1"]
-layout_mode = 2
-texture = ExtResource("11_na7on")
-
-[node name="TextureRect3" type="TextureRect" parent="Skins/HBoxContainer" index="2"]
-layout_mode = 2
-texture = ExtResource("11_na7on")
-
-[node name="TextureButton2" type="TextureButton" parent="Skins" index="2"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -60.5
-offset_bottom = 60.5
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 8
-texture_normal = ExtResource("8_htc3b")
-texture_pressed = ExtResource("9_cr6gk")
-texture_hover = ExtResource("10_ydyxr")
-
-[node name="buttons" type="Control" parent="." index="5"]
-visible = false
-layout_mode = 1
-anchor_left = 0.05
-anchor_top = 0.875
-anchor_right = 0.95
-anchor_bottom = 0.875
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="StartButton" type="Button" parent="buttons" index="0"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -83.5
-offset_top = -33.0
-offset_right = 83.5
-offset_bottom = 33.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("12_3gv3k")
-text = "Escolher skin"
-
-[node name="StartButton2" type="Button" parent="buttons" index="1"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -167.0
-offset_top = -33.0
-offset_bottom = 33.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("14_77gwg")
-text = "Voltar"
-icon = ExtResource("15_pepqp")
-
-[node name="LevelName" type="Control" parent="." index="6"]
+[node name="LevelName" type="Control" parent="." index="3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -271,6 +80,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qlpmb")
 text = "PRIMEIRO NÍVEL"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LevelName/VBoxContainer" index="1"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -287,7 +97,7 @@ layout_mode = 2
 texture = ExtResource("15_qeub2")
 
 [node name="HBoxContainer2" type="VBoxContainer" parent="LevelName/VBoxContainer" index="2"]
-modulate = Color(1, 1, 1, 0)
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 
@@ -312,7 +122,8 @@ theme_override_fonts/font = ExtResource("16_tr7ee")
 theme_override_font_sizes/font_size = 32
 text = "Objetivo 1"
 
-[node name="Control3" type="Control" parent="LevelName" index="1"]
+[node name="MenuButtons" type="Control" parent="LevelName" index="1"]
+unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.05
 anchor_top = 0.875
@@ -321,7 +132,8 @@ anchor_bottom = 0.875
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="StartButton3" type="Button" parent="LevelName/Control3" index="0"]
+[node name="StartButton3" type="Button" parent="LevelName/MenuButtons" index="0"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -336,11 +148,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("12_3gv3k")
+theme = ExtResource("7_wxgw7")
 text = "Jogar"
 icon = ExtResource("13_d0h5b")
 
-[node name="ReturnButton" type="Button" parent="LevelName/Control3" index="1"]
+[node name="ReturnButton" type="Button" parent="LevelName/MenuButtons" index="1"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -354,9 +166,10 @@ grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("14_77gwg")
+theme = ExtResource("7_wxgw7")
+theme_type_variation = &"RedButton"
 text = "Voltar"
 icon = ExtResource("15_pepqp")
 
-[connection signal="pressed" from="LevelName/Control3/StartButton3" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="LevelName/Control3/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="LevelName/MenuButtons/StartButton3" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="LevelName/MenuButtons/ReturnButton" to="." method="_on_return_button_pressed"]
