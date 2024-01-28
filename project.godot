@@ -44,12 +44,6 @@ enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
 
 import/fbx/enabled=false
 
-[importer_defaults]
-
-scene={
-"gltf/embedded_image_handling": 3
-}
-
 [input]
 
 ui_accept={
@@ -100,3 +94,14 @@ pause={
 3d_physics/layer_4="Prankables"
 3d_physics/layer_5="Collectibles"
 3d_physics/layer_6="Goal"
+
+[shader_globals]
+
+curve_y={
+"type": "float",
+"value": 0.0
+}
+curve_z={
+"type": "float",
+"value": 0.0
+}

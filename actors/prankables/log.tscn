@@ -1,10 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://butqhus35eiis"]
+[gd_scene load_steps=12 format=3 uid="uid://butqhus35eiis"]
 
 [ext_resource type="PackedScene" uid="uid://fa2p3pd74dyr" path="res://actors/prankables/base_prankable.tscn" id="1_0rp5d"]
-[ext_resource type="PackedScene" uid="uid://bi5x85e8s6m8g" path="res://assets/models/obstacles/log_03.glb" id="2_iui7s"]
+[ext_resource type="PackedScene" uid="uid://dvl1nebngs2ux" path="res://assets/models/obstacles/log_03/log_03.glb" id="2_iui7s"]
+[ext_resource type="Shader" path="res://scripts/shaders/warp_shader.gdshader" id="3_6tskg"]
+[ext_resource type="Texture2D" uid="uid://cncpv8uttdces" path="res://assets/models/obstacles/log_03/log_03_Logs_Tex_Logs_Metallic-Logs_Tex_Logs_Roughness.png" id="4_w1er7"]
+[ext_resource type="Texture2D" uid="uid://c503ug7ws3v3m" path="res://assets/models/obstacles/log_03/log_03_Logs_Tex_Logs_Normal.png" id="5_bjgfo"]
+[ext_resource type="Texture2D" uid="uid://c1wc10tlub25" path="res://assets/models/obstacles/log_03/log_03_Logs_Tex_Logs_BaseColor.png" id="6_i22os"]
+[ext_resource type="Texture2D" uid="uid://1em6u4rgyw2d" path="res://assets/models/obstacles/snow_bump/snow_bump_Snow_metallic.png-Snow_roughness.png" id="7_dp8qq"]
+[ext_resource type="Texture2D" uid="uid://bs1uwj8qekask" path="res://assets/models/obstacles/snow_bump/snow_bump_Snow_basecolor.png" id="8_uowc2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_s2i1q"]
 radius = 0.794627
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fenjx"]
+render_priority = 0
+shader = ExtResource("3_6tskg")
+shader_parameter/texture_file = ExtResource("6_i22os")
+shader_parameter/normal = ExtResource("5_bjgfo")
+shader_parameter/metal_rough = ExtResource("4_w1er7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nss0m"]
+render_priority = 0
+shader = ExtResource("3_6tskg")
+shader_parameter/texture_file = ExtResource("8_uowc2")
+shader_parameter/metal_rough = ExtResource("7_dp8qq")
 
 [node name="Log" instance=ExtResource("1_0rp5d")]
 gui_name = "Tronco"
@@ -19,7 +38,11 @@ shape = SubResource("SphereShape3D_s2i1q")
 [node name="log_03" parent="." index="1" instance=ExtResource("2_iui7s")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0.0248684, 0.999691, -1.08703e-09, 0.999691, -0.0248684, -4.36979e-08, 0, -0.0544108, 0)
 
+[node name="Tree_log_003" parent="log_03" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_fenjx")
+
 [node name="Log_snow" parent="log_03" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171951, 1.28032, -7.70102e-09)
+transform = Transform3D(0.623429, 0, 0, 0, 0.267176, 0, 0, 0, 0.411088, -0.171951, 0.805477, -7.70102e-09)
+surface_material_override/0 = SubResource("ShaderMaterial_nss0m")
 
 [editable path="log_03"]

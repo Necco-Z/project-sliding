@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7wy8niy1is0q"]
+
+[ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="1_icvg1"]
+
+[node name="BaseFloor" instance=ExtResource("1_icvg1")]
+
+[node name="GridMap" parent="." index="4"]
+data = {
+"cells": PackedInt32Array(2, 65535, 1441798, 2, 0, 655366, 1, 0, 9, 3, 0, 9, 4, 0, 9)
+}
+
+[editable path="SideBG/snow_bg"]
+[editable path="SideBG/snow_bg2"]
+[editable path="SideBG/snow_bg3"]
+[editable path="SideBG/snow_bg4"]
+[editable path="TrackFloor"]
+[editable path="SnowLeft"]
+[editable path="SnowRight"]
+[editable path="Decorations/Decorations1/fence_01"]
+[editable path="Decorations/Decorations1/fence_02"]
+[editable path="Decorations/Decorations1/fence_03"]
+[editable path="Decorations/Decorations1/tree"]
+[editable path="Decorations/Decorations1/tree2"]
+[editable path="Decorations/Decorations1/tree3"]
+[editable path="Decorations/Decorations1/tree4"]
+[editable path="Decorations/Decorations1/tree5"]
+[editable path="Decorations/Decorations1/sign_01"]

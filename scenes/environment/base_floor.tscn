@@ -1,15 +1,98 @@
-[gd_scene load_steps=11 format=3 uid="uid://xtwivbdnkec2"]
+[gd_scene load_steps=44 format=3 uid="uid://xtwivbdnkec2"]
 
 [ext_resource type="Script" path="res://scenes/environment/base_floor.gd" id="1_cfdkb"]
-[ext_resource type="PackedScene" uid="uid://cgh36pp7alm0h" path="res://assets/models/main_path/floor.glb" id="1_ehtv5"]
-[ext_resource type="PackedScene" uid="uid://dx247y07m43l7" path="res://assets/models/main_path/snow_bg.glb" id="1_ut3oy"]
-[ext_resource type="PackedScene" uid="uid://dxu5aqbu3oq6u" path="res://assets/models/main_path/snow.glb" id="2_ggisu"]
-[ext_resource type="PackedScene" uid="uid://bgibcabmsmfis" path="res://assets/models/environment/fence_01.glb" id="3_1iufg"]
-[ext_resource type="PackedScene" uid="uid://bhu733uxtwh3s" path="res://assets/models/environment/fence_02.glb" id="4_ohlme"]
-[ext_resource type="MeshLibrary" uid="uid://2krps2vk813u" path="res://assets/obstacles_meshlib.tres" id="5_ulk7h"]
-[ext_resource type="PackedScene" uid="uid://dtmwxnoduacy2" path="res://assets/models/environment/fence_03.glb" id="5_vq4q7"]
-[ext_resource type="PackedScene" uid="uid://cduigy12fppku" path="res://assets/models/environment/tree.glb" id="6_agvj4"]
-[ext_resource type="PackedScene" uid="uid://bguecaoiqbiqy" path="res://assets/models/environment/sign_01.glb" id="8_iim1q"]
+[ext_resource type="PackedScene" uid="uid://cwtbldvq4qc1n" path="res://assets/models/main_path/floor/floor.glb" id="1_ehtv5"]
+[ext_resource type="PackedScene" uid="uid://cc81ughfvg0sh" path="res://assets/models/main_path/snow_bg/snow_bg.glb" id="1_ut3oy"]
+[ext_resource type="PackedScene" uid="uid://q5vcbmk86rxs" path="res://assets/models/main_path/snow/snow.glb" id="2_ggisu"]
+[ext_resource type="PackedScene" uid="uid://b4uegn32mrc3u" path="res://assets/models/environment/fence_01/fence_01.glb" id="3_1iufg"]
+[ext_resource type="Shader" path="res://scripts/shaders/warp_shader.gdshader" id="4_2l17h"]
+[ext_resource type="PackedScene" uid="uid://c8g6m2gxer5la" path="res://assets/models/environment/fence_02/fence_02.glb" id="4_ohlme"]
+[ext_resource type="Texture2D" uid="uid://dp5erqcrb2bda" path="res://assets/models/main_path/snow_bg/snow_bg_Snow_metallic.png-Snow_roughness.png" id="4_whwsn"]
+[ext_resource type="Texture2D" uid="uid://c2gcjaa56dt5" path="res://assets/models/main_path/snow_bg/snow_bg_Snow_basecolor.png" id="5_n1hkw"]
+[ext_resource type="Texture2D" uid="uid://cbykosfrlw7xp" path="res://assets/models/default_metallic_roughness.png" id="5_ss256"]
+[ext_resource type="MeshLibrary" uid="uid://2krps2vk813u" path="res://assets/meshlibs/obstacles_meshlib.tres" id="5_ulk7h"]
+[ext_resource type="PackedScene" uid="uid://cco6h752knwxv" path="res://assets/models/environment/fence_03/fence_03.glb" id="5_vq4q7"]
+[ext_resource type="PackedScene" uid="uid://0ckp6qr1gije" path="res://assets/models/environment/tree/tree.glb" id="6_agvj4"]
+[ext_resource type="Texture2D" uid="uid://bnkal3j1ou6fx" path="res://assets/models/main_path/floor/floor_Track Test 06.png" id="6_plsdg"]
+[ext_resource type="PackedScene" uid="uid://bk3c666kyb7pi" path="res://assets/models/environment/sign_01/sign_01.glb" id="8_iim1q"]
+[ext_resource type="Texture2D" uid="uid://j8teb7lkynqy" path="res://assets/models/main_path/snow/snow_Snow_metallic.png-Snow_roughness.png" id="8_l8lng"]
+[ext_resource type="Texture2D" uid="uid://d1wpr4rtlhs6e" path="res://assets/models/main_path/snow/snow_Snow_basecolor.png" id="9_snfqy"]
+[ext_resource type="Texture2D" uid="uid://dh16628psagv1" path="res://assets/models/environment/fence_01/fence_01_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="12_r0abc"]
+[ext_resource type="Texture2D" uid="uid://6tfyssp4gery" path="res://assets/models/environment/fence_01/fence_01_Woods_Text_Woods_Normal.png" id="13_msrra"]
+[ext_resource type="Texture2D" uid="uid://4w33gpvc6bwb" path="res://assets/models/environment/fence_01/fence_01_Woods_Text_Woods_BaseColor.png" id="14_iu5jb"]
+[ext_resource type="Texture2D" uid="uid://cnc8ajdulpds5" path="res://assets/models/environment/fence_02/fence_02_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="16_dpaaf"]
+[ext_resource type="Texture2D" uid="uid://c27f5734nhfp3" path="res://assets/models/environment/fence_02/fence_02_Woods_Text_Woods_Normal.png" id="17_q4sxd"]
+[ext_resource type="Texture2D" uid="uid://8miag2ta46bn" path="res://assets/models/environment/fence_02/fence_02_Woods_Text_Woods_BaseColor.png" id="18_x07ih"]
+[ext_resource type="Texture2D" uid="uid://pgq8odm6be0c" path="res://assets/models/environment/fence_03/fence_03_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="20_pc4hx"]
+[ext_resource type="Texture2D" uid="uid://dxwxkvyf5wlal" path="res://assets/models/environment/fence_03/fence_03_Woods_Text_Woods_Normal.png" id="21_m2wa8"]
+[ext_resource type="Texture2D" uid="uid://bp2774iwt6mki" path="res://assets/models/environment/fence_03/fence_03_Woods_Text_Woods_BaseColor.png" id="22_iwt0o"]
+[ext_resource type="Texture2D" uid="uid://jm5b1wy6dcgg" path="res://assets/models/environment/tree/tree_Snow_metallic.png-Snow_roughness.png" id="24_ksn0f"]
+[ext_resource type="Texture2D" uid="uid://ccvlnqu0jllg6" path="res://assets/models/environment/tree/tree_Snow_basecolor.png" id="25_35sld"]
+[ext_resource type="Texture2D" uid="uid://o1nt5ewnmm04" path="res://assets/models/environment/tree/tree_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="26_3boae"]
+[ext_resource type="Texture2D" uid="uid://q21gjb5qf8pv" path="res://assets/models/environment/tree/tree_Woods_Text_Woods_Normal.png" id="27_pc1ro"]
+[ext_resource type="Texture2D" uid="uid://drp67k25ctmnb" path="res://assets/models/environment/tree/tree_Woods_Text_Woods_BaseColor.png" id="28_pij67"]
+[ext_resource type="Texture2D" uid="uid://c0ku55vgug2wv" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_Metallic.png-Signs_text_Signs_Roughness.png" id="30_wfwmd"]
+[ext_resource type="Texture2D" uid="uid://cjeqnsx25xop1" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_Normal.png" id="31_edtmc"]
+[ext_resource type="Texture2D" uid="uid://c7hdtnu1le3ha" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_BaseColor.png" id="32_mkeab"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_idltl"]
+render_priority = 0
+shader = ExtResource("4_2l17h")
+shader_parameter/texture_file = ExtResource("5_n1hkw")
+shader_parameter/metal_rough = ExtResource("4_whwsn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5wo3"]
+render_priority = 0
+shader = ExtResource("4_2l17h")
+shader_parameter/texture_file = ExtResource("6_plsdg")
+shader_parameter/metal_rough = ExtResource("5_ss256")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_un7go"]
+render_priority = 0
+shader = ExtResource("4_2l17h")
+shader_parameter/texture_file = ExtResource("9_snfqy")
+shader_parameter/metal_rough = ExtResource("8_l8lng")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hwpyj"]
+render_priority = 0
+shader = ExtResource("4_2l17h")
+shader_parameter/texture_file = ExtResource("14_iu5jb")
+shader_parameter/normal = ExtResource("13_msrra")
+shader_parameter/metal_rough = ExtResource("12_r0abc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yqy1n"]
+render_priority = 0
+shader = ExtResource("4_2l17h")
+shader_parameter/texture_file = ExtResource("18_x07ih")
+shader_parameter/normal = ExtResource("17_q4sxd")
+shader_parameter/metal_rough = ExtResource("16_dpaaf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52lxj"]
+render_priority = 0
+shader = ExtResource("4_2l17h")
+shader_parameter/texture_file = ExtResource("22_iwt0o")
+shader_parameter/normal = ExtResource("21_m2wa8")
+shader_parameter/metal_rough = ExtResource("20_pc4hx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qomt3"]
+render_priority = 0
+shader = ExtResource("4_2l17h")
+shader_parameter/texture_file = ExtResource("25_35sld")
+shader_parameter/metal_rough = ExtResource("24_ksn0f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_drgl3"]
+render_priority = 0
+shader = ExtResource("4_2l17h")
+shader_parameter/texture_file = ExtResource("28_pij67")
+shader_parameter/normal = ExtResource("27_pc1ro")
+shader_parameter/metal_rough = ExtResource("26_3boae")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2v5wx"]
+render_priority = 0
+shader = ExtResource("4_2l17h")
+shader_parameter/texture_file = ExtResource("32_mkeab")
+shader_parameter/normal = ExtResource("31_edtmc")
+shader_parameter/metal_rough = ExtResource("30_wfwmd")
 
 [node name="BaseFloor" type="Node3D" groups=["floor_part"]]
 script = ExtResource("1_cfdkb")
@@ -19,23 +102,68 @@ script = ExtResource("1_cfdkb")
 [node name="snow_bg" parent="SideBG" instance=ExtResource("1_ut3oy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -34)
 
-[node name="snow_bg3" parent="SideBG" instance=ExtResource("1_ut3oy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -59)
+[node name="SnowBackground" parent="SideBG/snow_bg" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
 
 [node name="snow_bg2" parent="SideBG" instance=ExtResource("1_ut3oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -59)
+
+[node name="SnowBackground" parent="SideBG/snow_bg2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg5" parent="SideBG" instance=ExtResource("1_ut3oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -84)
+
+[node name="SnowBackground" parent="SideBG/snow_bg5" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg7" parent="SideBG" instance=ExtResource("1_ut3oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -109)
+
+[node name="SnowBackground" parent="SideBG/snow_bg7" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg3" parent="SideBG" instance=ExtResource("1_ut3oy")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.24, 34)
+
+[node name="SnowBackground" parent="SideBG/snow_bg3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
 
 [node name="snow_bg4" parent="SideBG" instance=ExtResource("1_ut3oy")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.24, 59)
 
+[node name="SnowBackground" parent="SideBG/snow_bg4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg6" parent="SideBG" instance=ExtResource("1_ut3oy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.24, 84)
+
+[node name="SnowBackground" parent="SideBG/snow_bg6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg8" parent="SideBG" instance=ExtResource("1_ut3oy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.24, 109)
+
+[node name="SnowBackground" parent="SideBG/snow_bg8" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
 [node name="TrackFloor" parent="." instance=ExtResource("1_ehtv5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
+
+[node name="Track_001" parent="TrackFloor" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_n5wo3")
 
 [node name="SnowLeft" parent="." instance=ExtResource("2_ggisu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
 
+[node name="Snow" parent="SnowLeft" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_un7go")
+
 [node name="SnowRight" parent="." instance=ExtResource("2_ggisu")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 0, 9)
+
+[node name="Snow" parent="SnowRight" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_un7go")
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
@@ -49,137 +177,93 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="Decorations1" type="Node3D" parent="Decorations"]
-visible = false
 
 [node name="fence_01" parent="Decorations/Decorations1" instance=ExtResource("3_1iufg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.733874, -0.0862064, -10.5994)
+metadata/_edit_group_ = true
+
+[node name="Fence_001" parent="Decorations/Decorations1/fence_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hwpyj")
 
 [node name="fence_02" parent="Decorations/Decorations1" instance=ExtResource("4_ohlme")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26159, -0.0862064, -10.5908)
+metadata/_edit_group_ = true
+
+[node name="Fence_002" parent="Decorations/Decorations1/fence_02" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_yqy1n")
 
 [node name="fence_03" parent="Decorations/Decorations1" instance=ExtResource("5_vq4q7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7923, -0.0859375, -10.5988)
+metadata/_edit_group_ = true
+
+[node name="Fence_003" parent="Decorations/Decorations1/fence_03" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_52lxj")
 
 [node name="tree" parent="Decorations/Decorations1" instance=ExtResource("6_agvj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -14.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations1/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
 
 [node name="tree2" parent="Decorations/Decorations1" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6877, 0, -18.0286)
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 24.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations1/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
 
 [node name="tree3" parent="Decorations/Decorations1" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5681, 0, -20.598)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78338, 0, 14.296)
+metadata/_edit_group_ = true
 
-[node name="tree6" parent="Decorations/Decorations1" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5681, 0, -44.598)
-
-[node name="tree7" parent="Decorations/Decorations1" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5681, 0, -32.598)
+[node name="Tree" parent="Decorations/Decorations1/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
 
 [node name="tree4" parent="Decorations/Decorations1" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.65213, 0, 15.1624)
+transform = Transform3D(0.855256, 0, 0.518206, 0, 1, 0, -0.518206, 0, 0.855256, 11.8976, 0, -25.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations1/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
 
 [node name="tree5" parent="Decorations/Decorations1" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.854, 0, 18.184)
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, -14.854)
+metadata/_edit_group_ = true
 
-[node name="tree8" parent="Decorations/Decorations1" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.854, 0, 45.184)
+[node name="Tree" parent="Decorations/Decorations1/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
 
-[node name="tree9" parent="Decorations/Decorations1" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.854, 0, 32.184)
+[node name="sign_01" parent="Decorations/Decorations1" instance=ExtResource("8_iim1q")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 20.2006, 0, 10)
+metadata/_edit_group_ = true
 
-[node name="Decorations2" type="Node3D" parent="Decorations"]
-visible = false
+[node name="Pole_001" parent="Decorations/Decorations1/sign_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_2v5wx")
 
-[node name="tree" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12177, 0, -14.854)
-
-[node name="tree4" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12177, 0, 15.146)
-
-[node name="tree5" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1218, 0, 19.146)
-
-[node name="tree6" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1218, 0, 33.146)
-
-[node name="tree7" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.12177, 0, -33.854)
-
-[node name="tree2" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1218, 0, -20.854)
-
-[node name="tree3" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1218, 0, -15.854)
-
-[node name="sign_01" parent="Decorations/Decorations2" instance=ExtResource("8_iim1q")]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 14, 0, 10)
-
-[node name="Decorations3" type="Node3D" parent="Decorations"]
-
-[node name="tree" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12177, 0, -24.854)
-
-[node name="tree4" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.12177, 0, 16.146)
-
-[node name="tree5" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1218, 0, 19.146)
-
-[node name="tree6" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1218, 0, 18.146)
-
-[node name="tree8" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1218, 0, 33.146)
-
-[node name="tree9" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1218, 0, 30.146)
-
-[node name="tree7" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1218, 0, -33.854)
-
-[node name="tree2" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.12177, 0, -13.854)
-
-[node name="tree3" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1218, 0, -15.854)
-
-[node name="Decorations4" type="Node3D" parent="Decorations"]
-
-[node name="tree" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12177, 0, -24.854)
-
-[node name="tree4" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.12177, 0, 16.146)
-
-[node name="tree5" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1218, 0, 19.146)
-
-[node name="tree6" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1218, 0, 18.146)
-
-[node name="tree8" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1218, 0, 33.146)
-
-[node name="tree9" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1218, 0, 30.146)
-
-[node name="tree7" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1218, 0, -33.854)
-
-[node name="tree2" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.12177, 0, -13.854)
-
-[node name="tree3" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1218, 0, -15.854)
-
-[node name="fence_01" parent="Decorations/Decorations4" instance=ExtResource("3_1iufg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26613, -0.0862064, 10.4006)
-
-[node name="fence_02" parent="Decorations/Decorations4" instance=ExtResource("4_ohlme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26159, -0.0862064, 10.4092)
-
-[node name="fence_04" parent="Decorations/Decorations4" instance=ExtResource("4_ohlme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.81738, -0.0862064, 10.4092)
-
-[node name="fence_03" parent="Decorations/Decorations4" instance=ExtResource("5_vq4q7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3794, -0.0859375, 10.4012)
+[editable path="SideBG/snow_bg"]
+[editable path="SideBG/snow_bg2"]
+[editable path="SideBG/snow_bg5"]
+[editable path="SideBG/snow_bg7"]
+[editable path="SideBG/snow_bg3"]
+[editable path="SideBG/snow_bg4"]
+[editable path="SideBG/snow_bg6"]
+[editable path="SideBG/snow_bg8"]
+[editable path="TrackFloor"]
+[editable path="SnowLeft"]
+[editable path="SnowRight"]
+[editable path="Decorations/Decorations1/fence_01"]
+[editable path="Decorations/Decorations1/fence_02"]
+[editable path="Decorations/Decorations1/fence_03"]
+[editable path="Decorations/Decorations1/tree"]
+[editable path="Decorations/Decorations1/tree2"]
+[editable path="Decorations/Decorations1/tree3"]
+[editable path="Decorations/Decorations1/tree4"]
+[editable path="Decorations/Decorations1/tree5"]
+[editable path="Decorations/Decorations1/sign_01"]

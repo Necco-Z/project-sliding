@@ -4,6 +4,8 @@ const MAIN_MENU = "res://ui/main_menu.tscn"
 
 @export_node_path("CharacterBody3D") var player_node
 @export var replacers: Array[ReplaceItem]
+@export var curve_y := 0.0
+@export var curve_z := 0.0
 
 var is_running := false:
 	set = _set_running
@@ -14,6 +16,8 @@ var is_running := false:
 
 ### Funções herdadas (_init, _ready e outras)
 func _ready() -> void:
+	RenderingServer.global_shader_parameter_set("curve_y", curve_y)
+	RenderingServer.global_shader_parameter_set("curve_z", curve_z)
 	game_menus.set_connections(self)
 	player.set_connections(self)
 	_replace_all_items()
