@@ -1,14 +1,69 @@
-[gd_scene load_steps=28 format=3 uid="uid://b14r5butfkten"]
+[gd_scene load_steps=47 format=3 uid="uid://b14r5butfkten"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_wjmk5"]
-[ext_resource type="PackedScene" uid="uid://dt2pxdp046quf" path="res://assets/models/actors/player.glb" id="2_qphg4"]
+[ext_resource type="PackedScene" uid="uid://bgyduumqcrr4k" path="res://assets/models/actors/player/player.glb" id="2_qphg4"]
 [ext_resource type="Animation" uid="uid://e8ykpqet12j1" path="res://assets/animations/player/Idle.res" id="3_07ncg"]
+[ext_resource type="Shader" path="res://scripts/shaders/warp_shader.gdshader" id="3_8f00b"]
 [ext_resource type="Animation" uid="uid://b85gs787r3vs1" path="res://assets/animations/player/Turn_Left.res" id="4_j274r"]
+[ext_resource type="Texture2D" uid="uid://mlmrq6pl74je" path="res://assets/models/actors/player/player_Clothes_low_UV_Metallic.png-Clothes_low_UV_Roughness.png" id="4_wcof5"]
+[ext_resource type="Texture2D" uid="uid://bx7pa32iau4sb" path="res://assets/models/actors/player/player_Clothes_low_UV_Normal.png" id="5_tvf3d"]
 [ext_resource type="Animation" uid="uid://bced2w3ya505l" path="res://assets/animations/player/Turn_Right.res" id="5_ymv4t"]
-[ext_resource type="PackedScene" uid="uid://b2qeu207qi7dp" path="res://assets/models/actors/lamp.glb" id="6_07u2m"]
+[ext_resource type="PackedScene" uid="uid://dvbpiy7apiwmc" path="res://assets/models/actors/lamp/lamp.glb" id="6_07u2m"]
+[ext_resource type="Texture2D" uid="uid://dsvvubxe4iadp" path="res://assets/models/actors/player/player_Clothes_low_UV_BaseColor.png" id="6_eaveg"]
+[ext_resource type="Texture2D" uid="uid://wju5ykomec4y" path="res://assets/models/actors/player/player_Char_low_Char_Metallic.png-Char_low_Char_Roughness.png" id="7_dyv80"]
+[ext_resource type="Texture2D" uid="uid://bl7rr2qv3p76v" path="res://assets/models/actors/player/player_Char_low_Char_Normal.png" id="8_gdxca"]
+[ext_resource type="Texture2D" uid="uid://mnxobet6ieel" path="res://assets/models/actors/player/player_Char_low_Char_BaseColor.png" id="9_1541g"]
+[ext_resource type="Texture2D" uid="uid://mddypsqgui8o" path="res://assets/models/actors/player/player_Char_low_Eyes_Metallic.png-Char_low_Eyes_Roughness.png" id="10_crax5"]
+[ext_resource type="Texture2D" uid="uid://bofnq7s5ki1h1" path="res://assets/models/actors/player/player_Char_low_Eyes_Normal.png" id="11_q43kx"]
+[ext_resource type="Texture2D" uid="uid://cbktjax86so02" path="res://assets/models/actors/player/player_Char_low_Eyes_BaseColor.png" id="12_a70hy"]
+[ext_resource type="Texture2D" uid="uid://qv0vjhsw6ru0" path="res://assets/models/actors/player/player_Snowboard_low_Board_Metallic.png-Snowboard_low_Board_Roughness.png" id="13_pe18a"]
+[ext_resource type="Texture2D" uid="uid://bebpvpakuiw43" path="res://assets/models/actors/player/player_Snowboard_low_Board_Normal.png" id="14_axx06"]
+[ext_resource type="Texture2D" uid="uid://3b36ld636ojc" path="res://assets/models/actors/player/player_Snowboard_low_Board_BaseColor.png" id="15_wnthb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ck7m7"]
 size = Vector3(1, 4.18, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3gbl6"]
+render_priority = 0
+shader = ExtResource("3_8f00b")
+shader_parameter/texture_file = ExtResource("6_eaveg")
+shader_parameter/normal = ExtResource("5_tvf3d")
+shader_parameter/metal_rough = ExtResource("4_wcof5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hnitw"]
+render_priority = 0
+shader = ExtResource("3_8f00b")
+shader_parameter/texture_file = ExtResource("9_1541g")
+shader_parameter/normal = ExtResource("8_gdxca")
+shader_parameter/metal_rough = ExtResource("7_dyv80")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_beg7r"]
+render_priority = 0
+shader = ExtResource("3_8f00b")
+shader_parameter/texture_file = ExtResource("12_a70hy")
+shader_parameter/normal = ExtResource("11_q43kx")
+shader_parameter/metal_rough = ExtResource("10_crax5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d4r1h"]
+render_priority = 0
+shader = ExtResource("3_8f00b")
+shader_parameter/texture_file = ExtResource("6_eaveg")
+shader_parameter/normal = ExtResource("5_tvf3d")
+shader_parameter/metal_rough = ExtResource("4_wcof5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ro2tf"]
+render_priority = 0
+shader = ExtResource("3_8f00b")
+shader_parameter/texture_file = ExtResource("6_eaveg")
+shader_parameter/normal = ExtResource("5_tvf3d")
+shader_parameter/metal_rough = ExtResource("4_wcof5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oybys"]
+render_priority = 0
+shader = ExtResource("3_8f00b")
+shader_parameter/texture_file = ExtResource("15_wnthb")
+shader_parameter/normal = ExtResource("14_axx06")
+shader_parameter/metal_rough = ExtResource("13_pe18a")
 
 [sub_resource type="Animation" id="Animation_bper7"]
 length = 0.001
@@ -79,33 +134,6 @@ states/Right/position = Vector2(499, 233)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_3a85n"), "Idle", "End", SubResource("AnimationNodeStateMachineTransition_4qcbk"), "Idle", "Left", SubResource("AnimationNodeStateMachineTransition_0vn0b"), "Left", "Idle", SubResource("AnimationNodeStateMachineTransition_n3jjj"), "Idle", "Right", SubResource("AnimationNodeStateMachineTransition_kku4i"), "Right", "Idle", SubResource("AnimationNodeStateMachineTransition_qhv04")]
 graph_offset = Vector2(-104, -67)
 
-[sub_resource type="Animation" id="Animation_s4w6p"]
-resource_name = "show_lamp"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 2.4859, 0), Vector3(0, 4.5, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.1, 0.1, 0.1), Vector3(1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_i5oue"]
 length = 0.001
 tracks/0/type = "value"
@@ -135,6 +163,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_e6sug"]
 resource_name = "hide_lamp"
+length = 0.06
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -142,7 +172,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.06),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 4.5, 0), Vector3(0, 2.4859, 0)]
@@ -154,10 +184,39 @@ tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.04),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.1, 0.1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_s4w6p"]
+resource_name = "show_lamp"
+length = 0.06
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.4859, 0), Vector3(0, 4.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hddjw"]
@@ -176,6 +235,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08464, 0)
 shape = SubResource("BoxShape3D_ck7m7")
 
 [node name="PlayerModel" parent="." instance=ExtResource("2_qphg4")]
+
+[node name="Skeleton3D" parent="PlayerModel/Armature" index="0"]
+bones/0/position = Vector3(0, -0.0686768, 0)
+bones/4/rotation = Quaternion(0, 0.356499, 0, 0.934296)
+bones/5/rotation = Quaternion(-0.0521179, 0.0585736, -0.744774, 0.662695)
+bones/6/rotation = Quaternion(0.166564, -0.000581601, 0.0148325, 0.985919)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.0664257, -0.00773706, -0.0716542, 0.995185)
+bones/8/rotation = Quaternion(-7.45058e-09, -6.43134e-15, 1.3099e-15, 1)
+bones/9/position = Vector3(0.170555, 0.268638, 0.301014)
+bones/9/rotation = Quaternion(0.510497, 0.00237128, -0.014404, 0.859756)
+bones/10/rotation = Quaternion(-0.0876174, -3.21412e-06, 0.014371, 0.996051)
+bones/11/rotation = Quaternion(-0.0521181, -0.0585737, 0.744774, 0.662695)
+bones/12/rotation = Quaternion(0.166564, 0.000581604, -0.0148326, 0.985919)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(-0.0664256, 0.00773706, 0.0716542, 0.995185)
+bones/15/position = Vector3(-0.170556, 0.268638, 0.301014)
+bones/15/rotation = Quaternion(0.510497, -0.00237128, 0.014404, 0.859756)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(-0.0876174, 3.21517e-06, -0.014371, 0.996051)
+bones/17/rotation = Quaternion(-0.71905, 1.45244e-16, 1.45244e-16, 0.694958)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.0105561, -0.00087559, 0.0372373, 0.99925)
+bones/19/rotation = Quaternion(0.00641416, -0.000869937, 0.134394, 0.990907)
+bones/20/rotation = Quaternion(-2.04457e-11, 2.57887e-10, 0.102348, 0.994749)
+bones/21/position = Vector3(0.882377, 0.120685, 0.154516)
+bones/21/rotation = Quaternion(-0.701863, 0.0202391, 0.711848, -0.0158484)
+bones/21/scale = Vector3(1, 1, 1)
+bones/22/rotation = Quaternion(-0.017529, -0.199596, -0.180095, 0.963027)
+bones/22/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(0.00747332, -0.00765685, 0.803755, 0.594864)
+bones/25/position = Vector3(-0.882377, 0.120685, 0.154516)
+bones/25/rotation = Quaternion(0.701863, 0.0202391, 0.711848, 0.0158484)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/rotation = Quaternion(-0.017529, 0.199596, 0.180095, 0.963027)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(0.00747332, 0.00765686, -0.803755, 0.594864)
+bones/29/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
+
+[node name="Char_low" parent="PlayerModel/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_3gbl6")
+surface_material_override/1 = SubResource("ShaderMaterial_hnitw")
+surface_material_override/2 = SubResource("ShaderMaterial_beg7r")
+
+[node name="Jacket_low_001" parent="PlayerModel/Armature/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_d4r1h")
+
+[node name="Jacket_low_002" parent="PlayerModel/Armature/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_ro2tf")
+
+[node name="Snowboard_low_001" parent="PlayerModel/Armature/Skeleton3D" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_oybys")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../PlayerModel")
@@ -205,3 +316,5 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 2.4859, 0)
 libraries = {
 "": SubResource("AnimationLibrary_hddjw")
 }
+
+[editable path="PlayerModel"]

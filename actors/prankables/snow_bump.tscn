@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv3vofb0st6jy"]
+[gd_scene load_steps=8 format=3 uid="uid://dv3vofb0st6jy"]
 
 [ext_resource type="PackedScene" uid="uid://fa2p3pd74dyr" path="res://actors/prankables/base_prankable.tscn" id="1_41tj1"]
-[ext_resource type="PackedScene" uid="uid://b32eh0btfjjqo" path="res://assets/models/obstacles/snow_bump.glb" id="2_2radx"]
+[ext_resource type="PackedScene" uid="uid://dq06ajn6knm7w" path="res://assets/models/obstacles/snow_bump/snow_bump.glb" id="2_2radx"]
+[ext_resource type="Shader" path="res://scripts/shaders/warp_shader.gdshader" id="3_pgr2r"]
+[ext_resource type="Texture2D" uid="uid://1em6u4rgyw2d" path="res://assets/models/obstacles/snow_bump/snow_bump_Snow_metallic.png-Snow_roughness.png" id="4_en53q"]
+[ext_resource type="Texture2D" uid="uid://bs1uwj8qekask" path="res://assets/models/obstacles/snow_bump/snow_bump_Snow_basecolor.png" id="5_yckss"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jrwen"]
 radius = 1.09029
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86y51"]
+render_priority = 0
+shader = ExtResource("3_pgr2r")
+shader_parameter/texture_file = ExtResource("5_yckss")
+shader_parameter/metal_rough = ExtResource("4_en53q")
 
 [node name="SnowBump" instance=ExtResource("1_41tj1")]
 gui_name = "Monte de neve"
@@ -17,5 +26,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07478, 0)
 shape = SubResource("SphereShape3D_jrwen")
 
 [node name="snow_bump" parent="." index="1" instance=ExtResource("2_2radx")]
+
+[node name="Ice Mount" parent="snow_bump" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_86y51")
 
 [editable path="snow_bump"]

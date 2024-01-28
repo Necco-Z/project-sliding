@@ -1,7 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://csvlrinimir7l"]
+[gd_scene load_steps=9 format=3 uid="uid://csvlrinimir7l"]
 
 [ext_resource type="ArrayMesh" uid="uid://30l0t6qdlrha" path="res://assets/meshes/flag_checkers.tres" id="1_i8y1p"]
 [ext_resource type="ArrayMesh" uid="uid://d20k5ys0a6lb0" path="res://assets/meshes/flag_pole.tres" id="2_37t3p"]
+[ext_resource type="Shader" path="res://scenes/environment/warp_shader_no_culling.gdshader" id="2_icxsb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ixnf"]
+render_priority = 0
+shader = ExtResource("2_icxsb")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_00jo8"]
+render_priority = 0
+shader = ExtResource("2_icxsb")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/metallic = null
+shader_parameter/roughness = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynbrd"]
+render_priority = 0
+shader = ExtResource("2_icxsb")
+shader_parameter/albedo = Color(0.411765, 0.231373, 0.14902, 1)
+shader_parameter/metallic = null
+shader_parameter/roughness = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dgnis"]
+render_priority = 0
+shader = ExtResource("2_icxsb")
+shader_parameter/albedo = Color(0.411765, 0.231373, 0.14902, 1)
+shader_parameter/metallic = null
+shader_parameter/roughness = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1kkpy"]
 size = Vector3(1, 5, 17)
@@ -11,14 +40,18 @@ size = Vector3(1, 5, 17)
 [node name="Checkers" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 0.9, 0, 8, 0)
 mesh = ExtResource("1_i8y1p")
+surface_material_override/0 = SubResource("ShaderMaterial_5ixnf")
+surface_material_override/1 = SubResource("ShaderMaterial_00jo8")
 
 [node name="PoleLeft" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, 5, 0, 0, 0, 0.7, 0, 5, -9)
 mesh = ExtResource("2_37t3p")
+surface_material_override/0 = SubResource("ShaderMaterial_ynbrd")
 
 [node name="PoleRight" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, 5, 0, 0, 0, 0.7, 0, 5, 9)
 mesh = ExtResource("2_37t3p")
+surface_material_override/0 = SubResource("ShaderMaterial_dgnis")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
