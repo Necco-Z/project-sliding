@@ -76,7 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 
 [node name="Player" parent="." instance=ExtResource("1_1ts6d")]
 track_points_node = NodePath("../TrackPoints")
-speed = 14
+speed = 16
 lane_switch_time = 0.3
 jump_time = 0.7
 jump_height = 4.0

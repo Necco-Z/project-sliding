@@ -80,9 +80,9 @@ func _set_jump() -> void:
 	if Input.is_action_just_pressed("jump"):
 		is_jumping = true
 		var t = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-		t.tween_property(self, "player_ypos", jump_height, jump_time * 0.35)
-		t.tween_interval(jump_time * 0.3)
-		t.tween_property(self, "player_ypos", 0, jump_time * 0.35).set_ease(Tween.EASE_IN)
+		t.tween_property(self, "player_ypos", jump_height, jump_time * 0.5)
+		t.tween_interval(jump_time * 0.1)
+		t.tween_property(self, "player_ypos", 0, jump_time * 0.4).set_ease(Tween.EASE_IN)
 		await t.finished
 		is_jumping = false
 
