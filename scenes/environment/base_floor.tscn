@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://xtwivbdnkec2"]
+[gd_scene load_steps=49 format=3 uid="uid://xtwivbdnkec2"]
 
 [ext_resource type="Script" path="res://scenes/environment/base_floor.gd" id="1_cfdkb"]
 [ext_resource type="PackedScene" uid="uid://cwtbldvq4qc1n" path="res://assets/models/main_path/floor/floor.glb" id="1_ehtv5"]
@@ -34,28 +34,44 @@
 [ext_resource type="Texture2D" uid="uid://c0ku55vgug2wv" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_Metallic.png-Signs_text_Signs_Roughness.png" id="30_wfwmd"]
 [ext_resource type="Texture2D" uid="uid://cjeqnsx25xop1" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_Normal.png" id="31_edtmc"]
 [ext_resource type="Texture2D" uid="uid://c7hdtnu1le3ha" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_BaseColor.png" id="32_mkeab"]
+[ext_resource type="PackedScene" uid="uid://cubkhm81td5ld" path="res://assets/models/environment/sign_02/sign_02.glb" id="35_mfi3x"]
+[ext_resource type="Texture2D" uid="uid://buahiic8g0m15" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_Metallic.png-Signs_text_Signs_Roughness.png" id="36_rgwtb"]
+[ext_resource type="Texture2D" uid="uid://wx3a8b8vbetf" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_Normal.png" id="37_bq1ni"]
+[ext_resource type="Texture2D" uid="uid://ci10l7l7ou3bu" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_BaseColor.png" id="38_s02b6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_idltl"]
 render_priority = 0
 shader = ExtResource("4_2l17h")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("5_n1hkw")
 shader_parameter/metal_rough = ExtResource("4_whwsn")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n5wo3"]
 render_priority = 0
 shader = ExtResource("4_2l17h")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("6_plsdg")
 shader_parameter/metal_rough = ExtResource("5_ss256")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_un7go"]
 render_priority = 0
 shader = ExtResource("4_2l17h")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("9_snfqy")
 shader_parameter/metal_rough = ExtResource("8_l8lng")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hwpyj"]
 render_priority = 0
 shader = ExtResource("4_2l17h")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("14_iu5jb")
 shader_parameter/normal = ExtResource("13_msrra")
 shader_parameter/metal_rough = ExtResource("12_r0abc")
@@ -63,6 +79,9 @@ shader_parameter/metal_rough = ExtResource("12_r0abc")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yqy1n"]
 render_priority = 0
 shader = ExtResource("4_2l17h")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("18_x07ih")
 shader_parameter/normal = ExtResource("17_q4sxd")
 shader_parameter/metal_rough = ExtResource("16_dpaaf")
@@ -70,6 +89,9 @@ shader_parameter/metal_rough = ExtResource("16_dpaaf")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_52lxj"]
 render_priority = 0
 shader = ExtResource("4_2l17h")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("22_iwt0o")
 shader_parameter/normal = ExtResource("21_m2wa8")
 shader_parameter/metal_rough = ExtResource("20_pc4hx")
@@ -77,12 +99,18 @@ shader_parameter/metal_rough = ExtResource("20_pc4hx")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qomt3"]
 render_priority = 0
 shader = ExtResource("4_2l17h")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("25_35sld")
 shader_parameter/metal_rough = ExtResource("24_ksn0f")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_drgl3"]
 render_priority = 0
 shader = ExtResource("4_2l17h")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("28_pij67")
 shader_parameter/normal = ExtResource("27_pc1ro")
 shader_parameter/metal_rough = ExtResource("26_3boae")
@@ -90,9 +118,22 @@ shader_parameter/metal_rough = ExtResource("26_3boae")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2v5wx"]
 render_priority = 0
 shader = ExtResource("4_2l17h")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("32_mkeab")
 shader_parameter/normal = ExtResource("31_edtmc")
 shader_parameter/metal_rough = ExtResource("30_wfwmd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kfbys"]
+render_priority = 0
+shader = ExtResource("4_2l17h")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("38_s02b6")
+shader_parameter/normal = ExtResource("37_bq1ni")
+shader_parameter/metal_rough = ExtResource("36_rgwtb")
 
 [node name="BaseFloor" type="Node3D" groups=["floor_part"]]
 script = ExtResource("1_cfdkb")
@@ -247,6 +288,320 @@ metadata/_edit_group_ = true
 [node name="Pole_001" parent="Decorations/Decorations1/sign_01" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_2v5wx")
 
+[node name="Decorations2" type="Node3D" parent="Decorations"]
+visible = false
+
+[node name="fence_01" parent="Decorations/Decorations2" instance=ExtResource("3_1iufg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73387, -0.0862064, 10.4006)
+metadata/_edit_group_ = true
+
+[node name="Fence_001" parent="Decorations/Decorations2/fence_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hwpyj")
+
+[node name="fence_02" parent="Decorations/Decorations2" instance=ExtResource("4_ohlme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.26159, -0.0862064, 10.4092)
+metadata/_edit_group_ = true
+
+[node name="Fence_002" parent="Decorations/Decorations2/fence_02" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_yqy1n")
+
+[node name="fence_03" parent="Decorations/Decorations2" instance=ExtResource("5_vq4q7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7923, -0.0859375, 10.4012)
+metadata/_edit_group_ = true
+
+[node name="Fence_003" parent="Decorations/Decorations2/fence_03" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_52lxj")
+
+[node name="tree" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -29.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations2/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 24.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations2/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree6" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.600113, 0, -0.799915, 0, 1, 0, 0.799915, 0, 0.600113, 7.3788, 0, 26.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations2/tree6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78338, 0, 18.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations2/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.999777, 0, 0.0211515, 0, 1, 0, -0.0211515, 0, 0.999777, 11.8976, 0, -15.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations2/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="Decorations/Decorations2" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, -14.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations2/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="Decorations3" type="Node3D" parent="Decorations"]
+visible = false
+
+[node name="tree" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -51.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations3/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 28.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations3/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree8" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 28.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations3/tree8" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree6" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.600113, 0, -0.799915, 0, 1, 0, 0.799915, 0, 0.600113, 7.3788, 0, 39.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations3/tree6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7834, 0, 18.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations3/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.999777, 0, 0.0211515, 0, 1, 0, -0.0211515, 0, 0.999777, 11.8976, 0, -15.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations3/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree7" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.876408, 0, -0.481571, 0, 1, 0, 0.481571, 0, 0.876408, 15.8976, 0, -23.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations3/tree7" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="Decorations/Decorations3" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, -32.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations3/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="Decorations4" type="Node3D" parent="Decorations"]
+visible = false
+
+[node name="tree" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1218, 0, -51.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations4/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 5.3788, 0, 48.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations4/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree8" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 11.3788, 0, 21.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations4/tree8" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree6" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.600113, 0, -0.799915, 0, 1, 0, 0.799915, 0, 0.600113, 7.3788, 0, 39.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations4/tree6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7834, 0, 16.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations4/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.999777, 0, 0.0211515, 0, 1, 0, -0.0211515, 0, 0.999777, 7.8976, 0, -15.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations4/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree7" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.876408, 0, -0.481571, 0, 1, 0, 0.481571, 0, 0.876408, 14.8976, 0, -27.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations4/tree7" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, -1.9805, 0, -32.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations4/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree9" parent="Decorations/Decorations4" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 8.0195, 0, -43.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations4/tree9" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="Decorations5" type="Node3D" parent="Decorations"]
+visible = false
+
+[node name="fence_01" parent="Decorations/Decorations5" instance=ExtResource("3_1iufg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.733874, -0.0862064, -10.5994)
+metadata/_edit_group_ = true
+
+[node name="Fence_001" parent="Decorations/Decorations5/fence_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hwpyj")
+
+[node name="fence_03" parent="Decorations/Decorations5" instance=ExtResource("5_vq4q7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34731, -0.0859375, -10.5988)
+metadata/_edit_group_ = true
+
+[node name="Fence_003" parent="Decorations/Decorations5/fence_03" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_52lxj")
+
+[node name="tree" parent="Decorations/Decorations5" instance=ExtResource("6_agvj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -21.0647)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations5/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="Decorations/Decorations5" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 24.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations5/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="Decorations/Decorations5" instance=ExtResource("6_agvj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78338, 0, 14.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations5/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="Decorations/Decorations5" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.855256, 0, 0.518206, 0, 1, 0, -0.518206, 0, 0.855256, 11.8976, 0, -25.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations5/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree9" parent="Decorations/Decorations5" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.992745, 0, -0.120241, 0, 1, 0, 0.120241, 0, 0.992745, 11.8976, 0, -44.1268)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations5/tree9" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="Decorations/Decorations5" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, -14.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations5/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree6" parent="Decorations/Decorations5" instance=ExtResource("6_agvj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, 45.7747)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations5/tree6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree7" parent="Decorations/Decorations5" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.855256, 0, 0.518206, 0, 1, 0, -0.518206, 0, 0.855256, 11.8976, 0, 34.7641)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations5/tree7" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree8" parent="Decorations/Decorations5" instance=ExtResource("6_agvj4")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, 45.7747)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Decorations/Decorations5/tree8" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="sign_02" parent="Decorations/Decorations5" instance=ExtResource("35_mfi3x")]
+transform = Transform3D(0.807321, 0, -0.590113, 0, 1, 0, 0.590113, 0, 0.807321, 20.9999, 0, -11.0567)
+
+[node name="Pole_002" parent="Decorations/Decorations5/sign_02" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_kfbys")
+
 [editable path="SideBG/snow_bg"]
 [editable path="SideBG/snow_bg2"]
 [editable path="SideBG/snow_bg5"]
@@ -267,3 +622,41 @@ surface_material_override/0 = SubResource("ShaderMaterial_2v5wx")
 [editable path="Decorations/Decorations1/tree4"]
 [editable path="Decorations/Decorations1/tree5"]
 [editable path="Decorations/Decorations1/sign_01"]
+[editable path="Decorations/Decorations2/fence_01"]
+[editable path="Decorations/Decorations2/fence_02"]
+[editable path="Decorations/Decorations2/fence_03"]
+[editable path="Decorations/Decorations2/tree"]
+[editable path="Decorations/Decorations2/tree2"]
+[editable path="Decorations/Decorations2/tree6"]
+[editable path="Decorations/Decorations2/tree3"]
+[editable path="Decorations/Decorations2/tree4"]
+[editable path="Decorations/Decorations2/tree5"]
+[editable path="Decorations/Decorations3/tree"]
+[editable path="Decorations/Decorations3/tree2"]
+[editable path="Decorations/Decorations3/tree8"]
+[editable path="Decorations/Decorations3/tree6"]
+[editable path="Decorations/Decorations3/tree3"]
+[editable path="Decorations/Decorations3/tree4"]
+[editable path="Decorations/Decorations3/tree7"]
+[editable path="Decorations/Decorations3/tree5"]
+[editable path="Decorations/Decorations4/tree"]
+[editable path="Decorations/Decorations4/tree2"]
+[editable path="Decorations/Decorations4/tree8"]
+[editable path="Decorations/Decorations4/tree6"]
+[editable path="Decorations/Decorations4/tree3"]
+[editable path="Decorations/Decorations4/tree4"]
+[editable path="Decorations/Decorations4/tree7"]
+[editable path="Decorations/Decorations4/tree5"]
+[editable path="Decorations/Decorations4/tree9"]
+[editable path="Decorations/Decorations5/fence_01"]
+[editable path="Decorations/Decorations5/fence_03"]
+[editable path="Decorations/Decorations5/tree"]
+[editable path="Decorations/Decorations5/tree2"]
+[editable path="Decorations/Decorations5/tree3"]
+[editable path="Decorations/Decorations5/tree4"]
+[editable path="Decorations/Decorations5/tree9"]
+[editable path="Decorations/Decorations5/tree5"]
+[editable path="Decorations/Decorations5/tree6"]
+[editable path="Decorations/Decorations5/tree7"]
+[editable path="Decorations/Decorations5/tree8"]
+[editable path="Decorations/Decorations5/sign_02"]

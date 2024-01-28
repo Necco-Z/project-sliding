@@ -11,6 +11,7 @@ var is_running := false:
 	set = _set_running
 
 @onready var player := get_node(player_node) as CharacterBody3D
+@onready var cam := $GameCamera as Camera3D
 @onready var game_menus := $InGameMenus as CanvasLayer
 
 
@@ -88,4 +89,7 @@ func _on_countdown_finished() -> void:
 func _on_end_flag_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		is_running = false
+		player.is_active = true
+		cam.is_following = false
+		await get_tree().create_timer(1.0).timeout
 		game_menus.change_menu("WinGame")

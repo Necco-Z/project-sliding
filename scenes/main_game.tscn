@@ -98,7 +98,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
 [node name="Stage01" parent="Stage" instance=ExtResource("10_sv3qh")]
 
 [node name="EndFlag" parent="." instance=ExtResource("13_t2bet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2017, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2056, 0, 0)
 
 [node name="Mountains" type="Node3D" parent="."]
 

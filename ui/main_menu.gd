@@ -2,7 +2,6 @@ extends Control
 
 @export_file("*.tscn") var game_scene_path
 
-var game_scene: PackedScene
 var anim_time := 0.4
 
 @onready var load_screen := $LoadingScreen as ColorRect
@@ -13,6 +12,7 @@ var anim_time := 0.4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	ResourceLoader.load_threaded_request(game_scene_path)
 	load_screen.visible = true
 	load_screen.anchor_top = -1
 	load_screen.anchor_bottom = 0
@@ -29,11 +29,14 @@ func _on_start_button_pressed() -> void:
 	t.tween_property(logo, "modulate", Color.WHITE, 0.2)
 	await t.finished
 	anim_player.play("loading")
-	while ScoreData.game_scene == null:
+	var load_status = ResourceLoader.load_threaded_get_status(game_scene_path)
+	while load_status != ResourceLoader.THREAD_LOAD_LOADED:
+		load_status = ResourceLoader.load_threaded_get_status(game_scene_path)
 		await get_tree().process_frame
+	var game_scene = ResourceLoader.load_threaded_get(game_scene_path)
 	Fader.fade_out()
 	await Fader.fade_finished
-	get_tree().change_scene_to_packed(ScoreData.game_scene)
+	get_tree().change_scene_to_packed(game_scene)
 
 
 func _on_exit_button_pressed() -> void:

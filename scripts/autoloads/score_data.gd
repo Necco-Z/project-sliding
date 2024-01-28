@@ -17,8 +17,6 @@ var coins: int :
 	set = _set_coins
 var max_coins: int
 var prank_total: int
-var game_scene: PackedScene
-var load_status := ResourceLoader.THREAD_LOAD_IN_PROGRESS
 
 ### variáveis privadas
 
@@ -27,14 +25,7 @@ var load_status := ResourceLoader.THREAD_LOAD_IN_PROGRESS
 
 ### funções herdadas (_init, _ready e outras)
 func _ready() -> void:
-	ResourceLoader.load_threaded_request(GAME_SCENE_PATH)
-
-
-func _process(_delta: float) -> void:
-	if load_status != ResourceLoader.THREAD_LOAD_LOADED:
-		load_status = ResourceLoader.load_threaded_get_status(GAME_SCENE_PATH)
-		if load_status == ResourceLoader.THREAD_LOAD_LOADED:
-			game_scene = ResourceLoader.load_threaded_get(GAME_SCENE_PATH)
+	pass
 
 
 ### funções públicas

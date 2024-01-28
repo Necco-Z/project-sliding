@@ -10,11 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://bs1uwj8qekask" path="res://assets/models/obstacles/snow_bump/snow_bump_Snow_basecolor.png" id="8_uowc2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_s2i1q"]
-radius = 0.794627
+radius = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fenjx"]
 render_priority = 0
 shader = ExtResource("3_6tskg")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("6_i22os")
 shader_parameter/normal = ExtResource("5_bjgfo")
 shader_parameter/metal_rough = ExtResource("4_w1er7")
@@ -22,6 +25,9 @@ shader_parameter/metal_rough = ExtResource("4_w1er7")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nss0m"]
 render_priority = 0
 shader = ExtResource("3_6tskg")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("8_uowc2")
 shader_parameter/metal_rough = ExtResource("7_dp8qq")
 
@@ -32,7 +38,7 @@ anim_name = "Cube_001Action"
 model_node_path = NodePath("log_03")
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.763524, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01205, 0)
 shape = SubResource("SphereShape3D_s2i1q")
 
 [node name="log_03" parent="." index="1" instance=ExtResource("2_iui7s")]
