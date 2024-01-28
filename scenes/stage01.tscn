@@ -71,9 +71,9 @@
 [node name="tutorial" type="Node3D" parent="."]
 
 [node name="tutorial_slide" parent="tutorial" instance=ExtResource("1_k341w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
 
 [node name="tutorial_jump" parent="tutorial" instance=ExtResource("2_2pesn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
 
 [node name="tutorial_prank" parent="tutorial" instance=ExtResource("3_0yg32")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
@@ -104,58 +104,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 0, 0)
 [node name="stone_4" parent="stone_stage" instance=ExtResource("11_mebe2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 0)
 
-[node name="BaseFloor" parent="stone_stage" instance=ExtResource("12_ybveu")]
+[node name="stone_19" parent="stone_stage" instance=ExtResource("12_ybveu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 0, 0)
 
-[node name="BaseFloor2" parent="stone_stage" instance=ExtResource("13_dm6m7")]
+[node name="stone_7" parent="stone_stage" instance=ExtResource("13_dm6m7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 0, 0)
 
-[node name="BaseFloor3" parent="stone_stage" instance=ExtResource("14_lvwts")]
+[node name="stone_17" parent="stone_stage" instance=ExtResource("14_lvwts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 0, 0)
 
-[node name="BaseFloor4" parent="stone_stage" instance=ExtResource("11_mebe2")]
+[node name="stone_4R" parent="stone_stage" instance=ExtResource("11_mebe2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 0, 0)
 
-[node name="BaseFloor5" parent="stone_stage" instance=ExtResource("15_p2v5l")]
+[node name="stone_12" parent="stone_stage" instance=ExtResource("15_p2v5l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 375, 0, 0)
 
-[node name="BaseFloor6" parent="stone_stage" instance=ExtResource("16_k7gy8")]
+[node name="stone_13" parent="stone_stage" instance=ExtResource("16_k7gy8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 0, 0)
 
-[node name="BaseFloor7" parent="stone_stage" instance=ExtResource("17_k41t0")]
+[node name="stone_15" parent="stone_stage" instance=ExtResource("17_k41t0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 425, 0, 0)
 
-[node name="BaseFloor8" parent="stone_stage" instance=ExtResource("18_70isc")]
+[node name="stone_18" parent="stone_stage" instance=ExtResource("18_70isc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 450, 0, 0)
 
 [node name="BaseFloor9" parent="stone_stage" instance=ExtResource("16_k7gy8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 475, 0, 0)
 
-[node name="BaseFloor10" parent="stone_stage" instance=ExtResource("19_vhggv")]
+[node name="stone_14" parent="stone_stage" instance=ExtResource("19_vhggv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
 
-[node name="BaseFloor11" parent="stone_stage" instance=ExtResource("20_05cb5")]
+[node name="stone_3" parent="stone_stage" instance=ExtResource("20_05cb5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 525, 0, 0)
 
-[node name="BaseFloor12" parent="stone_stage" instance=ExtResource("21_xlygd")]
+[node name="stone_2" parent="stone_stage" instance=ExtResource("21_xlygd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 550, 0, 0)
 
-[node name="BaseFloor13" parent="stone_stage" instance=ExtResource("22_w21i3")]
+[node name="stone_16" parent="stone_stage" instance=ExtResource("22_w21i3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 575, 0, 0)
 
-[node name="BaseFloor14" parent="stone_stage" instance=ExtResource("23_dm63j")]
+[node name="stone_6" parent="stone_stage" instance=ExtResource("23_dm63j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 0)
 
-[node name="BaseFloor15" parent="stone_stage" instance=ExtResource("6_wj1mw")]
+[node name="stone_10R" parent="stone_stage" instance=ExtResource("6_wj1mw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 625, 0, 0)
 
-[node name="BaseFloor16" parent="stone_stage" instance=ExtResource("19_vhggv")]
+[node name="stone_14R" parent="stone_stage" instance=ExtResource("19_vhggv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 650, 0, 0)
 
-[node name="BaseFloor17" parent="stone_stage" instance=ExtResource("24_wc5ny")]
+[node name="stone_5" parent="stone_stage" instance=ExtResource("24_wc5ny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 675, 0, 0)
 
-[node name="BaseFloor18" parent="stone_stage" instance=ExtResource("25_arpuk")]
+[node name="stone_11" parent="stone_stage" instance=ExtResource("25_arpuk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 700, 0, 0)
 
 [node name="BaseFloor19" parent="stone_stage" instance=ExtResource("14_lvwts")]
@@ -163,37 +163,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 725, 0, 0)
 
 [node name="floresta_stage" type="Node3D" parent="."]
 
-[node name="BaseFloor20" parent="floresta_stage" instance=ExtResource("26_wht7v")]
+[node name="forest_9" parent="floresta_stage" instance=ExtResource("26_wht7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 750, 0, 0)
 
-[node name="BaseFloor21" parent="floresta_stage" instance=ExtResource("27_qvwpq")]
+[node name="forest_12" parent="floresta_stage" instance=ExtResource("27_qvwpq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 775, 0, 0)
 
-[node name="BaseFloor22" parent="floresta_stage" instance=ExtResource("28_8y2xi")]
+[node name="forest_2" parent="floresta_stage" instance=ExtResource("28_8y2xi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 800, 0, 0)
 
-[node name="BaseFloor23" parent="floresta_stage" instance=ExtResource("29_vggml")]
+[node name="forest_4" parent="floresta_stage" instance=ExtResource("29_vggml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 825, 0, 0)
 
-[node name="BaseFloor" parent="floresta_stage" instance=ExtResource("30_ydrba")]
+[node name="forest_13" parent="floresta_stage" instance=ExtResource("30_ydrba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 850, 0, 0)
 
-[node name="BaseFloor2" parent="floresta_stage" instance=ExtResource("31_e1pf6")]
+[node name="forest_19" parent="floresta_stage" instance=ExtResource("31_e1pf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 875, 0, 0)
 
-[node name="BaseFloor3" parent="floresta_stage" instance=ExtResource("29_vggml")]
+[node name="forest_4R" parent="floresta_stage" instance=ExtResource("29_vggml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 900, 0, 0)
 
-[node name="BaseFloor4" parent="floresta_stage" instance=ExtResource("32_saihs")]
+[node name="forest_14" parent="floresta_stage" instance=ExtResource("32_saihs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 925, 0, 0)
 
-[node name="BaseFloor5" parent="floresta_stage" instance=ExtResource("33_7faef")]
+[node name="forest_20" parent="floresta_stage" instance=ExtResource("33_7faef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 950, 0, 0)
 
-[node name="BaseFloor6" parent="floresta_stage" instance=ExtResource("34_ei53x")]
+[node name="forest_16" parent="floresta_stage" instance=ExtResource("34_ei53x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 975, 0, 0)
 
-[node name="BaseFloor7" parent="floresta_stage" instance=ExtResource("35_6bfdv")]
+[node name="forest_17" parent="floresta_stage" instance=ExtResource("35_6bfdv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 0)
 
 [node name="BaseFloor8" parent="floresta_stage" instance=ExtResource("36_jqmf4")]
@@ -243,34 +243,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1350, 0, 0)
 [node name="misto_13" parent="misto_stage" instance=ExtResource("46_kvfin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1375, 0, 0)
 
-[node name="BaseFloor2" parent="misto_stage" instance=ExtResource("47_plk20")]
+[node name="misto_7" parent="misto_stage" instance=ExtResource("47_plk20")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, 0)
 
-[node name="BaseFloor3" parent="misto_stage" instance=ExtResource("48_o0obr")]
+[node name="misto_20" parent="misto_stage" instance=ExtResource("48_o0obr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1425, 0, 0)
 
-[node name="BaseFloor4" parent="misto_stage" instance=ExtResource("49_lnqwo")]
+[node name="misto_14" parent="misto_stage" instance=ExtResource("49_lnqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1450, 0, 0)
 
-[node name="BaseFloor5" parent="misto_stage" instance=ExtResource("50_q7uhq")]
+[node name="misto_9" parent="misto_stage" instance=ExtResource("50_q7uhq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1475, 0, 0)
 
-[node name="BaseFloor6" parent="misto_stage" instance=ExtResource("51_vm28e")]
+[node name="misto_3" parent="misto_stage" instance=ExtResource("51_vm28e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1500, 0, 0)
 
-[node name="BaseFloor7" parent="misto_stage" instance=ExtResource("52_kc2q5")]
+[node name="misto_15" parent="misto_stage" instance=ExtResource("52_kc2q5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1525, 0, 0)
 
-[node name="BaseFloor" parent="misto_stage" instance=ExtResource("53_pw0co")]
+[node name="misto_" parent="misto_stage" instance=ExtResource("53_pw0co")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1550, 0, 0)
 
-[node name="BaseFloor8" parent="misto_stage" instance=ExtResource("54_6nb04")]
+[node name="misto_12" parent="misto_stage" instance=ExtResource("54_6nb04")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1575, 0, 0)
 
-[node name="BaseFloor9" parent="misto_stage" instance=ExtResource("55_w1w75")]
+[node name="misto_4" parent="misto_stage" instance=ExtResource("55_w1w75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, 0)
 
-[node name="BaseFloor10" parent="misto_stage" instance=ExtResource("56_bexry")]
+[node name="misto_18" parent="misto_stage" instance=ExtResource("56_bexry")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1625, 0, 0)
 
 [node name="BaseFloor12" parent="misto_stage" instance=ExtResource("54_6nb04")]

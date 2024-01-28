@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://70rofrw2yj33"]
+[gd_scene load_steps=2 format=3 uid="uid://70rofrw2yj33"]
 
 [ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="1_ka6do"]
-[ext_resource type="MeshLibrary" uid="uid://2krps2vk813u" path="res://scenes/level/obstacles_meshlib.tres" id="2_bns82"]
 
 [node name="BaseFloor" instance=ExtResource("1_ka6do")]
 
 [node name="GridMap" parent="." index="4"]
-mesh_library = ExtResource("2_bns82")
 data = {
-"cells": PackedInt32Array(2, 0, 6, 1, 65535, 655368, 4, 65535, 1048581)
+"cells": PackedInt32Array(2, 0, 6, 1, 65535, 655368, 4, 65535, 1048581, 2, 65535, 9)
 }
