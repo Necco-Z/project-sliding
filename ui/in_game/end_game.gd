@@ -15,13 +15,11 @@ func set_connections(game_scene: Node) -> void:
 	restart_pressed.connect(game_scene._on_restart_pressed)
 	return_pressed.connect(game_scene._on_return_pressed)
 	$MainContainer/Title.text = screen_title
-	#ScoreData.coins_updated.connect(update_coins)
+	ScoreData.coins_updated.connect(update_coins)
 
 
 func show_menu(_instant := false) -> void:
 	super.show_menu(false)
-	ScoreData.set_max_score()
-	coins_label.text = ScoreData.max_coins
 	buttons.visible = true
 	%RestartGame.grab_focus()
 

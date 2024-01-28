@@ -68,7 +68,15 @@
 
 [node name="Stage01" type="Node3D"]
 
+[node name="pre_stage" type="Node3D" parent="."]
+
+[node name="BaseFloor" parent="pre_stage" instance=ExtResource("6_i7nc4")]
+
+[node name="BaseFloor2" parent="pre_stage" instance=ExtResource("6_i7nc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
 [node name="tutorial" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
 
 [node name="tutorial_slide" parent="tutorial" instance=ExtResource("1_k341w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
@@ -85,6 +93,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
 
 [node name="stone_stage" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
 
 [node name="stone_10" parent="stone_stage" instance=ExtResource("6_wj1mw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 0, 0)
@@ -162,6 +171,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 700, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 725, 0, 0)
 
 [node name="floresta_stage" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
 
 [node name="forest_9" parent="floresta_stage" instance=ExtResource("26_wht7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 750, 0, 0)
@@ -239,6 +249,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1325, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1350, 0, 0)
 
 [node name="misto_stage" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
 
 [node name="misto_13" parent="misto_stage" instance=ExtResource("46_kvfin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1375, 0, 0)
@@ -316,7 +327,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1950, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1975, 0, 0)
 
 [node name="EndStage" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2000, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2050, 0, 0)
 
 [node name="BaseFloor" parent="EndStage" instance=ExtResource("6_i7nc4")]
 

@@ -11,10 +11,8 @@ signal coin_collected
 @export var jump_height := 2.5
 @export var raycast_distance := 6
 
-var is_active := false:
-	set = _set_active
-var can_control := false:
-	set = _set_control
+var is_active := false
+var can_control := false
 var is_moving := false
 var current_lane := 1
 var player_zpos := 0.0
@@ -117,13 +115,3 @@ func _get_track_zpos(lane: int) -> float:
 
 
 # Setters and getters
-func _set_active(value: bool) -> void:
-	if value == false:
-		can_control = false
-	is_active = value
-
-
-func _set_control(value: bool) -> void:
-	if value == true:
-		is_active = true
-	can_control = value

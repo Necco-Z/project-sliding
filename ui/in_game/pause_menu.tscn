@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://du8ssy1227k34"]
+[gd_scene load_steps=14 format=3 uid="uid://du8ssy1227k34"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_xgpu5"]
 [ext_resource type="Script" path="res://ui/in_game/pause_menu.gd" id="2_hr8f6"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://chxy0qqhv42rx" path="res://ui/star_container.tscn" id="5_bbogl"]
 [ext_resource type="Texture2D" uid="uid://bsverjoat3vcm" path="res://assets/sprites/ui/star_objective_ui_unachieved_big.png" id="6_cohif"]
 [ext_resource type="FontFile" uid="uid://c4xapcx77tcqy" path="res://assets/fonts/Nunito-Regular.ttf" id="7_573r8"]
+[ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="8_r2xxn"]
 [ext_resource type="Texture2D" uid="uid://d1ku08gejy800" path="res://assets/sprites/ui/exit_icon.png" id="9_cnryi"]
 [ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="9_nlv2b"]
 [ext_resource type="Texture2D" uid="uid://qw15v4fm034i" path="res://assets/sprites/ui/play_icon.png" id="10_40mrs"]
@@ -59,12 +60,34 @@ theme = SubResource("Theme_jjj5n")
 text = "JOGO PAUSADO"
 
 [node name="StarContainer" parent="MainContainer" index="1" instance=ExtResource("5_bbogl")]
+visible = false
 layout_mode = 2
 alignment = 1
 texture_lit = ExtResource("5_3e5r5")
 texture_unlit = ExtResource("6_cohif")
 
-[node name="Objectives" type="VBoxContainer" parent="MainContainer" index="2"]
+[node name="VBoxContainer" type="BoxContainer" parent="MainContainer" index="2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CoinTexture" type="TextureRect" parent="MainContainer/VBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("8_r2xxn")
+stretch_mode = 5
+
+[node name="CoinLabel" type="Label" parent="MainContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 85
+text = "0"
+
+[node name="Control" type="Control" parent="MainContainer" index="3"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Objectives" type="VBoxContainer" parent="MainContainer" index="4"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
@@ -89,7 +112,7 @@ theme_override_fonts/font = ExtResource("7_573r8")
 theme_override_font_sizes/font_size = 32
 text = "Objetivo 1"
 
-[node name="Buttons" type="HBoxContainer" parent="MainContainer" index="3"]
+[node name="Buttons" type="HBoxContainer" parent="MainContainer" index="5"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4

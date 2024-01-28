@@ -34,6 +34,7 @@ func _replace_all_items() -> void:
 # Setters e getters
 func _set_running(value: bool) -> void:
 	is_running = value
+	player.is_active = value
 	player.can_control = value
 
 
