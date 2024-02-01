@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://xtwivbdnkec2"]
+[gd_scene load_steps=52 format=3 uid="uid://xtwivbdnkec2"]
 
 [ext_resource type="Script" path="res://scenes/environment/base_floor.gd" id="1_cfdkb"]
 [ext_resource type="PackedScene" uid="uid://cwtbldvq4qc1n" path="res://assets/models/main_path/floor/floor.glb" id="1_ehtv5"]
@@ -48,6 +48,20 @@ shader_parameter/metallic = null
 shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("5_n1hkw")
 shader_parameter/metal_rough = ExtResource("4_whwsn")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_keoxx"]
+size = Vector2(25, 25)
+subdivide_width = 25
+subdivide_depth = 25
+center_offset = Vector3(12.5, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lv0lu"]
+render_priority = 0
+shader = ExtResource("7_dsmen")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("6_plsdg")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n5wo3"]
 render_priority = 0
@@ -189,8 +203,13 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.
 [node name="SnowBackground" parent="SideBG/snow_bg8" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_idltl")
 
+[node name="TestFloor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_keoxx")
+surface_material_override/0 = SubResource("ShaderMaterial_lv0lu")
+
 [node name="TrackFloor" parent="." instance=ExtResource("1_ehtv5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
+visible = false
 
 [node name="Track_001" parent="TrackFloor" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_n5wo3")
