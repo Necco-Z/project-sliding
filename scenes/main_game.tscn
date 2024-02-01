@@ -53,8 +53,6 @@ volumetric_fog_density = 0.02
 script = ExtResource("1_hws7p")
 player_node = NodePath("Player")
 replacers = Array[ExtResource("3_75aig")]([SubResource("Resource_kpxey"), SubResource("Resource_cr5rv"), SubResource("Resource_rctie"), SubResource("Resource_d41j0")])
-curve_y = -0.3
-curve_z = 0.5
 
 [node name="InGameMenus" parent="." instance=ExtResource("12_itv2k")]
 

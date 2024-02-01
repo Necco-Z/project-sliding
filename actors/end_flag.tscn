@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://30l0t6qdlrha" path="res://assets/meshes/flag_checkers.tres" id="1_i8y1p"]
 [ext_resource type="ArrayMesh" uid="uid://d20k5ys0a6lb0" path="res://assets/meshes/flag_pole.tres" id="2_37t3p"]
-[ext_resource type="Shader" path="res://scenes/environment/warp_shader_no_culling.gdshader" id="2_icxsb"]
+[ext_resource type="Shader" path="res://scripts/shaders/warp_shader_no_culling.gdshader" id="2_icxsb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ixnf"]
 render_priority = 0

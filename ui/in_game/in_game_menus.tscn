@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt8ohiqvrdwg4"]
+[gd_scene load_steps=9 format=3 uid="uid://dt8ohiqvrdwg4"]
 
 [ext_resource type="Script" path="res://ui/in_game/in_game_menus.gd" id="1_r1kp4"]
 [ext_resource type="PackedScene" uid="uid://bdsmndg54xjgb" path="res://ui/in_game/game_hud.tscn" id="2_3eaex"]
 [ext_resource type="Shader" path="res://scripts/shaders/screen_blur.gdshader" id="2_21w1j"]
 [ext_resource type="PackedScene" uid="uid://cg4jy1bjo2ysi" path="res://ui/in_game/start_menu.tscn" id="3_8i50i"]
 [ext_resource type="PackedScene" uid="uid://btpfgj8syn123" path="res://ui/in_game/end_game.tscn" id="4_jo2td"]
+[ext_resource type="PackedScene" uid="uid://d3uw2ceyunisx" path="res://ui/in_game/game_hud_debug.tscn" id="4_v0lg0"]
 [ext_resource type="PackedScene" uid="uid://du8ssy1227k34" path="res://ui/in_game/pause_menu.tscn" id="5_sbgga"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kku31"]
@@ -26,7 +27,10 @@ grow_vertical = 2
 
 [node name="StartMenu" parent="." instance=ExtResource("3_8i50i")]
 
-[node name="GameHUD" parent="." instance=ExtResource("2_3eaex")]
+[node name="GameHUD" parent="." instance=ExtResource("4_v0lg0")]
+visible = false
+
+[node name="GameHUDDisabled" parent="." instance=ExtResource("2_3eaex")]
 visible = false
 metadata/_edit_horizontal_guides_ = [56.0, 134.0]
 

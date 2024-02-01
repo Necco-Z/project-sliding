@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3uw2ceyunisx"]
+
+[ext_resource type="PackedScene" uid="uid://bdsmndg54xjgb" path="res://ui/in_game/game_hud.tscn" id="1_fnne8"]
+[ext_resource type="Script" path="res://ui/in_game/game_hud_debug.gd" id="2_6th4e"]
+
+[node name="GameHUDDebug" instance=ExtResource("1_fnne8")]
+script = ExtResource("2_6th4e")
+
+[node name="Debug" type="HBoxContainer" parent="." index="5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -130.0
+offset_right = -60.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Debug" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DisableCol" type="HBoxContainer" parent="Debug/CenterContainer" index="0"]
+layout_mode = 2
+alignment = 1
+
+[node name="DisableColCheck" type="CheckBox" parent="Debug/CenterContainer/DisableCol" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DisableColLabel" type="Label" parent="Debug/CenterContainer/DisableCol" index="1"]
+layout_mode = 2
+theme_override_constants/outline_size = -4
+theme_override_font_sizes/font_size = 40
+text = "Disable collisions"
+
+[node name="GridContainer" type="GridContainer" parent="Debug" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="CurveYLabel" type="Label" parent="Debug/GridContainer" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Curve Y"
+
+[node name="CurveYSlider" type="HSlider" parent="Debug/GridContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+min_value = -2.0
+max_value = 2.0
+step = 0.1
+tick_count = 20
+
+[node name="CurveZLabel" type="Label" parent="Debug/GridContainer" index="2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Curve Z"
+
+[node name="CurveZSlider" type="HSlider" parent="Debug/GridContainer" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+min_value = -2.0
+max_value = 2.0
+step = 0.1
+tick_count = 20
+
+[connection signal="toggled" from="Debug/CenterContainer/DisableCol/DisableColCheck" to="." method="_on_disable_col_check_toggled"]
+[connection signal="value_changed" from="Debug/GridContainer/CurveYSlider" to="." method="_on_curve_y_slider_value_changed"]
+[connection signal="value_changed" from="Debug/GridContainer/CurveZSlider" to="." method="_on_curve_z_slider_value_changed"]

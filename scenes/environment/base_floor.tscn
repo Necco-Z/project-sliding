@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://xtwivbdnkec2"]
+[gd_scene load_steps=50 format=3 uid="uid://xtwivbdnkec2"]
 
 [ext_resource type="Script" path="res://scenes/environment/base_floor.gd" id="1_cfdkb"]
 [ext_resource type="PackedScene" uid="uid://cwtbldvq4qc1n" path="res://assets/models/main_path/floor/floor.glb" id="1_ehtv5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cco6h752knwxv" path="res://assets/models/environment/fence_03/fence_03.glb" id="5_vq4q7"]
 [ext_resource type="PackedScene" uid="uid://0ckp6qr1gije" path="res://assets/models/environment/tree/tree.glb" id="6_agvj4"]
 [ext_resource type="Texture2D" uid="uid://bnkal3j1ou6fx" path="res://assets/models/main_path/floor/floor_Track Test 06.png" id="6_plsdg"]
+[ext_resource type="Shader" path="res://scripts/shaders/warp_shader_no_culling.gdshader" id="7_dsmen"]
 [ext_resource type="PackedScene" uid="uid://bk3c666kyb7pi" path="res://assets/models/environment/sign_01/sign_01.glb" id="8_iim1q"]
 [ext_resource type="Texture2D" uid="uid://j8teb7lkynqy" path="res://assets/models/main_path/snow/snow_Snow_metallic.png-Snow_roughness.png" id="8_l8lng"]
 [ext_resource type="Texture2D" uid="uid://d1wpr4rtlhs6e" path="res://assets/models/main_path/snow/snow_Snow_basecolor.png" id="9_snfqy"]
@@ -50,7 +51,7 @@ shader_parameter/metal_rough = ExtResource("4_whwsn")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n5wo3"]
 render_priority = 0
-shader = ExtResource("4_2l17h")
+shader = ExtResource("7_dsmen")
 shader_parameter/albedo = null
 shader_parameter/metallic = null
 shader_parameter/roughness = null
