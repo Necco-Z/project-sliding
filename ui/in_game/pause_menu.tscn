@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://du8ssy1227k34"]
+[gd_scene load_steps=13 format=3 uid="uid://du8ssy1227k34"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_xgpu5"]
 [ext_resource type="Script" path="res://ui/in_game/pause_menu.gd" id="2_hr8f6"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bsverjoat3vcm" path="res://assets/sprites/ui/star_objective_ui_unachieved_big.png" id="6_cohif"]
 [ext_resource type="FontFile" uid="uid://c4xapcx77tcqy" path="res://assets/fonts/Nunito-Regular.ttf" id="7_573r8"]
 [ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="8_r2xxn"]
-[ext_resource type="Texture2D" uid="uid://d1ku08gejy800" path="res://assets/sprites/ui/exit_icon.png" id="9_cnryi"]
 [ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="9_nlv2b"]
 [ext_resource type="Texture2D" uid="uid://qw15v4fm034i" path="res://assets/sprites/ui/play_icon.png" id="10_40mrs"]
 
@@ -79,6 +78,7 @@ stretch_mode = 5
 [node name="CoinLabel" type="Label" parent="MainContainer/VBoxContainer" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 85
 text = "0"
 
@@ -119,21 +119,21 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 24
 
-[node name="ResumeButton" type="Button" parent="MainContainer/Buttons" index="0"]
-layout_mode = 2
-theme = ExtResource("9_nlv2b")
-theme_override_font_sizes/font_size = 40
-text = "Continuar"
-icon = ExtResource("10_40mrs")
-
-[node name="RestartButton" type="Button" parent="MainContainer/Buttons" index="1"]
+[node name="RestartButton" type="Button" parent="MainContainer/Buttons" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("9_nlv2b")
 theme_type_variation = &"RedButton"
 theme_override_font_sizes/font_size = 40
 text = "Reiniciar"
-icon = ExtResource("9_cnryi")
 
-[connection signal="pressed" from="MainContainer/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
+[node name="ResumeButton" type="Button" parent="MainContainer/Buttons" index="1"]
+layout_mode = 2
+theme = ExtResource("9_nlv2b")
+theme_type_variation = &"NormalButtonWhiteBackground"
+theme_override_font_sizes/font_size = 40
+text = "Continuar"
+icon = ExtResource("10_40mrs")
+
 [connection signal="pressed" from="MainContainer/Buttons/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MainContainer/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]

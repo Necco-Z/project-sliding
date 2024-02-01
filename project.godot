@@ -44,6 +44,10 @@ enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
 
 import/fbx/enabled=false
 
+[gui]
+
+theme/custom="res://assets/themes/ui_theme.tres"
+
 [input]
 
 ui_accept={

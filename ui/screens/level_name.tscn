@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d25sg5b1jagg8"]
+[gd_scene load_steps=8 format=3 uid="uid://cxocphej4xmjk"]
 
 [ext_resource type="Texture2D" uid="uid://brkkq4dee1ji5" path="res://assets/sprites/ui/menu_background_icons.png" id="1_4amww"]
 [ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_dptdu"]
@@ -86,7 +86,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.219608, 0.341176, 0.8, 1)
+color = Color(0.854902, 0.964706, 0.968627, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
