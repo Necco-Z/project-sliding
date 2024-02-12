@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=22 format=3 uid="uid://ckgyosp0xeif4"]
+[gd_resource type="Theme" load_steps=30 format=3 uid="uid://ckgyosp0xeif4"]
 
 [ext_resource type="Texture2D" uid="uid://eid85mq3464s" path="res://assets/sprites/ui/in_game_background_ui.png" id="1_jbfwl"]
 [ext_resource type="FontFile" uid="uid://dyu0loxxcgqfy" path="res://assets/fonts/Nunito-SemiBold.ttf" id="1_xf7t7"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://bgxc0wfjsvrkw" path="res://assets/sprites/ui/button_cancel_normal.png" id="3_tujna"]
 [ext_resource type="Texture2D" uid="uid://cujst1lq0xws3" path="res://assets/sprites/ui/button_cancel_pressed.png" id="4_qi2gt"]
 [ext_resource type="Texture2D" uid="uid://cjhbtnsqdjm1c" path="res://assets/sprites/ui/button_pressed.png" id="4_xu87l"]
+[ext_resource type="Texture2D" uid="uid://cjpiotw3nr5vs" path="res://assets/sprites/ui/circular_button_focus.png" id="6_mf01e"]
+[ext_resource type="Texture2D" uid="uid://cmwb3dfv63iku" path="res://assets/sprites/ui/circular_button_hover.png" id="7_umvc8"]
+[ext_resource type="Texture2D" uid="uid://prhk8twtsrjo" path="res://assets/sprites/ui/circular_button_normal.png" id="8_vnw2b"]
+[ext_resource type="Texture2D" uid="uid://d2dnmxi282pp8" path="res://assets/sprites/ui/circular_button_pressed.png" id="9_x6awo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3a5k"]
 content_margin_left = 4.0
@@ -65,6 +69,42 @@ texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rbwp7"]
+texture = ExtResource("6_mf01e")
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gwoiu"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+texture = ExtResource("7_umvc8")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6m02m"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+texture = ExtResource("8_vnw2b")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yf4fv"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+texture = ExtResource("9_x6awo")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8yqvq"]
 texture = ExtResource("2_qsle3")
@@ -151,6 +191,11 @@ Button/styles/focus = SubResource("StyleBoxTexture_fpxs6")
 Button/styles/hover = SubResource("StyleBoxTexture_sbrxn")
 Button/styles/normal = SubResource("StyleBoxTexture_uqiyd")
 Button/styles/pressed = SubResource("StyleBoxTexture_5tyur")
+CircularButton/base_type = &"Button"
+CircularButton/styles/focus = SubResource("StyleBoxTexture_rbwp7")
+CircularButton/styles/hover = SubResource("StyleBoxTexture_gwoiu")
+CircularButton/styles/normal = SubResource("StyleBoxTexture_6m02m")
+CircularButton/styles/pressed = SubResource("StyleBoxTexture_yf4fv")
 NormalButtonWhiteBackground/base_type = &"Button"
 NormalButtonWhiteBackground/styles/focus = SubResource("StyleBoxTexture_8yqvq")
 Panel/styles/panel = SubResource("StyleBoxFlat_nak7i")

@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8shhxivjju7c"]
+
+[ext_resource type="Texture2D" uid="uid://d1uikb0gce5k2" path="res://assets/images/background_menus.png" id="1_jfoc7"]
+[ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_640x6"]
+[ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="3_gxhvy"]
+[ext_resource type="Texture2D" uid="uid://cjx1tovm77v4r" path="res://assets/sprites/ui/level_name_panel.png" id="4_k042m"]
+[ext_resource type="FontFile" uid="uid://dyu0loxxcgqfy" path="res://assets/fonts/Nunito-SemiBold.ttf" id="5_3f2pp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_we11b"]
+content_margin_left = 16.0
+content_margin_top = 36.0
+content_margin_right = 16.0
+content_margin_bottom = 24.0
+texture = ExtResource("4_k042m")
+expand_margin_left = 12.0
+expand_margin_top = 24.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
+[node name="ChooseLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jfoc7")
+
+[node name="TitleAndBackButton" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.08
+anchor_top = 0.125
+anchor_right = 0.92
+anchor_bottom = 0.125
+grow_horizontal = 2
+
+[node name="Button" type="Button" parent="TitleAndBackButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -44.0
+offset_right = 160.0
+offset_bottom = 44.0
+grow_vertical = 2
+theme_type_variation = &"RedButton"
+text = "Voltar"
+
+[node name="Label" type="Label" parent="TitleAndBackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.5
+offset_top = -36.5
+offset_right = 282.5
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.807843, 0.741176, 0.129412, 1)
+theme_override_colors/font_outline_color = Color(0.239216, 0.239216, 0.239216, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_640x6")
+theme_override_font_sizes/font_size = 72
+text = "ESCOLHA DE NÍVEL"
+
+[node name="Levels" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 180
+
+[node name="Button" type="Button" parent="Levels"]
+layout_mode = 2
+theme = ExtResource("3_gxhvy")
+theme_type_variation = &"CircularButton"
+text = "1"
+
+[node name="Button2" type="Button" parent="Levels"]
+layout_mode = 2
+theme_type_variation = &"CircularButton"
+text = "2"
+
+[node name="Button3" type="Button" parent="Levels"]
+layout_mode = 2
+theme_type_variation = &"CircularButton"
+text = "3"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 633.0
+offset_right = 837.0
+offset_bottom = 732.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_we11b")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.152941, 0.152941, 0.152941, 1)
+theme_override_fonts/font = ExtResource("5_3f2pp")
+theme_override_font_sizes/font_size = 28
+text = "Pule como nunca"
+horizontal_alignment = 1
