@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode world_vertex_coords;
+render_mode world_vertex_coords, cull_disabled;
 
 global uniform float curve_y;
 global uniform float curve_z;
