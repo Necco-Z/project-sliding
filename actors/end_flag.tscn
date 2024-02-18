@@ -2,32 +2,32 @@
 
 [ext_resource type="ArrayMesh" uid="uid://30l0t6qdlrha" path="res://assets/meshes/flag_checkers.tres" id="1_i8y1p"]
 [ext_resource type="ArrayMesh" uid="uid://d20k5ys0a6lb0" path="res://assets/meshes/flag_pole.tres" id="2_37t3p"]
-[ext_resource type="Shader" path="res://scenes/environment/warp_shader_no_culling.gdshader" id="2_icxsb"]
+[ext_resource type="Shader" path="res://scripts/shaders/warp_shader.gdshader" id="2_xmi3c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ixnf"]
 render_priority = 0
-shader = ExtResource("2_icxsb")
+shader = ExtResource("2_xmi3c")
 shader_parameter/albedo = null
 shader_parameter/metallic = null
 shader_parameter/roughness = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_00jo8"]
 render_priority = 0
-shader = ExtResource("2_icxsb")
+shader = ExtResource("2_xmi3c")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/metallic = null
 shader_parameter/roughness = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ynbrd"]
 render_priority = 0
-shader = ExtResource("2_icxsb")
+shader = ExtResource("2_xmi3c")
 shader_parameter/albedo = Color(0.411765, 0.231373, 0.14902, 1)
 shader_parameter/metallic = null
 shader_parameter/roughness = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dgnis"]
 render_priority = 0
-shader = ExtResource("2_icxsb")
+shader = ExtResource("2_xmi3c")
 shader_parameter/albedo = Color(0.411765, 0.231373, 0.14902, 1)
 shader_parameter/metallic = null
 shader_parameter/roughness = 0.5
