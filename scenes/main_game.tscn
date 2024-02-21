@@ -35,16 +35,16 @@ script = ExtResource("3_75aig")
 name = "SnowBump"
 replace_file = ExtResource("6_ynaxp")
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3bwc1"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jqa1x"]
 sky_top_color = Color(0.478431, 0.552941, 0.65098, 1)
 sky_cover = ExtResource("8_78b7s")
 ground_bottom_color = Color(0.854902, 0.964706, 0.968627, 1)
 ground_horizon_color = Color(0.854902, 0.964706, 0.968627, 1)
 
 [sub_resource type="Sky" id="Sky_ta835"]
-sky_material = SubResource("ProceduralSkyMaterial_3bwc1")
+sky_material = SubResource("ProceduralSkyMaterial_jqa1x")
 
-[sub_resource type="Environment" id="Environment_7e5bw"]
+[sub_resource type="Environment" id="Environment_i6awf"]
 background_mode = 2
 background_color = Color(0, 0.372549, 0.45098, 1)
 background_canvas_max_layer = 1
@@ -60,15 +60,6 @@ curve_y = -0.3
 curve_z = 0.5
 
 [node name="InGameMenus" parent="." instance=ExtResource("12_itv2k")]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_7e5bw")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.656059, 0.562618, -0.503038, 0, 0.666532, 0.745476, 0.75471, -0.489076, 0.437285, -15.5535, 15.3114, 2.07461)
-light_color = Color(0.984314, 0.905882, 0.705882, 1)
-light_energy = 0.658
-shadow_enabled = true
 
 [node name="TrackPoints" type="Node3D" parent="."]
 
@@ -224,5 +215,12 @@ transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367
 
 [node name="Mountain40" parent="Mountains" instance=ExtResource("14_ro1gl")]
 transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 2342.29, -0.665, -112.568)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.801473, 0.224007, -0.554493, -3.27463e-08, 0.927197, 0.374574, 0.598031, 0.300211, -0.743123, 0, 20.3383, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i6awf")
 
 [connection signal="body_entered" from="EndFlag" to="." method="_on_end_flag_body_entered"]

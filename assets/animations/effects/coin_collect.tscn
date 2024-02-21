@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7e2suxqj8vp6"]
+
+[ext_resource type="Texture2D" uid="uid://b0ril6fq4maf0" path="res://assets/sprites/particles/coin_spark.png" id="1_8ctc1"]
+
+[sub_resource type="Curve" id="Curve_itaie"]
+_data = [Vector2(0, 0), 0.0, 3.84953, 0, 0, Vector2(0.181159, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.79121, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_f42do"]
+curve = SubResource("Curve_itaie")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uxslt"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 6.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_f42do")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vopx8"]
+transparency = 1
+albedo_texture = ExtResource("1_8ctc1")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yeusf"]
+material = SubResource("StandardMaterial3D_vopx8")
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 0, 1.062, 0)
+emitting = false
+amount = 10
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_uxslt")
+draw_pass_1 = SubResource("PlaneMesh_yeusf")

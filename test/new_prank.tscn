@@ -1,0 +1,663 @@
+[gd_scene load_steps=33 format=3 uid="uid://ck1vdfnf0ljv"]
+
+[ext_resource type="PackedScene" uid="uid://bgyduumqcrr4k" path="res://assets/models/actors/player/player.glb" id="1_054hx"]
+[ext_resource type="PackedScene" uid="uid://6416jp5id1o0" path="res://assets/animations/effects/snow.tscn" id="2_6crt8"]
+[ext_resource type="PackedScene" uid="uid://cwtbldvq4qc1n" path="res://assets/models/main_path/floor/floor.glb" id="2_j5tao"]
+[ext_resource type="PackedScene" uid="uid://caq0kpgwmp43f" path="res://assets/models/obstacles/bush/bush.glb" id="3_6e6wu"]
+[ext_resource type="Texture2D" uid="uid://bxkxkh1subs2q" path="res://assets/sprites/ui/pegadinha_static_icon.png" id="4_tpng4"]
+[ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="5_avfhm"]
+[ext_resource type="Texture2D" uid="uid://rx3yjprogwov" path="res://assets/sprites/ui/pegadinha_icon.png" id="5_viybk"]
+[ext_resource type="Texture2D" uid="uid://dvwpj5uqi0otx" path="res://assets/images/Ceu.png" id="6_3i36a"]
+[ext_resource type="PackedScene" uid="uid://ce0eofq10mcjd" path="res://assets/animations/effects/prank.tscn" id="9_47bue"]
+[ext_resource type="Texture2D" uid="uid://b0ril6fq4maf0" path="res://assets/sprites/particles/coin_spark.png" id="9_mc4ld"]
+[ext_resource type="PackedScene" uid="uid://biiw55yykc5p0" path="res://assets/models/actors/coin/coin.glb" id="9_wve6r"]
+[ext_resource type="Texture2D" uid="uid://5b65wq2i02fh" path="res://assets/sprites/ui/star_objective_ui_unachieved.png" id="11_0jiax"]
+[ext_resource type="PackedScene" uid="uid://c7e2suxqj8vp6" path="res://assets/animations/effects/coin_collect.tscn" id="11_jw82s"]
+[ext_resource type="PackedScene" uid="uid://bdsmndg54xjgb" path="res://ui/in_game/game_hud.tscn" id="11_pw1ch"]
+[ext_resource type="Texture2D" uid="uid://cs3htxo3dflpn" path="res://assets/sprites/ui/star_objective_ui.png" id="12_2be6b"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mwb55"]
+sky_top_color = Color(0.478431, 0.552941, 0.65098, 1)
+sky_cover = ExtResource("6_3i36a")
+ground_bottom_color = Color(0.854902, 0.964706, 0.968627, 1)
+ground_horizon_color = Color(0.854902, 0.964706, 0.968627, 1)
+
+[sub_resource type="Sky" id="Sky_ax7wm"]
+sky_material = SubResource("ProceduralSkyMaterial_mwb55")
+
+[sub_resource type="Environment" id="Environment_peao4"]
+background_mode = 2
+background_color = Color(0, 0.372549, 0.45098, 1)
+background_canvas_max_layer = 1
+sky = SubResource("Sky_ax7wm")
+sky_custom_fov = 90.0
+volumetric_fog_density = 0.02
+
+[sub_resource type="Curve" id="Curve_itaie"]
+_data = [Vector2(0, 0), 0.0, 3.84953, 0, 0, Vector2(0.181159, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.79121, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_f42do"]
+curve = SubResource("Curve_itaie")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uxslt"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 6.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_f42do")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vopx8"]
+transparency = 1
+albedo_texture = ExtResource("9_mc4ld")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yeusf"]
+material = SubResource("StandardMaterial3D_vopx8")
+
+[sub_resource type="Animation" id="Animation_wf4iy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bush/PrankMarker:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bush/PrankMovingCircle:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bush/PrankMovingCircle:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.00076, 2.00076, 2.00076)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player/SnowParticle:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("player/SnowParticle:process_material:direction")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.2, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PrankStarParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PrankReward:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fwy8g"]
+resource_name = "new_animation"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 3.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 32.0979), Vector3(-6.45686, 0, 39.0188)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bush/PrankMarker:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bush/PrankMovingCircle:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bush/PrankMovingCircle:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.00076, 2.00076, 2.00076), Vector3(1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player/SnowParticle:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("player/SnowParticle:process_material:direction")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.2, 1), Vector3(0, 0.2, 1), Vector3(0.3, 0.2, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PrankStarParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PrankReward:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3.2, 3.4, 4),
+"transitions": PackedFloat32Array(1, 1, 0.15932, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b518g"]
+_data = {
+"RESET": SubResource("Animation_wf4iy"),
+"new_animation": SubResource("Animation_fwy8g")
+}
+
+[sub_resource type="Animation" id="Animation_3dug2"]
+resource_name = "Objective_Complete"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/GameHUD/DataContainer/ScoreBox:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/GameHUD/DataContainer/ScoreBox/StarContainer/Star1:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("11_0jiax"), ExtResource("12_2be6b")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/MovingStar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.2, 3.5, 3.9, 4.4),
+"transitions": PackedFloat32Array(1.46409, 1.46409, 0.392292, 2.63902),
+"update": 0,
+"values": [Vector2(960, 540), Vector2(960, 442), Vector2(960, 442), Vector2(1691, 220)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/MovingStar:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.2, 4.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_4s8df"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/GameHUD/DataContainer/ScoreBox:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/GameHUD/DataContainer/ScoreBox/StarContainer/Star1:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_2be6b")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/MovingStar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 540)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/MovingStar:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_81vtj"]
+_data = {
+"Objective_Complete": SubResource("Animation_3dug2"),
+"RESET": SubResource("Animation_4s8df")
+}
+
+[sub_resource type="Animation" id="Animation_01mkb"]
+resource_name = "coins"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coins/Node3D/coin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Coins/Node3D/GPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Coins/Node3D2/coin:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Coins/Node3D2/GPUParticles3D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Coins/Node3D3/coin:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Coins/Node3D3/GPUParticles3D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_jksul"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coins/Node3D/coin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Coins/Node3D/GPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Coins/Node3D2/coin:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Coins/Node3D2/GPUParticles3D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Coins/Node3D3/coin:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Coins/Node3D3/GPUParticles3D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f4b34"]
+_data = {
+"RESET": SubResource("Animation_jksul"),
+"coins": SubResource("Animation_01mkb")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="player" parent="." instance=ExtResource("1_054hx")]
+
+[node name="Camera3D" type="Camera3D" parent="player"]
+transform = Transform3D(-1, 2.18889e-08, -8.46382e-08, 0, 0.968148, 0.25038, 8.74228e-08, 0.25038, -0.968148, 0, 5.65204, -6.87066)
+
+[node name="SnowParticle" parent="player" instance=ExtResource("2_6crt8")]
+
+[node name="Floors" type="Node" parent="."]
+
+[node name="floor" parent="Floors" instance=ExtResource("2_j5tao")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.8889, -0.183758, -8.314)
+
+[node name="floor2" parent="Floors" instance=ExtResource("2_j5tao")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.8889, -0.183758, 16.4428)
+
+[node name="floor3" parent="Floors" instance=ExtResource("2_j5tao")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.8889, -0.183758, 41.3269)
+
+[node name="bush" parent="." instance=ExtResource("3_6e6wu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.258762, -0.645285, 41.0396)
+
+[node name="PrankMovingCircle" type="Sprite3D" parent="bush"]
+transform = Transform3D(2.00076, 0, 0, 0, 2.00076, 0, 0, 0, 2.00076, 0, 4.78161, 0.156128)
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("5_viybk")
+
+[node name="PrankMarker" type="Sprite3D" parent="bush"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.78161, 0.156128)
+texture = ExtResource("4_tpng4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.801473, 0.224007, -0.554493, -3.27463e-08, 0.927197, 0.374574, 0.598031, 0.300211, -0.743123, 0, 20.3383, 0)
+shadow_enabled = true
+
+[node name="PrankReward" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.234623, 4.19135, 41.1019)
+pixel_size = 0.0185
+billboard = 1
+shaded = true
+modulate = Color(1, 0.815686, 0.25098, 1)
+outline_modulate = Color(0.152941, 0.152941, 0.152941, 1)
+text = "+5"
+font = ExtResource("5_avfhm")
+font_size = 48
+uppercase = true
+
+[node name="coin" parent="PrankReward" instance=ExtResource("9_wve6r")]
+transform = Transform3D(-0.6, 0, 9.05975e-08, 0, 0.6, 0, -9.05975e-08, 0, -0.6, 1.23854, -0.477143, 0)
+
+[node name="PrankStarParticles" parent="." instance=ExtResource("9_47bue")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_peao4")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Node3D" type="Node3D" parent="Coins"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.4421)
+
+[node name="GPUParticles3D" parent="Coins/Node3D" instance=ExtResource("11_jw82s")]
+
+[node name="coin" parent="Coins/Node3D" instance=ExtResource("9_wve6r")]
+
+[node name="Node3D2" type="Node3D" parent="Coins"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.8189)
+
+[node name="coin" parent="Coins/Node3D2" instance=ExtResource("9_wve6r")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Coins/Node3D2"]
+transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 0, 1.062, 0)
+emitting = false
+amount = 10
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_uxslt")
+draw_pass_1 = SubResource("PlaneMesh_yeusf")
+
+[node name="Node3D3" type="Node3D" parent="Coins"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.6451)
+
+[node name="coin" parent="Coins/Node3D3" instance=ExtResource("9_wve6r")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Coins/Node3D3"]
+transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 0, 1.062, 0)
+emitting = false
+amount = 10
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_uxslt")
+draw_pass_1 = SubResource("PlaneMesh_yeusf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameHUD" parent="CanvasLayer" instance=ExtResource("11_pw1ch")]
+
+[node name="MovingStar" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("12_2be6b")
+
+[node name="AnimationPlayers" type="Node" parent="."]
+
+[node name="AnimationPlayerMoviment" type="AnimationPlayer" parent="AnimationPlayers"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_b518g")
+}
+autoplay = "new_animation"
+
+[node name="AnimationPlayerObjective" type="AnimationPlayer" parent="AnimationPlayers"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_81vtj")
+}
+autoplay = "Objective_Complete"
+
+[node name="AnimationPlayerCoins" type="AnimationPlayer" parent="AnimationPlayers"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_f4b34")
+}
+autoplay = "coins"
+
+[editable path="CanvasLayer/GameHUD"]
+[editable path="CanvasLayer/GameHUD/DataContainer/ScoreBox/StarContainer"]
