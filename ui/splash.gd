@@ -37,8 +37,6 @@ func _pause_input() -> void:
 
 func _skip_mode() -> void:
 	var next := int((current_mode + 1) % Mode.size())
-	print("current mode: ", current_mode)
-	print("next: ", next)
 	if next < current_mode:
 		current_splash += 1
 	if current_splash >= max_splash:
@@ -55,17 +53,13 @@ func _switch_mode(to : Mode) -> void:
 	var c = _get_control(current_splash)
 	match to:
 		Mode.FADEIN:
-			print("start fadein - index ", current_splash)
 			tween.tween_property(c, "modulate", Color.WHITE, fade_time)
 		Mode.SHOW:
-			print("start show - index ", current_splash)
 			c.modulate = Color.WHITE
 			tween.tween_interval(show_time)
 		Mode.FADEOUT:
-			print("start fadeout - index ", current_splash)
 			tween.tween_property(c, "modulate", Color.TRANSPARENT, fade_time)
 		Mode.WAIT:
-			print("start wait - index ", current_splash)
 			c.modulate = Color.TRANSPARENT
 			tween.tween_interval(wait_time)
 	tween.tween_callback(_skip_mode)
