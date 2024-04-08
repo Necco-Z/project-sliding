@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_animate_background(delta)
-	
+
 
 func _on_start_button_pressed() -> void:
 	ScoreData.reset_data()
