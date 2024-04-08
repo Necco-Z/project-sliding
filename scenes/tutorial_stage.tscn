@@ -1,0 +1,43 @@
+[gd_scene load_steps=11 format=3 uid="uid://fwpsw5dd0kps"]
+
+[ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="1_visvq"]
+[ext_resource type="PackedScene" uid="uid://bd42v1i4o3kv1" path="res://scenes/tutorial_stage_parts/tutorial_1.tscn" id="2_pc8e2"]
+[ext_resource type="PackedScene" uid="uid://cewwt71u17ypn" path="res://scenes/tutorial_stage_parts/tutorial_2.tscn" id="3_wts2b"]
+[ext_resource type="PackedScene" uid="uid://paktvpcju3ov" path="res://scenes/tutorial_stage_parts/tutorial_3.tscn" id="4_aw1nf"]
+[ext_resource type="PackedScene" uid="uid://2ly4rciprk31" path="res://scenes/tutorial_stage_parts/tutorial_4.tscn" id="5_t1ypq"]
+[ext_resource type="PackedScene" uid="uid://chxm57onqxflm" path="res://scenes/tutorial_stage_parts/tutorial_5.tscn" id="6_6u7ut"]
+[ext_resource type="PackedScene" uid="uid://b1xhtpnu1hq74" path="res://scenes/tutorial_stage_parts/tutorial_6.tscn" id="7_jk87e"]
+[ext_resource type="PackedScene" uid="uid://dkqqwqg85itxu" path="res://scenes/tutorial_stage_parts/tutorial_7.tscn" id="8_pt71i"]
+[ext_resource type="PackedScene" uid="uid://cqmbr2ddqittq" path="res://scenes/tutorial_stage_parts/tutorial_10.tscn" id="9_5b4jp"]
+[ext_resource type="PackedScene" uid="uid://vlqvjl68fpd8" path="res://scenes/tutorial_stage_parts/tutorial_12.tscn" id="10_ubj3y"]
+
+[node name="tutorial_stage" type="Node3D"]
+
+[node name="base_floor" parent="." instance=ExtResource("1_visvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="tutorial_1" parent="." instance=ExtResource("2_pc8e2")]
+
+[node name="tutorial_2" parent="." instance=ExtResource("3_wts2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
+[node name="tutorial_3" parent="." instance=ExtResource("4_aw1nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+
+[node name="tutorial_4" parent="." instance=ExtResource("5_t1ypq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0)
+
+[node name="tutorial_5" parent="." instance=ExtResource("6_6u7ut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
+
+[node name="tutorial_6" parent="." instance=ExtResource("7_jk87e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 0, 0)
+
+[node name="tutorial_7" parent="." instance=ExtResource("8_pt71i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, 0)
+
+[node name="tutorial_10" parent="." instance=ExtResource("9_5b4jp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 0, 0)
+
+[node name="tutorial_12" parent="." instance=ExtResource("10_ubj3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
