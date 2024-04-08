@@ -29,7 +29,7 @@ material = SubResource("StandardMaterial3D_w10sq")
 size = Vector2(1, 1)
 
 [node name="GPUParticles3D" type="GPUParticles3D"]
-transform = Transform3D(-1, 1.50996e-07, -6.60024e-15, 0, -4.37114e-08, -1, -1.50996e-07, -1, 4.37114e-08, -0.276, 4.33562, 41.102)
+transform = Transform3D(-1, 1.50996e-07, -6.60024e-15, 0, -4.37114e-08, -1, -1.50996e-07, -1, 4.37114e-08, 0, 0, 0)
 emitting = false
 amount = 20
 lifetime = 0.9
