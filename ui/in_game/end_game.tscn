@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://btpfgj8syn123"]
+[gd_scene load_steps=13 format=3 uid="uid://btpfgj8syn123"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_0eo41"]
 [ext_resource type="Script" path="res://ui/in_game/end_game.gd" id="2_qq6ao"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bsverjoat3vcm" path="res://assets/sprites/ui/star_objective_ui_unachieved_big.png" id="6_6fj6g"]
 [ext_resource type="FontFile" uid="uid://c4xapcx77tcqy" path="res://assets/fonts/Nunito-Regular.ttf" id="7_worq6"]
 [ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="8_eg0tx"]
-[ext_resource type="Texture2D" uid="uid://d1ku08gejy800" path="res://assets/sprites/ui/exit_icon.png" id="9_e1opy"]
 [ext_resource type="Texture2D" uid="uid://qw15v4fm034i" path="res://assets/sprites/ui/play_icon.png" id="10_47pwi"]
 [ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="10_88bja"]
 
@@ -80,6 +79,7 @@ stretch_mode = 5
 [node name="CoinLabel" type="Label" parent="MainContainer/VBoxContainer" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 85
 text = "0"
 
@@ -119,17 +119,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 24
 
-[node name="RestartGame" type="Button" parent="MainContainer/Buttons" index="0"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("10_88bja")
-theme_override_font_sizes/font_size = 40
-text = "Reiniciar"
-icon = ExtResource("10_47pwi")
-
-[node name="ExitGame" type="Button" parent="MainContainer/Buttons" index="1"]
+[node name="ExitGame" type="Button" parent="MainContainer/Buttons" index="0"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -137,7 +127,17 @@ theme = ExtResource("10_88bja")
 theme_type_variation = &"RedButton"
 theme_override_font_sizes/font_size = 40
 text = "Sair"
-icon = ExtResource("9_e1opy")
 
-[connection signal="pressed" from="MainContainer/Buttons/RestartGame" to="." method="_on_restart_game_pressed"]
+[node name="RestartGame" type="Button" parent="MainContainer/Buttons" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("10_88bja")
+theme_type_variation = &"NormalButtonWhiteBackground"
+theme_override_font_sizes/font_size = 40
+text = "Reiniciar"
+icon = ExtResource("10_47pwi")
+
 [connection signal="pressed" from="MainContainer/Buttons/ExitGame" to="." method="_on_return_game_pressed"]
+[connection signal="pressed" from="MainContainer/Buttons/RestartGame" to="." method="_on_restart_game_pressed"]

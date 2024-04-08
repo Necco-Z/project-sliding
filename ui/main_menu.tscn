@@ -2,46 +2,13 @@
 
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_drgtq"]
 [ext_resource type="Texture2D" uid="uid://b35xdt0wsy8dq" path="res://assets/sprites/ui/main_menu_background_image.png" id="2_pfv4s"]
-[ext_resource type="Texture2D" uid="uid://cp8vw71ri1t4a" path="res://assets/sprites/ui/main_menu_panel_ui.png" id="3_yeulb"]
+[ext_resource type="Texture2D" uid="uid://da248g3q6mpmn" path="res://assets/images/main_menu_background.png" id="3_tvxq0"]
 [ext_resource type="Texture2D" uid="uid://oy75p8euqu0u" path="res://assets/sprites/ui/logo_main_menu.png" id="4_ht387"]
+[ext_resource type="Texture2D" uid="uid://cow632myqngtq" path="res://assets/images/background_menus_without_stripes.png" id="5_e0mrv"]
 [ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="5_v3wop"]
-[ext_resource type="Texture2D" uid="uid://df5g0nbljw3xf" path="res://assets/sprites/ui/logo_branca.png" id="7_m5k0i"]
-
-[sub_resource type="Animation" id="Animation_ipge4"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LoadingLogo:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_xcmqj"]
-resource_name = "loading"
-length = 1.3
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LoadingLogo:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.2, -0.104837, -0.174533, -0.2, 0.0772929, 0.2, 0.170994, 0.174533, -0.2, -0.17554, 0.2, -0.0843716, 0, -0.2, 0.101557, 0.25, 0),
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_o7rjh"]
-_data = {
-"RESET": SubResource("Animation_ipge4"),
-"loading": SubResource("Animation_xcmqj")
-}
+[ext_resource type="Texture2D" uid="uid://brkkq4dee1ji5" path="res://assets/sprites/ui/menu_background_icons.png" id="6_0sbks"]
+[ext_resource type="FontFile" uid="uid://d0m6vo46ino1b" path="res://assets/fonts/Nunito-Bold.ttf" id="6_1soc7"]
+[ext_resource type="Texture2D" uid="uid://qw15v4fm034i" path="res://assets/sprites/ui/play_icon.png" id="7_gsotp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4l6g3"]
 font_size = 28
@@ -64,58 +31,77 @@ texture = ExtResource("2_pfv4s")
 
 [node name="MenuBG" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 306.0
-offset_top = -459.5
-offset_right = 846.0
-offset_bottom = 459.5
-grow_horizontal = 2
+offset_left = -909.0
+offset_top = -540.0
+offset_bottom = 540.0
+grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("3_yeulb")
+texture = ExtResource("3_tvxq0")
 
 [node name="BoxContainer" type="BoxContainer" parent="MenuBG"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -191.0
-offset_top = -356.5
-offset_right = 191.0
-offset_bottom = 356.5
+anchor_left = 0.635
+anchor_right = 0.74
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 24
+alignment = 1
 vertical = true
 
 [node name="GameLogo" type="TextureRect" parent="MenuBG/BoxContainer"]
 layout_mode = 2
 texture = ExtResource("4_ht387")
 
-[node name="Spacer" type="Control" parent="MenuBG/BoxContainer"]
-custom_minimum_size = Vector2(0, 160)
+[node name="BoxContainer" type="BoxContainer" parent="MenuBG/BoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+vertical = true
 
-[node name="StartButton" type="Button" parent="MenuBG/BoxContainer"]
+[node name="StartButton" type="Button" parent="MenuBG/BoxContainer/BoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("5_v3wop")
-text = "Iniciar jogo"
+theme_override_fonts/font = ExtResource("6_1soc7")
+theme_override_font_sizes/font_size = 64
+text = "Jogar"
+icon = ExtResource("7_gsotp")
 
-[node name="ExitButton" type="Button" parent="MenuBG/BoxContainer"]
+[node name="BoxContainer2" type="BoxContainer" parent="MenuBG/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+vertical = true
+
+[node name="ExitButton" type="Button" parent="MenuBG/BoxContainer/BoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"RedButton"
+text = "Opções"
+
+[node name="ExitButton2" type="Button" parent="MenuBG/BoxContainer/BoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"RedButton"
+text = "Créditos"
+
+[node name="ExitButton3" type="Button" parent="MenuBG/BoxContainer/BoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("5_v3wop")
 theme_type_variation = &"RedButton"
 text = "Sair"
 
-[node name="LoadingScreen" type="ColorRect" parent="."]
+[node name="LoadingScreen" type="TextureRect" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -123,17 +109,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="LoadingLogo" type="Sprite2D" parent="LoadingScreen"]
-position = Vector2(1730, 906)
-scale = Vector2(0.413275, 0.413275)
-texture = ExtResource("7_m5k0i")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LoadingScreen"]
-libraries = {
-"": SubResource("AnimationLibrary_o7rjh")
-}
+texture = ExtResource("5_e0mrv")
 
 [node name="Label" type="Label" parent="LoadingScreen"]
 layout_mode = 1
@@ -148,5 +124,21 @@ grow_vertical = 0
 label_settings = SubResource("LabelSettings_4l6g3")
 vertical_alignment = 1
 
-[connection signal="pressed" from="MenuBG/BoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MenuBG/BoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="BgUp" type="Sprite2D" parent="LoadingScreen"]
+texture_repeat = 2
+position = Vector2(960, 540)
+texture = ExtResource("6_0sbks")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 1080)
+
+[node name="BgDown" type="Sprite2D" parent="LoadingScreen"]
+texture_repeat = 2
+position = Vector2(1020, 540)
+texture = ExtResource("6_0sbks")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 1080)
+
+[connection signal="pressed" from="MenuBG/BoxContainer/BoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuBG/BoxContainer/BoxContainer2/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MenuBG/BoxContainer/BoxContainer2/ExitButton2" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MenuBG/BoxContainer/BoxContainer2/ExitButton3" to="." method="_on_exit_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=21 format=3 uid="uid://ckgyosp0xeif4"]
+[gd_resource type="Theme" load_steps=22 format=3 uid="uid://ckgyosp0xeif4"]
 
 [ext_resource type="Texture2D" uid="uid://eid85mq3464s" path="res://assets/sprites/ui/in_game_background_ui.png" id="1_jbfwl"]
 [ext_resource type="FontFile" uid="uid://dyu0loxxcgqfy" path="res://assets/fonts/Nunito-SemiBold.ttf" id="1_xf7t7"]
@@ -66,6 +66,17 @@ texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8yqvq"]
+texture = ExtResource("2_qsle3")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nak7i"]
 bg_color = Color(0.854902, 0.964706, 0.968627, 1)
 
@@ -125,22 +136,12 @@ texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 
 [resource]
-default_font = ExtResource("1_xf7t7")
-default_font_size = 24
 Button/colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
-Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 Button/colors/font_focus_color = Color(0.854902, 0.964706, 0.968627, 1)
 Button/colors/font_hover_color = Color(0.854902, 0.964706, 0.968627, 1)
-Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0.854902, 0.964706, 0.968627, 1)
 Button/colors/font_pressed_color = Color(0.854902, 0.964706, 0.968627, 1)
-Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
-Button/colors/icon_focus_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/icon_normal_color = Color(1, 1, 1, 1)
-Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
-Button/constants/h_separation = 4
+Button/constants/h_separation = 8
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 40
@@ -150,9 +151,16 @@ Button/styles/focus = SubResource("StyleBoxTexture_fpxs6")
 Button/styles/hover = SubResource("StyleBoxTexture_sbrxn")
 Button/styles/normal = SubResource("StyleBoxTexture_uqiyd")
 Button/styles/pressed = SubResource("StyleBoxTexture_5tyur")
+NormalButtonWhiteBackground/base_type = &"Button"
+NormalButtonWhiteBackground/styles/focus = SubResource("StyleBoxTexture_8yqvq")
 Panel/styles/panel = SubResource("StyleBoxFlat_nak7i")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_hdkan")
 RedButton/base_type = &"Button"
+RedButton/colors/font_color = Color(0.219608, 0.341176, 0.8, 1)
+RedButton/colors/font_focus_color = Color(0.219608, 0.341176, 0.8, 1)
+RedButton/colors/font_hover_color = Color(0.203922, 0.309804, 0.694118, 1)
+RedButton/colors/font_hover_pressed_color = Color(0.305882, 0.427451, 0.866667, 1)
+RedButton/colors/font_pressed_color = Color(0.305882, 0.427451, 0.866667, 1)
 RedButton/constants/h_separation = 8
 RedButton/font_sizes/font_size = 40
 RedButton/fonts/font = ExtResource("1_xf7t7")
