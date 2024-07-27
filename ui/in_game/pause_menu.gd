@@ -7,6 +7,21 @@ signal restart_pressed
 @onready var coins_label = %CoinLabel as Label
 
 
+var focused = false
+
+
+func _input(event):
+	if is_visible():
+		if event is InputEventMouseMotion:
+			for i in buttons.get_children():
+				i.release_focus()
+			focused = false
+		elif event is InputEventJoypadButton and !focused:
+			print("Olá")
+			$MainContainer/Buttons/ResumeButton.grab_focus()
+			focused = true
+
+
 func set_connections(game_scene: Node) -> void:
 	resume_pressed.connect(game_scene._on_resume_pressed)
 	restart_pressed.connect(game_scene._on_restart_pressed)
@@ -16,7 +31,9 @@ func set_connections(game_scene: Node) -> void:
 func show_menu(instant := false) -> void:
 	super.show_menu(instant)
 	buttons.visible = true
-	%RestartButton.grab_focus()
+	if Input.get_connected_joypads().size() > 0:
+		$MainContainer/Buttons/ResumeButton.grab_focus()
+		focused = true
 
 
 func hide_menu(instant := false) -> void:

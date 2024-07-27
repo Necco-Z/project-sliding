@@ -3,8 +3,12 @@ extends CanvasLayer
 var current_menu: Control
 var current_submenu: Control
 
+@export var tween_intensity: float
+@export var tween_duration: float
+
 @onready var game_hud := $GameHUD as Control
 @onready var blur := $BlurLayer.material as ShaderMaterial
+@onready var all_buttons = get_tree().get_nodes_in_group("buttons") #button hover animation
 
 
 ### Funções básicas
@@ -13,12 +17,20 @@ func _ready() -> void:
 		if i is Control and not i is ColorRect:
 			i.hide_menu(true)
 	change_menu("StartMenu", true)
+	
+	for button in all_buttons: #button_hover_animation
+		button.pivot_offset = button.size / 2 
 
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if current_menu == game_hud:
 			game_hud.pause_pressed.emit()
+
+
+func _physics_process(_delta):
+	for button in all_buttons: #button hover animation
+		btn_hovered(button)
 
 
 ### Funções públicas
@@ -72,3 +84,15 @@ func add_prank(score := 0, text := "") -> void:
 
 func _set_blur_value(value: float) -> void:
 	blur.set_shader_parameter("amount", value)
+	
+	
+func start_tween(object: Object, property: String, final_val:Variant, duration: float):
+	var tween = create_tween()
+	tween.tween_property(object, property, final_val, duration)
+
+
+func btn_hovered(button: Button): #hover animation
+	if button.is_hovered() or button.has_focus():
+		start_tween(button, "scale", Vector2.ONE * tween_intensity, tween_duration)
+	else:
+		start_tween(button, "scale", Vector2.ONE, tween_duration)

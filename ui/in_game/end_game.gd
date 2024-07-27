@@ -11,6 +11,20 @@ signal return_pressed
 @onready var buttons = $MainContainer/Buttons as HBoxContainer
 
 
+var focused
+
+
+func _input(event):
+	if is_visible():
+		if event is InputEventMouseMotion:
+			for i in buttons.get_children():
+				i.release_focus()
+			focused = false
+		elif event is InputEventJoypadButton and !focused:
+			%RestartGame.grab_focus()
+			focused = true
+
+
 func set_connections(game_scene: Node) -> void:
 	restart_pressed.connect(game_scene._on_restart_pressed)
 	return_pressed.connect(game_scene._on_return_pressed)
@@ -21,7 +35,9 @@ func set_connections(game_scene: Node) -> void:
 func show_menu(_instant := false) -> void:
 	super.show_menu(false)
 	buttons.visible = true
-	%RestartGame.grab_focus()
+	if Input.get_connected_joypads().size() > 0:
+		%RestartGame.grab_focus()
+		focused = true
 
 
 func hide_menu(_instant := false) -> void:

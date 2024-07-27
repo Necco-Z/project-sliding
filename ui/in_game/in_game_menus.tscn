@@ -15,6 +15,8 @@ shader_parameter/brightness_offset = null
 [node name="InGameMenus" type="CanvasLayer"]
 layer = 10
 script = ExtResource("1_r1kp4")
+tween_intensity = 1.12
+tween_duration = 0.15
 
 [node name="BlurLayer" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_kku31")

@@ -2,7 +2,7 @@ extends CanvasLayer
 
 signal fade_finished
 
-var fade_time := 0.3
+var fade_time := 0.2
 var is_fading := false
 
 @onready var color := $Color as ColorRect

@@ -4,11 +4,11 @@
 [ext_resource type="FontFile" uid="uid://dyu0loxxcgqfy" path="res://assets/fonts/Nunito-SemiBold.ttf" id="1_xf7t7"]
 [ext_resource type="Texture2D" uid="uid://cipsxau0r6m4n" path="res://assets/sprites/ui/button_hover.png" id="2_84agq"]
 [ext_resource type="Texture2D" uid="uid://b1cao6j204lqf" path="res://assets/sprites/ui/button_cancel_hover.png" id="2_c86hb"]
-[ext_resource type="Texture2D" uid="uid://cumwwpppvdljf" path="res://assets/sprites/ui/button_focus.png" id="2_qsle3"]
 [ext_resource type="Texture2D" uid="uid://ckmj0dacvfl3x" path="res://assets/sprites/ui/button.png" id="3_jsv3k"]
 [ext_resource type="Texture2D" uid="uid://bgxc0wfjsvrkw" path="res://assets/sprites/ui/button_cancel_normal.png" id="3_tujna"]
 [ext_resource type="Texture2D" uid="uid://cujst1lq0xws3" path="res://assets/sprites/ui/button_cancel_pressed.png" id="4_qi2gt"]
 [ext_resource type="Texture2D" uid="uid://cjhbtnsqdjm1c" path="res://assets/sprites/ui/button_pressed.png" id="4_xu87l"]
+[ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="10_cxar4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3a5k"]
 content_margin_left = 4.0
@@ -23,7 +23,6 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fpxs6"]
-texture = ExtResource("2_qsle3")
 texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
@@ -67,7 +66,6 @@ texture_margin_right = 12.0
 texture_margin_bottom = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8yqvq"]
-texture = ExtResource("2_qsle3")
 texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
@@ -92,7 +90,6 @@ texture_margin_right = 16.0
 texture_margin_bottom = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lui88"]
-texture = ExtResource("2_qsle3")
 texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
@@ -168,3 +165,13 @@ RedButton/styles/focus = SubResource("StyleBoxTexture_lui88")
 RedButton/styles/hover = SubResource("StyleBoxTexture_s0qyf")
 RedButton/styles/normal = SubResource("StyleBoxTexture_mwvjx")
 RedButton/styles/pressed = SubResource("StyleBoxTexture_743hb")
+Title/base_type = &"Label"
+Title/colors/font_color = Color(0.807843, 0.741176, 0.129412, 1)
+Title/colors/font_outline_color = Color(0.854902, 0.964706, 0.968627, 1)
+Title/constants/outline_size = 20
+Title/font_sizes/font_size = 48
+Title/fonts/font = ExtResource("10_cxar4")
+member/base_type = &"Label"
+member/colors/font_color = Color(0, 0, 0, 1)
+member/font_sizes/font_size = 24
+member/fonts/font = ExtResource("1_xf7t7")

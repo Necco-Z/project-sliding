@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d15awftd1p8gf"]
+[gd_scene load_steps=18 format=3 uid="uid://d15awftd1p8gf"]
 
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_drgtq"]
 [ext_resource type="Texture2D" uid="uid://b35xdt0wsy8dq" path="res://assets/sprites/ui/main_menu_background_image.png" id="2_pfv4s"]
@@ -13,6 +13,303 @@
 [sub_resource type="LabelSettings" id="LabelSettings_4l6g3"]
 font_size = 28
 
+[sub_resource type="Animation" id="Animation_lc63r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuBG/MainControls/StartButton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuBG/MainControls/BoxContainer3:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameLogo:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuBG/Credits/BackToMain:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuBG/Credits/VBoxContainer:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MenuBG/Credits/CreditsTitle:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MenuBG:anchor_left")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MenuBG:anchor_right")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_67vgl"]
+resource_name = "hide_credit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuBG/Credits/BackToMain:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuBG/Credits/VBoxContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuBG/Credits/CreditsTitle:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b54ok"]
+resource_name = "hide_main_menu"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameLogo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuBG/MainControls/StartButton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuBG/MainControls/BoxContainer3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xg3j5"]
+resource_name = "open_game"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuBG:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuBG:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_gox6l"]
+resource_name = "show_credits"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuBG/Credits/BackToMain:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuBG/Credits/VBoxContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuBG/Credits/CreditsTitle:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ah86m"]
+resource_name = "show_main_menu"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuBG/MainControls/StartButton:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuBG/MainControls/BoxContainer3:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameLogo:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0akgo"]
+_data = {
+"RESET": SubResource("Animation_lc63r"),
+"hide_credit": SubResource("Animation_67vgl"),
+"hide_main_menu": SubResource("Animation_b54ok"),
+"open_game": SubResource("Animation_xg3j5"),
+"show_credits": SubResource("Animation_gox6l"),
+"show_main_menu": SubResource("Animation_ah86m")
+}
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -22,6 +319,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_drgtq")
 game_scene_path = "res://scenes/main_game.tscn"
+tween_intensity = 1.12
+tween_duration = 0.15
 metadata/_edit_vertical_guides_ = [3424.0]
 
 [node name="BG" type="TextureRect" parent="."]
@@ -32,7 +331,7 @@ texture = ExtResource("2_pfv4s")
 
 [node name="MenuBG" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 6
+anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -44,13 +343,20 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("3_tvxq0")
 
-[node name="StartButton" type="Button" parent="MenuBG"]
+[node name="MainControls" type="Control" parent="MenuBG"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartButton" type="Button" parent="MenuBG/MainControls" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 503.0
-offset_top = 518.0
+offset_top = 558.0
 offset_right = 746.0
-offset_bottom = 638.0
+offset_bottom = 678.0
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(121, 60)
 size_flags_vertical = 4
 theme = ExtResource("5_v3wop")
 theme_override_fonts/font = ExtResource("6_1soc7")
@@ -58,38 +364,100 @@ theme_override_font_sizes/font_size = 64
 text = "Jogar"
 icon = ExtResource("7_gsotp")
 
-[node name="BoxContainer3" type="BoxContainer" parent="MenuBG"]
+[node name="BoxContainer3" type="BoxContainer" parent="MenuBG/MainControls"]
 layout_mode = 2
 offset_left = 524.0
-offset_top = 662.0
+offset_top = 702.0
 offset_right = 725.0
-offset_bottom = 958.0
+offset_bottom = 894.0
+pivot_offset = Vector2(100, 96)
 size_flags_horizontal = 4
 theme_override_constants/separation = 16
 vertical = true
 
-[node name="OptionsButton" type="Button" parent="MenuBG/BoxContainer3"]
+[node name="CreditsButton" type="Button" parent="MenuBG/MainControls/BoxContainer3" groups=["buttons"]]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("5_v3wop")
 theme_type_variation = &"RedButton"
-disabled = true
-text = "Opções"
-
-[node name="CreditsButton" type="Button" parent="MenuBG/BoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("5_v3wop")
-theme_type_variation = &"RedButton"
-disabled = true
 text = "Créditos"
 
-[node name="ExitButton" type="Button" parent="MenuBG/BoxContainer3"]
+[node name="ExitButton" type="Button" parent="MenuBG/MainControls/BoxContainer3" groups=["buttons"]]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("5_v3wop")
 theme_type_variation = &"RedButton"
 text = "Sair"
+
+[node name="Credits" type="Control" parent="MenuBG"]
+visible = false
+layout_mode = 1
+anchor_left = 0.689
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -111.5
+offset_bottom = 111.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="CreditsTitle" type="Label" parent="MenuBG/Credits"]
+layout_mode = 2
+offset_right = 567.0
+offset_bottom = 49.0
+pivot_offset = Vector2(283, 25)
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"Title"
+text = "Equipe"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuBG/Credits"]
+layout_mode = 2
+offset_top = 73.0
+offset_right = 567.0
+offset_bottom = 245.0
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(283, 86)
+theme_override_constants/separation = 12
+
+[node name="Member" type="Label" parent="MenuBG/Credits/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"member"
+text = "Erick Gomes - UI/UX Designer"
+horizontal_alignment = 1
+
+[node name="Member2" type="Label" parent="MenuBG/Credits/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"member"
+text = "Gabriel Nascimento - Game Designer"
+horizontal_alignment = 1
+
+[node name="Member3" type="Label" parent="MenuBG/Credits/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"member"
+text = "João Melo - Artista 3d"
+horizontal_alignment = 1
+
+[node name="Member4" type="Label" parent="MenuBG/Credits/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"member"
+text = "Eudo Araujo - Programador"
+horizontal_alignment = 1
+
+[node name="BackToMain" type="Button" parent="MenuBG/Credits" groups=["buttons"]]
+layout_mode = 2
+offset_left = 203.0
+offset_top = 269.0
+offset_right = 363.0
+offset_bottom = 357.0
+pivot_offset = Vector2(80, 44)
+size_flags_horizontal = 4
+text = "Voltar"
 
 [node name="GameLogo" type="TextureRect" parent="."]
 layout_mode = 2
@@ -97,6 +465,7 @@ offset_left = 1444.94
 offset_top = 101.0
 offset_right = 1826.94
 offset_bottom = 514.0
+pivot_offset = Vector2(191, 206)
 texture = ExtResource("4_ht387")
 
 [node name="LoadingScreen" type="TextureRect" parent="."]
@@ -136,5 +505,14 @@ texture = ExtResource("6_0sbks")
 region_enabled = true
 region_rect = Rect2(0, 0, 1920, 1080)
 
-[connection signal="pressed" from="MenuBG/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MenuBG/BoxContainer3/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0akgo")
+}
+autoplay = "open_game"
+
+[connection signal="pressed" from="MenuBG/MainControls/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="button_up" from="MenuBG/MainControls/BoxContainer3/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MenuBG/MainControls/BoxContainer3/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="button_up" from="MenuBG/Credits/BackToMain" to="." method="_on_back_to_main_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_menu_animation_finished"]

@@ -24,6 +24,7 @@ corner_radius_bottom_left = 60
 script = ExtResource("2_1vfgs")
 
 [node name="ColorRect" type="TextureRect" parent="." index="0"]
+modulate = Color(1, 1, 1, 0.698039)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,10 +114,8 @@ anchor_left = 0.05
 anchor_top = 0.875
 anchor_right = 0.95
 anchor_bottom = 0.875
-grow_horizontal = 2
-grow_vertical = 0
 
-[node name="StartButton3" type="Button" parent="LevelName/MenuButtons" index="0"]
+[node name="StartButton3" type="Button" parent="LevelName/MenuButtons" index="0" groups=["buttons"]]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -137,7 +136,7 @@ theme_type_variation = &"NormalButtonWhiteBackground"
 text = "Jogar"
 icon = ExtResource("13_d0h5b")
 
-[node name="ReturnButton" type="Button" parent="LevelName/MenuButtons" index="1"]
+[node name="ReturnButton" type="Button" parent="LevelName/MenuButtons" index="1" groups=["buttons"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -152,7 +151,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("7_wxgw7")
-theme_type_variation = &"NormalButtonWhiteBackground"
+theme_type_variation = &"RedButton"
 text = "Voltar"
 
 [connection signal="pressed" from="LevelName/MenuButtons/StartButton3" to="." method="_on_start_button_pressed"]

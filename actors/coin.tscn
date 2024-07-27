@@ -13,6 +13,9 @@ radius = 1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cosxb"]
 render_priority = 0
 shader = ExtResource("3_13mlp")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("6_lsurn")
 shader_parameter/normal = ExtResource("5_ox3o8")
 shader_parameter/metal_rough = ExtResource("4_avy2j")
