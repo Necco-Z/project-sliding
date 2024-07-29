@@ -22,6 +22,7 @@ var anim_time := 0.4
 
 var focused: bool = false
 var in_transition: bool = true
+var actual_screen = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -69,10 +70,12 @@ func _input(event):
 
 
 func to_skin_selector():
-	for menu in get_tree().get_nodes_in_group("MainMenu"):
-		menu.set_visible(false)
+	await Fader.fade_out()
 	for menu in get_tree().get_nodes_in_group("SkinSelectorMenu"):
 		menu.set_visible(true)
+	for menu in get_tree().get_nodes_in_group("MainMenu"):
+		menu.set_visible(false)
+	await Fader.fade_in()
 
 
 func _on_start_button_pressed() -> void:
@@ -122,10 +125,12 @@ func _on_exit_button_pressed() -> void:
 
 
 func to_main_menu():
+	await Fader.fade_out()
 	for menu in get_tree().get_nodes_in_group("MainMenu"):
 		menu.set_visible(true)
 	for menu in get_tree().get_nodes_in_group("SkinSelectorMenu"):
 		menu.set_visible(false)
+	await Fader.fade_in()
 
 
 func get_load_message(value: int) -> String:

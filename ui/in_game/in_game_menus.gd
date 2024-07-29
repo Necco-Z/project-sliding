@@ -13,8 +13,9 @@ var current_submenu: Control
 
 ### Funções básicas
 func _ready() -> void:
+	Fader.fade_in()
 	for i in get_children():
-		if i is Control and not i is ColorRect:
+		if i is Control and not i is ColorRect and not i.name == "GameHUD":
 			i.hide_menu(true)
 	change_menu("StartMenu", true)
 	

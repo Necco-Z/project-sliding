@@ -7,16 +7,8 @@ const MAIN_MENU = "res://ui/main_menu.tscn"
 @export var curve_y := 0.0
 @export var curve_z := 0.0
 
-var is_running := false:
+var is_running := true:
 	set = _set_running
-var skins = [preload("res://assets/models/actors/player/skin.tscn"),
-		preload("res://assets/models/actors/player/skin2.tscn"),
-		preload("res://assets/models/actors/player/skin3.tscn"),
-		preload("res://assets/models/actors/player/skin4.tscn"),
-		preload("res://assets/models/actors/player/skin5.tscn"),
-		preload("res://assets/models/actors/player/skin6.tscn"),
-		preload("res://assets/models/actors/player/skin7.tscn")]
-var actual_skin = 0
 
 @onready var player := get_node(player_node) as CharacterBody3D
 @onready var cam := $GameCamera as Camera3D
@@ -31,6 +23,7 @@ func _ready() -> void:
 	player.set_connections(self)
 	_replace_all_items()
 	Fader.fade_in()
+	#game_menus.start_countdown()
 
 
 #### Funções públicas
@@ -101,15 +94,3 @@ func _on_end_flag_body_entered(body: Node3D) -> void:
 		cam.is_following = false
 		await get_tree().create_timer(1.0).timeout
 		game_menus.change_menu("WinGame")
-
-
-func _on_button_button_up():
-	actual_skin += 1
-	if actual_skin >= 7:
-		actual_skin = 0
-	var skin = skins[actual_skin].instantiate()
-	
-	player.get_child(4).queue_free()
-	player.add_child(skin)
-	print(skin.get_name())
-	skin.set_name("PlayerModel")

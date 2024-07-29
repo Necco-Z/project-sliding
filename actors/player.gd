@@ -11,8 +11,8 @@ signal coin_collected
 @export var jump_height := 2.5
 @export var raycast_distance := 6
 
-var is_active := false
-var can_control := false
+var is_active := true
+var can_control := true
 var is_moving := false
 var current_lane := 1
 var player_zpos := 0.0
