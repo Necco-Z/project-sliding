@@ -20,8 +20,8 @@ var anim_time := 0.4
 		$MenuBG/MainControls/BoxContainer3/ExitButton]
 @onready var all_buttons = get_tree().get_nodes_in_group("buttons")
 
-var focused = false
-var in_transition = true
+var focused: bool = false
+var in_transition: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -66,6 +66,13 @@ func _input(event):
 		for i in main_buttons:
 			i.release_focus()
 		focused = false
+
+
+func to_skin_selector():
+	for menu in get_tree().get_nodes_in_group("MainMenu"):
+		menu.set_visible(false)
+	for menu in get_tree().get_nodes_in_group("SkinSelectorMenu"):
+		menu.set_visible(true)
 
 
 func _on_start_button_pressed() -> void:
@@ -114,6 +121,13 @@ func _on_exit_button_pressed() -> void:
 	get_tree().quit()
 
 
+func to_main_menu():
+	for menu in get_tree().get_nodes_in_group("MainMenu"):
+		menu.set_visible(true)
+	for menu in get_tree().get_nodes_in_group("SkinSelectorMenu"):
+		menu.set_visible(false)
+
+
 func get_load_message(value: int) -> String:
 	var t = ""
 	match value:
@@ -148,10 +162,9 @@ func _on_menu_animation_finished(anim_name):
 	elif anim_name == "open_game":
 		hide_credits()
 		menu_anim_player.play("show_main_menu")
-		
 
 
-func btn_hovered(button: Button): #button hover
+func btn_hovered(button: BaseButton): #button hover
 	if button.is_hovered() or button.has_focus():
 		var tween = create_tween()
 		tween.tween_property(button, "scale", Vector2.ONE * tween_intensity, tween_duration)

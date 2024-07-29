@@ -25,11 +25,17 @@ var is_near_prankable := false
 		as AnimationNodeStateMachinePlayback)
 @onready var raycast := $RayCast3D as RayCast3D
 @onready var lamp_anim := $lamp/AnimationPlayer as AnimationPlayer
+@onready var anim_player = $AnimationTree as AnimationTree
 
 
 # Funções virtuais e herdadas
 func _ready() -> void:
 	raycast.target_position.x = raycast_distance
+	anim_player.set_animation_player("../PlayerModel/AnimationPlayer")
+	var skin = SkinChanger.get_skin().instantiate()
+	add_child(skin)
+	skin.name = "PlayerModel"
+	anim_player.set_active(true)
 
 
 func _physics_process(delta: float) -> void:
@@ -69,7 +75,7 @@ func _set_lane_movement() -> void:
 		if raycast.is_colliding():
 			_execute_prank()
 		is_moving = true
-		var t = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+		var t = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 		t.tween_property(self, "player_zpos", _get_track_zpos(current_lane), lane_switch_time)
 		_set_move_animation(current_lane - last_lane)
 		await t.finished

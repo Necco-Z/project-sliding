@@ -41,14 +41,14 @@ sky_cover = ExtResource("8_78b7s")
 ground_bottom_color = Color(0.854902, 0.964706, 0.968627, 1)
 ground_horizon_color = Color(0.854902, 0.964706, 0.968627, 1)
 
-[sub_resource type="Sky" id="Sky_ta835"]
+[sub_resource type="Sky" id="Sky_vcehg"]
 sky_material = SubResource("ProceduralSkyMaterial_jqa1x")
 
 [sub_resource type="Environment" id="Environment_i6awf"]
 background_mode = 2
 background_color = Color(0, 0.372549, 0.45098, 1)
 background_canvas_max_layer = 1
-sky = SubResource("Sky_ta835")
+sky = SubResource("Sky_vcehg")
 sky_custom_fov = 90.0
 volumetric_fog_density = 0.02
 
@@ -224,3 +224,5 @@ shadow_enabled = true
 environment = SubResource("Environment_i6awf")
 
 [connection signal="body_entered" from="EndFlag" to="." method="_on_end_flag_body_entered"]
+
+[editable path="InGameMenus"]

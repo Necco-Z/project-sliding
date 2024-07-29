@@ -19,6 +19,7 @@ config/icon="res://assets/icon.svg"
 
 ScoreData="*res://scripts/autoloads/score_data.tscn"
 Fader="*res://scripts/autoloads/fader.tscn"
+SkinChanger="*res://scripts/autoloads/skin_changer.gd"
 
 [debug]
 
@@ -38,6 +39,12 @@ project/assembly_name="Teste com interface"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://scripts/autoloads/": "orange"
+}
 
 [filesystem]
 
