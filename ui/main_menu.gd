@@ -1,6 +1,7 @@
 extends Control
 
-@export_file("*.tscn") var game_scene_path
+#@export_file("*.tscn") 
+var game_scene_path
 
 @export var anim_speed := 5.0
 @export var tween_intensity: float
@@ -19,6 +20,8 @@ var anim_time := 0.4
 		$MenuBG/MainControls/BoxContainer3/CreditsButton, 
 		$MenuBG/MainControls/BoxContainer3/ExitButton]
 @onready var all_buttons = get_tree().get_nodes_in_group("buttons")
+@onready var audio_stream_hover_button = get_node("HoverSound")
+@onready var audio_stream_pressed_button = get_node("PressedSound")
 
 var focused: bool = false
 var in_transition: bool = true
@@ -26,7 +29,7 @@ var actual_screen = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ResourceLoader.load_threaded_request(game_scene_path)
+	#ResourceLoader.load_threaded_request(game_scene_path)
 	load_screen.visible = true
 	load_screen.anchor_top = -1
 	load_screen.anchor_bottom = 0
@@ -37,6 +40,8 @@ func _ready() -> void:
 	
 	for button in all_buttons: #button hover animation
 		button.pivot_offset = button.size / 2 
+		button.connect("mouse_entered", Callable(self, "hover_sound"))
+		button.connect("button_up", Callable(self, "press_sound"))
 
 
 func _process(delta: float) -> void:
@@ -73,7 +78,7 @@ func to_skin_selector():
 	await Fader.fade_out()
 	for menu in get_tree().get_nodes_in_group("SkinSelectorMenu"):
 		menu.set_visible(true)
-	for menu in get_tree().get_nodes_in_group("MainMenu"):
+	for menu in get_tree().get_nodes_in_group("LevelSelector"):
 		menu.set_visible(false)
 	await Fader.fade_in()
 
@@ -176,3 +181,28 @@ func btn_hovered(button: BaseButton): #button hover
 	elif !$AnimationPlayer.is_playing():
 		var tween = create_tween()
 		tween.tween_property(button, "scale", Vector2.ONE, tween_duration)
+
+
+func hover_sound():
+	audio_stream_hover_button.play()
+
+
+func press_sound():
+	audio_stream_pressed_button.play()
+
+
+func _on_main_music_finished():
+	get_node("MainMusic").play()
+
+
+func on_level_select(path:String):
+	ResourceLoader.load_threaded_request(path)
+	game_scene_path = path
+
+
+func to_level_selector():
+	for menu in get_tree().get_nodes_in_group("MainMenu"):
+		menu.set_visible(false)
+	for menu in get_tree().get_nodes_in_group("LevelSelector"):
+		menu.set_visible(true)
+

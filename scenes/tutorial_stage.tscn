@@ -1,43 +1,707 @@
-[gd_scene load_steps=11 format=3 uid="uid://fwpsw5dd0kps"]
+[gd_scene load_steps=49 format=3 uid="uid://fwpsw5dd0kps"]
 
+[ext_resource type="Script" path="res://scenes/environment/base_floor.gd" id="1_i851p"]
 [ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="1_visvq"]
-[ext_resource type="PackedScene" uid="uid://bd42v1i4o3kv1" path="res://scenes/tutorial_stage_parts/tutorial_1.tscn" id="2_pc8e2"]
-[ext_resource type="PackedScene" uid="uid://cewwt71u17ypn" path="res://scenes/tutorial_stage_parts/tutorial_2.tscn" id="3_wts2b"]
-[ext_resource type="PackedScene" uid="uid://paktvpcju3ov" path="res://scenes/tutorial_stage_parts/tutorial_3.tscn" id="4_aw1nf"]
-[ext_resource type="PackedScene" uid="uid://2ly4rciprk31" path="res://scenes/tutorial_stage_parts/tutorial_4.tscn" id="5_t1ypq"]
-[ext_resource type="PackedScene" uid="uid://chxm57onqxflm" path="res://scenes/tutorial_stage_parts/tutorial_5.tscn" id="6_6u7ut"]
-[ext_resource type="PackedScene" uid="uid://b1xhtpnu1hq74" path="res://scenes/tutorial_stage_parts/tutorial_6.tscn" id="7_jk87e"]
-[ext_resource type="PackedScene" uid="uid://dkqqwqg85itxu" path="res://scenes/tutorial_stage_parts/tutorial_7.tscn" id="8_pt71i"]
-[ext_resource type="PackedScene" uid="uid://cqmbr2ddqittq" path="res://scenes/tutorial_stage_parts/tutorial_10.tscn" id="9_5b4jp"]
-[ext_resource type="PackedScene" uid="uid://vlqvjl68fpd8" path="res://scenes/tutorial_stage_parts/tutorial_12.tscn" id="10_ubj3y"]
+[ext_resource type="MeshLibrary" uid="uid://2krps2vk813u" path="res://assets/meshlibs/obstacles_meshlib.tres" id="2_anmqo"]
+[ext_resource type="PackedScene" uid="uid://cc81ughfvg0sh" path="res://assets/models/main_path/snow_bg/snow_bg.glb" id="2_whyyf"]
+[ext_resource type="Shader" path="res://scripts/shaders/warp_shader.gdshader" id="3_7lvir"]
+[ext_resource type="Texture2D" uid="uid://dp5erqcrb2bda" path="res://assets/models/main_path/snow_bg/snow_bg_Snow_metallic.png-Snow_roughness.png" id="4_af16m"]
+[ext_resource type="Texture2D" uid="uid://c2gcjaa56dt5" path="res://assets/models/main_path/snow_bg/snow_bg_Snow_basecolor.png" id="5_mrf5p"]
+[ext_resource type="Texture2D" uid="uid://c8tlpuihdbh2q" path="res://assets/materials/floor_tracks_albedo.png" id="6_264p5"]
+[ext_resource type="PackedScene" uid="uid://q5vcbmk86rxs" path="res://assets/models/main_path/snow/snow.glb" id="7_k87xd"]
+[ext_resource type="Texture2D" uid="uid://j8teb7lkynqy" path="res://assets/models/main_path/snow/snow_Snow_metallic.png-Snow_roughness.png" id="8_6f2ea"]
+[ext_resource type="Texture2D" uid="uid://d1wpr4rtlhs6e" path="res://assets/models/main_path/snow/snow_Snow_basecolor.png" id="9_rfg1d"]
+[ext_resource type="PackedScene" uid="uid://b4uegn32mrc3u" path="res://assets/models/environment/fence_01/fence_01.glb" id="10_0uc8h"]
+[ext_resource type="Texture2D" uid="uid://dh16628psagv1" path="res://assets/models/environment/fence_01/fence_01_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="11_yngfl"]
+[ext_resource type="Texture2D" uid="uid://6tfyssp4gery" path="res://assets/models/environment/fence_01/fence_01_Woods_Text_Woods_Normal.png" id="12_bou8f"]
+[ext_resource type="Texture2D" uid="uid://4w33gpvc6bwb" path="res://assets/models/environment/fence_01/fence_01_Woods_Text_Woods_BaseColor.png" id="13_f3jhq"]
+[ext_resource type="PackedScene" uid="uid://c8g6m2gxer5la" path="res://assets/models/environment/fence_02/fence_02.glb" id="14_rca0y"]
+[ext_resource type="Texture2D" uid="uid://cnc8ajdulpds5" path="res://assets/models/environment/fence_02/fence_02_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="15_uf7sk"]
+[ext_resource type="Texture2D" uid="uid://c27f5734nhfp3" path="res://assets/models/environment/fence_02/fence_02_Woods_Text_Woods_Normal.png" id="16_syhc3"]
+[ext_resource type="Texture2D" uid="uid://8miag2ta46bn" path="res://assets/models/environment/fence_02/fence_02_Woods_Text_Woods_BaseColor.png" id="17_40lpn"]
+[ext_resource type="PackedScene" uid="uid://cco6h752knwxv" path="res://assets/models/environment/fence_03/fence_03.glb" id="18_kem61"]
+[ext_resource type="Texture2D" uid="uid://pgq8odm6be0c" path="res://assets/models/environment/fence_03/fence_03_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="19_3xhbp"]
+[ext_resource type="Texture2D" uid="uid://dxwxkvyf5wlal" path="res://assets/models/environment/fence_03/fence_03_Woods_Text_Woods_Normal.png" id="20_ev31k"]
+[ext_resource type="Texture2D" uid="uid://bp2774iwt6mki" path="res://assets/models/environment/fence_03/fence_03_Woods_Text_Woods_BaseColor.png" id="21_qyf8b"]
+[ext_resource type="PackedScene" uid="uid://0ckp6qr1gije" path="res://assets/models/environment/tree/tree.glb" id="22_oom1b"]
+[ext_resource type="Texture2D" uid="uid://jm5b1wy6dcgg" path="res://assets/models/environment/tree/tree_Snow_metallic.png-Snow_roughness.png" id="23_f5mdt"]
+[ext_resource type="Texture2D" uid="uid://ccvlnqu0jllg6" path="res://assets/models/environment/tree/tree_Snow_basecolor.png" id="24_5uqpi"]
+[ext_resource type="Texture2D" uid="uid://o1nt5ewnmm04" path="res://assets/models/environment/tree/tree_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="25_ekynf"]
+[ext_resource type="Texture2D" uid="uid://q21gjb5qf8pv" path="res://assets/models/environment/tree/tree_Woods_Text_Woods_Normal.png" id="26_qgvxl"]
+[ext_resource type="Texture2D" uid="uid://drp67k25ctmnb" path="res://assets/models/environment/tree/tree_Woods_Text_Woods_BaseColor.png" id="27_h63p7"]
+[ext_resource type="PackedScene" uid="uid://bk3c666kyb7pi" path="res://assets/models/environment/sign_01/sign_01.glb" id="28_nnyg5"]
+[ext_resource type="Texture2D" uid="uid://c0ku55vgug2wv" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_Metallic.png-Signs_text_Signs_Roughness.png" id="29_vdls8"]
+[ext_resource type="Texture2D" uid="uid://cjeqnsx25xop1" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_Normal.png" id="30_ps26m"]
+[ext_resource type="Texture2D" uid="uid://c7hdtnu1le3ha" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_BaseColor.png" id="31_5qm3h"]
+[ext_resource type="PackedScene" uid="uid://cubkhm81td5ld" path="res://assets/models/environment/sign_02/sign_02.glb" id="32_hj0gl"]
+[ext_resource type="Texture2D" uid="uid://buahiic8g0m15" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_Metallic.png-Signs_text_Signs_Roughness.png" id="33_hfqpi"]
+[ext_resource type="Texture2D" uid="uid://wx3a8b8vbetf" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_Normal.png" id="34_0dyxr"]
+[ext_resource type="Texture2D" uid="uid://ci10l7l7ou3bu" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_BaseColor.png" id="35_ljso3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_idltl"]
+render_priority = 0
+shader = ExtResource("3_7lvir")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("5_mrf5p")
+shader_parameter/metal_rough = ExtResource("4_af16m")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_400fx"]
+size = Vector2(25, 25)
+subdivide_width = 4
+subdivide_depth = 4
+center_offset = Vector3(12.5, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfktl"]
+render_priority = 0
+shader = ExtResource("3_7lvir")
+shader_parameter/albedo = null
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/texture_file = ExtResource("6_264p5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_un7go"]
+render_priority = 0
+shader = ExtResource("3_7lvir")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("9_rfg1d")
+shader_parameter/metal_rough = ExtResource("8_6f2ea")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hwpyj"]
+render_priority = 0
+shader = ExtResource("3_7lvir")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("13_f3jhq")
+shader_parameter/normal = ExtResource("12_bou8f")
+shader_parameter/metal_rough = ExtResource("11_yngfl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yqy1n"]
+render_priority = 0
+shader = ExtResource("3_7lvir")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("17_40lpn")
+shader_parameter/normal = ExtResource("16_syhc3")
+shader_parameter/metal_rough = ExtResource("15_uf7sk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52lxj"]
+render_priority = 0
+shader = ExtResource("3_7lvir")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("21_qyf8b")
+shader_parameter/normal = ExtResource("20_ev31k")
+shader_parameter/metal_rough = ExtResource("19_3xhbp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qomt3"]
+render_priority = 0
+shader = ExtResource("3_7lvir")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("24_5uqpi")
+shader_parameter/metal_rough = ExtResource("23_f5mdt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_drgl3"]
+render_priority = 0
+shader = ExtResource("3_7lvir")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("27_h63p7")
+shader_parameter/normal = ExtResource("26_qgvxl")
+shader_parameter/metal_rough = ExtResource("25_ekynf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2v5wx"]
+render_priority = 0
+shader = ExtResource("3_7lvir")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("31_5qm3h")
+shader_parameter/normal = ExtResource("30_ps26m")
+shader_parameter/metal_rough = ExtResource("29_vdls8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kfbys"]
+render_priority = 0
+shader = ExtResource("3_7lvir")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("35_ljso3")
+shader_parameter/normal = ExtResource("34_0dyxr")
+shader_parameter/metal_rough = ExtResource("33_hfqpi")
 
 [node name="tutorial_stage" type="Node3D"]
 
-[node name="base_floor" parent="." instance=ExtResource("1_visvq")]
+[node name="base_floor" type="Node3D" parent="." groups=["floor_part"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+script = ExtResource("1_i851p")
 
-[node name="tutorial_1" parent="." instance=ExtResource("2_pc8e2")]
+[node name="SideBG" type="Node3D" parent="base_floor"]
 
-[node name="tutorial_2" parent="." instance=ExtResource("3_wts2b")]
+[node name="snow_bg" parent="base_floor/SideBG" instance=ExtResource("2_whyyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -34)
+
+[node name="SnowBackground" parent="base_floor/SideBG/snow_bg" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg2" parent="base_floor/SideBG" instance=ExtResource("2_whyyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -59)
+
+[node name="SnowBackground" parent="base_floor/SideBG/snow_bg2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg5" parent="base_floor/SideBG" instance=ExtResource("2_whyyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -84)
+
+[node name="SnowBackground" parent="base_floor/SideBG/snow_bg5" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg7" parent="base_floor/SideBG" instance=ExtResource("2_whyyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -109)
+
+[node name="SnowBackground" parent="base_floor/SideBG/snow_bg7" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg3" parent="base_floor/SideBG" instance=ExtResource("2_whyyf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.24, 34)
+
+[node name="SnowBackground" parent="base_floor/SideBG/snow_bg3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg4" parent="base_floor/SideBG" instance=ExtResource("2_whyyf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.24, 59)
+
+[node name="SnowBackground" parent="base_floor/SideBG/snow_bg4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg6" parent="base_floor/SideBG" instance=ExtResource("2_whyyf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.24, 84)
+
+[node name="SnowBackground" parent="base_floor/SideBG/snow_bg6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg8" parent="base_floor/SideBG" instance=ExtResource("2_whyyf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.24, 109)
+
+[node name="SnowBackground" parent="base_floor/SideBG/snow_bg8" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="Track" type="MeshInstance3D" parent="base_floor"]
+mesh = SubResource("PlaneMesh_400fx")
+surface_material_override/0 = SubResource("ShaderMaterial_pfktl")
+
+[node name="SnowLeft" parent="base_floor" instance=ExtResource("7_k87xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="Snow" parent="base_floor/SnowLeft" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_un7go")
+
+[node name="SnowRight" parent="base_floor" instance=ExtResource("7_k87xd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 0, 9)
+
+[node name="Snow" parent="base_floor/SnowRight" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_un7go")
+
+[node name="Decorations" type="Node3D" parent="base_floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="Decorations1" type="Node3D" parent="base_floor/Decorations"]
+
+[node name="fence_01" parent="base_floor/Decorations/Decorations1" instance=ExtResource("10_0uc8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.733874, -0.0862064, -10.5994)
+metadata/_edit_group_ = true
+
+[node name="Fence_001" parent="base_floor/Decorations/Decorations1/fence_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hwpyj")
+
+[node name="fence_02" parent="base_floor/Decorations/Decorations1" instance=ExtResource("14_rca0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26159, -0.0862064, -10.5908)
+metadata/_edit_group_ = true
+
+[node name="Fence_002" parent="base_floor/Decorations/Decorations1/fence_02" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_yqy1n")
+
+[node name="fence_03" parent="base_floor/Decorations/Decorations1" instance=ExtResource("18_kem61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7923, -0.0859375, -10.5988)
+metadata/_edit_group_ = true
+
+[node name="Fence_003" parent="base_floor/Decorations/Decorations1/fence_03" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_52lxj")
+
+[node name="tree" parent="base_floor/Decorations/Decorations1" instance=ExtResource("22_oom1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -14.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations1/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="base_floor/Decorations/Decorations1" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 24.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations1/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="base_floor/Decorations/Decorations1" instance=ExtResource("22_oom1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78338, 0, 14.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations1/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="base_floor/Decorations/Decorations1" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.855256, 0, 0.518206, 0, 1, 0, -0.518206, 0, 0.855256, 11.8976, 0, -25.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations1/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="base_floor/Decorations/Decorations1" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, -14.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations1/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="sign_01" parent="base_floor/Decorations/Decorations1" instance=ExtResource("28_nnyg5")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 20.2006, 0, 10)
+metadata/_edit_group_ = true
+
+[node name="Pole_001" parent="base_floor/Decorations/Decorations1/sign_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_2v5wx")
+
+[node name="Decorations2" type="Node3D" parent="base_floor/Decorations"]
+visible = false
+
+[node name="fence_01" parent="base_floor/Decorations/Decorations2" instance=ExtResource("10_0uc8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73387, -0.0862064, 10.4006)
+metadata/_edit_group_ = true
+
+[node name="Fence_001" parent="base_floor/Decorations/Decorations2/fence_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hwpyj")
+
+[node name="fence_02" parent="base_floor/Decorations/Decorations2" instance=ExtResource("14_rca0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.26159, -0.0862064, 10.4092)
+metadata/_edit_group_ = true
+
+[node name="Fence_002" parent="base_floor/Decorations/Decorations2/fence_02" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_yqy1n")
+
+[node name="fence_03" parent="base_floor/Decorations/Decorations2" instance=ExtResource("18_kem61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7923, -0.0859375, 10.4012)
+metadata/_edit_group_ = true
+
+[node name="Fence_003" parent="base_floor/Decorations/Decorations2/fence_03" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_52lxj")
+
+[node name="tree" parent="base_floor/Decorations/Decorations2" instance=ExtResource("22_oom1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -29.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations2/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="base_floor/Decorations/Decorations2" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 24.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations2/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree6" parent="base_floor/Decorations/Decorations2" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.600113, 0, -0.799915, 0, 1, 0, 0.799915, 0, 0.600113, 7.3788, 0, 26.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations2/tree6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="base_floor/Decorations/Decorations2" instance=ExtResource("22_oom1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78338, 0, 18.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations2/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="base_floor/Decorations/Decorations2" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.999777, 0, 0.0211515, 0, 1, 0, -0.0211515, 0, 0.999777, 11.8976, 0, -15.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations2/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="base_floor/Decorations/Decorations2" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, -14.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations2/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="Decorations3" type="Node3D" parent="base_floor/Decorations"]
+visible = false
+
+[node name="tree" parent="base_floor/Decorations/Decorations3" instance=ExtResource("22_oom1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -51.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations3/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="base_floor/Decorations/Decorations3" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 28.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations3/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree8" parent="base_floor/Decorations/Decorations3" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 28.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations3/tree8" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree6" parent="base_floor/Decorations/Decorations3" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.600113, 0, -0.799915, 0, 1, 0, 0.799915, 0, 0.600113, 7.3788, 0, 39.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations3/tree6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="base_floor/Decorations/Decorations3" instance=ExtResource("22_oom1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7834, 0, 18.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations3/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="base_floor/Decorations/Decorations3" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.999777, 0, 0.0211515, 0, 1, 0, -0.0211515, 0, 0.999777, 11.8976, 0, -15.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations3/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree7" parent="base_floor/Decorations/Decorations3" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.876408, 0, -0.481571, 0, 1, 0, 0.481571, 0, 0.876408, 15.8976, 0, -23.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations3/tree7" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="base_floor/Decorations/Decorations3" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, -32.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations3/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="Decorations4" type="Node3D" parent="base_floor/Decorations"]
+visible = false
+
+[node name="tree" parent="base_floor/Decorations/Decorations4" instance=ExtResource("22_oom1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1218, 0, -51.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations4/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="base_floor/Decorations/Decorations4" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 5.3788, 0, 48.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations4/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree8" parent="base_floor/Decorations/Decorations4" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 11.3788, 0, 21.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations4/tree8" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree6" parent="base_floor/Decorations/Decorations4" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.600113, 0, -0.799915, 0, 1, 0, 0.799915, 0, 0.600113, 7.3788, 0, 39.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations4/tree6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="base_floor/Decorations/Decorations4" instance=ExtResource("22_oom1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7834, 0, 16.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations4/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="base_floor/Decorations/Decorations4" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.999777, 0, 0.0211515, 0, 1, 0, -0.0211515, 0, 0.999777, 7.8976, 0, -15.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations4/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree7" parent="base_floor/Decorations/Decorations4" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.876408, 0, -0.481571, 0, 1, 0, 0.481571, 0, 0.876408, 14.8976, 0, -27.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations4/tree7" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="base_floor/Decorations/Decorations4" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, -1.9805, 0, -32.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations4/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree9" parent="base_floor/Decorations/Decorations4" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 8.0195, 0, -43.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations4/tree9" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="Decorations5" type="Node3D" parent="base_floor/Decorations"]
+visible = false
+
+[node name="fence_01" parent="base_floor/Decorations/Decorations5" instance=ExtResource("10_0uc8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.733874, -0.0862064, -10.5994)
+metadata/_edit_group_ = true
+
+[node name="Fence_001" parent="base_floor/Decorations/Decorations5/fence_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hwpyj")
+
+[node name="fence_03" parent="base_floor/Decorations/Decorations5" instance=ExtResource("18_kem61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34731, -0.0859375, -10.5988)
+metadata/_edit_group_ = true
+
+[node name="Fence_003" parent="base_floor/Decorations/Decorations5/fence_03" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_52lxj")
+
+[node name="tree" parent="base_floor/Decorations/Decorations5" instance=ExtResource("22_oom1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -21.0647)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations5/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="base_floor/Decorations/Decorations5" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 24.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations5/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="base_floor/Decorations/Decorations5" instance=ExtResource("22_oom1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78338, 0, 14.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations5/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="base_floor/Decorations/Decorations5" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.855256, 0, 0.518206, 0, 1, 0, -0.518206, 0, 0.855256, 11.8976, 0, -25.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations5/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree9" parent="base_floor/Decorations/Decorations5" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.992745, 0, -0.120241, 0, 1, 0, 0.120241, 0, 0.992745, 11.8976, 0, -44.1268)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations5/tree9" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="base_floor/Decorations/Decorations5" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, -14.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations5/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree6" parent="base_floor/Decorations/Decorations5" instance=ExtResource("22_oom1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, 45.7747)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations5/tree6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree7" parent="base_floor/Decorations/Decorations5" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.855256, 0, 0.518206, 0, 1, 0, -0.518206, 0, 0.855256, 11.8976, 0, 34.7641)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations5/tree7" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree8" parent="base_floor/Decorations/Decorations5" instance=ExtResource("22_oom1b")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, 45.7747)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="base_floor/Decorations/Decorations5/tree8" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="sign_02" parent="base_floor/Decorations/Decorations5" instance=ExtResource("32_hj0gl")]
+transform = Transform3D(0.807321, 0, -0.590113, 0, 1, 0, 0.590113, 0, 0.807321, 20.9999, 0, -11.0567)
+
+[node name="Pole_002" parent="base_floor/Decorations/Decorations5/sign_02" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_kfbys")
+
+[node name="GridMap" type="GridMap" parent="base_floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -3)
+mesh_library = ExtResource("2_anmqo")
+cell_size = Vector3(5, 2, 6)
+cell_center_y = false
+collision_layer = 4
+data = {
+"cells": PackedInt32Array(11, 65535, 1048576, 11, 0, 1048576, 11, 1, 1048576, 16, 65535, 1048577, 16, 1, 1048577, 10, 0, 9, 12, 0, 9, 12, 65535, 9, 10, 65535, 9, 10, 1, 9, 12, 1, 9, 16, 0, 1048577, 15, 0, 1048585, 17, 0, 1048585, 18, 0, 1048585, 20, 65535, 1048578, 23, 65535, 1048578, 22, 65535, 1048585, 21, 65535, 1048585, 26, 0, 1048578, 29, 1, 1048578, 24, 0, 1048585, 25, 0, 1048585, 27, 1, 1048585, 28, 1, 1048585, 33, 65535, 1, 33, 0, 1, 33, 1, 1, 32, 0, 1048585, 31, 0, 1048585, 30, 0, 1048585, 34, 0, 1048585, 43, 1, 1048578, 43, 65535, 1048578, 19, 0, 1048585, 36, 65535, 1048585, 38, 0, 1048585, 40, 1, 1048585, 42, 0, 1048585, 2, 1, 2, 2, 65535, 2, 65534, 0, 1048578, 65534, 65535, 1048578, 3, 0, 1048585, 2, 0, 1048585, 1, 0, 1048585, 0, 0, 1048585, 65534, 1, 1048585, 65533, 1, 1048585)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="base_floor2" parent="." instance=ExtResource("1_visvq")]
+
+[node name="base_floor3" parent="." instance=ExtResource("1_visvq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
 
-[node name="tutorial_3" parent="." instance=ExtResource("4_aw1nf")]
+[node name="base_floor4" parent="." instance=ExtResource("1_visvq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
 
-[node name="tutorial_4" parent="." instance=ExtResource("5_t1ypq")]
+[node name="base_floor5" parent="." instance=ExtResource("1_visvq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0)
 
-[node name="tutorial_5" parent="." instance=ExtResource("6_6u7ut")]
+[node name="base_floor6" parent="." instance=ExtResource("1_visvq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
 
-[node name="tutorial_6" parent="." instance=ExtResource("7_jk87e")]
+[node name="base_floor7" parent="." instance=ExtResource("1_visvq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 0, 0)
 
-[node name="tutorial_7" parent="." instance=ExtResource("8_pt71i")]
+[node name="base_floor8" parent="." instance=ExtResource("1_visvq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, 0)
 
-[node name="tutorial_10" parent="." instance=ExtResource("9_5b4jp")]
+[node name="base_floor9" parent="." instance=ExtResource("1_visvq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 0, 0)
 
-[node name="tutorial_12" parent="." instance=ExtResource("10_ubj3y")]
+[node name="base_floor10" parent="." instance=ExtResource("1_visvq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
+
+[node name="base_floor11" parent="." instance=ExtResource("1_visvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 0, 0)
+
+[node name="base_floor12" parent="." instance=ExtResource("1_visvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 0)
+
+[node name="base_floor13" parent="." instance=ExtResource("1_visvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 0, 0)
+
+[node name="base_floor14" parent="." instance=ExtResource("1_visvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 0, 0)
+
+[editable path="base_floor/SideBG/snow_bg"]
+[editable path="base_floor/SideBG/snow_bg2"]
+[editable path="base_floor/SideBG/snow_bg5"]
+[editable path="base_floor/SideBG/snow_bg7"]
+[editable path="base_floor/SideBG/snow_bg3"]
+[editable path="base_floor/SideBG/snow_bg4"]
+[editable path="base_floor/SideBG/snow_bg6"]
+[editable path="base_floor/SideBG/snow_bg8"]
+[editable path="base_floor/SnowLeft"]
+[editable path="base_floor/SnowRight"]
+[editable path="base_floor/Decorations/Decorations1/fence_01"]
+[editable path="base_floor/Decorations/Decorations1/fence_02"]
+[editable path="base_floor/Decorations/Decorations1/fence_03"]
+[editable path="base_floor/Decorations/Decorations1/tree"]
+[editable path="base_floor/Decorations/Decorations1/tree2"]
+[editable path="base_floor/Decorations/Decorations1/tree3"]
+[editable path="base_floor/Decorations/Decorations1/tree4"]
+[editable path="base_floor/Decorations/Decorations1/tree5"]
+[editable path="base_floor/Decorations/Decorations1/sign_01"]
+[editable path="base_floor/Decorations/Decorations2/fence_01"]
+[editable path="base_floor/Decorations/Decorations2/fence_02"]
+[editable path="base_floor/Decorations/Decorations2/fence_03"]
+[editable path="base_floor/Decorations/Decorations2/tree"]
+[editable path="base_floor/Decorations/Decorations2/tree2"]
+[editable path="base_floor/Decorations/Decorations2/tree6"]
+[editable path="base_floor/Decorations/Decorations2/tree3"]
+[editable path="base_floor/Decorations/Decorations2/tree4"]
+[editable path="base_floor/Decorations/Decorations2/tree5"]
+[editable path="base_floor/Decorations/Decorations3/tree"]
+[editable path="base_floor/Decorations/Decorations3/tree2"]
+[editable path="base_floor/Decorations/Decorations3/tree8"]
+[editable path="base_floor/Decorations/Decorations3/tree6"]
+[editable path="base_floor/Decorations/Decorations3/tree3"]
+[editable path="base_floor/Decorations/Decorations3/tree4"]
+[editable path="base_floor/Decorations/Decorations3/tree7"]
+[editable path="base_floor/Decorations/Decorations3/tree5"]
+[editable path="base_floor/Decorations/Decorations4/tree"]
+[editable path="base_floor/Decorations/Decorations4/tree2"]
+[editable path="base_floor/Decorations/Decorations4/tree8"]
+[editable path="base_floor/Decorations/Decorations4/tree6"]
+[editable path="base_floor/Decorations/Decorations4/tree3"]
+[editable path="base_floor/Decorations/Decorations4/tree4"]
+[editable path="base_floor/Decorations/Decorations4/tree7"]
+[editable path="base_floor/Decorations/Decorations4/tree5"]
+[editable path="base_floor/Decorations/Decorations4/tree9"]
+[editable path="base_floor/Decorations/Decorations5/fence_01"]
+[editable path="base_floor/Decorations/Decorations5/fence_03"]
+[editable path="base_floor/Decorations/Decorations5/tree"]
+[editable path="base_floor/Decorations/Decorations5/tree2"]
+[editable path="base_floor/Decorations/Decorations5/tree3"]
+[editable path="base_floor/Decorations/Decorations5/tree4"]
+[editable path="base_floor/Decorations/Decorations5/tree9"]
+[editable path="base_floor/Decorations/Decorations5/tree5"]
+[editable path="base_floor/Decorations/Decorations5/tree6"]
+[editable path="base_floor/Decorations/Decorations5/tree7"]
+[editable path="base_floor/Decorations/Decorations5/tree8"]
+[editable path="base_floor/Decorations/Decorations5/sign_02"]

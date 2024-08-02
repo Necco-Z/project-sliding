@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d15awftd1p8gf"]
+[gd_scene load_steps=38 format=3 uid="uid://d15awftd1p8gf"]
 
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_drgtq"]
 [ext_resource type="Texture2D" uid="uid://b35xdt0wsy8dq" path="res://assets/sprites/ui/main_menu_background_image.png" id="2_pfv4s"]
@@ -12,7 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://b8tyvoesptjt2" path="res://assets/sprites/ui/seta_icon.png" id="10_aulj0"]
 [ext_resource type="Script" path="res://ui/SkinSelectHUD.gd" id="10_b8ecl"]
 [ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="10_cicrt"]
+[ext_resource type="AudioStream" uid="uid://be3bcej0u2got" path="res://assets/sound/African2.mp3" id="10_jlstm"]
+[ext_resource type="AudioStream" uid="uid://cp6o486rdn0d3" path="res://assets/sound/African4.mp3" id="11_k8pis"]
 [ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="11_wbrgm"]
+[ext_resource type="AudioStream" uid="uid://b0c0pucevcbsm" path="res://assets/sound/Stream Loops 2024-06-26.ogg" id="12_eyhxm"]
 [ext_resource type="Texture2D" uid="uid://dvwpj5uqi0otx" path="res://assets/images/Ceu.png" id="12_qkhh1"]
 [ext_resource type="PackedScene" uid="uid://bukrlayjuhkod" path="res://scenes/environment/mountain.tscn" id="13_75hrg"]
 [ext_resource type="PackedScene" uid="uid://co70ejiuc8ump" path="res://assets/models/actors/player/skin.tscn" id="14_pp60h"]
@@ -361,7 +364,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_drgtq")
-game_scene_path = "res://scenes/main_game.tscn"
 tween_intensity = 1.12
 tween_duration = 0.15
 metadata/_edit_vertical_guides_ = [3424.0]
@@ -465,6 +467,13 @@ theme_type_variation = &"member"
 text = "Erick Gomes - UI/UX Designer"
 horizontal_alignment = 1
 
+[node name="Member4" type="Label" parent="MainMenu/MenuBG/Credits/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"member"
+text = "Eudo Araujo - Programador"
+horizontal_alignment = 1
+
 [node name="Member2" type="Label" parent="MainMenu/MenuBG/Credits/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_v3wop")
@@ -477,13 +486,6 @@ layout_mode = 2
 theme = ExtResource("5_v3wop")
 theme_type_variation = &"member"
 text = "João Melo - Artista 3d"
-horizontal_alignment = 1
-
-[node name="Member4" type="Label" parent="MainMenu/MenuBG/Credits/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("5_v3wop")
-theme_type_variation = &"member"
-text = "Eudo Araujo - Programador"
 horizontal_alignment = 1
 
 [node name="BackToMain" type="Button" parent="MainMenu/MenuBG/Credits" groups=["buttons"]]
@@ -547,6 +549,60 @@ libraries = {
 "": SubResource("AnimationLibrary_0akgo")
 }
 autoplay = "open_game"
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="MainMenu"]
+stream = ExtResource("10_jlstm")
+volume_db = -12.0
+
+[node name="PressedSound" type="AudioStreamPlayer" parent="MainMenu"]
+stream = ExtResource("11_k8pis")
+volume_db = -8.0
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="MainMenu"]
+stream = ExtResource("12_eyhxm")
+volume_db = -24.0
+autoplay = true
+
+[node name="LevelSelector" type="Control" parent="." groups=["LevelSelector"]]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="LevelSelector" groups=["buttons"]]
+layout_mode = 0
+offset_left = 714.0
+offset_top = 464.0
+offset_right = 786.0
+offset_bottom = 552.0
+text = "1"
+
+[node name="Button2" type="Button" parent="LevelSelector" groups=["buttons"]]
+layout_mode = 0
+offset_left = 948.0
+offset_top = 448.0
+offset_right = 1020.0
+offset_bottom = 536.0
+text = "2"
+
+[node name="Button3" type="Button" parent="LevelSelector" groups=["buttons"]]
+layout_mode = 0
+offset_left = 1206.0
+offset_top = 474.0
+offset_right = 1278.0
+offset_bottom = 562.0
+text = "3"
+
+[node name="Button4" type="Button" parent="LevelSelector" groups=["buttons"]]
+layout_mode = 0
+offset_left = 1426.0
+offset_top = 420.0
+offset_right = 1498.0
+offset_bottom = 508.0
+text = "4"
 
 [node name="SkinSelectHUD" type="Node" parent="."]
 script = ExtResource("10_b8ecl")
@@ -689,12 +745,21 @@ transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721
 [node name="skin7" parent="SkinSelectHUD/World/Skins" groups=["skins"] instance=ExtResource("21_8yss0")]
 transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 32.673)
 
-[connection signal="button_up" from="MainMenu/MenuBG/MainControls/StartButton" to="MainMenu" method="to_skin_selector"]
+[connection signal="button_up" from="MainMenu/MenuBG/MainControls/StartButton" to="MainMenu" method="to_level_selector"]
 [connection signal="button_up" from="MainMenu/MenuBG/MainControls/StartButton" to="SkinSelectHUD" method="show_menu"]
 [connection signal="button_up" from="MainMenu/MenuBG/MainControls/BoxContainer3/CreditsButton" to="MainMenu" method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MainMenu/MenuBG/MainControls/BoxContainer3/ExitButton" to="MainMenu" method="_on_exit_button_pressed"]
 [connection signal="button_up" from="MainMenu/MenuBG/Credits/BackToMain" to="MainMenu" method="_on_back_to_main_button_pressed"]
 [connection signal="animation_finished" from="MainMenu/AnimationPlayer" to="MainMenu" method="_on_menu_animation_finished"]
+[connection signal="finished" from="MainMenu/MainMusic" to="MainMenu" method="_on_main_music_finished"]
+[connection signal="button_up" from="LevelSelector/Button" to="MainMenu" method="to_skin_selector"]
+[connection signal="button_up" from="LevelSelector/Button" to="MainMenu" method="on_level_select" binds= ["res://scenes/tutorial_level.tscn"]]
+[connection signal="button_up" from="LevelSelector/Button2" to="MainMenu" method="to_skin_selector"]
+[connection signal="button_up" from="LevelSelector/Button2" to="MainMenu" method="on_level_select" binds= ["res://scenes/level_2.tscn"]]
+[connection signal="button_up" from="LevelSelector/Button3" to="MainMenu" method="to_skin_selector"]
+[connection signal="button_up" from="LevelSelector/Button3" to="MainMenu" method="on_level_select" binds= ["res://scenes/level_3.tscn"]]
+[connection signal="button_up" from="LevelSelector/Button4" to="MainMenu" method="to_skin_selector"]
+[connection signal="button_up" from="LevelSelector/Button4" to="MainMenu" method="on_level_select" binds= ["res://scenes/main_game.tscn"]]
 [connection signal="button_up" from="SkinSelectHUD/Levels/RightArrow" to="SkinSelectHUD" method="on_select_right"]
 [connection signal="button_up" from="SkinSelectHUD/Levels/LeftArrow" to="SkinSelectHUD" method="on_select_left"]
 [connection signal="button_up" from="SkinSelectHUD/Levels/StartButton" to="MainMenu" method="_on_start_button_pressed"]

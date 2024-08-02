@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2rivq1hy316p"]
+[gd_scene load_steps=10 format=3 uid="uid://d2rivq1hy316p"]
 
 [ext_resource type="Script" path="res://actors/coin.gd" id="1_uvd2n"]
 [ext_resource type="PackedScene" uid="uid://biiw55yykc5p0" path="res://assets/models/actors/coin/coin.glb" id="2_u4eu3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://coqn2xpbyyxc0" path="res://assets/models/actors/coin/coin_Coin_text_Gold_Metallic.png-Coin_text_Gold_Roughness.png" id="4_avy2j"]
 [ext_resource type="Texture2D" uid="uid://d1saeski6x0lv" path="res://assets/models/actors/coin/coin_Coin_text_Gold_Normal.png" id="5_ox3o8"]
 [ext_resource type="Texture2D" uid="uid://cr16it10joj5" path="res://assets/models/actors/coin/coin_Coin_text_Gold_BaseColor.png" id="6_lsurn"]
+[ext_resource type="AudioStream" uid="uid://vs2rmjutdo3j" path="res://assets/sound/collect-points-190037.mp3" id="7_v3ekv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hlncv"]
 radius = 1.0
@@ -33,6 +34,10 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.85, 0)
 
 [node name="Coin" parent="Model" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_cosxb")
+
+[node name="CoinCatch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_v3ekv")
+volume_db = -16.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 

@@ -19,6 +19,7 @@ func _on_body_entered(body: Node3D) -> void:
 		death_tween.tween_property($Model, "position", Vector3.UP * 2, death_animation_time * .75).as_relative().set_ease(Tween.EASE_IN)
 		death_tween.tween_property($Model, "scale", Vector3.ZERO, death_animation_time).from_current().set_ease(Tween.EASE_OUT)
 		death_tween.tween_callback(Callable(self, "_on_death_timer_timeout"))
+		get_node("CoinCatch").play()
 
 func _on_death_timer_timeout():
 	tween.kill()

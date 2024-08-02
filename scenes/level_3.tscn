@@ -1,0 +1,941 @@
+[gd_scene load_steps=69 format=3 uid="uid://d1j4clrgrvw1m"]
+
+[ext_resource type="Script" path="res://scenes/main_game.gd" id="1_py1ub"]
+[ext_resource type="PackedScene" uid="uid://c5vvemd16gdrr" path="res://actors/prankables/bush.tscn" id="2_q7jom"]
+[ext_resource type="Script" path="res://scripts/classes/replace_item.gd" id="3_1a7qr"]
+[ext_resource type="PackedScene" uid="uid://04yon5gtykvt" path="res://actors/coin_group.tscn" id="4_7kt85"]
+[ext_resource type="PackedScene" uid="uid://butqhus35eiis" path="res://actors/prankables/log.tscn" id="5_ivdw4"]
+[ext_resource type="PackedScene" uid="uid://dv3vofb0st6jy" path="res://actors/prankables/snow_bump.tscn" id="6_sqcbg"]
+[ext_resource type="PackedScene" uid="uid://dt8ohiqvrdwg4" path="res://ui/in_game/in_game_menus.tscn" id="7_rppdk"]
+[ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://actors/player.tscn" id="8_y1jrt"]
+[ext_resource type="PackedScene" uid="uid://c3bxng6l2algc" path="res://actors/game_camera.tscn" id="9_n5rqc"]
+[ext_resource type="Script" path="res://scenes/environment/base_floor.gd" id="10_cn8lp"]
+[ext_resource type="PackedScene" uid="uid://cc81ughfvg0sh" path="res://assets/models/main_path/snow_bg/snow_bg.glb" id="11_gvp1u"]
+[ext_resource type="Shader" path="res://scripts/shaders/warp_shader.gdshader" id="12_e6krv"]
+[ext_resource type="Texture2D" uid="uid://dp5erqcrb2bda" path="res://assets/models/main_path/snow_bg/snow_bg_Snow_metallic.png-Snow_roughness.png" id="13_hb43b"]
+[ext_resource type="Texture2D" uid="uid://c2gcjaa56dt5" path="res://assets/models/main_path/snow_bg/snow_bg_Snow_basecolor.png" id="14_76sxv"]
+[ext_resource type="Texture2D" uid="uid://c8tlpuihdbh2q" path="res://assets/materials/floor_tracks_albedo.png" id="15_wsp5a"]
+[ext_resource type="PackedScene" uid="uid://q5vcbmk86rxs" path="res://assets/models/main_path/snow/snow.glb" id="16_ili3k"]
+[ext_resource type="Texture2D" uid="uid://j8teb7lkynqy" path="res://assets/models/main_path/snow/snow_Snow_metallic.png-Snow_roughness.png" id="17_dop2h"]
+[ext_resource type="Texture2D" uid="uid://d1wpr4rtlhs6e" path="res://assets/models/main_path/snow/snow_Snow_basecolor.png" id="18_sf2ux"]
+[ext_resource type="PackedScene" uid="uid://b4uegn32mrc3u" path="res://assets/models/environment/fence_01/fence_01.glb" id="19_84dbo"]
+[ext_resource type="Texture2D" uid="uid://dh16628psagv1" path="res://assets/models/environment/fence_01/fence_01_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="20_q28js"]
+[ext_resource type="Texture2D" uid="uid://6tfyssp4gery" path="res://assets/models/environment/fence_01/fence_01_Woods_Text_Woods_Normal.png" id="21_meue2"]
+[ext_resource type="Texture2D" uid="uid://4w33gpvc6bwb" path="res://assets/models/environment/fence_01/fence_01_Woods_Text_Woods_BaseColor.png" id="22_ei8rq"]
+[ext_resource type="PackedScene" uid="uid://c8g6m2gxer5la" path="res://assets/models/environment/fence_02/fence_02.glb" id="23_7yend"]
+[ext_resource type="Texture2D" uid="uid://cnc8ajdulpds5" path="res://assets/models/environment/fence_02/fence_02_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="24_n70nw"]
+[ext_resource type="Texture2D" uid="uid://c27f5734nhfp3" path="res://assets/models/environment/fence_02/fence_02_Woods_Text_Woods_Normal.png" id="25_ub20b"]
+[ext_resource type="Texture2D" uid="uid://8miag2ta46bn" path="res://assets/models/environment/fence_02/fence_02_Woods_Text_Woods_BaseColor.png" id="26_hhryo"]
+[ext_resource type="PackedScene" uid="uid://cco6h752knwxv" path="res://assets/models/environment/fence_03/fence_03.glb" id="27_86f26"]
+[ext_resource type="Texture2D" uid="uid://pgq8odm6be0c" path="res://assets/models/environment/fence_03/fence_03_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="28_rlo5u"]
+[ext_resource type="Texture2D" uid="uid://dxwxkvyf5wlal" path="res://assets/models/environment/fence_03/fence_03_Woods_Text_Woods_Normal.png" id="29_lmub0"]
+[ext_resource type="Texture2D" uid="uid://bp2774iwt6mki" path="res://assets/models/environment/fence_03/fence_03_Woods_Text_Woods_BaseColor.png" id="30_pne81"]
+[ext_resource type="PackedScene" uid="uid://0ckp6qr1gije" path="res://assets/models/environment/tree/tree.glb" id="31_6pq11"]
+[ext_resource type="Texture2D" uid="uid://jm5b1wy6dcgg" path="res://assets/models/environment/tree/tree_Snow_metallic.png-Snow_roughness.png" id="32_lgijw"]
+[ext_resource type="Texture2D" uid="uid://ccvlnqu0jllg6" path="res://assets/models/environment/tree/tree_Snow_basecolor.png" id="33_0bw81"]
+[ext_resource type="Texture2D" uid="uid://o1nt5ewnmm04" path="res://assets/models/environment/tree/tree_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="34_fkvt7"]
+[ext_resource type="Texture2D" uid="uid://q21gjb5qf8pv" path="res://assets/models/environment/tree/tree_Woods_Text_Woods_Normal.png" id="35_fdm1a"]
+[ext_resource type="Texture2D" uid="uid://drp67k25ctmnb" path="res://assets/models/environment/tree/tree_Woods_Text_Woods_BaseColor.png" id="36_jqlrl"]
+[ext_resource type="PackedScene" uid="uid://bk3c666kyb7pi" path="res://assets/models/environment/sign_01/sign_01.glb" id="37_g3boc"]
+[ext_resource type="Texture2D" uid="uid://c0ku55vgug2wv" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_Metallic.png-Signs_text_Signs_Roughness.png" id="38_ujoti"]
+[ext_resource type="Texture2D" uid="uid://cjeqnsx25xop1" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_Normal.png" id="39_5b81e"]
+[ext_resource type="Texture2D" uid="uid://c7hdtnu1le3ha" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_BaseColor.png" id="40_g4mel"]
+[ext_resource type="PackedScene" uid="uid://cubkhm81td5ld" path="res://assets/models/environment/sign_02/sign_02.glb" id="41_pulh6"]
+[ext_resource type="Texture2D" uid="uid://buahiic8g0m15" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_Metallic.png-Signs_text_Signs_Roughness.png" id="42_hdgso"]
+[ext_resource type="Texture2D" uid="uid://wx3a8b8vbetf" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_Normal.png" id="43_24ffk"]
+[ext_resource type="Texture2D" uid="uid://ci10l7l7ou3bu" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_BaseColor.png" id="44_6jgrf"]
+[ext_resource type="MeshLibrary" uid="uid://2krps2vk813u" path="res://assets/meshlibs/obstacles_meshlib.tres" id="45_8s3fw"]
+[ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="46_g8iy6"]
+[ext_resource type="PackedScene" uid="uid://csvlrinimir7l" path="res://actors/end_flag.tscn" id="47_v72jh"]
+[ext_resource type="PackedScene" uid="uid://bukrlayjuhkod" path="res://scenes/environment/mountain.tscn" id="48_u24ia"]
+[ext_resource type="Texture2D" uid="uid://dvwpj5uqi0otx" path="res://assets/images/Ceu.png" id="49_p6u7r"]
+[ext_resource type="AudioStream" uid="uid://nfu3pds1o0y0" path="res://assets/sound/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav" id="50_5gaai"]
+
+[sub_resource type="Resource" id="Resource_kpxey"]
+script = ExtResource("3_1a7qr")
+name = "Bush"
+replace_file = ExtResource("2_q7jom")
+
+[sub_resource type="Resource" id="Resource_cr5rv"]
+script = ExtResource("3_1a7qr")
+name = "Coin"
+replace_file = ExtResource("4_7kt85")
+
+[sub_resource type="Resource" id="Resource_rctie"]
+script = ExtResource("3_1a7qr")
+name = "Log03"
+replace_file = ExtResource("5_ivdw4")
+
+[sub_resource type="Resource" id="Resource_d41j0"]
+script = ExtResource("3_1a7qr")
+name = "SnowBump"
+replace_file = ExtResource("6_sqcbg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_idltl"]
+render_priority = 0
+shader = ExtResource("12_e6krv")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("14_76sxv")
+shader_parameter/metal_rough = ExtResource("13_hb43b")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_400fx"]
+size = Vector2(25, 25)
+subdivide_width = 4
+subdivide_depth = 4
+center_offset = Vector3(12.5, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfktl"]
+render_priority = 0
+shader = ExtResource("12_e6krv")
+shader_parameter/albedo = null
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/texture_file = ExtResource("15_wsp5a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_un7go"]
+render_priority = 0
+shader = ExtResource("12_e6krv")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("18_sf2ux")
+shader_parameter/metal_rough = ExtResource("17_dop2h")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hwpyj"]
+render_priority = 0
+shader = ExtResource("12_e6krv")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("22_ei8rq")
+shader_parameter/normal = ExtResource("21_meue2")
+shader_parameter/metal_rough = ExtResource("20_q28js")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yqy1n"]
+render_priority = 0
+shader = ExtResource("12_e6krv")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("26_hhryo")
+shader_parameter/normal = ExtResource("25_ub20b")
+shader_parameter/metal_rough = ExtResource("24_n70nw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52lxj"]
+render_priority = 0
+shader = ExtResource("12_e6krv")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("30_pne81")
+shader_parameter/normal = ExtResource("29_lmub0")
+shader_parameter/metal_rough = ExtResource("28_rlo5u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qomt3"]
+render_priority = 0
+shader = ExtResource("12_e6krv")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("33_0bw81")
+shader_parameter/metal_rough = ExtResource("32_lgijw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_drgl3"]
+render_priority = 0
+shader = ExtResource("12_e6krv")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("36_jqlrl")
+shader_parameter/normal = ExtResource("35_fdm1a")
+shader_parameter/metal_rough = ExtResource("34_fkvt7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2v5wx"]
+render_priority = 0
+shader = ExtResource("12_e6krv")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("40_g4mel")
+shader_parameter/normal = ExtResource("39_5b81e")
+shader_parameter/metal_rough = ExtResource("38_ujoti")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kfbys"]
+render_priority = 0
+shader = ExtResource("12_e6krv")
+shader_parameter/albedo = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/texture_file = ExtResource("44_6jgrf")
+shader_parameter/normal = ExtResource("43_24ffk")
+shader_parameter/metal_rough = ExtResource("42_hdgso")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jqa1x"]
+sky_top_color = Color(0.478431, 0.552941, 0.65098, 1)
+sky_cover = ExtResource("49_p6u7r")
+ground_bottom_color = Color(0.854902, 0.964706, 0.968627, 1)
+ground_horizon_color = Color(0.854902, 0.964706, 0.968627, 1)
+
+[sub_resource type="Sky" id="Sky_vcehg"]
+sky_material = SubResource("ProceduralSkyMaterial_jqa1x")
+
+[sub_resource type="Environment" id="Environment_i6awf"]
+background_mode = 2
+background_color = Color(0, 0.372549, 0.45098, 1)
+background_canvas_max_layer = 1
+sky = SubResource("Sky_vcehg")
+sky_custom_fov = 90.0
+volumetric_fog_density = 0.02
+
+[node name="MainGame" type="Node"]
+script = ExtResource("1_py1ub")
+player_node = NodePath("Player")
+replacers = Array[ExtResource("3_1a7qr")]([SubResource("Resource_kpxey"), SubResource("Resource_cr5rv"), SubResource("Resource_rctie"), SubResource("Resource_d41j0")])
+curve_y = -0.3
+curve_z = 0.5
+
+[node name="InGameMenus" parent="." instance=ExtResource("7_rppdk")]
+
+[node name="TrackPoints" type="Node3D" parent="."]
+
+[node name="Left" type="Marker3D" parent="TrackPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="Center" type="Marker3D" parent="TrackPoints"]
+
+[node name="Right" type="Marker3D" parent="TrackPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="Player" parent="." instance=ExtResource("8_y1jrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.2575, 0, 0)
+track_points_node = NodePath("../TrackPoints")
+speed = 16
+lane_switch_time = 0.3
+jump_time = 0.7
+jump_height = 4.0
+raycast_distance = 8
+
+[node name="GameCamera" parent="." instance=ExtResource("9_n5rqc")]
+transform = Transform3D(-4.36647e-08, 0.535119, -0.844777, -2.01946e-09, 0.844777, 0.535119, 1, 2.50718e-08, -3.58063e-08, -45.722, 8.069, 0)
+fov = 62.0
+player_node = NodePath("../Player")
+
+[node name="Stage" type="Node3D" parent="."]
+
+[node name="BaseFloor" type="Node3D" parent="Stage" groups=["floor_part"]]
+script = ExtResource("10_cn8lp")
+
+[node name="SideBG" type="Node3D" parent="Stage/BaseFloor"]
+
+[node name="snow_bg" parent="Stage/BaseFloor/SideBG" instance=ExtResource("11_gvp1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -34)
+
+[node name="SnowBackground" parent="Stage/BaseFloor/SideBG/snow_bg" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg2" parent="Stage/BaseFloor/SideBG" instance=ExtResource("11_gvp1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -59)
+
+[node name="SnowBackground" parent="Stage/BaseFloor/SideBG/snow_bg2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg5" parent="Stage/BaseFloor/SideBG" instance=ExtResource("11_gvp1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -84)
+
+[node name="SnowBackground" parent="Stage/BaseFloor/SideBG/snow_bg5" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg7" parent="Stage/BaseFloor/SideBG" instance=ExtResource("11_gvp1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24, -109)
+
+[node name="SnowBackground" parent="Stage/BaseFloor/SideBG/snow_bg7" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg3" parent="Stage/BaseFloor/SideBG" instance=ExtResource("11_gvp1u")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.24, 34)
+
+[node name="SnowBackground" parent="Stage/BaseFloor/SideBG/snow_bg3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg4" parent="Stage/BaseFloor/SideBG" instance=ExtResource("11_gvp1u")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.24, 59)
+
+[node name="SnowBackground" parent="Stage/BaseFloor/SideBG/snow_bg4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg6" parent="Stage/BaseFloor/SideBG" instance=ExtResource("11_gvp1u")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.24, 84)
+
+[node name="SnowBackground" parent="Stage/BaseFloor/SideBG/snow_bg6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="snow_bg8" parent="Stage/BaseFloor/SideBG" instance=ExtResource("11_gvp1u")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.24, 109)
+
+[node name="SnowBackground" parent="Stage/BaseFloor/SideBG/snow_bg8" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_idltl")
+
+[node name="Track" type="MeshInstance3D" parent="Stage/BaseFloor"]
+mesh = SubResource("PlaneMesh_400fx")
+surface_material_override/0 = SubResource("ShaderMaterial_pfktl")
+
+[node name="SnowLeft" parent="Stage/BaseFloor" instance=ExtResource("16_ili3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="Snow" parent="Stage/BaseFloor/SnowLeft" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_un7go")
+
+[node name="SnowRight" parent="Stage/BaseFloor" instance=ExtResource("16_ili3k")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 0, 9)
+
+[node name="Snow" parent="Stage/BaseFloor/SnowRight" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_un7go")
+
+[node name="Decorations" type="Node3D" parent="Stage/BaseFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="Decorations1" type="Node3D" parent="Stage/BaseFloor/Decorations"]
+
+[node name="fence_01" parent="Stage/BaseFloor/Decorations/Decorations1" instance=ExtResource("19_84dbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.733874, -0.0862064, -10.5994)
+metadata/_edit_group_ = true
+
+[node name="Fence_001" parent="Stage/BaseFloor/Decorations/Decorations1/fence_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hwpyj")
+
+[node name="fence_02" parent="Stage/BaseFloor/Decorations/Decorations1" instance=ExtResource("23_7yend")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.26159, -0.0862064, -10.5908)
+metadata/_edit_group_ = true
+
+[node name="Fence_002" parent="Stage/BaseFloor/Decorations/Decorations1/fence_02" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_yqy1n")
+
+[node name="fence_03" parent="Stage/BaseFloor/Decorations/Decorations1" instance=ExtResource("27_86f26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7923, -0.0859375, -10.5988)
+metadata/_edit_group_ = true
+
+[node name="Fence_003" parent="Stage/BaseFloor/Decorations/Decorations1/fence_03" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_52lxj")
+
+[node name="tree" parent="Stage/BaseFloor/Decorations/Decorations1" instance=ExtResource("31_6pq11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -14.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations1/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="Stage/BaseFloor/Decorations/Decorations1" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 24.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations1/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="Stage/BaseFloor/Decorations/Decorations1" instance=ExtResource("31_6pq11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78338, 0, 14.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations1/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="Stage/BaseFloor/Decorations/Decorations1" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.855256, 0, 0.518206, 0, 1, 0, -0.518206, 0, 0.855256, 11.8976, 0, -25.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations1/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="Stage/BaseFloor/Decorations/Decorations1" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, -14.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations1/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="sign_01" parent="Stage/BaseFloor/Decorations/Decorations1" instance=ExtResource("37_g3boc")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 20.2006, 0, 10)
+metadata/_edit_group_ = true
+
+[node name="Pole_001" parent="Stage/BaseFloor/Decorations/Decorations1/sign_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_2v5wx")
+
+[node name="Decorations2" type="Node3D" parent="Stage/BaseFloor/Decorations"]
+visible = false
+
+[node name="fence_01" parent="Stage/BaseFloor/Decorations/Decorations2" instance=ExtResource("19_84dbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73387, -0.0862064, 10.4006)
+metadata/_edit_group_ = true
+
+[node name="Fence_001" parent="Stage/BaseFloor/Decorations/Decorations2/fence_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hwpyj")
+
+[node name="fence_02" parent="Stage/BaseFloor/Decorations/Decorations2" instance=ExtResource("23_7yend")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.26159, -0.0862064, 10.4092)
+metadata/_edit_group_ = true
+
+[node name="Fence_002" parent="Stage/BaseFloor/Decorations/Decorations2/fence_02" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_yqy1n")
+
+[node name="fence_03" parent="Stage/BaseFloor/Decorations/Decorations2" instance=ExtResource("27_86f26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7923, -0.0859375, 10.4012)
+metadata/_edit_group_ = true
+
+[node name="Fence_003" parent="Stage/BaseFloor/Decorations/Decorations2/fence_03" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_52lxj")
+
+[node name="tree" parent="Stage/BaseFloor/Decorations/Decorations2" instance=ExtResource("31_6pq11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -29.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations2/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="Stage/BaseFloor/Decorations/Decorations2" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 24.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations2/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree6" parent="Stage/BaseFloor/Decorations/Decorations2" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.600113, 0, -0.799915, 0, 1, 0, 0.799915, 0, 0.600113, 7.3788, 0, 26.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations2/tree6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="Stage/BaseFloor/Decorations/Decorations2" instance=ExtResource("31_6pq11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78338, 0, 18.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations2/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="Stage/BaseFloor/Decorations/Decorations2" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.999777, 0, 0.0211515, 0, 1, 0, -0.0211515, 0, 0.999777, 11.8976, 0, -15.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations2/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="Stage/BaseFloor/Decorations/Decorations2" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, -14.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations2/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="Decorations3" type="Node3D" parent="Stage/BaseFloor/Decorations"]
+visible = false
+
+[node name="tree" parent="Stage/BaseFloor/Decorations/Decorations3" instance=ExtResource("31_6pq11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -51.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations3/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="Stage/BaseFloor/Decorations/Decorations3" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 28.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations3/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree8" parent="Stage/BaseFloor/Decorations/Decorations3" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 28.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations3/tree8" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree6" parent="Stage/BaseFloor/Decorations/Decorations3" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.600113, 0, -0.799915, 0, 1, 0, 0.799915, 0, 0.600113, 7.3788, 0, 39.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations3/tree6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="Stage/BaseFloor/Decorations/Decorations3" instance=ExtResource("31_6pq11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7834, 0, 18.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations3/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="Stage/BaseFloor/Decorations/Decorations3" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.999777, 0, 0.0211515, 0, 1, 0, -0.0211515, 0, 0.999777, 11.8976, 0, -15.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations3/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree7" parent="Stage/BaseFloor/Decorations/Decorations3" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.876408, 0, -0.481571, 0, 1, 0, 0.481571, 0, 0.876408, 15.8976, 0, -23.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations3/tree7" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="Stage/BaseFloor/Decorations/Decorations3" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, -32.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations3/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="Decorations4" type="Node3D" parent="Stage/BaseFloor/Decorations"]
+visible = false
+
+[node name="tree" parent="Stage/BaseFloor/Decorations/Decorations4" instance=ExtResource("31_6pq11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1218, 0, -51.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations4/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="Stage/BaseFloor/Decorations/Decorations4" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 5.3788, 0, 48.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations4/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree8" parent="Stage/BaseFloor/Decorations/Decorations4" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 11.3788, 0, 21.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations4/tree8" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree6" parent="Stage/BaseFloor/Decorations/Decorations4" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.600113, 0, -0.799915, 0, 1, 0, 0.799915, 0, 0.600113, 7.3788, 0, 39.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations4/tree6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="Stage/BaseFloor/Decorations/Decorations4" instance=ExtResource("31_6pq11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7834, 0, 16.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations4/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="Stage/BaseFloor/Decorations/Decorations4" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.999777, 0, 0.0211515, 0, 1, 0, -0.0211515, 0, 0.999777, 7.8976, 0, -15.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations4/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree7" parent="Stage/BaseFloor/Decorations/Decorations4" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.876408, 0, -0.481571, 0, 1, 0, 0.481571, 0, 0.876408, 14.8976, 0, -27.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations4/tree7" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="Stage/BaseFloor/Decorations/Decorations4" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, -1.9805, 0, -32.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations4/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree9" parent="Stage/BaseFloor/Decorations/Decorations4" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 8.0195, 0, -43.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations4/tree9" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="Decorations5" type="Node3D" parent="Stage/BaseFloor/Decorations"]
+visible = false
+
+[node name="fence_01" parent="Stage/BaseFloor/Decorations/Decorations5" instance=ExtResource("19_84dbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.733874, -0.0862064, -10.5994)
+metadata/_edit_group_ = true
+
+[node name="Fence_001" parent="Stage/BaseFloor/Decorations/Decorations5/fence_01" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hwpyj")
+
+[node name="fence_03" parent="Stage/BaseFloor/Decorations/Decorations5" instance=ExtResource("27_86f26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34731, -0.0859375, -10.5988)
+metadata/_edit_group_ = true
+
+[node name="Fence_003" parent="Stage/BaseFloor/Decorations/Decorations5/fence_03" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_52lxj")
+
+[node name="tree" parent="Stage/BaseFloor/Decorations/Decorations5" instance=ExtResource("31_6pq11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -21.0647)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations5/tree" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree2" parent="Stage/BaseFloor/Decorations/Decorations5" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.919671, 0, -0.39269, 0, 1, 0, 0.39269, 0, 0.919671, 17.3788, 0, 24.5125)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations5/tree2" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree3" parent="Stage/BaseFloor/Decorations/Decorations5" instance=ExtResource("31_6pq11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78338, 0, 14.296)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations5/tree3" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree4" parent="Stage/BaseFloor/Decorations/Decorations5" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.855256, 0, 0.518206, 0, 1, 0, -0.518206, 0, 0.855256, 11.8976, 0, -25.8646)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations5/tree4" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree9" parent="Stage/BaseFloor/Decorations/Decorations5" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.992745, 0, -0.120241, 0, 1, 0, 0.120241, 0, 0.992745, 11.8976, 0, -44.1268)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations5/tree9" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree5" parent="Stage/BaseFloor/Decorations/Decorations5" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, -14.854)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations5/tree5" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree6" parent="Stage/BaseFloor/Decorations/Decorations5" instance=ExtResource("31_6pq11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, 45.7747)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations5/tree6" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree7" parent="Stage/BaseFloor/Decorations/Decorations5" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.855256, 0, 0.518206, 0, 1, 0, -0.518206, 0, 0.855256, 11.8976, 0, 34.7641)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations5/tree7" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="tree8" parent="Stage/BaseFloor/Decorations/Decorations5" instance=ExtResource("31_6pq11")]
+transform = Transform3D(0.490052, 0, -0.871693, 0, 1, 0, 0.871693, 0, 0.490052, 19.0195, 0, 45.7747)
+metadata/_edit_group_ = true
+
+[node name="Tree" parent="Stage/BaseFloor/Decorations/Decorations5/tree8" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
+surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
+surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
+
+[node name="sign_02" parent="Stage/BaseFloor/Decorations/Decorations5" instance=ExtResource("41_pulh6")]
+transform = Transform3D(0.807321, 0, -0.590113, 0, 1, 0, 0.590113, 0, 0.807321, 20.9999, 0, -11.0567)
+
+[node name="Pole_002" parent="Stage/BaseFloor/Decorations/Decorations5/sign_02" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_kfbys")
+
+[node name="GridMap" type="GridMap" parent="Stage/BaseFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+mesh_library = ExtResource("45_8s3fw")
+cell_size = Vector3(5, 2, 6)
+cell_center_y = false
+collision_layer = 4
+data = {
+"cells": PackedInt32Array(65532, 0, 9, 65533, 0, 9, 65534, 0, 9, 0, 65535, 8, 0, 0, 8, 0, 1, 8, 65535, 0, 9, 1, 0, 9, 65536, 0, 9, 3, 65535, 6, 3, 0, 6, 3, 1, 9, 5, 1, 9, 4, 1, 9, 7, 1, 6, 7, 65535, 7, 7, 0, 9, 13, 0, 9, 12, 0, 9, 11, 0, 9, 10, 0, 6, 9, 65535, 6, 15, 0, 6, 17, 65535, 6, 17, 1, 6, 17, 0, 9, 18, 0, 9, 16, 0, 9, 20, 1, 8, 19, 1, 9, 21, 1, 9, 65556, 1, 9, 25, 65535, 7, 25, 0, 7, 25, 1, 7, 28, 65535, 7, 28, 0, 7, 28, 1, 7, 30, 65535, 7, 30, 0, 7, 30, 1, 7, 33, 0, 9, 34, 0, 9, 35, 0, 9, 33, 1, 9, 34, 1, 9, 35, 1, 9, 33, 65535, 9, 34, 65535, 9, 35, 65535, 9, 32, 65535, 9, 32, 0, 9, 32, 1, 9, 39, 0, 6, 39, 1, 6, 42, 65535, 6, 42, 0, 6, 41, 0, 9, 42, 1, 9, 43, 1, 9, 39, 65535, 9, 38, 65535, 9, 40, 0, 9, 46, 65535, 8, 45, 65535, 9, 47, 65535, 9, 65582, 65535, 9, 65586, 1, 9, 50, 1, 8, 49, 1, 9, 51, 1, 9, 54, 1, 6, 54, 0, 8, 53, 0, 9, 55, 0, 9, 65590, 0, 9, 59, 0, 6, 59, 65535, 6, 59, 1, 7, 65595, 1, 9, 58, 1, 9, 60, 1, 9, 62, 0, 9, 63, 0, 9, 64, 0, 9, 65, 0, 9, 66, 0, 9, 69, 65535, 7, 69, 0, 7, 69, 1, 7, 72, 0, 6, 72, 1, 6, 75, 65535, 6, 75, 0, 6, 78, 0, 6, 78, 1, 6, 75, 1, 9, 78, 65535, 9, 72, 65535, 9, 74, 0, 9, 77, 0, 9, 81, 0, 9, 82, 0, 9, 83, 0, 9, 84, 0, 9, 86, 1, 8, 89, 65535, 8, 85, 1, 9, 87, 1, 9, 88, 65535, 9, 90, 65535, 9, 65625, 65535, 9, 65622, 1, 9, 93, 0, 7, 93, 1, 7, 93, 65535, 7, 95, 65535, 7, 95, 0, 7, 95, 1, 7, 97, 65535, 7, 97, 0, 7, 97, 1, 7, 100, 65535, 8, 100, 0, 8, 100, 1, 8, 92, 0, 9, 99, 1, 9, 101, 1, 9, 65636, 1, 9, 104, 0, 6, 105, 1, 8, 103, 65535, 8, 106, 65535, 6, 108, 1, 6, 107, 1, 9, 106, 1, 9, 110, 0, 9, 111, 0, 9, 112, 0, 8, 113, 0, 9, 124, 65535, 6, 125, 65535, 6, 126, 65535, 6, 127, 65535, 6, 128, 65535, 6, 129, 65535, 6, 130, 65535, 6, 131, 65535, 6, 132, 65535, 6, 133, 65535, 6, 134, 65535, 6, 119, 0, 6, 118, 0, 6, 117, 0, 6, 116, 0, 6, 115, 0, 6, 115, 1, 7, 118, 1, 7, 117, 1, 9, 116, 1, 9, 116, 65535, 9, 117, 65535, 9, 118, 65535, 9, 119, 65535, 9, 120, 65535, 9, 115, 65535, 7, 65648, 0, 9, 124, 1, 6, 127, 0, 6, 130, 1, 6, 133, 0, 6, 137, 0, 7, 139, 65535, 7, 140, 1, 7, 143, 0, 7, 142, 65535, 7, 145, 1, 7, 141, 1, 9, 144, 1, 9, 140, 65535, 9, 138, 65535, 9, 146, 1, 9, 143, 1, 9, 65678, 65535, 9, 65679, 0, 9, 65681, 1, 9)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="BaseFloor11" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
+[node name="BaseFloor12" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+
+[node name="BaseFloor13" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0)
+
+[node name="BaseFloor14" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
+
+[node name="BaseFloor15" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 0, 0)
+
+[node name="BaseFloor16" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, 0)
+
+[node name="BaseFloor17" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 0, 0)
+
+[node name="BaseFloor18" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
+
+[node name="BaseFloor19" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 0, 0)
+
+[node name="BaseFloor20" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 0, 0)
+
+[node name="BaseFloor21" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 0, 0)
+
+[node name="BaseFloor7" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 375, 0, 0)
+
+[node name="BaseFloor8" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 0, 0)
+
+[node name="BaseFloor9" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 425, 0, 0)
+
+[node name="BaseFloor10" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 450, 0, 0)
+
+[node name="BaseFloor22" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 475, 0, 0)
+
+[node name="BaseFloor23" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
+
+[node name="BaseFloor24" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 525, 0, 0)
+
+[node name="BaseFloor26" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 550, 0, 0)
+
+[node name="BaseFloor27" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 575, 0, 0)
+
+[node name="BaseFloor28" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 0)
+
+[node name="BaseFloor29" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 625, 0, 0)
+
+[node name="BaseFloor30" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 650, 0, 0)
+
+[node name="BaseFloor31" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 675, 0, 0)
+
+[node name="BaseFloor32" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 700, 0, 0)
+
+[node name="BaseFloor33" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 725, 0, 0)
+
+[node name="BaseFloor34" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 750, 0, 0)
+
+[node name="BaseFloor35" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 775, 0, 0)
+
+[node name="BaseFloor36" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 800, 0, 0)
+
+[node name="BaseFloor25" parent="Stage" instance=ExtResource("46_g8iy6")]
+
+[node name="BaseFloor5" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0)
+
+[node name="BaseFloor6" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 0)
+
+[node name="BaseFloor2" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250.016, 0, 0)
+
+[node name="BaseFloor3" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275.016, 0, 0)
+
+[node name="BaseFloor4" parent="Stage" instance=ExtResource("46_g8iy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300.016, 0, 0)
+
+[node name="EndFlag" parent="." instance=ExtResource("47_v72jh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 757.478, 0, 0)
+
+[node name="Mountains" type="Node3D" parent="."]
+
+[node name="Mountain" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 125.842)
+
+[node name="Mountain2" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 94.382, -0.665, 125.842)
+
+[node name="Mountain3" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(0.398631, 0, 0.795735, 0, 0.89, 0, -0.795735, 0, 0.398631, 177.173, -0.665, 162.628)
+
+[node name="Mountain4" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 313.807, -0.665, 131.097)
+
+[node name="Mountain5" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 418.91, -0.665, 162.628)
+
+[node name="Mountain21" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -149.354)
+
+[node name="Mountain22" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 94.382, -0.665, -149.354)
+
+[node name="Mountain23" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(0.398631, 0, 0.795735, 0, 0.89, 0, -0.795735, 0, 0.398631, 177.173, -0.665, -112.568)
+
+[node name="Mountain24" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 313.807, -0.665, -144.099)
+
+[node name="Mountain25" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 418.91, -0.665, -112.568)
+
+[node name="Mountain6" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 544.766, 0, 125.842)
+
+[node name="Mountain7" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 639.148, -0.665, 125.842)
+
+[node name="Mountain8" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(0.398631, 0, 0.795735, 0, 0.89, 0, -0.795735, 0, 0.398631, 721.939, -0.665, 162.628)
+
+[node name="Mountain9" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 858.573, -0.665, 131.097)
+
+[node name="Mountain10" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 963.676, -0.665, 162.628)
+
+[node name="Mountain11" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 872.948, -44.1303, -19.3795)
+
+[node name="Mountain12" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 892.37, -34.6406, 60.815)
+
+[node name="Mountain26" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 544.766, 0, -149.354)
+
+[node name="Mountain27" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 639.148, -0.665, -149.354)
+
+[node name="Mountain28" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(0.398631, 0, 0.795735, 0, 0.89, 0, -0.795735, 0, 0.398631, 721.939, -0.665, -112.568)
+
+[node name="Mountain29" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 858.573, -0.665, -144.099)
+
+[node name="Mountain30" parent="Mountains" instance=ExtResource("48_u24ia")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 869.517, -0.665, -71.8497)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.801473, 0.224007, -0.554493, -3.27463e-08, 0.927197, 0.374574, 0.598031, 0.300211, -0.743123, 0, 20.3383, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i6awf")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("50_5gaai")
+volume_db = -16.0
+autoplay = true
+
+[connection signal="body_entered" from="EndFlag" to="." method="_on_end_flag_body_entered"]
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
+
+[editable path="Stage/BaseFloor/SideBG/snow_bg"]
+[editable path="Stage/BaseFloor/SideBG/snow_bg2"]
+[editable path="Stage/BaseFloor/SideBG/snow_bg5"]
+[editable path="Stage/BaseFloor/SideBG/snow_bg7"]
+[editable path="Stage/BaseFloor/SideBG/snow_bg3"]
+[editable path="Stage/BaseFloor/SideBG/snow_bg4"]
+[editable path="Stage/BaseFloor/SideBG/snow_bg6"]
+[editable path="Stage/BaseFloor/SideBG/snow_bg8"]
+[editable path="Stage/BaseFloor/SnowLeft"]
+[editable path="Stage/BaseFloor/SnowRight"]
+[editable path="Stage/BaseFloor/Decorations/Decorations1/fence_01"]
+[editable path="Stage/BaseFloor/Decorations/Decorations1/fence_02"]
+[editable path="Stage/BaseFloor/Decorations/Decorations1/fence_03"]
+[editable path="Stage/BaseFloor/Decorations/Decorations1/tree"]
+[editable path="Stage/BaseFloor/Decorations/Decorations1/tree2"]
+[editable path="Stage/BaseFloor/Decorations/Decorations1/tree3"]
+[editable path="Stage/BaseFloor/Decorations/Decorations1/tree4"]
+[editable path="Stage/BaseFloor/Decorations/Decorations1/tree5"]
+[editable path="Stage/BaseFloor/Decorations/Decorations1/sign_01"]
+[editable path="Stage/BaseFloor/Decorations/Decorations2/fence_01"]
+[editable path="Stage/BaseFloor/Decorations/Decorations2/fence_02"]
+[editable path="Stage/BaseFloor/Decorations/Decorations2/fence_03"]
+[editable path="Stage/BaseFloor/Decorations/Decorations2/tree"]
+[editable path="Stage/BaseFloor/Decorations/Decorations2/tree2"]
+[editable path="Stage/BaseFloor/Decorations/Decorations2/tree6"]
+[editable path="Stage/BaseFloor/Decorations/Decorations2/tree3"]
+[editable path="Stage/BaseFloor/Decorations/Decorations2/tree4"]
+[editable path="Stage/BaseFloor/Decorations/Decorations2/tree5"]
+[editable path="Stage/BaseFloor/Decorations/Decorations3/tree"]
+[editable path="Stage/BaseFloor/Decorations/Decorations3/tree2"]
+[editable path="Stage/BaseFloor/Decorations/Decorations3/tree8"]
+[editable path="Stage/BaseFloor/Decorations/Decorations3/tree6"]
+[editable path="Stage/BaseFloor/Decorations/Decorations3/tree3"]
+[editable path="Stage/BaseFloor/Decorations/Decorations3/tree4"]
+[editable path="Stage/BaseFloor/Decorations/Decorations3/tree7"]
+[editable path="Stage/BaseFloor/Decorations/Decorations3/tree5"]
+[editable path="Stage/BaseFloor/Decorations/Decorations4/tree"]
+[editable path="Stage/BaseFloor/Decorations/Decorations4/tree2"]
+[editable path="Stage/BaseFloor/Decorations/Decorations4/tree8"]
+[editable path="Stage/BaseFloor/Decorations/Decorations4/tree6"]
+[editable path="Stage/BaseFloor/Decorations/Decorations4/tree3"]
+[editable path="Stage/BaseFloor/Decorations/Decorations4/tree4"]
+[editable path="Stage/BaseFloor/Decorations/Decorations4/tree7"]
+[editable path="Stage/BaseFloor/Decorations/Decorations4/tree5"]
+[editable path="Stage/BaseFloor/Decorations/Decorations4/tree9"]
+[editable path="Stage/BaseFloor/Decorations/Decorations5/fence_01"]
+[editable path="Stage/BaseFloor/Decorations/Decorations5/fence_03"]
+[editable path="Stage/BaseFloor/Decorations/Decorations5/tree"]
+[editable path="Stage/BaseFloor/Decorations/Decorations5/tree2"]
+[editable path="Stage/BaseFloor/Decorations/Decorations5/tree3"]
+[editable path="Stage/BaseFloor/Decorations/Decorations5/tree4"]
+[editable path="Stage/BaseFloor/Decorations/Decorations5/tree9"]
+[editable path="Stage/BaseFloor/Decorations/Decorations5/tree5"]
+[editable path="Stage/BaseFloor/Decorations/Decorations5/tree6"]
+[editable path="Stage/BaseFloor/Decorations/Decorations5/tree7"]
+[editable path="Stage/BaseFloor/Decorations/Decorations5/tree8"]
+[editable path="Stage/BaseFloor/Decorations/Decorations5/sign_02"]

@@ -1,13 +1,10 @@
-[gd_scene load_steps=49 format=3 uid="uid://chxm57onqxflm"]
+[gd_scene load_steps=48 format=3 uid="uid://chxm57onqxflm"]
 
 [ext_resource type="Script" path="res://scenes/environment/base_floor.gd" id="1_u4lbq"]
 [ext_resource type="PackedScene" uid="uid://cc81ughfvg0sh" path="res://assets/models/main_path/snow_bg/snow_bg.glb" id="2_2ix56"]
 [ext_resource type="Shader" path="res://scripts/shaders/warp_shader.gdshader" id="3_khcnj"]
 [ext_resource type="Texture2D" uid="uid://dp5erqcrb2bda" path="res://assets/models/main_path/snow_bg/snow_bg_Snow_metallic.png-Snow_roughness.png" id="4_7jlhw"]
 [ext_resource type="Texture2D" uid="uid://c2gcjaa56dt5" path="res://assets/models/main_path/snow_bg/snow_bg_Snow_basecolor.png" id="5_n6og0"]
-[ext_resource type="PackedScene" uid="uid://cwtbldvq4qc1n" path="res://assets/models/main_path/floor/floor.glb" id="6_nvq2r"]
-[ext_resource type="Texture2D" uid="uid://cbykosfrlw7xp" path="res://assets/models/default_metallic_roughness.png" id="7_0vlkf"]
-[ext_resource type="Texture2D" uid="uid://bnkal3j1ou6fx" path="res://assets/models/main_path/floor/floor_Track Test 06.png" id="8_g7ria"]
 [ext_resource type="PackedScene" uid="uid://q5vcbmk86rxs" path="res://assets/models/main_path/snow/snow.glb" id="9_aqtnn"]
 [ext_resource type="Texture2D" uid="uid://j8teb7lkynqy" path="res://assets/models/main_path/snow/snow_Snow_metallic.png-Snow_roughness.png" id="10_ml27q"]
 [ext_resource type="Texture2D" uid="uid://d1wpr4rtlhs6e" path="res://assets/models/main_path/snow/snow_Snow_basecolor.png" id="11_ch258"]
@@ -36,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://c7hdtnu1le3ha" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_BaseColor.png" id="34_eikqx"]
 [ext_resource type="PackedScene" uid="uid://cubkhm81td5ld" path="res://assets/models/environment/sign_02/sign_02.glb" id="35_hb2nc"]
 [ext_resource type="Texture2D" uid="uid://buahiic8g0m15" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_Metallic.png-Signs_text_Signs_Roughness.png" id="36_w7bi8"]
+[ext_resource type="Texture2D" uid="uid://c8tlpuihdbh2q" path="res://assets/materials/floor_tracks_albedo.png" id="36_ypkxt"]
 [ext_resource type="Texture2D" uid="uid://wx3a8b8vbetf" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_Normal.png" id="37_5hxr2"]
 [ext_resource type="Texture2D" uid="uid://ci10l7l7ou3bu" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_BaseColor.png" id="38_0c0de"]
 
@@ -47,15 +45,6 @@ shader_parameter/metallic = null
 shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("5_n6og0")
 shader_parameter/metal_rough = ExtResource("4_7jlhw")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5wo3"]
-render_priority = 0
-shader = ExtResource("3_khcnj")
-shader_parameter/albedo = null
-shader_parameter/metallic = null
-shader_parameter/roughness = null
-shader_parameter/texture_file = ExtResource("8_g7ria")
-shader_parameter/metal_rough = ExtResource("7_0vlkf")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_un7go"]
 render_priority = 0
@@ -135,6 +124,20 @@ shader_parameter/texture_file = ExtResource("38_0c0de")
 shader_parameter/normal = ExtResource("37_5hxr2")
 shader_parameter/metal_rough = ExtResource("36_w7bi8")
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_7jqt8"]
+size = Vector2(25, 25)
+subdivide_width = 4
+subdivide_depth = 4
+center_offset = Vector3(12.5, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btn4n"]
+render_priority = 0
+shader = ExtResource("3_khcnj")
+shader_parameter/albedo = null
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/texture_file = ExtResource("36_ypkxt")
+
 [node name="BaseFloor" type="Node3D" groups=["floor_part"]]
 script = ExtResource("1_u4lbq")
 
@@ -187,12 +190,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 1.
 
 [node name="SnowBackground" parent="SideBG/snow_bg8" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_idltl")
-
-[node name="TrackFloor" parent="." instance=ExtResource("6_nvq2r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5)
-
-[node name="Track_001" parent="TrackFloor" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_n5wo3")
 
 [node name="SnowLeft" parent="." instance=ExtResource("9_aqtnn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
@@ -605,6 +602,10 @@ transform = Transform3D(0.807321, 0, -0.590113, 0, 1, 0, 0.590113, 0, 0.807321, 
 [node name="Pole_002" parent="Decorations/Decorations5/sign_02" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_kfbys")
 
+[node name="Track" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_7jqt8")
+surface_material_override/0 = SubResource("ShaderMaterial_btn4n")
+
 [editable path="SideBG/snow_bg"]
 [editable path="SideBG/snow_bg2"]
 [editable path="SideBG/snow_bg5"]
@@ -613,7 +614,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_kfbys")
 [editable path="SideBG/snow_bg4"]
 [editable path="SideBG/snow_bg6"]
 [editable path="SideBG/snow_bg8"]
-[editable path="TrackFloor"]
 [editable path="SnowLeft"]
 [editable path="SnowRight"]
 [editable path="Decorations/Decorations1/fence_01"]

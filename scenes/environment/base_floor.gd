@@ -25,6 +25,8 @@ func replace_on_grid(item_name: String, change_to: PackedScene) -> void:
 
 func _randomize_decorations(unwanted_type := -1) -> void:
 	var rand := -1
+	if decorations == null:
+		return
 	var decor_size := decorations.get_children().size()
 	while rand < 0 or rand == unwanted_type:
 		rand = randi() % decorations.get_children().size()

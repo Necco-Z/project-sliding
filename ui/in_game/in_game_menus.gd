@@ -92,7 +92,7 @@ func start_tween(object: Object, property: String, final_val:Variant, duration: 
 	tween.tween_property(object, property, final_val, duration)
 
 
-func btn_hovered(button: Button): #hover animation
+func btn_hovered(button: BaseButton): #hover animation
 	if button.is_hovered() or button.has_focus():
 		start_tween(button, "scale", Vector2.ONE * tween_intensity, tween_duration)
 	else:
