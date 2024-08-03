@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bm7ltfovligb7"]
+[gd_scene load_steps=33 format=3 uid="uid://bm7ltfovligb7"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_wewew"]
 [ext_resource type="PackedScene" uid="uid://c5vvemd16gdrr" path="res://actors/prankables/bush.tscn" id="2_ow1w4"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://dvwpj5uqi0otx" path="res://assets/images/Ceu.png" id="14_of6yr"]
 [ext_resource type="AudioStream" uid="uid://nfu3pds1o0y0" path="res://assets/sound/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav" id="15_bbs18"]
 [ext_resource type="Script" path="res://scenes/Tutorial.gd" id="17_l5iie"]
+[ext_resource type="FontFile" uid="uid://dn3mwysklkhc4" path="res://assets/fonts/PoetsenOne-Regular.ttf" id="18_xa4tb"]
+[ext_resource type="Texture2D" uid="uid://cg2pw47ufeuly" path="res://assets/sprites/ui/tutorial_arrow.png" id="19_x1oag"]
+[ext_resource type="Texture2D" uid="uid://ds614iosmm6c3" path="res://assets/sprites/ui/tutorial_button_bg.png" id="20_dqiqh"]
 
 [sub_resource type="Resource" id="Resource_kpxey"]
 script = ExtResource("3_21k5v")
@@ -54,6 +57,21 @@ background_canvas_max_layer = 1
 sky = SubResource("Sky_vcehg")
 sky_custom_fov = 90.0
 volumetric_fog_density = 0.02
+
+[sub_resource type="LabelSettings" id="LabelSettings_jym5q"]
+font = ExtResource("18_xa4tb")
+font_size = 32
+font_color = Color(0.25098, 0.235294, 0.207843, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hs61t"]
+font = ExtResource("18_xa4tb")
+font_size = 32
+font_color = Color(0.25098, 0.235294, 0.207843, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ajiva"]
+font = ExtResource("18_xa4tb")
+font_size = 20
+font_color = Color(0.247059, 0.505882, 0.0470588, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5mq28"]
 size = Vector3(2, 2, 2)
@@ -207,55 +225,93 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1, 1e-05)
 color = Color(0.0745098, 0.831373, 0.964706, 1)
 
-[node name="MoveTutorial" type="HBoxContainer" parent="TutorialCanva/Control/ColorRect"]
+[node name="MoveTutorial" type="BoxContainer" parent="TutorialCanva/Control/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -105.5
+offset_top = -59.5
+offset_right = 105.5
+offset_bottom = 59.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
+theme_override_constants/separation = 16
+vertical = true
 
 [node name="Label" type="Label" parent="TutorialCanva/Control/ColorRect/MoveTutorial"]
 layout_mode = 2
-text = "Use "
+size_flags_horizontal = 4
+text = "Mude de faixa"
+label_settings = SubResource("LabelSettings_jym5q")
 
-[node name="Label2" type="Label" parent="TutorialCanva/Control/ColorRect/MoveTutorial"]
+[node name="BoxContainer" type="BoxContainer" parent="TutorialCanva/Control/ColorRect/MoveTutorial"]
 layout_mode = 2
-text = "para desviar de obstáculos"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+alignment = 1
 
-[node name="JumpTutorial" type="HBoxContainer" parent="TutorialCanva/Control/ColorRect"]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="TutorialCanva/Control/ColorRect/MoveTutorial/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("19_x1oag")
+flip_h = true
+
+[node name="TextureRect2" type="TextureRect" parent="TutorialCanva/Control/ColorRect/MoveTutorial/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("19_x1oag")
+
+[node name="JumpTutorial" type="BoxContainer" parent="TutorialCanva/Control/ColorRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -40.5
+offset_top = -59.5
+offset_right = 40.5
+offset_bottom = 59.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
-
-[node name="Label" type="Label" parent="TutorialCanva/Control/ColorRect/JumpTutorial"]
-layout_mode = 2
-text = "Use "
+theme_override_constants/separation = 16
+vertical = true
 
 [node name="Label2" type="Label" parent="TutorialCanva/Control/ColorRect/JumpTutorial"]
 layout_mode = 2
-text = "para saltar sobre os obstáculos"
+size_flags_horizontal = 4
+text = "Pular"
+label_settings = SubResource("LabelSettings_hs61t")
+
+[node name="TextureRect" type="TextureRect" parent="TutorialCanva/Control/ColorRect/JumpTutorial"]
+layout_mode = 2
+texture = ExtResource("20_dqiqh")
+
+[node name="Label" type="Label" parent="TutorialCanva/Control/ColorRect/JumpTutorial/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -19.5
+offset_right = 52.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Espaço"
+label_settings = SubResource("LabelSettings_ajiva")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TutorialAreas" type="Node3D" parent="TutorialCanva"]
 

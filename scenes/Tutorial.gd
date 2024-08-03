@@ -12,6 +12,10 @@ func _ready():
 	move_tutorial.set_pivot_offset(move_tutorial.get_size() / 2)
 	jump_tutorial.set_pivot_offset(jump_tutorial.get_size() / 2)
 	
+	tutorial_bg.set_scale(Vector2(1,0))
+	move_tutorial.set_scale(Vector2.ZERO)
+	jump_tutorial.set_scale(Vector2.ZERO)
+	
 	await get_tree().create_timer(1).timeout
 	
 	var tween = create_tween()
