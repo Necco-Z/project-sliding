@@ -26,16 +26,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameHUD" parent="." instance=ExtResource("2_3eaex")]
+[node name="GameHUD" parent="." groups=["HUD"] instance=ExtResource("2_3eaex")]
 metadata/_edit_horizontal_guides_ = [56.0, 134.0]
 
-[node name="WinGame" parent="." instance=ExtResource("4_jo2td")]
+[node name="WinGame" parent="." groups=["HUD"] instance=ExtResource("4_jo2td")]
 visible = false
 screen_title = "Vitória"
 
-[node name="LoseGame" parent="." instance=ExtResource("4_jo2td")]
+[node name="LoseGame" parent="." groups=["HUD"] instance=ExtResource("4_jo2td")]
 visible = false
 screen_title = "Derrota"
 
-[node name="PauseMenu" parent="." instance=ExtResource("5_sbgga")]
+[node name="PauseMenu" parent="." groups=["HUD"] instance=ExtResource("5_sbgga")]
 visible = false

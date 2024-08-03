@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bm7ltfovligb7"]
+[gd_scene load_steps=34 format=3 uid="uid://bm7ltfovligb7"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_wewew"]
 [ext_resource type="PackedScene" uid="uid://c5vvemd16gdrr" path="res://actors/prankables/bush.tscn" id="2_ow1w4"]
@@ -20,6 +20,7 @@
 [ext_resource type="FontFile" uid="uid://dn3mwysklkhc4" path="res://assets/fonts/PoetsenOne-Regular.ttf" id="18_xa4tb"]
 [ext_resource type="Texture2D" uid="uid://cg2pw47ufeuly" path="res://assets/sprites/ui/tutorial_arrow.png" id="19_x1oag"]
 [ext_resource type="Texture2D" uid="uid://ds614iosmm6c3" path="res://assets/sprites/ui/tutorial_button_bg.png" id="20_dqiqh"]
+[ext_resource type="Script" path="res://scenes/Achievements/TutorialAchievements.gd" id="21_4uydj"]
 
 [sub_resource type="Resource" id="Resource_kpxey"]
 script = ExtResource("3_21k5v")
@@ -327,7 +328,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.083, 0.94758, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialCanva/TutorialAreas/JumpTutorialArea"]
 shape = SubResource("BoxShape3D_gw10j")
 
+[node name="LevelAchievements" type="Node" parent="."]
+script = ExtResource("21_4uydj")
+
 [connection signal="body_entered" from="EndFlag" to="." method="_on_end_flag_body_entered"]
+[connection signal="body_entered" from="EndFlag" to="LevelAchievements" method="level_finished"]
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
 [connection signal="body_entered" from="TutorialCanva/TutorialAreas/MoveTutorialArea" to="TutorialCanva" method="on_first_obstacle_surpassed"]
 [connection signal="body_entered" from="TutorialCanva/TutorialAreas/JumpTutorialArea" to="TutorialCanva" method="on_jump_tutorial_surpassed"]

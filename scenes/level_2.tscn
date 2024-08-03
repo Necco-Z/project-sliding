@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://gcu1s2ht10pd"]
+[gd_scene load_steps=70 format=3 uid="uid://gcu1s2ht10pd"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_83urt"]
 [ext_resource type="PackedScene" uid="uid://c5vvemd16gdrr" path="res://actors/prankables/bush.tscn" id="2_7tt3m"]
@@ -50,6 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://buahiic8g0m15" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_Metallic.png-Signs_text_Signs_Roughness.png" id="42_y118e"]
 [ext_resource type="Texture2D" uid="uid://wx3a8b8vbetf" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_Normal.png" id="43_uv86p"]
 [ext_resource type="Texture2D" uid="uid://ci10l7l7ou3bu" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_BaseColor.png" id="44_fsnc5"]
+[ext_resource type="Script" path="res://scenes/Achievements/level_2_achievements.gd" id="51_qksvk"]
 
 [sub_resource type="Resource" id="Resource_kpxey"]
 script = ExtResource("3_cccyb")
@@ -804,6 +805,27 @@ transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367
 [node name="Mountain25" parent="Mountains" instance=ExtResource("14_d44ql")]
 transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 418.91, -0.665, -112.568)
 
+[node name="Mountain6" parent="Mountains" instance=ExtResource("14_d44ql")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 545.936, -0.665, 131.097)
+
+[node name="Mountain7" parent="Mountains" instance=ExtResource("14_d44ql")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 651.039, -0.665, 162.628)
+
+[node name="Mountain8" parent="Mountains" instance=ExtResource("14_d44ql")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 651.039, -20.7258, 31.3502)
+
+[node name="Mountain9" parent="Mountains" instance=ExtResource("14_d44ql")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 702.384, -22.1347, -22.3866)
+
+[node name="Mountain10" parent="Mountains" instance=ExtResource("14_d44ql")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 702.384, -22.1347, 73.1444)
+
+[node name="Mountain26" parent="Mountains" instance=ExtResource("14_d44ql")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 545.936, -0.665, -144.099)
+
+[node name="Mountain27" parent="Mountains" instance=ExtResource("14_d44ql")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 652.261, -0.665, -112.568)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.801473, 0.224007, -0.554493, -3.27463e-08, 0.927197, 0.374574, 0.598031, 0.300211, -0.743123, 0, 20.3383, 0)
 shadow_enabled = true
@@ -816,7 +838,11 @@ stream = ExtResource("16_dqde7")
 volume_db = -16.0
 autoplay = true
 
+[node name="LevelAchievements" type="Node" parent="."]
+script = ExtResource("51_qksvk")
+
 [connection signal="body_entered" from="EndFlag" to="." method="_on_end_flag_body_entered"]
+[connection signal="body_entered" from="EndFlag" to="LevelAchievements" method="level_finished"]
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
 
 [editable path="Stage/BaseFloor/SideBG/snow_bg"]

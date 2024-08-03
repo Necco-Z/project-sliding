@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dvjvpdafxerwn"]
+[gd_scene load_steps=24 format=3 uid="uid://dvjvpdafxerwn"]
 
 [ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://actors/player.tscn" id="1_1ts6d"]
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_hws7p"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://csvlrinimir7l" path="res://actors/end_flag.tscn" id="13_t2bet"]
 [ext_resource type="PackedScene" uid="uid://bukrlayjuhkod" path="res://scenes/environment/mountain.tscn" id="14_ro1gl"]
 [ext_resource type="AudioStream" uid="uid://nfu3pds1o0y0" path="res://assets/sound/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav" id="15_kekav"]
+[ext_resource type="Script" path="res://scenes/Achievements/level_4_achievements.gd" id="16_hwiyd"]
 
 [sub_resource type="Resource" id="Resource_kpxey"]
 script = ExtResource("3_75aig")
@@ -229,7 +230,11 @@ stream = ExtResource("15_kekav")
 volume_db = -16.0
 autoplay = true
 
+[node name="LevelAchievements" type="Node" parent="."]
+script = ExtResource("16_hwiyd")
+
 [connection signal="body_entered" from="EndFlag" to="." method="_on_end_flag_body_entered"]
+[connection signal="body_entered" from="EndFlag" to="LevelAchievements" method="level_finished"]
 [connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]
 
 [editable path="InGameMenus"]

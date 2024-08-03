@@ -19,6 +19,7 @@ var player_zpos := 0.0
 var is_jumping := false
 var player_ypos := 0.0
 var is_near_prankable := false
+var coins = 0
 
 @onready var track_points := get_node(track_points_node).get_children()
 @onready var anim_playback := ($AnimationTree["parameters/playback"]
@@ -36,6 +37,8 @@ func _ready() -> void:
 	add_child(skin)
 	skin.name = "PlayerModel"
 	anim_player.set_active(true)
+	for i in get_tree().get_nodes_in_group("HUD"): #update HUD when coin collected
+		coin_collected.connect(Callable(i, "update_coins"))
 
 
 func _physics_process(delta: float) -> void:
@@ -61,7 +64,12 @@ func set_connections(main_scene: Node) -> void:
 
 
 func collect_coin() -> void:
-	ScoreData.coins += 1
+	coins += 1
+	coin_collected.emit(coins)
+	
+	
+func get_coins() -> int:
+	return coins
 
 
 # Funções privadas

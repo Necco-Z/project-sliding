@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://d15awftd1p8gf"]
+[gd_scene load_steps=45 format=3 uid="uid://d15awftd1p8gf"]
 
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_drgtq"]
 [ext_resource type="Texture2D" uid="uid://b35xdt0wsy8dq" path="res://assets/sprites/ui/main_menu_background_image.png" id="2_pfv4s"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cow632myqngtq" path="res://assets/images/background_menus_without_stripes.png" id="5_e0mrv"]
 [ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="5_v3wop"]
 [ext_resource type="Texture2D" uid="uid://brkkq4dee1ji5" path="res://assets/sprites/ui/menu_background_icons.png" id="6_0sbks"]
+[ext_resource type="Script" path="res://scripts/classes/panel.gd" id="8_ko4k6"]
+[ext_resource type="Texture2D" uid="uid://5b65wq2i02fh" path="res://assets/sprites/ui/star_objective_ui_unachieved.png" id="9_r5gmi"]
 [ext_resource type="Texture2D" uid="uid://b8tyvoesptjt2" path="res://assets/sprites/ui/seta_icon.png" id="10_aulj0"]
 [ext_resource type="Script" path="res://ui/SkinSelectHUD.gd" id="10_b8ecl"]
 [ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="10_cicrt"]
@@ -35,6 +37,31 @@ outline_size = 10
 [sub_resource type="LabelSettings" id="LabelSettings_p3eia"]
 font = ExtResource("13_qcffa")
 font_size = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsps5"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.247059, 0.505882, 0.0470588, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_dt0i3"]
+font = ExtResource("13_qcffa")
+font_size = 32
+font_color = Color(0.247059, 0.505882, 0.0470588, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k76a3"]
+font = ExtResource("13_qcffa")
+font_color = Color(0.25098, 0.235294, 0.207843, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_djbtx"]
 font = ExtResource("10_cicrt")
@@ -564,6 +591,80 @@ text = "1"
 label_settings = SubResource("LabelSettings_p3eia")
 horizontal_alignment = 1
 
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu/LevelSelector/Levels/Button"]
+visible = false
+layout_mode = 0
+offset_left = -211.0
+offset_right = -38.0
+offset_bottom = 137.0
+theme = ExtResource("5_v3wop")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dsps5")
+script = ExtResource("8_ko4k6")
+
+[node name="BoxContainer2" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer"]
+layout_mode = 2
+alignment = 1
+vertical = true
+
+[node name="Title" type="Label" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2"]
+layout_mode = 2
+text = "OBJETIVOS"
+label_settings = SubResource("LabelSettings_dt0i3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2"]
+layout_mode = 2
+vertical = true
+
+[node name="BoxContainer" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_r5gmi")
+expand_mode = 5
+
+[node name="Objective" type="Label" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
+layout_mode = 2
+text = "Complete o nível"
+label_settings = SubResource("LabelSettings_k76a3")
+
+[node name="BoxContainer2" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_r5gmi")
+expand_mode = 5
+
+[node name="Objective2" type="Label" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
+layout_mode = 2
+text = "Colete 25 moedas"
+label_settings = SubResource("LabelSettings_k76a3")
+
+[node name="BoxContainer3" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_r5gmi")
+expand_mode = 5
+
+[node name="Objective3" type="Label" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
+layout_mode = 2
+text = "Colete 50 moedas"
+label_settings = SubResource("LabelSettings_k76a3")
+
 [node name="Button2" type="TextureButton" parent="MainMenu/LevelSelector/Levels" groups=["buttons"]]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -588,6 +689,80 @@ grow_vertical = 2
 text = "2"
 label_settings = SubResource("LabelSettings_p3eia")
 horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu/LevelSelector/Levels/Button2"]
+visible = false
+layout_mode = 0
+offset_left = -211.0
+offset_right = -38.0
+offset_bottom = 137.0
+theme = ExtResource("5_v3wop")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dsps5")
+script = ExtResource("8_ko4k6")
+
+[node name="BoxContainer2" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer"]
+layout_mode = 2
+alignment = 1
+vertical = true
+
+[node name="Title" type="Label" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2"]
+layout_mode = 2
+text = "OBJETIVOS"
+label_settings = SubResource("LabelSettings_dt0i3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2"]
+layout_mode = 2
+vertical = true
+
+[node name="BoxContainer" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_r5gmi")
+expand_mode = 5
+
+[node name="Objective" type="Label" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
+layout_mode = 2
+text = "Complete o nível"
+label_settings = SubResource("LabelSettings_k76a3")
+
+[node name="BoxContainer2" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_r5gmi")
+expand_mode = 5
+
+[node name="Objective2" type="Label" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
+layout_mode = 2
+text = "Colete 70 moedas"
+label_settings = SubResource("LabelSettings_k76a3")
+
+[node name="BoxContainer3" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_r5gmi")
+expand_mode = 5
+
+[node name="Objective3" type="Label" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
+layout_mode = 2
+text = "Colete 95 moedas"
+label_settings = SubResource("LabelSettings_k76a3")
 
 [node name="Button3" type="TextureButton" parent="MainMenu/LevelSelector/Levels" groups=["buttons"]]
 layout_mode = 2
@@ -614,6 +789,80 @@ text = "3"
 label_settings = SubResource("LabelSettings_p3eia")
 horizontal_alignment = 1
 
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu/LevelSelector/Levels/Button3"]
+visible = false
+layout_mode = 0
+offset_left = -211.0
+offset_right = -38.0
+offset_bottom = 137.0
+theme = ExtResource("5_v3wop")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dsps5")
+script = ExtResource("8_ko4k6")
+
+[node name="BoxContainer2" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer"]
+layout_mode = 2
+alignment = 1
+vertical = true
+
+[node name="Title" type="Label" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2"]
+layout_mode = 2
+text = "OBJETIVOS"
+label_settings = SubResource("LabelSettings_dt0i3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2"]
+layout_mode = 2
+vertical = true
+
+[node name="BoxContainer" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_r5gmi")
+expand_mode = 5
+
+[node name="Objective" type="Label" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
+layout_mode = 2
+text = "Complete o nível"
+label_settings = SubResource("LabelSettings_k76a3")
+
+[node name="BoxContainer2" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_r5gmi")
+expand_mode = 5
+
+[node name="Objective2" type="Label" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
+layout_mode = 2
+text = "Colete 100 moedas"
+label_settings = SubResource("LabelSettings_k76a3")
+
+[node name="BoxContainer3" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_r5gmi")
+expand_mode = 5
+
+[node name="Objective3" type="Label" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
+layout_mode = 2
+text = "Colete 150 moedas"
+label_settings = SubResource("LabelSettings_k76a3")
+
 [node name="Button4" type="TextureButton" parent="MainMenu/LevelSelector/Levels" groups=["buttons"]]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -638,6 +887,79 @@ grow_vertical = 2
 text = "4"
 label_settings = SubResource("LabelSettings_p3eia")
 horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu/LevelSelector/Levels/Button4"]
+layout_mode = 0
+offset_left = -211.0
+offset_right = -38.0
+offset_bottom = 137.0
+theme = ExtResource("5_v3wop")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dsps5")
+script = ExtResource("8_ko4k6")
+
+[node name="BoxContainer2" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer"]
+layout_mode = 2
+alignment = 1
+vertical = true
+
+[node name="Title" type="Label" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2"]
+layout_mode = 2
+text = "OBJETIVOS"
+label_settings = SubResource("LabelSettings_dt0i3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2"]
+layout_mode = 2
+vertical = true
+
+[node name="BoxContainer" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_r5gmi")
+expand_mode = 5
+
+[node name="Objective" type="Label" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
+layout_mode = 2
+text = "Complete o nível"
+label_settings = SubResource("LabelSettings_k76a3")
+
+[node name="BoxContainer2" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_r5gmi")
+expand_mode = 5
+
+[node name="Objective2" type="Label" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
+layout_mode = 2
+text = "Colete 75 moedas"
+label_settings = SubResource("LabelSettings_k76a3")
+
+[node name="BoxContainer3" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_r5gmi")
+expand_mode = 5
+
+[node name="Objective3" type="Label" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
+layout_mode = 2
+text = "Colete 100 moedas"
+label_settings = SubResource("LabelSettings_k76a3")
 
 [node name="Button" type="Button" parent="MainMenu/LevelSelector" groups=["buttons"]]
 layout_mode = 2
@@ -872,12 +1194,20 @@ autoplay = true
 [connection signal="button_up" from="MainMenu/Credits/BackToMain" to="MainMenu" method="_on_back_to_main_button_pressed"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button" to="MainMenu" method="to_skin_selector"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button" to="MainMenu" method="on_level_select" binds= ["res://scenes/tutorial_level.tscn"]]
+[connection signal="mouse_entered" from="MainMenu/LevelSelector/Levels/Button" to="MainMenu/LevelSelector/Levels/Button/PanelContainer" method="show_panel"]
+[connection signal="mouse_exited" from="MainMenu/LevelSelector/Levels/Button" to="MainMenu/LevelSelector/Levels/Button/PanelContainer" method="hide_panel"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button2" to="MainMenu" method="to_skin_selector"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button2" to="MainMenu" method="on_level_select" binds= ["res://scenes/level_2.tscn"]]
+[connection signal="mouse_entered" from="MainMenu/LevelSelector/Levels/Button2" to="MainMenu/LevelSelector/Levels/Button2/PanelContainer" method="show_panel"]
+[connection signal="mouse_exited" from="MainMenu/LevelSelector/Levels/Button2" to="MainMenu/LevelSelector/Levels/Button2/PanelContainer" method="hide_panel"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button3" to="MainMenu" method="to_skin_selector"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button3" to="MainMenu" method="on_level_select" binds= ["res://scenes/level_3.tscn"]]
+[connection signal="mouse_entered" from="MainMenu/LevelSelector/Levels/Button3" to="MainMenu/LevelSelector/Levels/Button3/PanelContainer" method="show_panel"]
+[connection signal="mouse_exited" from="MainMenu/LevelSelector/Levels/Button3" to="MainMenu/LevelSelector/Levels/Button3/PanelContainer" method="hide_panel"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button4" to="MainMenu" method="to_skin_selector"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button4" to="MainMenu" method="on_level_select" binds= ["res://scenes/main_game.tscn"]]
+[connection signal="mouse_entered" from="MainMenu/LevelSelector/Levels/Button4" to="MainMenu/LevelSelector/Levels/Button4/PanelContainer" method="show_panel"]
+[connection signal="mouse_exited" from="MainMenu/LevelSelector/Levels/Button4" to="MainMenu/LevelSelector/Levels/Button4/PanelContainer" method="hide_panel"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Button" to="MainMenu" method="back_to_main_menu"]
 [connection signal="button_up" from="MainMenu/SkinSelect/HUD/RightArrow" to="MainMenu/SkinSelect" method="on_select_right"]
 [connection signal="button_up" from="MainMenu/SkinSelect/HUD/LeftArrow" to="MainMenu/SkinSelect" method="on_select_left"]

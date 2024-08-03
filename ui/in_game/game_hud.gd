@@ -20,7 +20,6 @@ func _process(_delta: float) -> void:
 func set_connections(game_scene: Node) -> void:
 	pause_pressed.connect(game_scene._on_pause_pressed)
 	countdown_finished.connect(game_scene._on_countdown_finished)
-	ScoreData.coins_updated.connect(_on_coins_updated)
 
 
 func show_menu(_instant := true) -> void:
@@ -44,10 +43,6 @@ func add_prank(score, text) -> void:
 func start_countdown() -> void:
 	countdown.visible = true
 	timer.start()
-
-
-func _on_coins_updated(value: int) -> void:
-	coins_label.text = str(value)
 
 
 func _on_object_achieved() -> void:

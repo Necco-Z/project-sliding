@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://du8ssy1227k34"]
+[gd_scene load_steps=14 format=3 uid="uid://du8ssy1227k34"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_xgpu5"]
 [ext_resource type="Script" path="res://ui/in_game/pause_menu.gd" id="2_hr8f6"]
@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bsverjoat3vcm" path="res://assets/sprites/ui/star_objective_ui_unachieved_big.png" id="6_cohif"]
 [ext_resource type="FontFile" uid="uid://c4xapcx77tcqy" path="res://assets/fonts/Nunito-Regular.ttf" id="7_573r8"]
 [ext_resource type="Texture2D" uid="uid://ct27x2ccpt4bt" path="res://assets/sprites/ui/coin.png" id="8_r2xxn"]
+[ext_resource type="FontFile" uid="uid://dn3mwysklkhc4" path="res://assets/fonts/PoetsenOne-Regular.ttf" id="9_j1sr6"]
 [ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="9_nlv2b"]
-[ext_resource type="Texture2D" uid="uid://qw15v4fm034i" path="res://assets/sprites/ui/play_icon.png" id="10_40mrs"]
 
 [sub_resource type="Theme" id="Theme_jjj5n"]
 Label/colors/font_color = Color(0.247059, 0.505882, 0.0470588, 1)
@@ -18,6 +18,11 @@ Label/colors/font_outline_color = Color(0.854902, 0.964706, 0.968627, 1)
 Label/constants/outline_size = 20
 Label/font_sizes/font_size = 60
 Label/fonts/font = ExtResource("4_jflbp")
+
+[sub_resource type="LabelSettings" id="LabelSettings_marih"]
+font = ExtResource("9_j1sr6")
+font_size = 32
+font_color = Color(0.247059, 0.505882, 0.0470588, 1)
 
 [node name="PauseMenu" instance=ExtResource("1_xgpu5")]
 script = ExtResource("2_hr8f6")
@@ -50,7 +55,7 @@ offset_right = 173.0
 offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 72
+theme_override_constants/separation = 24
 
 [node name="Title" type="Label" parent="MainContainer" index="0"]
 layout_mode = 2
@@ -65,7 +70,34 @@ alignment = 1
 texture_lit = ExtResource("5_3e5r5")
 texture_unlit = ExtResource("6_cohif")
 
-[node name="VBoxContainer" type="BoxContainer" parent="MainContainer" index="2"]
+[node name="Objectives" type="VBoxContainer" parent="MainContainer" index="2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/Objectives" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
+theme_override_fonts/font = ExtResource("7_573r8")
+theme_override_font_sizes/font_size = 32
+text = "Objetivo 1"
+label_settings = SubResource("LabelSettings_marih")
+
+[node name="Label2" type="Label" parent="MainContainer/Objectives" index="1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
+theme_override_fonts/font = ExtResource("7_573r8")
+theme_override_font_sizes/font_size = 32
+text = "Objetivo 1"
+label_settings = SubResource("LabelSettings_marih")
+
+[node name="Label3" type="Label" parent="MainContainer/Objectives" index="2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
+theme_override_fonts/font = ExtResource("7_573r8")
+theme_override_font_sizes/font_size = 32
+text = "Objetivo 1"
+label_settings = SubResource("LabelSettings_marih")
+
+[node name="VBoxContainer" type="BoxContainer" parent="MainContainer" index="3"]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
@@ -82,37 +114,7 @@ theme_override_colors/font_color = Color(0.25098, 0.235294, 0.207843, 1)
 theme_override_font_sizes/font_size = 72
 text = "0"
 
-[node name="Control" type="Control" parent="MainContainer" index="3"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-
-[node name="Objectives" type="VBoxContainer" parent="MainContainer" index="4"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MainContainer/Objectives" index="0"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
-theme_override_fonts/font = ExtResource("7_573r8")
-theme_override_font_sizes/font_size = 32
-text = "Objetivo 1"
-
-[node name="Label2" type="Label" parent="MainContainer/Objectives" index="1"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
-theme_override_fonts/font = ExtResource("7_573r8")
-theme_override_font_sizes/font_size = 32
-text = "Objetivo 1"
-
-[node name="Label3" type="Label" parent="MainContainer/Objectives" index="2"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
-theme_override_fonts/font = ExtResource("7_573r8")
-theme_override_font_sizes/font_size = 32
-text = "Objetivo 1"
-
-[node name="Buttons" type="HBoxContainer" parent="MainContainer" index="5"]
+[node name="Buttons" type="HBoxContainer" parent="MainContainer" index="4"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -133,7 +135,6 @@ theme = ExtResource("9_nlv2b")
 theme_type_variation = &"NormalButtonWhiteBackground"
 theme_override_font_sizes/font_size = 40
 text = "Continuar"
-icon = ExtResource("10_40mrs")
 
 [connection signal="pressed" from="MainContainer/Buttons/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="MainContainer/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
