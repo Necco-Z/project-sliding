@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d15awftd1p8gf"]
+[gd_scene load_steps=40 format=3 uid="uid://d15awftd1p8gf"]
 
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_drgtq"]
 [ext_resource type="Texture2D" uid="uid://b35xdt0wsy8dq" path="res://assets/sprites/ui/main_menu_background_image.png" id="2_pfv4s"]
@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cow632myqngtq" path="res://assets/images/background_menus_without_stripes.png" id="5_e0mrv"]
 [ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="5_v3wop"]
 [ext_resource type="Texture2D" uid="uid://brkkq4dee1ji5" path="res://assets/sprites/ui/menu_background_icons.png" id="6_0sbks"]
-[ext_resource type="FontFile" uid="uid://d0m6vo46ino1b" path="res://assets/fonts/Nunito-Bold.ttf" id="6_1soc7"]
-[ext_resource type="Texture2D" uid="uid://qw15v4fm034i" path="res://assets/sprites/ui/play_icon.png" id="7_gsotp"]
 [ext_resource type="Texture2D" uid="uid://b8tyvoesptjt2" path="res://assets/sprites/ui/seta_icon.png" id="10_aulj0"]
 [ext_resource type="Script" path="res://ui/SkinSelectHUD.gd" id="10_b8ecl"]
 [ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="10_cicrt"]
@@ -18,6 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://b0c0pucevcbsm" path="res://assets/sound/Stream Loops 2024-06-26.ogg" id="12_eyhxm"]
 [ext_resource type="Texture2D" uid="uid://dvwpj5uqi0otx" path="res://assets/images/Ceu.png" id="12_qkhh1"]
 [ext_resource type="PackedScene" uid="uid://bukrlayjuhkod" path="res://scenes/environment/mountain.tscn" id="13_75hrg"]
+[ext_resource type="FontFile" uid="uid://dn3mwysklkhc4" path="res://assets/fonts/PoetsenOne-Regular.ttf" id="13_qcffa"]
+[ext_resource type="Texture2D" uid="uid://dpt2tlqecjxq7" path="res://assets/sprites/ui/level_select_button.png" id="14_dhhe0"]
 [ext_resource type="PackedScene" uid="uid://co70ejiuc8ump" path="res://assets/models/actors/player/skin.tscn" id="14_pp60h"]
 [ext_resource type="PackedScene" uid="uid://drxuji61hap86" path="res://assets/models/actors/player/skin2.tscn" id="16_spxli"]
 [ext_resource type="PackedScene" uid="uid://lpo2f3uwj428" path="res://assets/models/actors/player/skin3.tscn" id="17_73xym"]
@@ -25,6 +25,39 @@
 [ext_resource type="PackedScene" uid="uid://dr0wv6vwx6wik" path="res://assets/models/actors/player/skin5.tscn" id="19_oya36"]
 [ext_resource type="PackedScene" uid="uid://b2upef5hh7q6c" path="res://assets/models/actors/player/skin6.tscn" id="20_t3e3o"]
 [ext_resource type="PackedScene" uid="uid://8edfuynjum10" path="res://assets/models/actors/player/skin7.tscn" id="21_8yss0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kndmm"]
+font = ExtResource("13_qcffa")
+font_size = 56
+font_color = Color(0.784314, 0.494118, 0.054902, 1)
+outline_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_p3eia"]
+font = ExtResource("13_qcffa")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_djbtx"]
+font = ExtResource("10_cicrt")
+font_size = 72
+font_color = Color(0.247059, 0.505882, 0.0470588, 1)
+outline_size = 20
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p3use"]
+sky_top_color = Color(0.478431, 0.552941, 0.65098, 1)
+sky_cover = ExtResource("12_qkhh1")
+ground_bottom_color = Color(0.854902, 0.964706, 0.968627, 1)
+ground_horizon_color = Color(0.854902, 0.964706, 0.968627, 1)
+
+[sub_resource type="Sky" id="Sky_ta835"]
+sky_material = SubResource("ProceduralSkyMaterial_p3use")
+
+[sub_resource type="Environment" id="Environment_4vn8b"]
+background_mode = 2
+background_color = Color(0, 0.372549, 0.45098, 1)
+background_canvas_max_layer = 1
+sky = SubResource("Sky_ta835")
+sky_custom_fov = 90.0
+volumetric_fog_density = 0.02
 
 [sub_resource type="LabelSettings" id="LabelSettings_4l6g3"]
 font_size = 28
@@ -34,7 +67,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuBG/MainControls/StartButton:scale")
+tracks/0/path = NodePath("MainControls/BoxContainer3/StartButton:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -46,7 +79,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MenuBG/MainControls/BoxContainer3:scale")
+tracks/1/path = NodePath("MainControls/BoxContainer3:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -58,7 +91,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GameLogo:scale")
+tracks/2/path = NodePath("MainControls/GameLogo:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -70,7 +103,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MenuBG/Credits/BackToMain:scale")
+tracks/3/path = NodePath("Credits/BackToMain:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -82,7 +115,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MenuBG/Credits/VBoxContainer:scale")
+tracks/4/path = NodePath("Credits/VBoxContainer:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -94,7 +127,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("MenuBG/Credits/CreditsTitle:scale")
+tracks/5/path = NodePath("Credits/CreditsTitle:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -134,7 +167,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuBG/Credits/BackToMain:scale")
+tracks/0/path = NodePath("Credits/BackToMain:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -146,7 +179,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MenuBG/Credits/VBoxContainer:scale")
+tracks/1/path = NodePath("Credits/VBoxContainer:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -158,7 +191,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MenuBG/Credits/CreditsTitle:scale")
+tracks/2/path = NodePath("Credits/CreditsTitle:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -174,7 +207,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GameLogo:scale")
+tracks/0/path = NodePath("MainControls/GameLogo:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -186,7 +219,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MenuBG/MainControls/StartButton:scale")
+tracks/1/path = NodePath("MainControls/BoxContainer3/StartButton:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -198,7 +231,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MenuBG/MainControls/BoxContainer3:scale")
+tracks/2/path = NodePath("MainControls/BoxContainer3:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -242,7 +275,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuBG/Credits/BackToMain:scale")
+tracks/0/path = NodePath("Credits/BackToMain:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -254,7 +287,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MenuBG/Credits/VBoxContainer:scale")
+tracks/1/path = NodePath("Credits/VBoxContainer:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -266,7 +299,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MenuBG/Credits/CreditsTitle:scale")
+tracks/2/path = NodePath("Credits/CreditsTitle:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -282,7 +315,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuBG/MainControls/StartButton:scale")
+tracks/0/path = NodePath("MainControls/BoxContainer3/StartButton:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -294,7 +327,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MenuBG/MainControls/BoxContainer3:scale")
+tracks/1/path = NodePath("MainControls/BoxContainer3:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -306,7 +339,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GameLogo:scale")
+tracks/2/path = NodePath("MainControls/GameLogo:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -326,37 +359,14 @@ _data = {
 "show_main_menu": SubResource("Animation_ah86m")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_djbtx"]
-font = ExtResource("10_cicrt")
-font_size = 72
-font_color = Color(0.247059, 0.505882, 0.0470588, 1)
-outline_size = 20
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p3use"]
-sky_top_color = Color(0.478431, 0.552941, 0.65098, 1)
-sky_cover = ExtResource("12_qkhh1")
-ground_bottom_color = Color(0.854902, 0.964706, 0.968627, 1)
-ground_horizon_color = Color(0.854902, 0.964706, 0.968627, 1)
-
-[sub_resource type="Sky" id="Sky_ta835"]
-sky_material = SubResource("ProceduralSkyMaterial_p3use")
-
-[sub_resource type="Environment" id="Environment_4vn8b"]
-background_mode = 2
-background_color = Color(0, 0.372549, 0.45098, 1)
-background_canvas_max_layer = 1
-sky = SubResource("Sky_ta835")
-sky_custom_fov = 90.0
-volumetric_fog_density = 0.02
-
 [node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="BG" type="TextureRect" parent="." groups=["MainMenu"]]
+[node name="BG" type="TextureRect" parent="." groups=["BG"]]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_pfv4s")
 
-[node name="MainMenu" type="Control" parent="." groups=["MainMenu"]]
+[node name="MainMenu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -382,66 +392,66 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("3_tvxq0")
 
-[node name="MainControls" type="Control" parent="MainMenu/MenuBG"]
+[node name="MainControls" type="Control" parent="MainMenu"]
 anchors_preset = 0
-offset_right = 40.0
+offset_left = 1011.0
+offset_right = 1051.0
 offset_bottom = 40.0
 
-[node name="StartButton" type="Button" parent="MainMenu/MenuBG/MainControls" groups=["buttons"]]
-unique_name_in_owner = true
+[node name="GameLogo" type="TextureRect" parent="MainMenu/MainControls"]
 layout_mode = 2
-offset_left = 503.0
-offset_top = 558.0
-offset_right = 746.0
-offset_bottom = 678.0
-scale = Vector2(0.1, 0.1)
-pivot_offset = Vector2(121, 60)
-size_flags_vertical = 4
-theme = ExtResource("5_v3wop")
-theme_override_fonts/font = ExtResource("6_1soc7")
-theme_override_font_sizes/font_size = 64
-text = "Jogar"
-icon = ExtResource("7_gsotp")
+offset_left = 433.94
+offset_top = 101.0
+offset_right = 815.94
+offset_bottom = 514.0
+pivot_offset = Vector2(191, 206)
+texture = ExtResource("4_ht387")
 
-[node name="BoxContainer3" type="BoxContainer" parent="MainMenu/MenuBG/MainControls"]
+[node name="BoxContainer3" type="BoxContainer" parent="MainMenu/MainControls"]
 layout_mode = 2
 offset_left = 524.0
-offset_top = 702.0
-offset_right = 725.0
-offset_bottom = 894.0
+offset_top = 611.0
+offset_right = 731.0
+offset_bottom = 883.0
 pivot_offset = Vector2(100, 96)
 size_flags_horizontal = 4
 theme_override_constants/separation = 16
 vertical = true
 
-[node name="CreditsButton" type="Button" parent="MainMenu/MenuBG/MainControls/BoxContainer3" groups=["buttons"]]
+[node name="StartButton" type="Button" parent="MainMenu/MainControls/BoxContainer3" groups=["buttons"]]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("5_v3wop")
-theme_type_variation = &"RedButton"
-text = "Créditos"
+text = "Jogar"
 
-[node name="ExitButton" type="Button" parent="MainMenu/MenuBG/MainControls/BoxContainer3" groups=["buttons"]]
+[node name="CreditsButton" type="Button" parent="MainMenu/MainControls/BoxContainer3" groups=["buttons"]]
 layout_mode = 2
 size_flags_vertical = 4
+theme = ExtResource("5_v3wop")
+text = "Créditos"
+
+[node name="ExitButton" type="Button" parent="MainMenu/MainControls/BoxContainer3" groups=["buttons"]]
+layout_mode = 2
 theme = ExtResource("5_v3wop")
 theme_type_variation = &"RedButton"
 text = "Sair"
 
-[node name="Credits" type="Control" parent="MainMenu/MenuBG"]
+[node name="Credits" type="Control" parent="MainMenu"]
 visible = false
 layout_mode = 1
 anchor_left = 0.689
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -285.0
+offset_left = 29.421
 offset_top = -111.5
+offset_right = 314.421
 offset_bottom = 111.5
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="CreditsTitle" type="Label" parent="MainMenu/MenuBG/Credits"]
+[node name="CreditsTitle" type="Label" parent="MainMenu/Credits"]
 layout_mode = 2
 offset_right = 567.0
 offset_bottom = 49.0
@@ -451,7 +461,7 @@ theme_type_variation = &"Title"
 text = "Equipe"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MenuBG/Credits"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Credits"]
 layout_mode = 2
 offset_top = 73.0
 offset_right = 567.0
@@ -460,52 +470,344 @@ scale = Vector2(0.1, 0.1)
 pivot_offset = Vector2(283, 86)
 theme_override_constants/separation = 12
 
-[node name="Member" type="Label" parent="MainMenu/MenuBG/Credits/VBoxContainer"]
+[node name="Member" type="Label" parent="MainMenu/Credits/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_v3wop")
 theme_type_variation = &"member"
 text = "Erick Gomes - UI/UX Designer"
 horizontal_alignment = 1
 
-[node name="Member4" type="Label" parent="MainMenu/MenuBG/Credits/VBoxContainer"]
+[node name="Member4" type="Label" parent="MainMenu/Credits/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_v3wop")
 theme_type_variation = &"member"
 text = "Eudo Araujo - Programador"
 horizontal_alignment = 1
 
-[node name="Member2" type="Label" parent="MainMenu/MenuBG/Credits/VBoxContainer"]
+[node name="Member2" type="Label" parent="MainMenu/Credits/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_v3wop")
 theme_type_variation = &"member"
 text = "Gabriel Nascimento - Game Designer"
 horizontal_alignment = 1
 
-[node name="Member3" type="Label" parent="MainMenu/MenuBG/Credits/VBoxContainer"]
+[node name="Member3" type="Label" parent="MainMenu/Credits/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_v3wop")
 theme_type_variation = &"member"
 text = "João Melo - Artista 3d"
 horizontal_alignment = 1
 
-[node name="BackToMain" type="Button" parent="MainMenu/MenuBG/Credits" groups=["buttons"]]
+[node name="BackToMain" type="Button" parent="MainMenu/Credits" groups=["buttons"]]
 layout_mode = 2
 offset_left = 203.0
 offset_top = 269.0
-offset_right = 363.0
-offset_bottom = 357.0
+offset_right = 369.0
+offset_bottom = 341.0
 pivot_offset = Vector2(80, 44)
 size_flags_horizontal = 4
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"RedButton"
 text = "Voltar"
 
-[node name="GameLogo" type="TextureRect" parent="MainMenu"]
+[node name="LevelSelector" type="Control" parent="MainMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainMenu/LevelSelector"]
 layout_mode = 2
-offset_left = 1444.94
-offset_top = 101.0
-offset_right = 1826.94
-offset_bottom = 514.0
-pivot_offset = Vector2(191, 206)
-texture = ExtResource("4_ht387")
+offset_left = 1373.0
+offset_top = 218.0
+offset_right = 1860.0
+offset_bottom = 286.0
+text = "Selecione um nível"
+label_settings = SubResource("LabelSettings_kndmm")
+
+[node name="Levels" type="VBoxContainer" parent="MainMenu/LevelSelector"]
+layout_mode = 2
+offset_left = 1571.0
+offset_top = 334.0
+offset_right = 1661.0
+offset_bottom = 742.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Button" type="TextureButton" parent="MainMenu/LevelSelector/Levels" groups=["buttons"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"level_select"
+texture_normal = ExtResource("14_dhhe0")
+
+[node name="Label" type="Label" parent="MainMenu/LevelSelector/Levels/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_p3eia")
+horizontal_alignment = 1
+
+[node name="Button2" type="TextureButton" parent="MainMenu/LevelSelector/Levels" groups=["buttons"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"level_select"
+texture_normal = ExtResource("14_dhhe0")
+
+[node name="Label" type="Label" parent="MainMenu/LevelSelector/Levels/Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+label_settings = SubResource("LabelSettings_p3eia")
+horizontal_alignment = 1
+
+[node name="Button3" type="TextureButton" parent="MainMenu/LevelSelector/Levels" groups=["buttons"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"level_select"
+texture_normal = ExtResource("14_dhhe0")
+
+[node name="Label" type="Label" parent="MainMenu/LevelSelector/Levels/Button3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+label_settings = SubResource("LabelSettings_p3eia")
+horizontal_alignment = 1
+
+[node name="Button4" type="TextureButton" parent="MainMenu/LevelSelector/Levels" groups=["buttons"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"level_select"
+texture_normal = ExtResource("14_dhhe0")
+
+[node name="Label" type="Label" parent="MainMenu/LevelSelector/Levels/Button4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "4"
+label_settings = SubResource("LabelSettings_p3eia")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MainMenu/LevelSelector" groups=["buttons"]]
+layout_mode = 2
+offset_left = 1533.0
+offset_top = 790.0
+offset_right = 1699.0
+offset_bottom = 862.0
+size_flags_horizontal = 4
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"RedButton"
+text = "Voltar"
+
+[node name="SkinSelect" type="Node" parent="MainMenu"]
+script = ExtResource("10_b8ecl")
+
+[node name="HUD" type="Control" parent="MainMenu/SkinSelect"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainMenu/SkinSelect/HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -421.5
+offset_top = 80.0
+offset_right = 421.5
+offset_bottom = 153.0
+grow_horizontal = 2
+text = "Qual roupa deseja usar"
+label_settings = SubResource("LabelSettings_djbtx")
+
+[node name="RightArrow" type="TextureButton" parent="MainMenu/SkinSelect/HUD" groups=["buttons"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -47.0
+offset_right = -64.0
+offset_bottom = 47.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(60, 60)
+texture_normal = ExtResource("10_aulj0")
+
+[node name="LeftArrow" type="TextureButton" parent="MainMenu/SkinSelect/HUD" groups=["buttons"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -47.0
+offset_right = 148.0
+offset_bottom = 47.0
+grow_vertical = 2
+pivot_offset = Vector2(60, 60)
+texture_normal = ExtResource("10_aulj0")
+flip_h = true
+
+[node name="StartButton" type="Button" parent="MainMenu/SkinSelect/HUD" groups=["buttons"]]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.5
+offset_top = -152.0
+offset_right = 130.5
+offset_bottom = -71.9993
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_v3wop")
+text = "Iniciar jogo"
+
+[node name="BackToMenu" type="Button" parent="MainMenu/SkinSelect/HUD" groups=["buttons"]]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 59.0
+offset_right = 226.0
+offset_bottom = 131.0
+theme = ExtResource("5_v3wop")
+theme_type_variation = &"RedButton"
+text = "Voltar"
+
+[node name="World" type="Node3D" parent="MainMenu/SkinSelect"]
+
+[node name="Stage" type="Node3D" parent="MainMenu/SkinSelect/World"]
+
+[node name="pre_stage" type="Node3D" parent="MainMenu/SkinSelect/World/Stage"]
+
+[node name="BaseFloor2" parent="MainMenu/SkinSelect/World/Stage/pre_stage" instance=ExtResource("11_wbrgm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 0, 0)
+
+[node name="pre_stage3" type="Node3D" parent="MainMenu/SkinSelect/World/Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+
+[node name="BaseFloor2" parent="MainMenu/SkinSelect/World/Stage/pre_stage3" instance=ExtResource("11_wbrgm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 0, 0)
+
+[node name="pre_stage5" type="Node3D" parent="MainMenu/SkinSelect/World/Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+
+[node name="BaseFloor2" parent="MainMenu/SkinSelect/World/Stage/pre_stage5" instance=ExtResource("11_wbrgm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 0, 0)
+
+[node name="pre_stage2" type="Node3D" parent="MainMenu/SkinSelect/World/Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+
+[node name="BaseFloor2" parent="MainMenu/SkinSelect/World/Stage/pre_stage2" instance=ExtResource("11_wbrgm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 0, 0)
+
+[node name="pre_stage4" type="Node3D" parent="MainMenu/SkinSelect/World/Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
+
+[node name="BaseFloor2" parent="MainMenu/SkinSelect/World/Stage/pre_stage4" instance=ExtResource("11_wbrgm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 0, 0)
+
+[node name="Mountain22" parent="MainMenu/SkinSelect/World/Stage" instance=ExtResource("13_75hrg")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 94.382, -0.665, -35.6225)
+
+[node name="Mountain23" parent="MainMenu/SkinSelect/World/Stage" instance=ExtResource("13_75hrg")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 164.873, -0.665, 0.164539)
+
+[node name="Mountain24" parent="MainMenu/SkinSelect/World/Stage" instance=ExtResource("13_75hrg")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 129.655, -0.665, 73.3957)
+
+[node name="Mountain25" parent="MainMenu/SkinSelect/World/Stage" instance=ExtResource("13_75hrg")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 208.011, -0.665, 57.7555)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainMenu/SkinSelect/World/Stage"]
+transform = Transform3D(-0.801473, 0.224007, -0.554493, -3.27463e-08, 0.927197, 0.374574, 0.598031, 0.300211, -0.743123, 0, 20.3383, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="MainMenu/SkinSelect/World/Stage"]
+environment = SubResource("Environment_4vn8b")
+
+[node name="Camera3D" type="Camera3D" parent="MainMenu/SkinSelect/World"]
+transform = Transform3D(-2.92114e-08, 0.198153, -0.980171, 5.90543e-09, 0.980171, 0.198153, 1, 0, -2.98023e-08, 20.339, 2.96, -1.838)
+
+[node name="Skins" type="Node3D" parent="MainMenu/SkinSelect/World"]
+
+[node name="skin" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("14_pp60h")]
+transform = Transform3D(-0.680299, 0, -0.732935, 0, 1, 0, 0.732935, 0, -0.680299, 25.538, 0, -1.826)
+
+[node name="skin2" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("16_spxli")]
+transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 3.92326)
+
+[node name="skin3" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("17_73xym")]
+transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 9.673)
+
+[node name="skin4" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("18_cdr84")]
+transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 15.423)
+
+[node name="skin5" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("19_oya36")]
+transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 21.173)
+
+[node name="skin6" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("20_t3e3o")]
+transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 26.923)
+
+[node name="skin7" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("21_8yss0")]
+transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 32.673)
 
 [node name="LoadingScreen" type="TextureRect" parent="MainMenu"]
 visible = false
@@ -563,206 +865,25 @@ stream = ExtResource("12_eyhxm")
 volume_db = -24.0
 autoplay = true
 
-[node name="LevelSelector" type="Control" parent="." groups=["LevelSelector"]]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="LevelSelector" groups=["buttons"]]
-layout_mode = 0
-offset_left = 714.0
-offset_top = 464.0
-offset_right = 786.0
-offset_bottom = 552.0
-text = "1"
-
-[node name="Button2" type="Button" parent="LevelSelector" groups=["buttons"]]
-layout_mode = 0
-offset_left = 948.0
-offset_top = 448.0
-offset_right = 1020.0
-offset_bottom = 536.0
-text = "2"
-
-[node name="Button3" type="Button" parent="LevelSelector" groups=["buttons"]]
-layout_mode = 0
-offset_left = 1206.0
-offset_top = 474.0
-offset_right = 1278.0
-offset_bottom = 562.0
-text = "3"
-
-[node name="Button4" type="Button" parent="LevelSelector" groups=["buttons"]]
-layout_mode = 0
-offset_left = 1426.0
-offset_top = 420.0
-offset_right = 1498.0
-offset_bottom = 508.0
-text = "4"
-
-[node name="SkinSelectHUD" type="Node" parent="."]
-script = ExtResource("10_b8ecl")
-
-[node name="Levels" type="Control" parent="SkinSelectHUD" groups=["SkinSelectorMenu"]]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="SkinSelectHUD/Levels"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -421.5
-offset_top = 80.0
-offset_right = 421.5
-offset_bottom = 153.0
-grow_horizontal = 2
-text = "Qual roupa deseja usar"
-label_settings = SubResource("LabelSettings_djbtx")
-
-[node name="RightArrow" type="TextureButton" parent="SkinSelectHUD/Levels" groups=["buttons"]]
-layout_mode = 0
-offset_left = 1687.0
-offset_top = 496.0
-offset_right = 1807.0
-offset_bottom = 616.0
-pivot_offset = Vector2(60, 60)
-texture_normal = ExtResource("10_aulj0")
-
-[node name="LeftArrow" type="TextureButton" parent="SkinSelectHUD/Levels" groups=["buttons"]]
-visible = false
-layout_mode = 0
-offset_left = 85.0
-offset_top = 494.0
-offset_right = 205.0
-offset_bottom = 614.0
-rotation = 3.14159
-pivot_offset = Vector2(60, 60)
-texture_normal = ExtResource("10_aulj0")
-
-[node name="StartButton" type="Button" parent="SkinSelectHUD/Levels" groups=["buttons"]]
-layout_mode = 0
-offset_left = 912.0
-offset_top = 866.0
-offset_right = 1057.0
-offset_bottom = 954.0
-text = "Jogar"
-
-[node name="BackToMenu" type="Button" parent="SkinSelectHUD/Levels" groups=["buttons"]]
-layout_mode = 0
-offset_left = 60.0
-offset_top = 59.0
-offset_right = 220.0
-offset_bottom = 147.0
-theme = ExtResource("5_v3wop")
-theme_type_variation = &"RedButton"
-text = "Voltar"
-
-[node name="World" type="Node3D" parent="SkinSelectHUD" groups=["SkinSelectorMenu"]]
-
-[node name="Stage" type="Node3D" parent="SkinSelectHUD/World"]
-
-[node name="pre_stage" type="Node3D" parent="SkinSelectHUD/World/Stage"]
-
-[node name="BaseFloor2" parent="SkinSelectHUD/World/Stage/pre_stage" instance=ExtResource("11_wbrgm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 0, 0)
-
-[node name="pre_stage3" type="Node3D" parent="SkinSelectHUD/World/Stage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
-
-[node name="BaseFloor2" parent="SkinSelectHUD/World/Stage/pre_stage3" instance=ExtResource("11_wbrgm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 0, 0)
-
-[node name="pre_stage5" type="Node3D" parent="SkinSelectHUD/World/Stage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
-
-[node name="BaseFloor2" parent="SkinSelectHUD/World/Stage/pre_stage5" instance=ExtResource("11_wbrgm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 0, 0)
-
-[node name="pre_stage2" type="Node3D" parent="SkinSelectHUD/World/Stage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
-
-[node name="BaseFloor2" parent="SkinSelectHUD/World/Stage/pre_stage2" instance=ExtResource("11_wbrgm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 0, 0)
-
-[node name="pre_stage4" type="Node3D" parent="SkinSelectHUD/World/Stage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
-
-[node name="BaseFloor2" parent="SkinSelectHUD/World/Stage/pre_stage4" instance=ExtResource("11_wbrgm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25, 0, 0)
-
-[node name="Mountain22" parent="SkinSelectHUD/World/Stage" instance=ExtResource("13_75hrg")]
-transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 94.382, -0.665, -35.6225)
-
-[node name="Mountain23" parent="SkinSelectHUD/World/Stage" instance=ExtResource("13_75hrg")]
-transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 164.873, -0.665, 0.164539)
-
-[node name="Mountain24" parent="SkinSelectHUD/World/Stage" instance=ExtResource("13_75hrg")]
-transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 129.655, -0.665, 73.3957)
-
-[node name="Mountain25" parent="SkinSelectHUD/World/Stage" instance=ExtResource("13_75hrg")]
-transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 208.011, -0.665, 57.7555)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SkinSelectHUD/World/Stage"]
-transform = Transform3D(-0.801473, 0.224007, -0.554493, -3.27463e-08, 0.927197, 0.374574, 0.598031, 0.300211, -0.743123, 0, 20.3383, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="SkinSelectHUD/World/Stage"]
-environment = SubResource("Environment_4vn8b")
-
-[node name="Camera3D" type="Camera3D" parent="SkinSelectHUD/World"]
-transform = Transform3D(-2.92114e-08, 0.198153, -0.980171, 5.90543e-09, 0.980171, 0.198153, 1, 0, -2.98023e-08, 20.339, 2.96, -1.838)
-
-[node name="Skins" type="Node3D" parent="SkinSelectHUD/World"]
-
-[node name="skin" parent="SkinSelectHUD/World/Skins" groups=["skins"] instance=ExtResource("14_pp60h")]
-transform = Transform3D(-0.680299, 0, -0.732935, 0, 1, 0, 0.732935, 0, -0.680299, 25.538, 0, -1.826)
-
-[node name="skin2" parent="SkinSelectHUD/World/Skins" groups=["skins"] instance=ExtResource("16_spxli")]
-transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 3.92326)
-
-[node name="skin3" parent="SkinSelectHUD/World/Skins" groups=["skins"] instance=ExtResource("17_73xym")]
-transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 9.673)
-
-[node name="skin4" parent="SkinSelectHUD/World/Skins" groups=["skins"] instance=ExtResource("18_cdr84")]
-transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 15.423)
-
-[node name="skin5" parent="SkinSelectHUD/World/Skins" groups=["skins"] instance=ExtResource("19_oya36")]
-transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 21.173)
-
-[node name="skin6" parent="SkinSelectHUD/World/Skins" groups=["skins"] instance=ExtResource("20_t3e3o")]
-transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 26.923)
-
-[node name="skin7" parent="SkinSelectHUD/World/Skins" groups=["skins"] instance=ExtResource("21_8yss0")]
-transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 32.673)
-
-[connection signal="button_up" from="MainMenu/MenuBG/MainControls/StartButton" to="MainMenu" method="to_level_selector"]
-[connection signal="button_up" from="MainMenu/MenuBG/MainControls/StartButton" to="SkinSelectHUD" method="show_menu"]
-[connection signal="button_up" from="MainMenu/MenuBG/MainControls/BoxContainer3/CreditsButton" to="MainMenu" method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MainMenu/MenuBG/MainControls/BoxContainer3/ExitButton" to="MainMenu" method="_on_exit_button_pressed"]
-[connection signal="button_up" from="MainMenu/MenuBG/Credits/BackToMain" to="MainMenu" method="_on_back_to_main_button_pressed"]
+[connection signal="button_up" from="MainMenu/MainControls/BoxContainer3/StartButton" to="MainMenu" method="to_level_selector"]
+[connection signal="button_up" from="MainMenu/MainControls/BoxContainer3/StartButton" to="MainMenu/SkinSelect" method="show_menu"]
+[connection signal="button_up" from="MainMenu/MainControls/BoxContainer3/CreditsButton" to="MainMenu" method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainMenu/MainControls/BoxContainer3/ExitButton" to="MainMenu" method="_on_exit_button_pressed"]
+[connection signal="button_up" from="MainMenu/Credits/BackToMain" to="MainMenu" method="_on_back_to_main_button_pressed"]
+[connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button" to="MainMenu" method="to_skin_selector"]
+[connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button" to="MainMenu" method="on_level_select" binds= ["res://scenes/tutorial_level.tscn"]]
+[connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button2" to="MainMenu" method="to_skin_selector"]
+[connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button2" to="MainMenu" method="on_level_select" binds= ["res://scenes/level_2.tscn"]]
+[connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button3" to="MainMenu" method="to_skin_selector"]
+[connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button3" to="MainMenu" method="on_level_select" binds= ["res://scenes/level_3.tscn"]]
+[connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button4" to="MainMenu" method="to_skin_selector"]
+[connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button4" to="MainMenu" method="on_level_select" binds= ["res://scenes/main_game.tscn"]]
+[connection signal="button_up" from="MainMenu/LevelSelector/Button" to="MainMenu" method="back_to_main_menu"]
+[connection signal="button_up" from="MainMenu/SkinSelect/HUD/RightArrow" to="MainMenu/SkinSelect" method="on_select_right"]
+[connection signal="button_up" from="MainMenu/SkinSelect/HUD/LeftArrow" to="MainMenu/SkinSelect" method="on_select_left"]
+[connection signal="button_up" from="MainMenu/SkinSelect/HUD/StartButton" to="MainMenu" method="_on_start_button_pressed"]
+[connection signal="button_up" from="MainMenu/SkinSelect/HUD/StartButton" to="MainMenu/SkinSelect" method="select_skin"]
+[connection signal="button_up" from="MainMenu/SkinSelect/HUD/BackToMenu" to="MainMenu" method="back_from_skin_selector"]
+[connection signal="button_up" from="MainMenu/SkinSelect/HUD/BackToMenu" to="MainMenu/SkinSelect" method="reset_skin"]
 [connection signal="animation_finished" from="MainMenu/AnimationPlayer" to="MainMenu" method="_on_menu_animation_finished"]
 [connection signal="finished" from="MainMenu/MainMusic" to="MainMenu" method="_on_main_music_finished"]
-[connection signal="button_up" from="LevelSelector/Button" to="MainMenu" method="to_skin_selector"]
-[connection signal="button_up" from="LevelSelector/Button" to="MainMenu" method="on_level_select" binds= ["res://scenes/tutorial_level.tscn"]]
-[connection signal="button_up" from="LevelSelector/Button2" to="MainMenu" method="to_skin_selector"]
-[connection signal="button_up" from="LevelSelector/Button2" to="MainMenu" method="on_level_select" binds= ["res://scenes/level_2.tscn"]]
-[connection signal="button_up" from="LevelSelector/Button3" to="MainMenu" method="to_skin_selector"]
-[connection signal="button_up" from="LevelSelector/Button3" to="MainMenu" method="on_level_select" binds= ["res://scenes/level_3.tscn"]]
-[connection signal="button_up" from="LevelSelector/Button4" to="MainMenu" method="to_skin_selector"]
-[connection signal="button_up" from="LevelSelector/Button4" to="MainMenu" method="on_level_select" binds= ["res://scenes/main_game.tscn"]]
-[connection signal="button_up" from="SkinSelectHUD/Levels/RightArrow" to="SkinSelectHUD" method="on_select_right"]
-[connection signal="button_up" from="SkinSelectHUD/Levels/LeftArrow" to="SkinSelectHUD" method="on_select_left"]
-[connection signal="button_up" from="SkinSelectHUD/Levels/StartButton" to="MainMenu" method="_on_start_button_pressed"]
-[connection signal="button_up" from="SkinSelectHUD/Levels/StartButton" to="SkinSelectHUD" method="select_skin"]
-[connection signal="button_up" from="SkinSelectHUD/Levels/BackToMenu" to="MainMenu" method="to_main_menu"]
-[connection signal="button_up" from="SkinSelectHUD/Levels/BackToMenu" to="SkinSelectHUD" method="reset_skin"]

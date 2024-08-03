@@ -2,7 +2,7 @@ extends Node
 
 
 @onready var camera = $World/Camera3D
-@onready var select_buttons = [$Levels/RightArrow, $Levels/LeftArrow]
+@onready var select_buttons = [$HUD/RightArrow, $HUD/LeftArrow]
 @onready var skins = get_tree().get_nodes_in_group("skins")
 
 var skin_num: int = 0

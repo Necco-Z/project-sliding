@@ -1,24 +1,18 @@
 extends Control
 
-#@export_file("*.tscn") 
-var game_scene_path
-
 @export var anim_speed := 5.0
 @export var tween_intensity: float
 @export var tween_duration: float
 
-var anim_time := 0.4
-
 @onready var bg_up := $LoadingScreen/BgUp as Sprite2D
 @onready var bg_down := $LoadingScreen/BgDown as Sprite2D
 @onready var load_screen := $LoadingScreen as TextureRect
-@onready var logo := $GameLogo
-@onready var main_controls := $MenuBG/MainControls
-@onready var credits := $MenuBG/Credits
+@onready var logo := $MainControls/GameLogo
+@onready var main_controls := $MainControls
+@onready var credits := $Credits
+@onready var level_selector = $LevelSelector
+@onready var skin_selector = $SkinSelect/HUD
 @onready var menu_anim_player = $AnimationPlayer
-@onready var main_buttons = [$MenuBG/MainControls/StartButton, 
-		$MenuBG/MainControls/BoxContainer3/CreditsButton, 
-		$MenuBG/MainControls/BoxContainer3/ExitButton]
 @onready var all_buttons = get_tree().get_nodes_in_group("buttons")
 @onready var audio_stream_hover_button = get_node("HoverSound")
 @onready var audio_stream_pressed_button = get_node("PressedSound")
@@ -26,6 +20,8 @@ var anim_time := 0.4
 var focused: bool = false
 var in_transition: bool = true
 var actual_screen = 0
+var game_scene_path
+var anim_time := 0.4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,6 +33,18 @@ func _ready() -> void:
 	if Input.get_connected_joypads().size() > 0:
 		%StartButton.grab_focus()
 		focused = true
+	
+	var animation_props = []
+	for i in level_selector.get_children():
+		animation_props.append(i)
+	for i in credits.get_children():
+		animation_props.append(i)
+	for i in main_controls.get_children():
+		animation_props.append(i)
+	
+	for i in animation_props:
+		i.set_scale(Vector2.ZERO)
+		i.set_pivot_offset(i.get_size()/2)
 	
 	for button in all_buttons: #button hover animation
 		button.pivot_offset = button.size / 2 
@@ -56,7 +64,7 @@ func _physics_process(_delta):
 func _input(event):
 	if event is InputEventMouseMotion:
 		if main_controls.is_visible():
-			for i in main_buttons:
+			for i in main_controls.get_child(1).get_children():
 				i.release_focus()
 		else:
 			credits.get_child(2).release_focus()
@@ -69,18 +77,34 @@ func _input(event):
 		focused = true
 	elif Input.get_connected_joypads().size() == 0 and focused:
 		release_focus()
-		for i in main_buttons:
+		for i in main_controls.get_child(1).get_children():
 			i.release_focus()
 		focused = false
 
 
 func to_skin_selector():
 	await Fader.fade_out()
-	for menu in get_tree().get_nodes_in_group("SkinSelectorMenu"):
-		menu.set_visible(true)
-	for menu in get_tree().get_nodes_in_group("LevelSelector"):
-		menu.set_visible(false)
+	skin_selector.set_visible(true)
+	level_selector.set_visible(false)
+	$MenuBG.set_visible(false)
+	get_tree().get_nodes_in_group("BG")[0].set_visible(false)
 	await Fader.fade_in()
+	
+	
+func back_from_skin_selector():
+	await Fader.fade_out()
+	skin_selector.set_visible(false)
+	level_selector.set_visible(true)
+	for i in level_selector.get_children():
+		i.set_scale(Vector2.ZERO)
+	$MenuBG.set_visible(true)
+	get_tree().get_nodes_in_group("BG")[0].set_visible(true)
+	await Fader.fade_in()
+	
+	var tween = create_tween()
+	for i in level_selector.get_children():
+		tween.tween_property(i, "scale", Vector2.ONE, 0.2)
+	await tween.finished
 
 
 func _on_start_button_pressed() -> void:
@@ -129,13 +153,17 @@ func _on_exit_button_pressed() -> void:
 	get_tree().quit()
 
 
-func to_main_menu():
-	await Fader.fade_out()
-	for menu in get_tree().get_nodes_in_group("MainMenu"):
-		menu.set_visible(true)
-	for menu in get_tree().get_nodes_in_group("SkinSelectorMenu"):
-		menu.set_visible(false)
-	await Fader.fade_in()
+func back_to_main_menu():
+	actual_screen = 0
+	var tween = create_tween()
+	
+	for i in level_selector.get_children():
+		tween.tween_property(i, "scale", Vector2.ZERO, .2)
+	
+	await tween.finished
+	level_selector.set_visible(false)
+	main_controls.set_visible(true)
+	menu_anim_player.play("show_main_menu")
 
 
 func get_load_message(value: int) -> String:
@@ -166,7 +194,7 @@ func _on_menu_animation_finished(anim_name):
 	if anim_name == "hide_credit":
 		hide_credits()
 		menu_anim_player.play("show_main_menu")
-	elif anim_name == "hide_main_menu":
+	elif anim_name == "hide_main_menu" and actual_screen == 0:
 		hide_main_menu()
 		menu_anim_player.play("show_credits")
 	elif anim_name == "open_game":
@@ -201,8 +229,14 @@ func on_level_select(path:String):
 
 
 func to_level_selector():
-	for menu in get_tree().get_nodes_in_group("MainMenu"):
-		menu.set_visible(false)
-	for menu in get_tree().get_nodes_in_group("LevelSelector"):
-		menu.set_visible(true)
+	actual_screen = 1
+	menu_anim_player.play("hide_main_menu")
+	await menu_anim_player.animation_finished
+	
+	var tween = create_tween()
+	main_controls.set_visible(false)
+	level_selector.set_visible(true)
+	for i in level_selector.get_children():
+		tween.tween_property(i, "scale", Vector2.ONE, 0.2)
+	await tween.finished
 
