@@ -1,0 +1,238 @@
+[gd_scene load_steps=24 format=3 uid="uid://dvjvpdafxerwn"]
+
+[ext_resource type="PackedScene" uid="uid://b14r5butfkten" path="res://actors/player.tscn" id="1_1ts6d"]
+[ext_resource type="Script" path="res://scenes/Levels/level 4/main_game.gd" id="1_hws7p"]
+[ext_resource type="PackedScene" uid="uid://c5vvemd16gdrr" path="res://actors/prankables/bush.tscn" id="2_olpo4"]
+[ext_resource type="Script" path="res://scripts/classes/replace_item.gd" id="3_75aig"]
+[ext_resource type="PackedScene" uid="uid://04yon5gtykvt" path="res://actors/coin_group.tscn" id="4_mdolu"]
+[ext_resource type="PackedScene" uid="uid://c3bxng6l2algc" path="res://actors/game_camera.tscn" id="5_7nf5h"]
+[ext_resource type="PackedScene" uid="uid://butqhus35eiis" path="res://actors/prankables/log.tscn" id="5_60301"]
+[ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="6_mgdkl"]
+[ext_resource type="PackedScene" uid="uid://dv3vofb0st6jy" path="res://actors/prankables/snow_bump.tscn" id="6_ynaxp"]
+[ext_resource type="Texture2D" uid="uid://dvwpj5uqi0otx" path="res://assets/images/Ceu.png" id="8_78b7s"]
+[ext_resource type="PackedScene" uid="uid://csd3siet5t7gh" path="res://scenes/stages/stage01.tscn" id="10_sv3qh"]
+[ext_resource type="PackedScene" uid="uid://dt8ohiqvrdwg4" path="res://ui/in_game/in_game_menus.tscn" id="12_itv2k"]
+[ext_resource type="PackedScene" uid="uid://csvlrinimir7l" path="res://actors/end_flag.tscn" id="13_t2bet"]
+[ext_resource type="PackedScene" uid="uid://bukrlayjuhkod" path="res://scenes/environment/mountain.tscn" id="14_ro1gl"]
+[ext_resource type="AudioStream" uid="uid://nfu3pds1o0y0" path="res://assets/sound/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav" id="15_kekav"]
+[ext_resource type="Script" path="res://scenes/Achievements/level_4_achievements.gd" id="16_hwiyd"]
+
+[sub_resource type="Resource" id="Resource_kpxey"]
+script = ExtResource("3_75aig")
+name = "Bush"
+replace_file = ExtResource("2_olpo4")
+
+[sub_resource type="Resource" id="Resource_cr5rv"]
+script = ExtResource("3_75aig")
+name = "Coin"
+replace_file = ExtResource("4_mdolu")
+
+[sub_resource type="Resource" id="Resource_rctie"]
+script = ExtResource("3_75aig")
+name = "Log03"
+replace_file = ExtResource("5_60301")
+
+[sub_resource type="Resource" id="Resource_d41j0"]
+script = ExtResource("3_75aig")
+name = "SnowBump"
+replace_file = ExtResource("6_ynaxp")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jqa1x"]
+sky_top_color = Color(0.478431, 0.552941, 0.65098, 1)
+sky_cover = ExtResource("8_78b7s")
+ground_bottom_color = Color(0.854902, 0.964706, 0.968627, 1)
+ground_horizon_color = Color(0.854902, 0.964706, 0.968627, 1)
+
+[sub_resource type="Sky" id="Sky_vcehg"]
+sky_material = SubResource("ProceduralSkyMaterial_jqa1x")
+
+[sub_resource type="Environment" id="Environment_i6awf"]
+background_mode = 2
+background_color = Color(0, 0.372549, 0.45098, 1)
+background_canvas_max_layer = 1
+sky = SubResource("Sky_vcehg")
+sky_custom_fov = 90.0
+volumetric_fog_density = 0.02
+
+[node name="MainGame" type="Node"]
+script = ExtResource("1_hws7p")
+player_node = NodePath("Player")
+replacers = Array[ExtResource("3_75aig")]([SubResource("Resource_kpxey"), SubResource("Resource_cr5rv"), SubResource("Resource_rctie"), SubResource("Resource_d41j0")])
+curve_y = -0.3
+curve_z = 0.5
+
+[node name="InGameMenus" parent="." instance=ExtResource("12_itv2k")]
+
+[node name="TrackPoints" type="Node3D" parent="."]
+
+[node name="Left" type="Marker3D" parent="TrackPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="Center" type="Marker3D" parent="TrackPoints"]
+
+[node name="Right" type="Marker3D" parent="TrackPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="Player" parent="." instance=ExtResource("1_1ts6d")]
+track_points_node = NodePath("../TrackPoints")
+speed = 16
+lane_switch_time = 0.3
+jump_time = 0.7
+jump_height = 4.0
+raycast_distance = 8
+
+[node name="GameCamera" parent="." instance=ExtResource("5_7nf5h")]
+transform = Transform3D(-4.36647e-08, 0.535119, -0.844777, -2.01946e-09, 0.844777, 0.535119, 1, 2.50718e-08, -3.58063e-08, -9.465, 8.069, 0)
+fov = 62.0
+player_node = NodePath("../Player")
+
+[node name="BaseFloor" parent="." instance=ExtResource("6_mgdkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="Stage" type="Node3D" parent="."]
+
+[node name="Stage01" parent="Stage" instance=ExtResource("10_sv3qh")]
+
+[node name="EndFlag" parent="." instance=ExtResource("13_t2bet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2056, 0, 0)
+
+[node name="Mountains" type="Node3D" parent="."]
+
+[node name="Mountain" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 125.842)
+
+[node name="Mountain2" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 94.382, -0.665, 125.842)
+
+[node name="Mountain3" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.398631, 0, 0.795735, 0, 0.89, 0, -0.795735, 0, 0.398631, 177.173, -0.665, 162.628)
+
+[node name="Mountain4" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 313.807, -0.665, 131.097)
+
+[node name="Mountain5" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 418.91, -0.665, 162.628)
+
+[node name="Mountain6" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 635.873, 0, 125.842)
+
+[node name="Mountain7" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 730.255, -0.665, 125.842)
+
+[node name="Mountain8" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.398631, 0, 0.795735, 0, 0.89, 0, -0.795735, 0, 0.398631, 813.046, -0.665, 162.628)
+
+[node name="Mountain9" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 949.679, -0.665, 131.097)
+
+[node name="Mountain10" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 1054.78, -0.665, 162.628)
+
+[node name="Mountain11" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1279.63, 0, 125.842)
+
+[node name="Mountain12" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 1374.01, -0.665, 125.842)
+
+[node name="Mountain13" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.398631, 0, 0.795735, 0, 0.89, 0, -0.795735, 0, 0.398631, 1456.8, -0.665, 162.628)
+
+[node name="Mountain14" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 1593.44, -0.665, 131.097)
+
+[node name="Mountain15" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 1698.54, -0.665, 162.628)
+
+[node name="Mountain16" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1923.38, 0, 125.842)
+
+[node name="Mountain17" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 2017.77, -0.665, 125.842)
+
+[node name="Mountain18" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.398631, 0, 0.795735, 0, 0.89, 0, -0.795735, 0, 0.398631, 2100.56, -0.665, 162.628)
+
+[node name="Mountain19" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 2237.19, -0.665, 131.097)
+
+[node name="Mountain20" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 2342.29, -0.665, 162.628)
+
+[node name="Mountain21" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -149.354)
+
+[node name="Mountain22" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 94.382, -0.665, -149.354)
+
+[node name="Mountain23" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.398631, 0, 0.795735, 0, 0.89, 0, -0.795735, 0, 0.398631, 177.173, -0.665, -112.568)
+
+[node name="Mountain24" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 313.807, -0.665, -144.099)
+
+[node name="Mountain25" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 418.91, -0.665, -112.568)
+
+[node name="Mountain26" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 635.873, 0, -149.354)
+
+[node name="Mountain27" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 730.255, -0.665, -149.354)
+
+[node name="Mountain28" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.398631, 0, 0.795735, 0, 0.89, 0, -0.795735, 0, 0.398631, 813.046, -0.665, -112.568)
+
+[node name="Mountain29" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 949.679, -0.665, -144.099)
+
+[node name="Mountain30" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 1054.78, -0.665, -112.568)
+
+[node name="Mountain31" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1279.63, 0, -149.354)
+
+[node name="Mountain32" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 1374.01, -0.665, -149.354)
+
+[node name="Mountain33" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.398631, 0, 0.795735, 0, 0.89, 0, -0.795735, 0, 0.398631, 1456.8, -0.665, -112.568)
+
+[node name="Mountain34" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 1593.44, -0.665, -144.099)
+
+[node name="Mountain35" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 1698.54, -0.665, -112.568)
+
+[node name="Mountain36" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1923.38, 0, -149.354)
+
+[node name="Mountain37" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.854144, 0, 0.250077, 0, 0.89, 0, -0.250077, 0, 0.854144, 2017.77, -0.665, -149.354)
+
+[node name="Mountain38" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(0.398631, 0, 0.795735, 0, 0.89, 0, -0.795735, 0, 0.398631, 2100.56, -0.665, -112.568)
+
+[node name="Mountain39" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.367041, 0, 0.810791, 0, 0.89, 0, -0.810791, 0, -0.367041, 2237.19, -0.665, -144.099)
+
+[node name="Mountain40" parent="Mountains" instance=ExtResource("14_ro1gl")]
+transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932, 2342.29, -0.665, -112.568)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.801473, 0.224007, -0.554493, -3.27463e-08, 0.927197, 0.374574, 0.598031, 0.300211, -0.743123, 0, 20.3383, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i6awf")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_kekav")
+volume_db = -16.0
+autoplay = true
+
+[node name="LevelAchievements" type="Node" parent="."]
+script = ExtResource("16_hwiyd")
+
+[connection signal="body_entered" from="EndFlag" to="." method="_on_end_flag_body_entered"]
+[connection signal="body_entered" from="EndFlag" to="LevelAchievements" method="level_finished"]
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]

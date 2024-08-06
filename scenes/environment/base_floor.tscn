@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://xtwivbdnkec2"]
+[gd_scene load_steps=43 format=3 uid="uid://xtwivbdnkec2"]
 
 [ext_resource type="Script" path="res://scenes/environment/base_floor.gd" id="1_cfdkb"]
 [ext_resource type="PackedScene" uid="uid://cc81ughfvg0sh" path="res://assets/models/main_path/snow_bg/snow_bg.glb" id="1_ut3oy"]
@@ -11,7 +11,6 @@
 [ext_resource type="MeshLibrary" uid="uid://2krps2vk813u" path="res://assets/meshlibs/obstacles_meshlib.tres" id="5_ulk7h"]
 [ext_resource type="PackedScene" uid="uid://cco6h752knwxv" path="res://assets/models/environment/fence_03/fence_03.glb" id="5_vq4q7"]
 [ext_resource type="PackedScene" uid="uid://0ckp6qr1gije" path="res://assets/models/environment/tree/tree.glb" id="6_agvj4"]
-[ext_resource type="PackedScene" uid="uid://bk3c666kyb7pi" path="res://assets/models/environment/sign_01/sign_01.glb" id="8_iim1q"]
 [ext_resource type="Texture2D" uid="uid://j8teb7lkynqy" path="res://assets/models/main_path/snow/snow_Snow_metallic.png-Snow_roughness.png" id="8_l8lng"]
 [ext_resource type="Texture2D" uid="uid://d1wpr4rtlhs6e" path="res://assets/models/main_path/snow/snow_Snow_basecolor.png" id="9_snfqy"]
 [ext_resource type="Texture2D" uid="uid://c8tlpuihdbh2q" path="res://assets/materials/floor_tracks_albedo.png" id="9_trh63"]
@@ -29,9 +28,6 @@
 [ext_resource type="Texture2D" uid="uid://o1nt5ewnmm04" path="res://assets/models/environment/tree/tree_Woods_Text_Woods_Metallic.png-Woods_Text_Woods_Roughness.png" id="26_3boae"]
 [ext_resource type="Texture2D" uid="uid://q21gjb5qf8pv" path="res://assets/models/environment/tree/tree_Woods_Text_Woods_Normal.png" id="27_pc1ro"]
 [ext_resource type="Texture2D" uid="uid://drp67k25ctmnb" path="res://assets/models/environment/tree/tree_Woods_Text_Woods_BaseColor.png" id="28_pij67"]
-[ext_resource type="Texture2D" uid="uid://c0ku55vgug2wv" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_Metallic.png-Signs_text_Signs_Roughness.png" id="30_wfwmd"]
-[ext_resource type="Texture2D" uid="uid://cjeqnsx25xop1" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_Normal.png" id="31_edtmc"]
-[ext_resource type="Texture2D" uid="uid://c7hdtnu1le3ha" path="res://assets/models/environment/sign_01/sign_01_Signs_text_Signs_BaseColor.png" id="32_mkeab"]
 [ext_resource type="PackedScene" uid="uid://cubkhm81td5ld" path="res://assets/models/environment/sign_02/sign_02.glb" id="35_mfi3x"]
 [ext_resource type="Texture2D" uid="uid://buahiic8g0m15" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_Metallic.png-Signs_text_Signs_Roughness.png" id="36_rgwtb"]
 [ext_resource type="Texture2D" uid="uid://wx3a8b8vbetf" path="res://assets/models/environment/sign_02/sign_02_Signs_text_Signs_Normal.png" id="37_bq1ni"]
@@ -117,16 +113,6 @@ shader_parameter/roughness = null
 shader_parameter/texture_file = ExtResource("28_pij67")
 shader_parameter/normal = ExtResource("27_pc1ro")
 shader_parameter/metal_rough = ExtResource("26_3boae")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2v5wx"]
-render_priority = 0
-shader = ExtResource("4_2l17h")
-shader_parameter/albedo = null
-shader_parameter/metallic = null
-shader_parameter/roughness = null
-shader_parameter/texture_file = ExtResource("32_mkeab")
-shader_parameter/normal = ExtResource("31_edtmc")
-shader_parameter/metal_rough = ExtResource("30_wfwmd")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kfbys"]
 render_priority = 0
@@ -241,6 +227,27 @@ metadata/_edit_group_ = true
 [node name="Fence_003" parent="Decorations/Decorations1/fence_03" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_52lxj")
 
+[node name="fence_04" parent="Decorations/Decorations1" instance=ExtResource("3_1iufg")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 17.6074, -0.0862064, 10.4067)
+metadata/_edit_group_ = true
+
+[node name="Fence_001" parent="Decorations/Decorations1/fence_04" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hwpyj")
+
+[node name="fence_05" parent="Decorations/Decorations1" instance=ExtResource("4_ohlme")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.0797, -0.0862064, 10.3981)
+metadata/_edit_group_ = true
+
+[node name="Fence_002" parent="Decorations/Decorations1/fence_05" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_yqy1n")
+
+[node name="fence_06" parent="Decorations/Decorations1" instance=ExtResource("5_vq4q7")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.54899, -0.0859375, 10.4061)
+metadata/_edit_group_ = true
+
+[node name="Fence_003" parent="Decorations/Decorations1/fence_06" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_52lxj")
+
 [node name="tree" parent="Decorations/Decorations1" instance=ExtResource("6_agvj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12177, 0, -14.854)
 metadata/_edit_group_ = true
@@ -281,13 +288,6 @@ metadata/_edit_group_ = true
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -3.3344, 3.72864, -2.04483)
 surface_material_override/0 = SubResource("ShaderMaterial_qomt3")
 surface_material_override/1 = SubResource("ShaderMaterial_drgl3")
-
-[node name="sign_01" parent="Decorations/Decorations1" instance=ExtResource("8_iim1q")]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 20.2006, 0, 10)
-metadata/_edit_group_ = true
-
-[node name="Pole_001" parent="Decorations/Decorations1/sign_01" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_2v5wx")
 
 [node name="Decorations2" type="Node3D" parent="Decorations"]
 visible = false
@@ -616,12 +616,14 @@ surface_material_override/0 = SubResource("ShaderMaterial_kfbys")
 [editable path="Decorations/Decorations1/fence_01"]
 [editable path="Decorations/Decorations1/fence_02"]
 [editable path="Decorations/Decorations1/fence_03"]
+[editable path="Decorations/Decorations1/fence_04"]
+[editable path="Decorations/Decorations1/fence_05"]
+[editable path="Decorations/Decorations1/fence_06"]
 [editable path="Decorations/Decorations1/tree"]
 [editable path="Decorations/Decorations1/tree2"]
 [editable path="Decorations/Decorations1/tree3"]
 [editable path="Decorations/Decorations1/tree4"]
 [editable path="Decorations/Decorations1/tree5"]
-[editable path="Decorations/Decorations1/sign_01"]
 [editable path="Decorations/Decorations2/fence_01"]
 [editable path="Decorations/Decorations2/fence_02"]
 [editable path="Decorations/Decorations2/fence_03"]

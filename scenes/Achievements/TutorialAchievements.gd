@@ -32,7 +32,7 @@ func level_finished(body):
 	var count = 0
 	for i in concluded_achievements:
 		if i:
-			finish_hud.get_child(1).get_child(1).get_children()[count].set_texture(achievement_completed_texture)
+			finish_hud.get_child(1).get_child(1).get_children()[count].get_child(0).set_texture(achievement_completed_texture)
 			count += 1
 
 func check_achievements() -> Array[bool]:

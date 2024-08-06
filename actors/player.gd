@@ -36,6 +36,7 @@ func _ready() -> void:
 	var skin = SkinChanger.get_skin().instantiate()
 	add_child(skin)
 	skin.name = "PlayerModel"
+	set_scale(Vector3.ONE * .75)
 	anim_player.set_active(true)
 	for i in get_tree().get_nodes_in_group("HUD"): #update HUD when coin collected
 		coin_collected.connect(Callable(i, "update_coins"))

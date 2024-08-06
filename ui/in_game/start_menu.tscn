@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cg4jy1bjo2ysi"]
+[gd_scene load_steps=9 format=3 uid="uid://cg4jy1bjo2ysi"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_teysb"]
 [ext_resource type="Script" path="res://ui/in_game/start_menu.gd" id="2_1vfgs"]
 [ext_resource type="Texture2D" uid="uid://d1uikb0gce5k2" path="res://assets/images/background_menus.png" id="3_45fwx"]
 [ext_resource type="FontFile" uid="uid://c8dfci4ll8kx1" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="4_s4smg"]
 [ext_resource type="Theme" uid="uid://ckgyosp0xeif4" path="res://assets/themes/ui_theme.tres" id="7_wxgw7"]
-[ext_resource type="Texture2D" uid="uid://qw15v4fm034i" path="res://assets/sprites/ui/play_icon.png" id="13_d0h5b"]
 [ext_resource type="Texture2D" uid="uid://bsverjoat3vcm" path="res://assets/sprites/ui/star_objective_ui_unachieved_big.png" id="15_qeub2"]
 [ext_resource type="FontFile" uid="uid://c4xapcx77tcqy" path="res://assets/fonts/Nunito-Regular.ttf" id="16_tr7ee"]
 
@@ -134,7 +133,6 @@ size_flags_vertical = 8
 theme = ExtResource("7_wxgw7")
 theme_type_variation = &"NormalButtonWhiteBackground"
 text = "Jogar"
-icon = ExtResource("13_d0h5b")
 
 [node name="ReturnButton" type="Button" parent="LevelName/MenuButtons" index="1" groups=["buttons"]]
 layout_mode = 1
