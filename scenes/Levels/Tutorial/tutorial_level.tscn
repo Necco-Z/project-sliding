@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bm7ltfovligb7"]
+[gd_scene load_steps=33 format=3 uid="uid://bm7ltfovligb7"]
 
 [ext_resource type="Script" path="res://scenes/Levels/level 4/main_game.gd" id="1_wewew"]
 [ext_resource type="PackedScene" uid="uid://c5vvemd16gdrr" path="res://actors/prankables/bush.tscn" id="2_ow1w4"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://c3bxng6l2algc" path="res://actors/game_camera.tscn" id="9_kvt2n"]
 [ext_resource type="PackedScene" uid="uid://xtwivbdnkec2" path="res://scenes/environment/base_floor.tscn" id="10_bwmgg"]
 [ext_resource type="PackedScene" uid="uid://fwpsw5dd0kps" path="res://scenes/stages/tutorial_stage.tscn" id="11_tdahi"]
-[ext_resource type="MeshLibrary" uid="uid://2krps2vk813u" path="res://assets/meshlibs/obstacles_meshlib.tres" id="12_0lp5y"]
 [ext_resource type="PackedScene" uid="uid://csvlrinimir7l" path="res://actors/end_flag.tscn" id="12_bkh5h"]
 [ext_resource type="PackedScene" uid="uid://bukrlayjuhkod" path="res://scenes/environment/mountain.tscn" id="13_ln3h7"]
 [ext_resource type="Texture2D" uid="uid://dvwpj5uqi0otx" path="res://assets/images/Ceu.png" id="14_of6yr"]
@@ -148,9 +147,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275.016, 0, 0)
 [node name="BaseFloor4" parent="Stage" instance=ExtResource("10_bwmgg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300.016, 0, 0)
 
-[node name="GridMap" type="GridMap" parent="Stage"]
-mesh_library = ExtResource("12_0lp5y")
-
 [node name="EndFlag" parent="." instance=ExtResource("12_bkh5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.856, 0, 0)
 
@@ -197,6 +193,7 @@ transform = Transform3D(-0.50932, 0, 1.12509, 0, 1.235, 0, -1.12509, 0, -0.50932
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-4.37114e-08, -0.350207, -0.936672, 0, -0.936672, 0.350207, -1, 1.53081e-08, 4.09432e-08, 0, 20.3383, 0)
+directional_shadow_mode = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i6awf")

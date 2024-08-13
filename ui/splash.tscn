@@ -64,7 +64,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
 theme_override_fonts/font = ExtResource("3_jx7ln")
 theme_override_font_sizes/font_size = 64
-text = "Recomendamos jogar com joystick"
+text = "Play with joystick"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Logos/Joystick"]

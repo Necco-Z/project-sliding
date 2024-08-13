@@ -8,54 +8,55 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vjoo4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3wmq2"]
-content_margin_left = 24.0
+content_margin_left = 32.0
 content_margin_top = 16.0
-content_margin_right = 24.0
+content_margin_right = 32.0
 content_margin_bottom = 16.0
 texture = ExtResource("2_2if3a")
-region_rect = Rect2(434, 10, 239, 82)
+region_rect = Rect2(520, 10, 259, 102)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uqiyd"]
-content_margin_left = 24.0
+content_margin_left = 32.0
 content_margin_top = 16.0
-content_margin_right = 24.0
+content_margin_right = 32.0
 content_margin_bottom = 16.0
 texture = ExtResource("2_2if3a")
-region_rect = Rect2(434, 10, 239, 82)
+region_rect = Rect2(520, 10, 259, 102)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ofi5i"]
-content_margin_left = 24.0
+content_margin_left = 32.0
 content_margin_top = 16.0
-content_margin_right = 24.0
+content_margin_right = 32.0
 content_margin_bottom = 16.0
 texture = ExtResource("2_2if3a")
-region_rect = Rect2(434, 10, 239, 82)
+region_rect = Rect2(520, 10, 259, 102)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnw4x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n73im"]
-content_margin_left = 24.0
+content_margin_left = 32.0
 content_margin_top = 16.0
-content_margin_right = 24.0
+content_margin_right = 32.0
 content_margin_bottom = 16.0
 texture = ExtResource("2_2if3a")
-region_rect = Rect2(685, 6, 247, 90)
+region_rect = Rect2(811, 10, 259, 102)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mwvjx"]
-content_margin_left = 24.0
-content_margin_top = 12.0
-content_margin_right = 24.0
-content_margin_bottom = 12.0
-texture = ExtResource("2_2if3a")
-region_rect = Rect2(685, 6, 247, 90)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hytgv"]
-content_margin_left = 24.0
+content_margin_left = 32.0
 content_margin_top = 16.0
-content_margin_right = 24.0
+content_margin_right = 32.0
 content_margin_bottom = 16.0
 texture = ExtResource("2_2if3a")
-region_rect = Rect2(685, 6, 247, 90)
+texture_margin_bottom = 1.0
+region_rect = Rect2(811, 10, 259, 102)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hytgv"]
+content_margin_left = 32.0
+content_margin_top = 16.0
+content_margin_right = 32.0
+content_margin_bottom = 16.0
+texture = ExtResource("2_2if3a")
+region_rect = Rect2(811, 10, 259, 102)
 
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
@@ -88,8 +89,8 @@ RedButton/styles/hover = SubResource("StyleBoxTexture_n73im")
 RedButton/styles/normal = SubResource("StyleBoxTexture_mwvjx")
 RedButton/styles/pressed = SubResource("StyleBoxTexture_hytgv")
 Title/base_type = &"Label"
-Title/colors/font_color = Color(0.807843, 0.741176, 0.129412, 1)
-Title/colors/font_outline_color = Color(0.854902, 0.964706, 0.968627, 1)
+Title/colors/font_color = Color(0.247059, 0.505882, 0.0470588, 1)
+Title/colors/font_outline_color = Color(1, 1, 1, 1)
 Title/constants/outline_size = 20
 Title/font_sizes/font_size = 48
 Title/fonts/font = ExtResource("10_cxar4")

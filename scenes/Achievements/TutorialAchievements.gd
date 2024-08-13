@@ -1,7 +1,5 @@
 extends Node
 
-var achievement_completed_texture = preload("res://assets/sprites/ui/star_objective_ui_big.png")
-
 var achievements_description = ["Completar nível",
 		"Coletar 25 moedas", "Coletar 50 moedass"]
 var concluded_achievements = [false, false, false]
@@ -32,7 +30,7 @@ func level_finished(body):
 	var count = 0
 	for i in concluded_achievements:
 		if i:
-			finish_hud.get_child(1).get_child(1).get_children()[count].get_child(0).set_texture(achievement_completed_texture)
+			finish_hud.get_child(1).get_child(1).get_children()[count].get_child(0).get_texture().set_region(Rect2(468,140,106,101))
 			count += 1
 
 func check_achievements() -> Array[bool]:
