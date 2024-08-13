@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://d15awftd1p8gf"]
+[gd_scene load_steps=58 format=3 uid="uid://d15awftd1p8gf"]
 
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_drgtq"]
 [ext_resource type="Texture2D" uid="uid://b35xdt0wsy8dq" path="res://assets/sprites/ui/main_menu_background_image.png" id="2_pfv4s"]
@@ -61,13 +61,57 @@ font = ExtResource("13_qcffa")
 font_size = 32
 font_color = Color(0.247059, 0.505882, 0.0470588, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j6ks5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6k10"]
 atlas = ExtResource("7_682jd")
 region = Rect2(603, 144, 105, 101)
 
 [sub_resource type="LabelSettings" id="LabelSettings_k76a3"]
 font = ExtResource("13_qcffa")
 font_color = Color(0.25098, 0.235294, 0.207843, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eikdp"]
+atlas = ExtResource("7_682jd")
+region = Rect2(603, 144, 105, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bi8x"]
+atlas = ExtResource("7_682jd")
+region = Rect2(603, 144, 105, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l20gu"]
+atlas = ExtResource("7_682jd")
+region = Rect2(603, 144, 105, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uteu"]
+atlas = ExtResource("7_682jd")
+region = Rect2(603, 144, 105, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1qjm"]
+atlas = ExtResource("7_682jd")
+region = Rect2(603, 144, 105, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qet2"]
+atlas = ExtResource("7_682jd")
+region = Rect2(603, 144, 105, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tule2"]
+atlas = ExtResource("7_682jd")
+region = Rect2(603, 144, 105, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfvtl"]
+atlas = ExtResource("7_682jd")
+region = Rect2(603, 144, 105, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c7on"]
+atlas = ExtResource("7_682jd")
+region = Rect2(603, 144, 105, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhabs"]
+atlas = ExtResource("7_682jd")
+region = Rect2(603, 144, 105, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8628r"]
+atlas = ExtResource("7_682jd")
+region = Rect2(603, 144, 105, 101)
 
 [sub_resource type="LabelSettings" id="LabelSettings_djbtx"]
 font = ExtResource("10_cicrt")
@@ -553,6 +597,7 @@ theme = ExtResource("5_v3wop")
 text = "Voltar"
 
 [node name="LevelSelector" type="Control" parent="MainMenu"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -634,12 +679,12 @@ vertical = true
 [node name="BoxContainer" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer" groups=["star"]]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j6ks5")
+texture = SubResource("AtlasTexture_g6k10")
 expand_mode = 5
 
 [node name="Objective" type="Label" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
@@ -650,12 +695,12 @@ label_settings = SubResource("LabelSettings_k76a3")
 [node name="BoxContainer2" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
+[node name="TextureRect2" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2" groups=["star"]]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j6ks5")
+texture = SubResource("AtlasTexture_eikdp")
 expand_mode = 5
 
 [node name="Objective2" type="Label" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
@@ -666,12 +711,12 @@ label_settings = SubResource("LabelSettings_k76a3")
 [node name="BoxContainer3" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
+[node name="TextureRect3" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3" groups=["star"]]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j6ks5")
+texture = SubResource("AtlasTexture_8bi8x")
 expand_mode = 5
 
 [node name="Objective3" type="Label" parent="MainMenu/LevelSelector/Levels/Button/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
@@ -733,12 +778,12 @@ vertical = true
 [node name="BoxContainer" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer" groups=["star"]]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j6ks5")
+texture = SubResource("AtlasTexture_l20gu")
 expand_mode = 5
 
 [node name="Objective" type="Label" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
@@ -749,12 +794,12 @@ label_settings = SubResource("LabelSettings_k76a3")
 [node name="BoxContainer2" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
+[node name="TextureRect2" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2" groups=["star"]]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j6ks5")
+texture = SubResource("AtlasTexture_4uteu")
 expand_mode = 5
 
 [node name="Objective2" type="Label" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
@@ -765,12 +810,12 @@ label_settings = SubResource("LabelSettings_k76a3")
 [node name="BoxContainer3" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
+[node name="TextureRect3" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3" groups=["star"]]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j6ks5")
+texture = SubResource("AtlasTexture_w1qjm")
 expand_mode = 5
 
 [node name="Objective3" type="Label" parent="MainMenu/LevelSelector/Levels/Button2/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
@@ -832,12 +877,12 @@ vertical = true
 [node name="BoxContainer" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer" groups=["star"]]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j6ks5")
+texture = SubResource("AtlasTexture_6qet2")
 expand_mode = 5
 
 [node name="Objective" type="Label" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
@@ -848,12 +893,12 @@ label_settings = SubResource("LabelSettings_k76a3")
 [node name="BoxContainer2" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
+[node name="TextureRect2" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2" groups=["star"]]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j6ks5")
+texture = SubResource("AtlasTexture_tule2")
 expand_mode = 5
 
 [node name="Objective2" type="Label" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
@@ -864,12 +909,12 @@ label_settings = SubResource("LabelSettings_k76a3")
 [node name="BoxContainer3" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
+[node name="TextureRect3" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3" groups=["star"]]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j6ks5")
+texture = SubResource("AtlasTexture_xfvtl")
 expand_mode = 5
 
 [node name="Objective3" type="Label" parent="MainMenu/LevelSelector/Levels/Button3/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
@@ -931,12 +976,12 @@ vertical = true
 [node name="BoxContainer" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer" groups=["star"]]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j6ks5")
+texture = SubResource("AtlasTexture_6c7on")
 expand_mode = 5
 
 [node name="Objective" type="Label" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer"]
@@ -947,12 +992,12 @@ label_settings = SubResource("LabelSettings_k76a3")
 [node name="BoxContainer2" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
+[node name="TextureRect2" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2" groups=["star"]]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j6ks5")
+texture = SubResource("AtlasTexture_nhabs")
 expand_mode = 5
 
 [node name="Objective2" type="Label" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer2"]
@@ -963,12 +1008,12 @@ label_settings = SubResource("LabelSettings_k76a3")
 [node name="BoxContainer3" type="BoxContainer" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]
+[node name="TextureRect3" type="TextureRect" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3" groups=["star"]]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j6ks5")
+texture = SubResource("AtlasTexture_8628r")
 expand_mode = 5
 
 [node name="Objective3" type="Label" parent="MainMenu/LevelSelector/Levels/Button4/PanelContainer/BoxContainer2/BoxContainer/BoxContainer3"]

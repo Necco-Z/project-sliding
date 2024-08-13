@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://btpfgj8syn123"]
+[gd_scene load_steps=16 format=3 uid="uid://btpfgj8syn123"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_0eo41"]
 [ext_resource type="Script" path="res://ui/in_game/end_game.gd" id="2_qq6ao"]
@@ -16,10 +16,6 @@ Label/colors/font_outline_color = Color(0.854902, 0.964706, 0.968627, 1)
 Label/constants/outline_size = 20
 Label/font_sizes/font_size = 60
 Label/fonts/font = ExtResource("4_3p3gp")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rjv3i"]
-atlas = ExtResource("10_ucyi0")
-region = Rect2(603, 144, 105, 101)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5x0ta"]
 font = ExtResource("9_3vw2g")
@@ -89,15 +85,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = null
-
-[node name="Star" parent="MainContainer/StarContainer/Control" index="0"]
-texture = SubResource("AtlasTexture_rjv3i")
-
-[node name="Star" parent="MainContainer/StarContainer/Control2" index="0"]
-texture = SubResource("AtlasTexture_rjv3i")
-
-[node name="Star" parent="MainContainer/StarContainer/Control3" index="0"]
-texture = SubResource("AtlasTexture_rjv3i")
 
 [node name="Objetivos" type="VBoxContainer" parent="MainContainer" index="2"]
 layout_mode = 2
@@ -175,5 +162,3 @@ texture_normal = SubResource("AtlasTexture_bhoqy")
 [connection signal="pressed" from="MainContainer/Buttons/ExitGame" to="." method="_on_return_game_pressed"]
 [connection signal="pressed" from="MainContainer/Buttons/RestartGame" to="." method="_on_restart_game_pressed"]
 [connection signal="button_up" from="MainContainer/Buttons/NextLevel" to="." method="_next_level_pressed"]
-
-[editable path="MainContainer/StarContainer"]

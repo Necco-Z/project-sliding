@@ -42,14 +42,16 @@ func _ready() -> void:
 	for i in main_controls.get_children():
 		animation_props.append(i)
 	
-	for i in animation_props:
+	for i in animation_props: #set button pivot and reset animations
 		i.set_scale(Vector2.ZERO)
-		i.set_pivot_offset(i.get_size()/2)
+		i.set_pivot_offset(i.get_size() / 2)
 	
 	for button in all_buttons: #button hover animation
 		button.pivot_offset = button.size / 2 
 		button.connect("mouse_entered", Callable(self, "hover_sound"))
 		button.connect("button_up", Callable(self, "press_sound"))
+		
+	get_achievements()
 
 
 func _process(delta: float) -> void:
@@ -240,3 +242,14 @@ func to_level_selector():
 		tween.tween_property(i, "scale", Vector2.ONE, 0.2)
 	await tween.finished
 
+
+func get_achievements():
+	var num = 0
+	var sub_num = 0
+	for i:TextureRect in get_tree().get_nodes_in_group("star"):
+		if Achievements.achievements[num][sub_num]:
+			i.get_texture().set_region(Rect2(468,140,106,101))
+		sub_num += 1
+		if sub_num >= 3:
+			num += 1
+			sub_num = 0

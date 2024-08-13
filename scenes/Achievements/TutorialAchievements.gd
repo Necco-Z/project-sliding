@@ -1,11 +1,11 @@
 extends Node
 
 var achievements_description = ["Completar nível",
-		"Coletar 25 moedas", "Coletar 50 moedass"]
+		"Coletar 20 moedas", "Coletar 35 moedass"]
 var concluded_achievements = [false, false, false]
 var finish_hud
-const COINS1 = 25
-const COINS2 = 50
+const COINS1 = 20
+const COINS2 = 35
 
 
 func _ready():
@@ -32,6 +32,18 @@ func level_finished(body):
 		if i:
 			finish_hud.get_child(1).get_child(1).get_children()[count].get_child(0).get_texture().set_region(Rect2(468,140,106,101))
 			count += 1
+	
+	var level_achievements_count = 0
+	var concluded_achievements_count = 0
+	for i in Achievements.achievements[0]:
+		if i:
+			level_achievements_count += 1
+	for i in concluded_achievements:
+		if i:
+			concluded_achievements_count += 1
+	if concluded_achievements_count <= level_achievements_count:
+		return
+	Achievements.achievements[0] = concluded_achievements
 
 func check_achievements() -> Array[bool]:
 	return concluded_achievements

@@ -20,6 +20,7 @@ config/icon="res://assets/sprites/game_icon/icon.png"
 ScoreData="*res://scripts/autoloads/score_data.tscn"
 Fader="*res://scripts/autoloads/fader.tscn"
 SkinChanger="*res://scripts/autoloads/skin_changer.gd"
+Achievements="*res://scripts/autoloads/achievements.gd"
 
 [debug]
 
