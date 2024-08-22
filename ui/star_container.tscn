@@ -23,7 +23,7 @@ script = ExtResource("1_m6115")
 custom_minimum_size = Vector2(139, 139)
 layout_mode = 2
 
-[node name="Star" type="TextureRect" parent="Control"]
+[node name="Star" type="TextureRect" parent="Control" groups=["star"]]
 layout_mode = 2
 offset_right = 139.0
 offset_bottom = 139.0
@@ -33,7 +33,7 @@ texture = SubResource("AtlasTexture_m500i")
 custom_minimum_size = Vector2(139, 139)
 layout_mode = 2
 
-[node name="Star" type="TextureRect" parent="Control2"]
+[node name="Star" type="TextureRect" parent="Control2" groups=["star"]]
 layout_mode = 2
 offset_right = 139.0
 offset_bottom = 139.0
@@ -43,7 +43,7 @@ texture = SubResource("AtlasTexture_6khib")
 custom_minimum_size = Vector2(139, 139)
 layout_mode = 2
 
-[node name="Star" type="TextureRect" parent="Control3"]
+[node name="Star" type="TextureRect" parent="Control3" groups=["star"]]
 layout_mode = 2
 offset_right = 139.0
 offset_bottom = 139.0

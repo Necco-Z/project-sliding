@@ -1,7 +1,7 @@
 extends Node
 
-var achievements_description = ["Completar nível",
-		"Coletar 20 moedas", "Coletar 35 moedass"]
+var achievements_description = ["Finish the run",
+		"Collect 20 coins", "Collect 35 coins"]
 var concluded_achievements = [false, false, false]
 var finish_hud
 const COINS1 = 20
@@ -22,15 +22,18 @@ func level_finished(body):
 	if !body.is_in_group("player"):
 		return
 	concluded_achievements[0] = true
+	
 	var coins = get_tree().get_nodes_in_group("player")[0].get_coins()
 	if coins >= COINS1:
 		concluded_achievements[1] = true
 	if coins >= COINS2:
 		concluded_achievements[2] = true
+	
 	var count = 0
 	for i in concluded_achievements:
 		if i:
-			finish_hud.get_child(1).get_child(1).get_children()[count].get_child(0).get_texture().set_region(Rect2(468,140,106,101))
+			get_tree().get_nodes_in_group("star")[count].get_texture().set_region(Rect2(468,140,106,101))
+			get_tree().get_nodes_in_group("objective")[count].get_label_settings().set_font_color(Color("3f810c"))
 			count += 1
 	
 	var level_achievements_count = 0

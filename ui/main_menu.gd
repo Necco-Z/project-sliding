@@ -22,6 +22,7 @@ var in_transition: bool = true
 var actual_screen = 0
 var game_scene_path
 var anim_time := 0.4
+var using_joystick = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,9 +31,6 @@ func _ready() -> void:
 	load_screen.anchor_top = -1
 	load_screen.anchor_bottom = 0
 	Fader.fade_in()
-	if Input.get_connected_joypads().size() > 0:
-		%StartButton.grab_focus()
-		focused = true
 	
 	var animation_props = []
 	for i in level_selector.get_children():
@@ -49,8 +47,14 @@ func _ready() -> void:
 	for button in all_buttons: #button hover animation
 		button.pivot_offset = button.size / 2 
 		button.connect("mouse_entered", Callable(self, "hover_sound"))
+		button.connect("focus_entered", Callable(self, "hover_sound"))
 		button.connect("button_up", Callable(self, "press_sound"))
-		
+	
+	if Input.get_connected_joypads().size() > 0:
+		change_input_menu()
+		%StartButton.grab_focus()
+		focused = true
+	
 	get_achievements()
 
 
@@ -82,6 +86,26 @@ func _input(event):
 		for i in main_controls.get_child(1).get_children():
 			i.release_focus()
 		focused = false
+	
+	if event is InputEventJoypadButton:
+		if !using_joystick:
+			change_input_menu()
+		if actual_screen == 1 and Input.is_action_just_pressed("ui_cancel"):
+			_on_back_to_main_button_pressed()
+			press_sound()
+		if actual_screen == 2 and Input.is_action_just_pressed("ui_cancel"):
+			back_to_main_menu()
+			press_sound()
+		if actual_screen == 3:
+			if Input.is_action_just_pressed("ui_accept"):
+				_on_start_button_pressed()
+				press_sound()
+			if Input.is_action_just_pressed("ui_cancel"):
+				back_from_skin_selector()
+				press_sound()
+	if event is InputEventMouse or event is InputEventKey:
+		if using_joystick:
+			change_input_menu()
 
 
 func to_skin_selector():
@@ -92,7 +116,9 @@ func to_skin_selector():
 	get_tree().get_nodes_in_group("BG")[0].set_visible(false)
 	await Fader.fade_in()
 	
-	
+	actual_screen = 3
+
+
 func back_from_skin_selector():
 	await Fader.fade_out()
 	skin_selector.set_visible(false)
@@ -107,6 +133,10 @@ func back_from_skin_selector():
 	for i in level_selector.get_children():
 		tween.tween_property(i, "scale", Vector2.ONE, 0.2)
 	await tween.finished
+	
+	actual_screen = 2
+	if focused:
+		level_selector.get_child(1).get_child(0).grab_focus()
 
 
 func _on_start_button_pressed() -> void:
@@ -139,14 +169,18 @@ func hide_main_menu() -> void:
 
 func _on_back_to_main_button_pressed() -> void:
 	menu_anim_player.play("hide_credit")
+	actual_screen = 0
+	if focused:
+		main_controls.get_child(1).get_child(0).grab_focus()
 
 
 func hide_credits() -> void:
 	logo.set_visible(true)
 	main_controls.set_visible(true)
 	credits.set_visible(false)
+	actual_screen = 0
 	if focused:
-		main_controls.get_child(0).grab_focus()
+		main_controls.get_child(1).get_child(0).grab_focus()
 
 
 func _on_exit_button_pressed() -> void:
@@ -166,6 +200,9 @@ func back_to_main_menu():
 	level_selector.set_visible(false)
 	main_controls.set_visible(true)
 	menu_anim_player.play("show_main_menu")
+	
+	if focused:
+		main_controls.get_child(1).get_child(0).grab_focus()
 
 
 func get_load_message(value: int) -> String:
@@ -199,6 +236,7 @@ func _on_menu_animation_finished(anim_name):
 	elif anim_name == "hide_main_menu" and actual_screen == 0:
 		hide_main_menu()
 		menu_anim_player.play("show_credits")
+		actual_screen = 1
 	elif anim_name == "open_game":
 		hide_credits()
 		menu_anim_player.play("show_main_menu")
@@ -231,7 +269,7 @@ func on_level_select(path:String):
 
 
 func to_level_selector():
-	actual_screen = 1
+	actual_screen = 2
 	menu_anim_player.play("hide_main_menu")
 	await menu_anim_player.animation_finished
 	
@@ -241,6 +279,9 @@ func to_level_selector():
 	for i in level_selector.get_children():
 		tween.tween_property(i, "scale", Vector2.ONE, 0.2)
 	await tween.finished
+	
+	if focused:
+		level_selector.get_child(1).get_child(0).grab_focus()
 
 
 func get_achievements():
@@ -253,3 +294,33 @@ func get_achievements():
 		if sub_num >= 3:
 			num += 1
 			sub_num = 0
+
+
+func change_input_menu():
+	if using_joystick:
+		using_joystick = false
+	elif !using_joystick:
+		using_joystick = true
+	
+	if !using_joystick:
+		credits.get_node("BackToMain").set_visible(true)
+		credits.get_node("BackToMainJoystick").set_visible(false)
+		level_selector.get_node("Button").set_visible(true)
+		level_selector.get_node("BackToMainJoystick").set_visible(false)
+		skin_selector.get_node("StartButton").set_visible(true)
+		skin_selector.get_node("StartGameJoystick").set_visible(false)
+		skin_selector.get_node("BackToMenu").set_visible(true)
+		skin_selector.get_node("BackToMainJoystick").set_visible(false)
+	elif using_joystick:
+		credits.get_node("BackToMain").set_visible(false)
+		credits.get_node("BackToMainJoystick").set_visible(true)
+		level_selector.get_node("Button").set_visible(false)
+		level_selector.get_node("BackToMainJoystick").set_visible(true)
+		skin_selector.get_node("StartButton").set_visible(false)
+		skin_selector.get_node("StartGameJoystick").set_visible(true)
+		skin_selector.get_node("BackToMenu").set_visible(false)
+		skin_selector.get_node("BackToMainJoystick").set_visible(true)
+		if actual_screen == 0:
+			main_controls.get_child(1).get_child(0).grab_focus()
+		elif actual_screen == 2:
+			level_selector.get_child(1).get_child(0).grab_focus()

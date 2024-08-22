@@ -110,6 +110,7 @@ func _set_move_animation(dir: int) -> void:
 
 
 func _check_for_prankables() -> void:
+	return
 	if raycast.is_colliding() and not is_near_prankable:
 		is_near_prankable = true
 		lamp_anim.play("show_lamp")
@@ -119,6 +120,7 @@ func _check_for_prankables() -> void:
 
 
 func _execute_prank() -> void:
+	return
 	var prankable = raycast.get_collider()
 	prank_executed.emit(prankable.gui_name, prankable.score)
 	prankable.animate_prank()

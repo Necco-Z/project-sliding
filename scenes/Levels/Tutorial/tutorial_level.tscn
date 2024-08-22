@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bm7ltfovligb7"]
+[gd_scene load_steps=35 format=3 uid="uid://bm7ltfovligb7"]
 
 [ext_resource type="Script" path="res://scenes/Levels/level 4/main_game.gd" id="1_wewew"]
 [ext_resource type="PackedScene" uid="uid://c5vvemd16gdrr" path="res://actors/prankables/bush.tscn" id="2_ow1w4"]
@@ -16,9 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dvwpj5uqi0otx" path="res://assets/images/Ceu.png" id="14_of6yr"]
 [ext_resource type="AudioStream" uid="uid://nfu3pds1o0y0" path="res://assets/sound/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav" id="15_bbs18"]
 [ext_resource type="Script" path="res://scenes/Levels/Tutorial/Tutorial.gd" id="17_l5iie"]
+[ext_resource type="Texture2D" uid="uid://dgjhtfop6sgk5" path="res://assets/sprites/ui/ui_spritesheet.png" id="18_qthhq"]
 [ext_resource type="FontFile" uid="uid://dn3mwysklkhc4" path="res://assets/fonts/PoetsenOne-Regular.ttf" id="18_xa4tb"]
-[ext_resource type="Texture2D" uid="uid://cg2pw47ufeuly" path="res://assets/sprites/ui/tutorial_arrow.png" id="19_x1oag"]
-[ext_resource type="Texture2D" uid="uid://ds614iosmm6c3" path="res://assets/sprites/ui/tutorial_button_bg.png" id="20_dqiqh"]
 [ext_resource type="Script" path="res://scenes/Achievements/TutorialAchievements.gd" id="21_4uydj"]
 
 [sub_resource type="Resource" id="Resource_kpxey"]
@@ -58,20 +57,47 @@ sky = SubResource("Sky_vcehg")
 sky_custom_fov = 90.0
 volumetric_fog_density = 0.02
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whe2x"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.247059, 0.505882, 0.0470588, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ermf7"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.152941, 0.152941, 0.152941, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+
 [sub_resource type="LabelSettings" id="LabelSettings_jym5q"]
 font = ExtResource("18_xa4tb")
 font_size = 32
-font_color = Color(0.25098, 0.235294, 0.207843, 1)
+font_color = Color(0.247059, 0.505882, 0.0470588, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03we4"]
+atlas = ExtResource("18_qthhq")
+region = Rect2(326, 276, 59, 60)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hs61t"]
 font = ExtResource("18_xa4tb")
 font_size = 32
-font_color = Color(0.25098, 0.235294, 0.207843, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ajiva"]
-font = ExtResource("18_xa4tb")
-font_size = 20
 font_color = Color(0.247059, 0.505882, 0.0470588, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjkfb"]
+atlas = ExtResource("18_qthhq")
+region = Rect2(417, 276, 59, 60)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5mq28"]
 size = Vector3(2, 2, 2)
@@ -216,98 +242,89 @@ offset_top = -212.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="ColorRect" type="ColorRect" parent="TutorialCanva/Control"]
+[node name="MoveTutorial" type="PanelContainer" parent="TutorialCanva/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0745098, 0.831373, 0.964706, 1)
-
-[node name="MoveTutorial" type="BoxContainer" parent="TutorialCanva/Control/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -105.5
-offset_top = -59.5
-offset_right = 105.5
-offset_bottom = 59.5
+anchor_bottom = 1.0
+offset_left = -268.0
+offset_top = -335.0
+offset_right = 268.0
+offset_bottom = -226.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 16
-vertical = true
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_whe2x")
 
-[node name="Label" type="Label" parent="TutorialCanva/Control/ColorRect/MoveTutorial"]
+[node name="InnerContainer" type="PanelContainer" parent="TutorialCanva/Control/MoveTutorial"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ermf7")
+
+[node name="Label" type="Label" parent="TutorialCanva/Control/MoveTutorial/InnerContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Mude de faixa"
+text = "A/D to move"
 label_settings = SubResource("LabelSettings_jym5q")
 
-[node name="BoxContainer" type="BoxContainer" parent="TutorialCanva/Control/ColorRect/MoveTutorial"]
+[node name="JoypadVer" type="HBoxContainer" parent="TutorialCanva/Control/MoveTutorial/InnerContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 8
-alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="TutorialCanva/Control/ColorRect/MoveTutorial/BoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="TutorialCanva/Control/MoveTutorial/InnerContainer/JoypadVer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_03we4")
+
+[node name="Label" type="Label" parent="TutorialCanva/Control/MoveTutorial/InnerContainer/JoypadVer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("19_x1oag")
-flip_h = true
+text = " to move"
+label_settings = SubResource("LabelSettings_jym5q")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="TutorialCanva/Control/ColorRect/MoveTutorial/BoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("19_x1oag")
-
-[node name="JumpTutorial" type="BoxContainer" parent="TutorialCanva/Control/ColorRect"]
+[node name="JumpTutorial" type="PanelContainer" parent="TutorialCanva/Control"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.5
-offset_top = -59.5
-offset_right = 40.5
-offset_bottom = 59.5
+anchor_bottom = 1.0
+offset_left = -268.0
+offset_top = -335.0
+offset_right = 268.0
+offset_bottom = -226.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 16
-vertical = true
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_whe2x")
 
-[node name="Label2" type="Label" parent="TutorialCanva/Control/ColorRect/JumpTutorial"]
+[node name="InnerContainer" type="PanelContainer" parent="TutorialCanva/Control/JumpTutorial"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ermf7")
+
+[node name="Label" type="Label" parent="TutorialCanva/Control/JumpTutorial/InnerContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Pular"
+text = "SPACEBAR to jump"
 label_settings = SubResource("LabelSettings_hs61t")
 
-[node name="TextureRect" type="TextureRect" parent="TutorialCanva/Control/ColorRect/JumpTutorial"]
+[node name="JoypadVer" type="HBoxContainer" parent="TutorialCanva/Control/JumpTutorial/InnerContainer"]
+visible = false
 layout_mode = 2
-texture = ExtResource("20_dqiqh")
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="TutorialCanva/Control/ColorRect/JumpTutorial/TextureRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = -19.5
-offset_right = 52.0
-offset_bottom = 19.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Espaço"
-label_settings = SubResource("LabelSettings_ajiva")
+[node name="TextureRect" type="TextureRect" parent="TutorialCanva/Control/JumpTutorial/InnerContainer/JoypadVer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tjkfb")
+
+[node name="Label" type="Label" parent="TutorialCanva/Control/JumpTutorial/InnerContainer/JoypadVer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = " to jump"
+label_settings = SubResource("LabelSettings_jym5q")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -320,7 +337,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.1686, 0.94758, 0)
 shape = SubResource("BoxShape3D_5mq28")
 
 [node name="JumpTutorialArea" type="Area3D" parent="TutorialCanva/TutorialAreas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.083, 0.94758, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.083, 3.49421, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialCanva/TutorialAreas/JumpTutorialArea"]
 shape = SubResource("BoxShape3D_gw10j")

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://ckgyosp0xeif4"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://ckgyosp0xeif4"]
 
 [ext_resource type="FontFile" uid="uid://dn3mwysklkhc4" path="res://assets/fonts/PoetsenOne-Regular.ttf" id="1_0wipq"]
 [ext_resource type="FontFile" uid="uid://dyu0loxxcgqfy" path="res://assets/fonts/Nunito-SemiBold.ttf" id="1_xf7t7"]
@@ -30,6 +30,9 @@ content_margin_right = 32.0
 content_margin_bottom = 16.0
 texture = ExtResource("2_2if3a")
 region_rect = Rect2(520, 10, 259, 102)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gy6n"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnw4x"]
 
@@ -74,6 +77,7 @@ Button/styles/hover = SubResource("StyleBoxTexture_3wmq2")
 Button/styles/normal = SubResource("StyleBoxTexture_uqiyd")
 Button/styles/pressed = SubResource("StyleBoxTexture_ofi5i")
 NormalButtonWhiteBackground/base_type = &"Button"
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_7gy6n")
 RedButton/base_type = &"Button"
 RedButton/colors/font_color = Color(0.247059, 0.505882, 0.0470588, 1)
 RedButton/colors/font_disabled_color = Color(0.247059, 0.505882, 0.0470588, 1)

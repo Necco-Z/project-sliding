@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://btpfgj8syn123"]
+[gd_scene load_steps=18 format=3 uid="uid://btpfgj8syn123"]
 
 [ext_resource type="PackedScene" uid="uid://cmorv5pyx4phn" path="res://scripts/classes/menus.tscn" id="1_0eo41"]
 [ext_resource type="Script" path="res://ui/in_game/end_game.gd" id="2_qq6ao"]
@@ -17,10 +17,20 @@ Label/constants/outline_size = 20
 Label/font_sizes/font_size = 60
 Label/fonts/font = ExtResource("4_3p3gp")
 
-[sub_resource type="LabelSettings" id="LabelSettings_5x0ta"]
+[sub_resource type="LabelSettings" id="LabelSettings_uu2p1"]
 font = ExtResource("9_3vw2g")
 font_size = 32
-font_color = Color(0.247059, 0.505882, 0.0470588, 1)
+font_color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4of7j"]
+font = ExtResource("9_3vw2g")
+font_size = 32
+font_color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fdf14"]
+font = ExtResource("9_3vw2g")
+font_size = 32
+font_color = Color(0.392157, 0.392157, 0.392157, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ti7c7"]
 atlas = ExtResource("10_ucyi0")
@@ -89,29 +99,29 @@ script = null
 [node name="Objetivos" type="VBoxContainer" parent="MainContainer" index="2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainContainer/Objetivos" index="0"]
+[node name="Label" type="Label" parent="MainContainer/Objetivos" index="0" groups=["objective"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
 theme_override_fonts/font = ExtResource("7_worq6")
 theme_override_font_sizes/font_size = 32
 text = "Objetivo 1"
-label_settings = SubResource("LabelSettings_5x0ta")
+label_settings = SubResource("LabelSettings_uu2p1")
 
-[node name="Label2" type="Label" parent="MainContainer/Objetivos" index="1"]
+[node name="Label2" type="Label" parent="MainContainer/Objetivos" index="1" groups=["objective"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
 theme_override_fonts/font = ExtResource("7_worq6")
 theme_override_font_sizes/font_size = 32
 text = "Objetivo 1"
-label_settings = SubResource("LabelSettings_5x0ta")
+label_settings = SubResource("LabelSettings_4of7j")
 
-[node name="Label3" type="Label" parent="MainContainer/Objetivos" index="2"]
+[node name="Label3" type="Label" parent="MainContainer/Objetivos" index="2" groups=["objective"]]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.854902, 0.964706, 0.968627, 1)
 theme_override_fonts/font = ExtResource("7_worq6")
 theme_override_font_sizes/font_size = 32
 text = "Objetivo 1"
-label_settings = SubResource("LabelSettings_5x0ta")
+label_settings = SubResource("LabelSettings_fdf14")
 
 [node name="VBoxContainer" type="BoxContainer" parent="MainContainer" index="3"]
 layout_mode = 2

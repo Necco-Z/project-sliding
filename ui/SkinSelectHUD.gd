@@ -11,6 +11,16 @@ var camera_animation_is_running = false
 var skin_tweener
 
 
+func _input(event):
+	if event is InputEventJoypadButton:
+		if Input.is_action_just_pressed("ui_left"):
+			on_select_left()
+		if Input.is_action_just_pressed("ui_right"):
+			on_select_right()
+		if Input.is_action_just_pressed("ui_accept"):
+			select_skin()
+
+
 func show_menu():
 	skin_tweener = create_tween()
 	skin_tweener.tween_property(skins[skin_num], "rotation:y", 2 * PI, 2).as_relative()
@@ -39,10 +49,11 @@ func on_select_left():
 		
 		if skin_num <= 0:
 			select_buttons[1].set_visible(false)
+			get_child(0).get_child(1).grab_focus()
 
 
 func on_select_right():
-	if skin_num <= 6:
+	if skin_num < 5:
 		skin_num += 1
 		camera_animation_is_running = true
 		
@@ -61,8 +72,9 @@ func on_select_right():
 		camera_animation_is_running = false
 		select_buttons[1].set_visible(true)
 		
-		if skin_num >= 6:
+		if skin_num >= 5:
 			select_buttons[0].set_visible(false)
+			get_child(0).get_child(2).grab_focus()
 
 
 func reset_skin():

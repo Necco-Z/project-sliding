@@ -1,13 +1,14 @@
 extends Node
 
 
-var skins = [preload("res://assets/models/actors/player/skin.tscn"), 
-		preload("res://assets/models/actors/player/skin2.tscn"),
+var skins = [
+		preload("res://assets/models/actors/player/skin.tscn"),
 		preload("res://assets/models/actors/player/skin3.tscn"),
 		preload("res://assets/models/actors/player/skin4.tscn"),
 		preload("res://assets/models/actors/player/skin5.tscn"),
 		preload("res://assets/models/actors/player/skin6.tscn"),
-		preload("res://assets/models/actors/player/skin7.tscn")]
+		preload("res://assets/models/actors/player/skin7.tscn")
+]
 
 var skin_num:int
 

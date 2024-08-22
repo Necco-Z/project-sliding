@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://d15awftd1p8gf"]
+[gd_scene load_steps=62 format=3 uid="uid://d15awftd1p8gf"]
 
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_drgtq"]
 [ext_resource type="Texture2D" uid="uid://b35xdt0wsy8dq" path="res://assets/sprites/ui/main_menu_background_image.png" id="2_pfv4s"]
@@ -19,12 +19,21 @@
 [ext_resource type="PackedScene" uid="uid://bukrlayjuhkod" path="res://scenes/environment/mountain.tscn" id="13_75hrg"]
 [ext_resource type="FontFile" uid="uid://dn3mwysklkhc4" path="res://assets/fonts/PoetsenOne-Regular.ttf" id="13_qcffa"]
 [ext_resource type="PackedScene" uid="uid://co70ejiuc8ump" path="res://assets/models/actors/player/skin.tscn" id="14_pp60h"]
-[ext_resource type="PackedScene" uid="uid://drxuji61hap86" path="res://assets/models/actors/player/skin2.tscn" id="16_spxli"]
 [ext_resource type="PackedScene" uid="uid://lpo2f3uwj428" path="res://assets/models/actors/player/skin3.tscn" id="17_73xym"]
 [ext_resource type="PackedScene" uid="uid://cvk2l663t14xr" path="res://assets/models/actors/player/skin4.tscn" id="18_cdr84"]
 [ext_resource type="PackedScene" uid="uid://dr0wv6vwx6wik" path="res://assets/models/actors/player/skin5.tscn" id="19_oya36"]
 [ext_resource type="PackedScene" uid="uid://b2upef5hh7q6c" path="res://assets/models/actors/player/skin6.tscn" id="20_t3e3o"]
 [ext_resource type="PackedScene" uid="uid://8edfuynjum10" path="res://assets/models/actors/player/skin7.tscn" id="21_8yss0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50i5r"]
+atlas = ExtResource("7_682jd")
+region = Rect2(508, 276, 59, 60)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nlml1"]
+font = ExtResource("13_qcffa")
+font_size = 32
+font_color = Color(0.247059, 0.505882, 0.0470588, 1)
+outline_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_kndmm"]
 font = ExtResource("13_qcffa")
@@ -113,6 +122,16 @@ region = Rect2(603, 144, 105, 101)
 atlas = ExtResource("7_682jd")
 region = Rect2(603, 144, 105, 101)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4lbo"]
+atlas = ExtResource("7_682jd")
+region = Rect2(508, 276, 59, 60)
+
+[sub_resource type="LabelSettings" id="LabelSettings_286w8"]
+font = ExtResource("13_qcffa")
+font_size = 32
+font_color = Color(0.247059, 0.505882, 0.0470588, 1)
+outline_size = 10
+
 [sub_resource type="LabelSettings" id="LabelSettings_djbtx"]
 font = ExtResource("10_cicrt")
 font_size = 72
@@ -126,6 +145,10 @@ region = Rect2(52, 283, 98, 107)
 [sub_resource type="AtlasTexture" id="AtlasTexture_un4rd"]
 atlas = ExtResource("7_682jd")
 region = Rect2(32, 10, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ahse"]
+atlas = ExtResource("7_682jd")
+region = Rect2(417, 276, 59, 60)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p3use"]
 sky_top_color = Color(0.478431, 0.552941, 0.65098, 1)
@@ -244,6 +267,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Credits/BackToMainJoystick:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_67vgl"]
@@ -393,6 +428,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Credits/BackToMainJoystick:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ah86m"]
 resource_name = "show_main_menu"
@@ -459,7 +506,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_drgtq")
-tween_intensity = 1.12
+tween_intensity = 1.2
 tween_duration = 0.15
 metadata/_edit_vertical_guides_ = [3424.0]
 
@@ -524,22 +571,18 @@ text = "Exit"
 [node name="Credits" type="Control" parent="MainMenu"]
 visible = false
 layout_mode = 1
-anchor_left = 0.689
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 29.421
-offset_top = -111.5
-offset_right = 314.421
-offset_bottom = 111.5
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CreditsTitle" type="Label" parent="MainMenu/Credits"]
 layout_mode = 2
-offset_left = 60.699
-offset_right = 514.699
-offset_bottom = 49.0
+offset_left = 1368.7
+offset_top = 449.0
+offset_right = 1822.7
+offset_bottom = 498.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(283, 25)
@@ -550,9 +593,10 @@ horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Credits"]
 layout_mode = 2
-offset_top = 73.0
-offset_right = 567.0
-offset_bottom = 245.0
+offset_left = 1308.0
+offset_top = 522.0
+offset_right = 1875.0
+offset_bottom = 694.0
 scale = Vector2(0.1, 0.1)
 pivot_offset = Vector2(283, 86)
 theme_override_constants/separation = 12
@@ -587,14 +631,32 @@ horizontal_alignment = 1
 
 [node name="BackToMain" type="Button" parent="MainMenu/Credits" groups=["buttons"]]
 layout_mode = 2
-offset_left = 203.0
-offset_top = 269.0
-offset_right = 369.0
-offset_bottom = 341.0
+offset_left = 1511.0
+offset_top = 718.0
+offset_right = 1693.0
+offset_bottom = 798.0
 pivot_offset = Vector2(80, 44)
 size_flags_horizontal = 4
 theme = ExtResource("5_v3wop")
 text = "Voltar"
+
+[node name="BackToMainJoystick" type="HBoxContainer" parent="MainMenu/Credits"]
+visible = false
+layout_mode = 0
+offset_left = 1513.0
+offset_top = 730.0
+offset_right = 1692.0
+offset_bottom = 790.0
+theme_override_constants/separation = 12
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/Credits/BackToMainJoystick"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_50i5r")
+
+[node name="Label" type="Label" parent="MainMenu/Credits/BackToMainJoystick"]
+layout_mode = 2
+text = "Return"
+label_settings = SubResource("LabelSettings_nlml1")
 
 [node name="LevelSelector" type="Control" parent="MainMenu"]
 visible = false
@@ -1033,6 +1095,24 @@ size_flags_horizontal = 4
 theme = ExtResource("5_v3wop")
 text = "Return"
 
+[node name="BackToMainJoystick" type="HBoxContainer" parent="MainMenu/LevelSelector"]
+visible = false
+layout_mode = 0
+offset_left = 1530.0
+offset_top = 818.0
+offset_right = 1709.0
+offset_bottom = 878.0
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/LevelSelector/BackToMainJoystick"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_u4lbo")
+
+[node name="Label" type="Label" parent="MainMenu/LevelSelector/BackToMainJoystick"]
+layout_mode = 2
+text = "Return"
+label_settings = SubResource("LabelSettings_286w8")
+
 [node name="SkinSelect" type="Node" parent="MainMenu"]
 script = ExtResource("10_b8ecl")
 
@@ -1073,6 +1153,8 @@ offset_bottom = 47.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(60, 60)
+focus_neighbor_left = NodePath("../LeftArrow")
+focus_neighbor_bottom = NodePath("../StartButton")
 texture_normal = SubResource("AtlasTexture_71u6o")
 
 [node name="LeftArrow" type="TextureButton" parent="MainMenu/SkinSelect/HUD" groups=["buttons"]]
@@ -1087,6 +1169,8 @@ offset_right = 148.0
 offset_bottom = 47.0
 grow_vertical = 2
 pivot_offset = Vector2(60, 60)
+focus_neighbor_right = NodePath("../RightArrow")
+focus_neighbor_bottom = NodePath("../StartButton")
 texture_normal = SubResource("AtlasTexture_71u6o")
 flip_h = true
 
@@ -1125,6 +1209,42 @@ theme_type_variation = &"RedButton"
 texture_normal = SubResource("AtlasTexture_un4rd")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="BackToMainJoystick" type="HBoxContainer" parent="MainMenu/SkinSelect/HUD"]
+visible = false
+layout_mode = 0
+offset_left = 688.0
+offset_top = 938.0
+offset_right = 867.0
+offset_bottom = 998.0
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/SkinSelect/HUD/BackToMainJoystick"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_u4lbo")
+
+[node name="Label" type="Label" parent="MainMenu/SkinSelect/HUD/BackToMainJoystick"]
+layout_mode = 2
+text = "Return"
+label_settings = SubResource("LabelSettings_286w8")
+
+[node name="StartGameJoystick" type="HBoxContainer" parent="MainMenu/SkinSelect/HUD"]
+visible = false
+layout_mode = 0
+offset_left = 898.0
+offset_top = 938.0
+offset_right = 1139.0
+offset_bottom = 998.0
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/SkinSelect/HUD/StartGameJoystick"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4ahse")
+
+[node name="Label" type="Label" parent="MainMenu/SkinSelect/HUD/StartGameJoystick"]
+layout_mode = 2
+text = "Start game"
+label_settings = SubResource("LabelSettings_286w8")
 
 [node name="World" type="Node3D" parent="MainMenu/SkinSelect"]
 
@@ -1186,23 +1306,20 @@ transform = Transform3D(-2.92114e-08, 0.198153, -0.980171, 5.90543e-09, 0.980171
 [node name="skin" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("14_pp60h")]
 transform = Transform3D(-0.680299, 0, -0.732935, 0, 1, 0, 0.732935, 0, -0.680299, 25.538, 0, -1.826)
 
-[node name="skin2" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("16_spxli")]
-transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 3.92326)
-
 [node name="skin3" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("17_73xym")]
-transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 9.673)
+transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 3.923)
 
 [node name="skin4" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("18_cdr84")]
-transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 15.423)
+transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 9.673)
 
 [node name="skin5" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("19_oya36")]
-transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 21.173)
+transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 15.423)
 
 [node name="skin6" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("20_t3e3o")]
-transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 26.923)
+transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 21.173)
 
 [node name="skin7" parent="MainMenu/SkinSelect/World/Skins" groups=["skins"] instance=ExtResource("21_8yss0")]
-transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 32.673)
+transform = Transform3D(-0.680721, 0, -0.732543, 0, 1, 0, 0.732543, 0, -0.680721, 25.538, 0, 26.923)
 
 [node name="LoadingScreen" type="TextureRect" parent="MainMenu"]
 visible = false
@@ -1267,18 +1384,26 @@ autoplay = true
 [connection signal="button_up" from="MainMenu/Credits/BackToMain" to="MainMenu" method="_on_back_to_main_button_pressed"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button" to="MainMenu" method="to_skin_selector"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button" to="MainMenu" method="on_level_select" binds= ["res://scenes/Levels/Tutorial/tutorial_level.tscn"]]
+[connection signal="focus_entered" from="MainMenu/LevelSelector/Levels/Button" to="MainMenu/LevelSelector/Levels/Button/PanelContainer" method="show_panel"]
+[connection signal="focus_exited" from="MainMenu/LevelSelector/Levels/Button" to="MainMenu/LevelSelector/Levels/Button/PanelContainer" method="hide_panel"]
 [connection signal="mouse_entered" from="MainMenu/LevelSelector/Levels/Button" to="MainMenu/LevelSelector/Levels/Button/PanelContainer" method="show_panel"]
 [connection signal="mouse_exited" from="MainMenu/LevelSelector/Levels/Button" to="MainMenu/LevelSelector/Levels/Button/PanelContainer" method="hide_panel"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button2" to="MainMenu" method="to_skin_selector"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button2" to="MainMenu" method="on_level_select" binds= ["res://scenes/Levels/level_2.tscn"]]
+[connection signal="focus_entered" from="MainMenu/LevelSelector/Levels/Button2" to="MainMenu/LevelSelector/Levels/Button2/PanelContainer" method="show_panel"]
+[connection signal="focus_exited" from="MainMenu/LevelSelector/Levels/Button2" to="MainMenu/LevelSelector/Levels/Button2/PanelContainer" method="hide_panel"]
 [connection signal="mouse_entered" from="MainMenu/LevelSelector/Levels/Button2" to="MainMenu/LevelSelector/Levels/Button2/PanelContainer" method="show_panel"]
 [connection signal="mouse_exited" from="MainMenu/LevelSelector/Levels/Button2" to="MainMenu/LevelSelector/Levels/Button2/PanelContainer" method="hide_panel"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button3" to="MainMenu" method="to_skin_selector"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button3" to="MainMenu" method="on_level_select" binds= ["res://scenes/Levels/level_3.tscn"]]
+[connection signal="focus_entered" from="MainMenu/LevelSelector/Levels/Button3" to="MainMenu/LevelSelector/Levels/Button3/PanelContainer" method="show_panel"]
+[connection signal="focus_exited" from="MainMenu/LevelSelector/Levels/Button3" to="MainMenu/LevelSelector/Levels/Button3/PanelContainer" method="hide_panel"]
 [connection signal="mouse_entered" from="MainMenu/LevelSelector/Levels/Button3" to="MainMenu/LevelSelector/Levels/Button3/PanelContainer" method="show_panel"]
 [connection signal="mouse_exited" from="MainMenu/LevelSelector/Levels/Button3" to="MainMenu/LevelSelector/Levels/Button3/PanelContainer" method="hide_panel"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button4" to="MainMenu" method="to_skin_selector"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Levels/Button4" to="MainMenu" method="on_level_select" binds= ["res://scenes/Levels/level 4/main_game.tscn"]]
+[connection signal="focus_entered" from="MainMenu/LevelSelector/Levels/Button4" to="MainMenu/LevelSelector/Levels/Button4/PanelContainer" method="show_panel"]
+[connection signal="focus_exited" from="MainMenu/LevelSelector/Levels/Button4" to="MainMenu/LevelSelector/Levels/Button4/PanelContainer" method="hide_panel"]
 [connection signal="mouse_entered" from="MainMenu/LevelSelector/Levels/Button4" to="MainMenu/LevelSelector/Levels/Button4/PanelContainer" method="show_panel"]
 [connection signal="mouse_exited" from="MainMenu/LevelSelector/Levels/Button4" to="MainMenu/LevelSelector/Levels/Button4/PanelContainer" method="hide_panel"]
 [connection signal="button_up" from="MainMenu/LevelSelector/Button" to="MainMenu" method="back_to_main_menu"]

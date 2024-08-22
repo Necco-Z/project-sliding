@@ -11,6 +11,7 @@ const MAIN_MENU = "res://ui/main_menu.tscn"
 
 var is_running := true:
 	set = _set_running
+var using_joystick = false
 
 @onready var player := get_node(player_node) as CharacterBody3D
 @onready var cam := $GameCamera as Camera3D
@@ -26,6 +27,22 @@ func _ready() -> void:
 	_replace_all_items()
 	await Fader.fade_in()
 	#game_menus.start_countdown()
+
+
+func _input(event):
+	if event is InputEventJoypadButton:
+		if !using_joystick:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			get_child(0).get_child(1).get_child(3).set_visible(false)
+			using_joystick = true
+		if event.is_action_pressed("pause"):
+			_on_pause_pressed()
+	if event is InputEventMouse or event is InputEventKey:
+		if using_joystick:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			get_child(0).get_child(1).get_child(3).set_visible(false)
+			using_joystick = false
+		
 
 
 #### Funções públicas
